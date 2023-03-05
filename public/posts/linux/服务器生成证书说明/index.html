@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html><head>
+<title>服务器生成证书说明</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="在服务器上生成https证书">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="服务器生成证书说明" />
+<meta property="og:description" content="在服务器上生成https证书" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brandykk.gitee.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2023-02-07T10:42:28+08:00" />
+<meta property="article:modified_time" content="2023-02-07T10:42:28+08:00" /><meta property="og:site_name" content="白小生" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="服务器生成证书说明"/>
+<meta name="twitter:description" content="在服务器上生成https证书"/>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
+
+
+
+<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.gitee.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%94%9f%e6%88%90ca%e8%af%81%e4%b9%a6" onclick="onNavClick(`#生成ca证书-nav`)" id="生成ca证书-nav">
+									生成CA证书
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%94%9f%e6%88%90https%e8%af%81%e4%b9%a6%e7%9a%84%e5%87%86%e5%a4%87" onclick="onNavClick(`#生成https证书的准备-nav`)" id="生成https证书的准备-nav">
+									生成HTTPS证书的准备
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%94%9f%e6%88%90https%e8%af%81%e4%b9%a6" onclick="onNavClick(`#生成https证书-nav`)" id="生成https证书-nav">
+									生成HTTPS证书
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8f%af%e8%83%bd%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98" onclick="onNavClick(`#可能遇到的问题-nav`)" id="可能遇到的问题-nav">
+									可能遇到的问题
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%af%bc%e5%85%a5%e8%af%81%e4%b9%a6" onclick="onNavClick(`#导入证书-nav`)" id="导入证书-nav">
+									导入证书
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+<div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%94%9f%e6%88%90ca%e8%af%81%e4%b9%a6" onclick="onNavClick(`#生成ca证书-nav`)" id="生成ca证书-nav">
+									生成CA证书
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%94%9f%e6%88%90https%e8%af%81%e4%b9%a6%e7%9a%84%e5%87%86%e5%a4%87" onclick="onNavClick(`#生成https证书的准备-nav`)" id="生成https证书的准备-nav">
+									生成HTTPS证书的准备
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e7%94%9f%e6%88%90https%e8%af%81%e4%b9%a6" onclick="onNavClick(`#生成https证书-nav`)" id="生成https证书-nav">
+									生成HTTPS证书
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8f%af%e8%83%bd%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98" onclick="onNavClick(`#可能遇到的问题-nav`)" id="可能遇到的问题-nav">
+									可能遇到的问题
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%af%bc%e5%85%a5%e8%af%81%e4%b9%a6" onclick="onNavClick(`#导入证书-nav`)" id="导入证书-nav">
+									导入证书
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://brandykk.gitee.io">
+            Brandy
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://brandykk.gitee.io">
+        <div class="single-column-header-title">Brandy</div>
+        
+        <div class="single-column-header-subtitle">个人使用</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    服务器生成证书说明
+                    
+                    <div class="post-subtitle">
+                        在服务器上生成https证书
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2023-02-07 10:42
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/linux">linux</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/linux">linux</a>
+                                &nbsp;
+                            
+                        
+                        
+                            <i class="material-icons" style="">schedule</i>
+                            
+
+                            
+                            
+
+                            
+                            5 min
+                            
+                            4 s.
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <blockquote>
+<p>此文档使用的系统:  WSL2-ArchLinux 进行的以下操作：建议用root账号进行操作，并在统一目录下操作。</p>
+</blockquote>
+<hr>
+<h2 id="生成ca证书">生成CA证书</h2>
+<ol>
+<li>生成CA私钥</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>openssl genrsa -des3 -out ca.key <span style="color:#b452cd">2048</span>
+</span></span></code></pre></div><p>此命令应该会要求你输入一个ca.key对应的加密密码（可以输入个123456方便记）。输入后密码需要记下来后面还要用。</p>
+<ol start="2">
+<li>生成不加密的CA私钥</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>openssl genrsa -out ca_decrypted.key <span style="color:#b452cd">2048</span>
+</span></span></code></pre></div><ol start="3">
+<li>生成CA公钥即CA根证书</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>openssl req -new -x509 -days <span style="color:#b452cd">3650</span> -key ca.key -out ca.crt
+</span></span></code></pre></div><p>输入命令后应该会需要你输入一些证书相关的周边信息。比如证书颁发机构所在地址，机构名称等等。，唯一需要注意的是Common Name那一栏。为了后面操作顺利，建议将这里填写<strong>主机名或者主机IP</strong>。</p>
+<hr>
+<h2 id="生成https证书的准备">生成HTTPS证书的准备</h2>
+<p>创建ssl.cnf文件并写入内容</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#00688b">authorityKeyIdentifier</span>=keyid,issuer
+</span></span><span style="display:flex;"><span><span style="color:#00688b">basicConstraints</span>=CA:FALSE
+</span></span><span style="display:flex;"><span><span style="color:#00688b">keyUsage</span> = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+</span></span><span style="display:flex;"><span><span style="color:#00688b">subjectAltName</span> = @alt_names
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[alt_names]
+</span></span><span style="display:flex;"><span>DNS.1= localhost
+</span></span><span style="display:flex;"><span>DNS.2= localhost.loacl
+</span></span><span style="display:flex;"><span>IP.1 = 192.168.1.1
+</span></span><span style="display:flex;"><span>IP.2 = 192.168.1.2
+</span></span></code></pre></div><p>其中<code>IP.*</code>项看自己需要写自己的ip，可以写多个。</p>
+<hr>
+<h2 id="生成https证书">生成HTTPS证书</h2>
+<ol>
+<li>生成HTTPS证书私钥</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>openssl genrsa -des3 -out xxxx.pem <span style="color:#b452cd">1024</span>
+</span></span></code></pre></div><p>这里的xxxx指的就是上面说的主机名或者主机IP，下面的同理</p>
+<ol start="2">
+<li>生成不加密的https主机证书私钥</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>openssl rsa -in xxxx.pem -out xxxx.key
+</span></span></code></pre></div><ol start="3">
+<li>生成签名请求</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>openssl req -new -key xxxx.pem -out xxxx.csr
+</span></span></code></pre></div><p>注意ssl.cnf的路径和上面自己创建的路径保持一致　其中，policy参数允许签名的CA和网站证书可以有不同的国家、地名等信息，days参数则是签名时限。唯一需要注意的是Common Name那一栏。为了后面操作顺利，按照我现有的实践将这里填写**主机名或者主机IP****。<!-- raw HTML omitted -->提示输入密码时不要输入，直接回车<!-- raw HTML omitted --></p>
+<ol start="4">
+<li>用CA进行签名</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>openssl ca -policy policy_anything -days <span style="color:#b452cd">3650</span> -cert ca.crt -keyfile ca.key  -extfile ssl.cnf  -in xxx.csr -out xxx.crt
+</span></span></code></pre></div><p>提示输入y/n时直接y</p>
+<blockquote>
+<p>如果已经生成CA证书，后续其实可以不再生成CA，直接用原来的；</p>
+<p>如果已经生成过证书了，后续要生成别的ip的证书，可以在同一个目录下，直接从HTTPS的第二步开始操作也行。</p>
+</blockquote>
+<hr>
+<h2 id="可能遇到的问题">可能遇到的问题</h2>
+<p>提示找不到文件index.txt和serial时创建对应的文件即可</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># touch CA/index.txt</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># echo &#39;01&#39; &gt; CA/serial</span>
+</span></span></code></pre></div><p><em><strong>如果已经生成CA证书，后续其实可以不再生成CA，直接用原来的</strong></em></p>
+<p><em><strong>如果已经生成过证书了，后续要生成别的ip的证书，可以在同一个目录下，直接从HTTPS的第二步开始操作也行。</strong></em></p>
+<hr>
+<h2 id="导入证书">导入证书</h2>
+<ol>
+<li>在nginx的server配置块中（或者新建一个server配置块）修改或新增如下：</li>
+</ol>
+<pre tabindex="0"><code class="language-cnf" data-lang="cnf">listen 443;
+
+ssl on;
+
+ssl_certificate /path/to/xxxx.crt;
+
+ssl_certificate_key /path/to/xxxx.key;
+keepalive_timeout 70;
+</code></pre><p>然后将服务器上的这两个文件内容替换成我们生成的HTTPS对应的crt和key的内容（也就是上面HTTPS的第2步和第4步生成的东西），重启nginx</p>
+<ol start="2">
+<li>在浏览器中点击地址栏前的<code>不安全</code>的红色叹号那个位置》》点击证书》》点击详细信息》》导出</li>
+<li>在浏览器设置中搜索证书》》管理设备证书》》导入》》选择刚刚导出的证书》》选择<code>将所有的证书都放入下列储存</code>》点击<code>受信任的根证书颁发机构</code>》》确定</li>
+<li>双击<code>ca.crt</code>进行根证书安装》》本地计算机》》选择<code>将所有的证书都放入下列储存</code>》点击<code>受信任的根证书颁发机构</code>》》确定</li>
+</ol>
+
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2023-02-07</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts">
+			下回<br>已经到头啦。
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/">
+			上回<br>Linux子系统
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

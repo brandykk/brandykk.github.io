@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mybatis on Brandy</title>
+    <link>https://brandykk.gitee.io/tags/mybatis/</link>
+    <description>Recent content in mybatis on Brandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Thu, 05 Aug 2021 22:01:35 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jdbc</title>
+      <link>https://brandykk.gitee.io/posts/java/jdbc/</link>
+      <pubDate>Thu, 05 Aug 2021 22:01:35 +0800</pubDate>
+      
+      <guid>https://brandykk.gitee.io/posts/java/jdbc/</guid>
+      <description>JDBC程序 private static void jdbcUtil() throws ClassNotFoundException, SQLException { //1. 加载驱动 Class.forName(&amp;#34;com.mysql.jdbc.Driver&amp;#34;); //2.用户信息和url /** * useUnicode=true 使用unicode编码,支持中文 * characterEncoding=utf8 设置字符集为UTF-8 * useSSL=true 使用SSL安全连接 */ String url = &amp;#34;jdbc:mysql://localhost:3306/lvxiaobin?useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=true&amp;#34;; String username = &amp;#34;lv&amp;#34;; String password = &amp;#34;xiao&amp;#34;; //3.接连成功,获取数据库对象 Connection connection = DriverManager.getConnection(url, username, password); //4.执行sql的对象 Statement statement = connection.createStatement(); //5.执行sql String sql = &amp;#34;select * from user&amp;#34;; //返回的结果集 ResultSet resultSet = statement.executeQuery(sql); while (resultSet.next()) { System.out.println(resultSet.getString(&amp;#34;id&amp;#34;)); } //6.释放连接 resultSet.close(); statement.close(); connection.close(); } </description>
+    </item>
+    
+  </channel>
+</rss>

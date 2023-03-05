@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tool on Brandy</title>
+    <link>https://brandykk.gitee.io/categories/tool/</link>
+    <description>Recent content in tool on Brandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Wed, 19 Jan 2022 20:00:28 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/categories/tool/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker使用</title>
+      <link>https://brandykk.gitee.io/posts/tool/docker/</link>
+      <pubDate>Wed, 19 Jan 2022 20:00:28 +0800</pubDate>
+      
+      <guid>https://brandykk.gitee.io/posts/tool/docker/</guid>
+      <description>Docker下载 # archlinux sudo pacman -Syu docker # 将用户lv追加进docker用户组 # 将当前用户添加进docker用户组 sudo gpasswd -a ${USER} docker Docker运行 # 修改docker默认镜像安装路径(没有则新建) vim /etc/docker/daemon.json # 修改文件中的路径 { &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://registry.cn-hangzhou.aliyuncs.com&amp;#34;, &amp;#34;https://hub-mirror.c.163.com&amp;#34; ] } # 重新加载配置文件 systemctl daemon-reload # 启动docker服务 systemctl start/stop docker.service Docker基础使用 # 下载镜像 docker pull archlinux # 运行archlinux docker run -it archlinux # 停止容器 docker stop&amp;lt;容器ID或容器名&amp;gt; # 删除镜像之前需要先删除对应的容器 # 查看容器 docker ps -a # 删除容器 docker rm 容器id # 查看docker image docker images # 删除image docker rmi 镜像id Docker中不能使用systemctl问题 # 执行命令 # test 是自己起的名字 # archlinux 是镜像名字 docker run --privileged -id --name test archlinux /usr/sbin/init # 运行刚刚的容器id docker exec -it b8a0ae8742e2 bash </description>
+    </item>
+    
+    <item>
+      <title>Hugo使用</title>
+      <link>https://brandykk.gitee.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/</link>
+      <pubDate>Fri, 18 Jun 2021 20:48:28 +0800</pubDate>
+      
+      <guid>https://brandykk.gitee.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/</guid>
+      <description>安装hugo #arch sudo pacman -Sy hugo 初始化博客 # 例如初始化site博客 hugo new site /path/to/site 创建文章 # 在博客根目录执行 cd /path/to/site # 初始化md文件 hugo new about.md # 初始化md文件并放在post文件夹下 hugo new post/first.md 主题 # 主题都在themes目录下 cd themes # 下载主题 git clone .... 运行测试 hugo server # 然后在浏览器中打开输出的地址 部署 # 执行命令 hugo # 生成public文件夹，文件夹中的便是最终可以部署的文件 </description>
+    </item>
+    
+  </channel>
+</rss>

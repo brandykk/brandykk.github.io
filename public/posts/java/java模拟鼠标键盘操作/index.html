@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html><head>
+<title>Java模拟鼠标键盘操作</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="Java模拟鼠标键盘操作" />
+<meta property="og:description" content="/** * 定时执行模拟鼠标键盘操作 * Robot中主要的鼠标和键盘控制方法有： * • void keyPress(int keycode) 按下给定的键。 * • void keyRelease(int keycode) 释放给定的键。 * • void mouseMove(int x, int y) 将鼠标指针移动到给定屏幕坐标。 * • void mousePress(int buttons) 按下一个或多个鼠标按钮。 * • void mouseRelease(int buttons) 释放一个或多个鼠标按钮。 * • void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。 */ private static void mouse(){ new Thread(()-&gt;{ while (true){ try { Thread.sleep(1000*60); Robot robot = new Robot(); //设置Robot产生一个动作后的休眠时间,否则执行过快 robot.setAutoDelay(1000); //获取屏幕分辨率 Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); System.out.println(d); Rectangle screenRect = new Rectangle(d); //截图 BufferedImage bufferedImage = robot." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-04-18T12:25:27+08:00" />
+<meta property="article:modified_time" content="2021-04-18T12:25:27+08:00" /><meta property="og:site_name" content="白小生" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Java模拟鼠标键盘操作"/>
+<meta name="twitter:description" content="/** * 定时执行模拟鼠标键盘操作 * Robot中主要的鼠标和键盘控制方法有： * • void keyPress(int keycode) 按下给定的键。 * • void keyRelease(int keycode) 释放给定的键。 * • void mouseMove(int x, int y) 将鼠标指针移动到给定屏幕坐标。 * • void mousePress(int buttons) 按下一个或多个鼠标按钮。 * • void mouseRelease(int buttons) 释放一个或多个鼠标按钮。 * • void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。 */ private static void mouse(){ new Thread(()-&gt;{ while (true){ try { Thread.sleep(1000*60); Robot robot = new Robot(); //设置Robot产生一个动作后的休眠时间,否则执行过快 robot.setAutoDelay(1000); //获取屏幕分辨率 Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); System.out.println(d); Rectangle screenRect = new Rectangle(d); //截图 BufferedImage bufferedImage = robot."/>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
+
+
+
+<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.gitee.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+</div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+<div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://brandykk.gitee.io">
+            Brandy
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://brandykk.gitee.io">
+        <div class="single-column-header-title">Brandy</div>
+        
+        <div class="single-column-header-subtitle">个人使用</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    Java模拟鼠标键盘操作
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2021-04-18 12:25
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/%E5%BC%80%E5%8F%91">开发</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/java">Java</a>
+                                &nbsp;
+                            
+                        
+                        
+                            <i class="material-icons" style="">schedule</i>
+                            
+
+                            
+                            
+
+                            
+                            2 min
+                            
+                            3 s.
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * 定时执行模拟鼠标键盘操作
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * Robot中主要的鼠标和键盘控制方法有：
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void keyPress(int keycode) 按下给定的键。
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void keyRelease(int keycode) 释放给定的键。
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void mouseMove(int x, int y) 将鼠标指针移动到给定屏幕坐标。
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void mousePress(int buttons) 按下一个或多个鼠标按钮。
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void mouseRelease(int buttons) 释放一个或多个鼠标按钮。
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     */</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">mouse</span>(){
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">new</span> Thread(()-&gt;{
+</span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">while</span> (<span style="color:#8b008b;font-weight:bold">true</span>){
+</span></span><span style="display:flex;"><span>                <span style="color:#8b008b;font-weight:bold">try</span> {
+</span></span><span style="display:flex;"><span>                    Thread.<span style="color:#658b00">sleep</span>(<span style="color:#b452cd">1000</span>*<span style="color:#b452cd">60</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    Robot robot = <span style="color:#8b008b;font-weight:bold">new</span> Robot();
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//设置Robot产生一个动作后的休眠时间,否则执行过快
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    robot.<span style="color:#658b00">setAutoDelay</span>(<span style="color:#b452cd">1000</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//获取屏幕分辨率
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    Dimension d = Toolkit.<span style="color:#658b00">getDefaultToolkit</span>().<span style="color:#658b00">getScreenSize</span>();
+</span></span><span style="display:flex;"><span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(d);
+</span></span><span style="display:flex;"><span>                    Rectangle screenRect = <span style="color:#8b008b;font-weight:bold">new</span> Rectangle(d);
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//截图
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    BufferedImage bufferedImage = robot.<span style="color:#658b00">createScreenCapture</span>(screenRect);
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//保存截图
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    File file = <span style="color:#8b008b;font-weight:bold">new</span> File(<span style="color:#cd5555">&#34;screenRect.png&#34;</span>);
+</span></span><span style="display:flex;"><span>                    ImageIO.<span style="color:#658b00">write</span>(bufferedImage, <span style="color:#cd5555">&#34;png&#34;</span>, file);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//移动鼠标
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    robot.<span style="color:#658b00">mouseMove</span>(<span style="color:#b452cd">500</span>, <span style="color:#b452cd">500</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//点击鼠标
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    <span style="color:#228b22">//鼠标左键
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;单击&#34;</span>);
+</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mousePress</span>(InputEvent.<span style="color:#658b00">BUTTON1_MASK</span>);
+</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mouseRelease</span>(InputEvent.<span style="color:#658b00">BUTTON1_MASK</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//鼠标右键
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;右击&#34;</span>);
+</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mousePress</span>(InputEvent.<span style="color:#658b00">BUTTON3_MASK</span>);
+</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mouseRelease</span>(InputEvent.<span style="color:#658b00">BUTTON3_MASK</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//按下ESC，退出右键状态
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;按下ESC&#34;</span>);
+</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_ESCAPE</span>);
+</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_ESCAPE</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//滚动鼠标滚轴
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;滚轴&#34;</span>);
+</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mouseWheel</span>(<span style="color:#b452cd">5</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//按下Alt+TAB键
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_ALT</span>);
+</span></span><span style="display:flex;"><span>                    <span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#00688b;font-weight:bold">int</span> i=<span style="color:#b452cd">1</span>;i&lt;=<span style="color:#b452cd">2</span>;i++)
+</span></span><span style="display:flex;"><span>                    {
+</span></span><span style="display:flex;"><span>                        robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_TAB</span>);
+</span></span><span style="display:flex;"><span>                        robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_TAB</span>);
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_ALT</span>);
+</span></span><span style="display:flex;"><span>                } <span style="color:#8b008b;font-weight:bold">catch</span> (InterruptedException e) {
+</span></span><span style="display:flex;"><span>                    e.<span style="color:#658b00">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>                } <span style="color:#8b008b;font-weight:bold">catch</span> (AWTException e) {
+</span></span><span style="display:flex;"><span>                    e.<span style="color:#658b00">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>                } <span style="color:#8b008b;font-weight:bold">catch</span> (IOException e) {
+</span></span><span style="display:flex;"><span>                    e.<span style="color:#658b00">printStackTrace</span>();
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        });
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2021-04-18</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/">
+			下回<br>Spring定时器依赖注入
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/">
+			上回<br>Java树结构递归封装
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>

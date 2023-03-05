@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html><head>
+<title>SpringMVC</title>
+
+
+
+
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="SpringMVC学习">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="SpringMVC" />
+<meta property="og:description" content="SpringMVC学习" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://brandykk.gitee.io/posts/java/spring/springmvc/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-07T21:09:25+08:00" />
+<meta property="article:modified_time" content="2021-08-07T21:09:25+08:00" /><meta property="og:site_name" content="白小生" />
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="SpringMVC"/>
+<meta name="twitter:description" content="SpringMVC学习"/>
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+      <script src="/js/toc.js"></script>
+    
+    <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
+
+
+
+<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+
+
+<link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Material+Icons">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body>
+    	<div id="app"><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.gitee.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    
+    
+    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#springmvc" onclick="onNavClick(`#springmvc-nav`)" id="springmvc-nav">
+									SpringMVC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#springmvc%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86" onclick="onNavClick(`#springmvc工作原理-nav`)" id="springmvc工作原理-nav">
+									SpringMVC工作原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%90%86%e8%ae%ba" onclick="onNavClick(`#理论-nav`)" id="理论-nav">
+									理论
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%bb%a3%e7%a0%81" onclick="onNavClick(`#代码-nav`)" id="代码-nav">
+									代码
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-webxml" onclick="onNavClick(`#1-webxml-nav`)" id="1-webxml-nav">
+									1. web.xml
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-springmvc-servletxml" onclick="onNavClick(`#2-springmvc-servletxml-nav`)" id="2-springmvc-servletxml-nav">
+									2. springmvc-servlet.xml
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4jsp" onclick="onNavClick(`#4jsp-nav`)" id="4jsp-nav">
+									4.jsp
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5controller" onclick="onNavClick(`#5controller-nav`)" id="5controller-nav">
+									5.controller
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%bd%bf%e7%94%a8%e6%b3%a8%e8%a7%a3%e9%85%8d%e7%bd%ae" onclick="onNavClick(`#使用注解配置-nav`)" id="使用注解配置-nav">
+									使用注解配置
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#requestmapping" onclick="onNavClick(`#requestmapping-nav`)" id="requestmapping-nav">
+									requestMapping
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div>
+<div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
+                
+                
+                
+                    
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/posts">
+                    Archive
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    Categories
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/tags">
+                    Tags
+                </a>
+                
+            
+            
+            <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#springmvc" onclick="onNavClick(`#springmvc-nav`)" id="springmvc-nav">
+									SpringMVC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#springmvc%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86" onclick="onNavClick(`#springmvc工作原理-nav`)" id="springmvc工作原理-nav">
+									SpringMVC工作原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%90%86%e8%ae%ba" onclick="onNavClick(`#理论-nav`)" id="理论-nav">
+									理论
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%bb%a3%e7%a0%81" onclick="onNavClick(`#代码-nav`)" id="代码-nav">
+									代码
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-webxml" onclick="onNavClick(`#1-webxml-nav`)" id="1-webxml-nav">
+									1. web.xml
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-springmvc-servletxml" onclick="onNavClick(`#2-springmvc-servletxml-nav`)" id="2-springmvc-servletxml-nav">
+									2. springmvc-servlet.xml
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4jsp" onclick="onNavClick(`#4jsp-nav`)" id="4jsp-nav">
+									4.jsp
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5controller" onclick="onNavClick(`#5controller-nav`)" id="5controller-nav">
+									5.controller
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%bd%bf%e7%94%a8%e6%b3%a8%e8%a7%a3%e9%85%8d%e7%bd%ae" onclick="onNavClick(`#使用注解配置-nav`)" id="使用注解配置-nav">
+									使用注解配置
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#requestmapping" onclick="onNavClick(`#requestmapping-nav`)" id="requestmapping-nav">
+									requestMapping
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+            
+        </div>
+    </div>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://brandykk.gitee.io">
+            Brandy
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://brandykk.gitee.io">
+        <div class="single-column-header-title">Brandy</div>
+        
+        <div class="single-column-header-subtitle">个人使用</div>
+        
+
+    </a>
+</div>
+
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
+
+    <div class="post-list-container post-list-container-shadow">
+        <div class="post">
+            
+            
+            
+
+            <div class="post-head-wrapper-text-only"
+                
+            >
+                <div class="post-title">
+                    SpringMVC
+                    
+                    <div class="post-subtitle">
+                        SpringMVC学习
+                    </div>
+                    
+                    <div class="post-meta">
+                        
+                        <time itemprop="datePublished">
+                            2021-08-07 21:09
+                        </time>
+                        
+
+                        
+                            <i class="material-icons" style="">folder</i>
+                                <a href="/categories/java">java</a>
+                                &nbsp;
+                        
+
+                        
+                            <i class="material-icons" style="">label</i>
+                            
+                                <a href="/tags/spring">spring</a>
+                                &nbsp;
+                            
+                        
+                        
+                            <i class="material-icons" style="">schedule</i>
+                            
+
+                            
+                            
+
+                            
+                            14 min
+                            
+                            59 s.
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="post-body-wrapper">
+                
+                <div class="post-body" v-pre>
+                
+                    <h1 id="springmvc">SpringMVC</h1>
+<p>MVC 模式代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发。</p>
+<ul>
+<li><strong>Model（模型）</strong> - 模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器。</li>
+<li><strong>View（视图）</strong> - 视图代表模型包含的数据的可视化。</li>
+<li><strong>Controller（控制器）</strong> - 控制器作用于模型和视图上。它控制数据流向模型对象，并在数据变化时更新视图。它使视图与模型分离开。</li>
+</ul>
+<p><strong>MVC的优点：</strong></p>
+<p><a href="http://lib.csdn.net/base/softwaretest"><strong>1.</strong></a><strong><a href="http://baike.baidu.com/item/%E8%80%A6%E5%90%88%E6%80%A7">耦合性</a>低</strong></p>
+<p>视图层和业务层分离，这样就允许更改视图层代码而不用重新编译模型和控制器代码，同样，一个应用的业务流程或者业务规则的改变只需要改动MVC的模型层即可。因为模型与控制器和视图相分离，所以很容易改变应用程序的数据层和业务规则。</p>
+<p><strong>2.重用性高</strong></p>
+<p><a href="http://baike.baidu.com/item/MVC%E6%A8%A1%E5%BC%8F">MVC</a><a href="http://baike.baidu.com/item/MVC%E6%A8%A1%E5%BC%8F">模式</a>允许使用各种不同样式的视图来访问同一个服务器端的代码，因为多个视图能共享一个模型，它包括任何WEB（HTTP）浏览器或者无线浏览器（wap），比如，用户可以通过电脑也可通过手机来订购某样产品，虽然订购的方式不一样，但处理订购产品的方式是一样的。由于模型返回的数据没有进行格式化，所以同样的构件能被不同的界面使用。</p>
+<p><strong>3.部署快，生命周期成本低</strong></p>
+<p>MVC使开发和维护用户接口的技术含量降低。使用MVC模式使开发时间得到相当大的缩减，它使程序员（Java开发人员）集中精力于业务逻辑，界面程序员（HTML和JSP开发人员）集中精力于表现形式上。</p>
+<p><strong>4.可维护性高</strong></p>
+<p>分离视图层和业务逻辑层也使得WEB应用更易于维护和修改。</p>
+<p><strong>MVC的缺点：</strong></p>
+<p><strong>1.完全理解MVC比较复杂。</strong></p>
+<p>由于MVC模式提出的时间不长，加上同学们的实践经验不足，所以完全理解并掌握MVC不是一个很容易的过程。</p>
+<p><strong>2.调试困难。</strong></p>
+<p>因为模型和视图要严格的分离，这样也给调试应用程序带来了一定的困难，每个构件在使用之前都需要经过彻底的测试。</p>
+<p><strong>3.不适合小型，中等规模的应用程序</strong></p>
+<p>在一个中小型的应用程序中，强制性的使用MVC进行开发，往往会花费大量时间，并且不能体现MVC的优势，同时会使开发变得繁琐。</p>
+<p><strong>4.增加系统结构和实现的复杂性</strong></p>
+<p>对于简单的界面，严格遵循MVC，使模型、视图与控制器分离，会增加结构的复杂性，并可能产生过多的更新操作，降低运行效率。</p>
+<p><strong>5.视图与控制器间的过于紧密的连接并且降低了视图对模型数据的访问</strong></p>
+<p>视图与控制器是相互分离，但却是联系紧密的部件，视图没有控制器的存在，其应用是很有限的，反之亦然，这样就妨碍了他们的独立重用。</p>
+<p>依据模型操作接口的不同，视图可能需要多次调用才能获得足够的显示数据。对未变化数据的不必要的频繁访问，也将损害操作性能。</p>
+<h2 id="springmvc工作原理">SpringMVC工作原理</h2>
+<h3 id="理论">理论</h3>
+<ul>
+<li>SpringMVC工作原理：</li>
+</ul>
+<ol>
+<li>客户端发起请求（http）通过web.xml找到 DispatchServlet（前端控制器）；</li>
+<li>由DispatchServlet控制器通过配置文件（servletName-servlet.xml）寻找到一个或多个HandlerMapping（映射处理器），找到用于处理请求的controller（后端控制器）；</li>
+<li>DispatchServlet将请求提交到controller；</li>
+<li>Controller处理业务逻辑后，</li>
+<li>controller返回数据 ModelAndVIew给DispatchServlet；</li>
+<li>DispatchServlet寻找到一个或多个ViewResolver（视图解析器），找到ModelAndVIew指定的视图；</li>
+<li>DispatchServle负责将结果返给View（客户端JSP页面），封装Http；</li>
+<li>view响应页面的HTTP请求，返回响应数据，浏览器绘制页面。</li>
+</ol>
+<p><strong>补充：</strong></p>
+<ol>
+<li><strong>第2~3步，里面隐藏了步骤：</strong></li>
+</ol>
+<p>DispatchServlet 根据 HandlerMapping（专门映射处理器的一个映射器）的配置（用户自己配置的配置文件）找到Handler（处理器），然后由具体的HandlerAdapter处理器对Handler进行处理。</p>
+<ol>
+<li><strong>handler跟controller有啥区别？</strong></li>
+</ol>
+<p>controller 是 handler，但是handler不是controller。</p>
+<p>handler接管所有的DispatchServlet给与的处理信息，包括静态请求（http://……/style.css），并且可以改变请求所指向的资源参数如 String target参数。</p>
+<p>controller只做三件事接收参数、调用业务、使用业务结果渲染页面。</p>
+<p><img src="springMVC.assets/image-20210807214424228.png" alt="image-20210807214424228"></p>
+<p><strong>SpringMVC接口解释</strong></p>
+<p>（1）<strong>DispatcherServlet</strong>接口：
+Spring提供的前端控制器，所有的请求都有经过它来统一分发。在DispatcherServlet将请求分发给Spring Controller之前，需要借助于Spring提供的HandlerMapping定位到具体的Controller。
+（2）<strong>HandlerMapping</strong>接口：
+能够完成客户请求到Controller映射。
+（3）<strong>Controller</strong>接口：
+需要为并发用户处理上述请求，因此实现Controller接口时，必须保证线程安全并且可重用。
+Controller将处理用户请求，这和Struts Action扮演的角色是一致的。一旦Controller处理完用户请求，则返回ModelAndView对象给DispatcherServlet前端控制器，ModelAndView中包含了模型（Model）和视图（View）。
+从宏观角度考虑，DispatcherServlet是整个Web应用的控制器；从微观考虑，Controller是单个Http请求处理过程中的控制器，而ModelAndView是Http请求过程中返回的模型（Model）和视图（View）。
+（4）ViewResolver接口：
+Spring提供的视图解析器（ViewResolver）在Web应用中查找View对象，从而将相应结果渲染给客户。
+4.<strong>DispatcherServlet</strong>：</p>
+<p>是整个Spring MVC的核心。它负责接收HTTP请求组织协调Spring MVC的各个组成部分。其主要工作有以下三项：
+（1）截获符合特定格式的URL请求。
+（2）初始化DispatcherServlet上下文对应WebApplicationContext，并将其与业务层、持久化层的WebApplicationContext建立关联。
+（3）初始化Spring MVC的各个组成组件，并装配到DispatcherServlet中。</p>
+<h3 id="代码">代码</h3>
+<h4 id="1-webxml">1. web.xml</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#1e889b">&lt;!DOCTYPE web-app PUBLIC
+</span></span></span><span style="display:flex;"><span><span style="color:#1e889b">        &#34;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#1e889b">        &#34;http://java.sun.com/dtd/web-app_2_3.dtd&#34; &gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;web-app&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;display-name&gt;</span>Archetype Created Web Application<span style="color:#8b008b;font-weight:bold">&lt;/display-name&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">&lt;!--配置DispatcherServlet：请求分发器或者叫前端控制器是Srpingmvc核心。--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;servlet&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;servlet-name&gt;</span>springmvc<span style="color:#8b008b;font-weight:bold">&lt;/servlet-name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;servlet-class&gt;</span>org.springframework.web.servlet.DispatcherServlet<span style="color:#8b008b;font-weight:bold">&lt;/servlet-class&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">&lt;!--DispatcherServlet 绑定spring配置文件--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;init-param&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">&lt;param-name&gt;</span>contextConfigLocation<span style="color:#8b008b;font-weight:bold">&lt;/param-name&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">&lt;param-value&gt;</span>classpath:springmvc-servlet.xml<span style="color:#8b008b;font-weight:bold">&lt;/param-value&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;/init-param&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">&lt;!--启动级别: 1 : 和服务器一起启动--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;load-on-startup&gt;</span>1<span style="color:#8b008b;font-weight:bold">&lt;/load-on-startup&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;/servlet&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">&lt;!--
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">        /: 只匹配所有请求，不会匹配jsp页面
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">        /*：匹配所有请求，包括jsp页面
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">    --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;servlet-mapping&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;servlet-name&gt;</span>springmvc<span style="color:#8b008b;font-weight:bold">&lt;/servlet-name&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;url-pattern&gt;</span>/<span style="color:#8b008b;font-weight:bold">&lt;/url-pattern&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;/servlet-mapping&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;/web-app&gt;</span>
+</span></span></code></pre></div><h4 id="2-springmvc-servletxml">2. springmvc-servlet.xml</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#1e889b">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;beans</span> <span style="color:#658b00">xmlns=</span><span style="color:#cd5555">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#658b00">xmlns:xsi=</span><span style="color:#cd5555">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#658b00">xsi:schemaLocation=</span><span style="color:#cd5555">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd&#34;</span><span style="color:#8b008b;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">&lt;!-- 处理器映射器 --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;bean</span> <span style="color:#658b00">class=</span><span style="color:#cd5555">&#34;org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">&lt;!-- 处理器适配器 --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;bean</span> <span style="color:#658b00">class=</span><span style="color:#cd5555">&#34;org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">&lt;!-- 视图解析器 : 模板引擎 Thymeleaf Freemarker...--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;bean</span> <span style="color:#658b00">class=</span><span style="color:#cd5555">&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34;</span> <span style="color:#658b00">id=</span><span style="color:#cd5555">&#34;internalResourceViewResolver&#34;</span><span style="color:#8b008b;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">&lt;!--前缀--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;property</span> <span style="color:#658b00">name=</span><span style="color:#cd5555">&#34;prefix&#34;</span> <span style="color:#658b00">value=</span><span style="color:#cd5555">&#34;/WEB-INF/jsp/&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">&lt;!--后缀--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;property</span> <span style="color:#658b00">name=</span><span style="color:#cd5555">&#34;suffix&#34;</span> <span style="color:#658b00">value=</span><span style="color:#cd5555">&#34;.jsp&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;/bean&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">&lt;!--BeanNameUrlHandlerMapping处理器需要根据bean找url名字--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;bean</span> <span style="color:#658b00">id=</span><span style="color:#cd5555">&#34;hello&#34;</span> <span style="color:#658b00">class=</span><span style="color:#cd5555">&#34;lv.controller.HelloController&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;/beans&gt;</span>
+</span></span></code></pre></div><h4 id="4jsp">4.jsp</h4>
+<pre tabindex="0"><code class="language-jsp" data-lang="jsp">&lt;%--
+  Created by IntelliJ IDEA.
+  User: lv
+  Date: 2021/8/7
+  Time: 下午10:07
+  To change this template use File | Settings | File Templates.
+--%&gt;
+&lt;%@ page contentType=&#34;text/html;charset=UTF-8&#34; language=&#34;java&#34; %&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Hello&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+${msg}
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="5controller">5.controller</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span> <span style="color:#008b45;text-decoration:underline">lv.controller</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.web.servlet.ModelAndView</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.web.servlet.mvc.Controller</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">javax.servlet.http.HttpServletRequest</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">javax.servlet.http.HttpServletResponse</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">HelloController</span> <span style="color:#8b008b;font-weight:bold">implements</span> Controller {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@Override</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> ModelAndView <span style="color:#008b45">handleRequest</span>(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) <span style="color:#8b008b;font-weight:bold">throws</span> Exception {
+</span></span><span style="display:flex;"><span>        ModelAndView mv = <span style="color:#8b008b;font-weight:bold">new</span> ModelAndView();
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//业务代码
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        String result = <span style="color:#cd5555">&#34;HelloServletMVC&#34;</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//数据封装  在jsp中可以拿到数据
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        mv.<span style="color:#658b00">addObject</span>(<span style="color:#cd5555">&#34;msg&#34;</span>, result);
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//试图跳转  设置jsp页面
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        mv.<span style="color:#658b00">setViewName</span>(<span style="color:#cd5555">&#34;hello&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> mv;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="使用注解配置">使用注解配置</h3>
+<ul>
+<li>springmvc-servlet.xml配置</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#1e889b">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;beans</span> <span style="color:#658b00">xmlns=</span><span style="color:#cd5555">&#34;http://www.springframework.org/schema/beans&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#658b00">xmlns:xsi=</span><span style="color:#cd5555">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#658b00">xmlns:context=</span><span style="color:#cd5555">&#34;http://www.springframework.org/schema/context&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#658b00">xmlns:mvc=</span><span style="color:#cd5555">&#34;http://www.springframework.org/schema/mvc&#34;</span>
+</span></span><span style="display:flex;"><span>       <span style="color:#658b00">xsi:schemaLocation=</span><span style="color:#cd5555">&#34;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd&#34;</span><span style="color:#8b008b;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22">&lt;!--自动扫描包--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;context:component-scan</span> <span style="color:#658b00">base-package=</span><span style="color:#cd5555">&#34;lv.controller&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;mvc:default-servlet-handler/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;mvc:annotation-driven/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">&lt;!-- 视图解析器 : 模板引擎 Thymeleaf Freemarker...--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;bean</span> <span style="color:#658b00">class=</span><span style="color:#cd5555">&#34;org.springframework.web.servlet.view.InternalResourceViewResolver&#34;</span> <span style="color:#658b00">id=</span><span style="color:#cd5555">&#34;internalResourceViewResolver&#34;</span><span style="color:#8b008b;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">&lt;!--前缀--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;property</span> <span style="color:#658b00">name=</span><span style="color:#cd5555">&#34;prefix&#34;</span> <span style="color:#658b00">value=</span><span style="color:#cd5555">&#34;/WEB-INF/jsp/&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#228b22">&lt;!--后缀--&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">&lt;property</span> <span style="color:#658b00">name=</span><span style="color:#cd5555">&#34;suffix&#34;</span> <span style="color:#658b00">value=</span><span style="color:#cd5555">&#34;.jsp&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;/bean&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#228b22">&lt;!--BeanNameUrlHandlerMapping处理器需要根据bean找url名字--&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;bean</span> <span style="color:#658b00">id=</span><span style="color:#cd5555">&#34;hello&#34;</span> <span style="color:#658b00">class=</span><span style="color:#cd5555">&#34;lv.controller.HelloController&#34;</span><span style="color:#8b008b;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;/beans&gt;</span>
+</span></span></code></pre></div><ul>
+<li>controller</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span> <span style="color:#008b45;text-decoration:underline">lv.controller</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.stereotype.Controller</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.ui.Model</span>;
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.web.bind.annotation.RequestMapping</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#707a7c">@Controller</span>
+</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">AnnotationController</span> {
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@RequestMapping</span>(<span style="color:#cd5555">&#34;/hello&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">controller</span>(Model model) {
+</span></span><span style="display:flex;"><span>        model.<span style="color:#658b00">addAttribute</span>(<span style="color:#cd5555">&#34;msg&#34;</span>, <span style="color:#cd5555">&#34;HelloSpringMVC&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;hello&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="requestmapping">requestMapping</h2>
+<blockquote>
+<p>使用<code>@PathVariable</code>可以将参数赋值给mapping映射的路径上</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#707a7c">@RequestMapping</span>(<span style="color:#cd5555">&#34;/hello/{a}/{b}&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">add</span>(Model model, <span style="color:#707a7c">@PathVariable</span> <span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#707a7c">@PathVariable</span> String b) {
+</span></span><span style="display:flex;"><span>        model.<span style="color:#658b00">addAttribute</span>(<span style="color:#cd5555">&#34;msg&#34;</span>, <span style="color:#cd5555">&#34;HelloSpringMVC&#34;</span>);
+</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;hello&#34;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span></code></pre></div>
+                    
+                    <HR width="100%" id="EOF">
+		    <p style="color:#777;">最后修改于 2021-08-07</p>
+                    
+                </div>
+            </div>
+            
+            
+            <nav class="post-pagination">
+
+                
+                <a class="newer-posts" href="/posts/java/spring/springboot/">
+			下回<br>SpringBoot
+                </a>
+                
+                
+                
+                <a class="older-posts" href="/posts/java/jdbc/">
+			上回<br>Jdbc
+                </a>
+                
+            </nav>
+            <div class="post-comment-wrapper">
+                
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+                    </div>
+            </div><div id="single-column-footer">
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+</div>
+            </div>
+    
+    <script src="/js/journal.js"></script></body>
+</html>
