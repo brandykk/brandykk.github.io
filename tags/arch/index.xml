@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>arch on Brandy</title>
+    <link>https://brandykk.gitee.io/tags/arch/</link>
+    <description>Recent content in arch on Brandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Fri, 18 Jun 2021 21:14:52 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ArchLinux安装记录</title>
+      <link>https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</link>
+      <pubDate>Fri, 18 Jun 2021 21:14:52 +0800</pubDate>
+      
+      <guid>https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</guid>
+      <description>更新于2023年3月5日；适用于Arch和win11双系统，btrfs文件系统，kde桌面
+参考
+准备工作 先安装win10,然后再安装linux,关闭主板设置中的 Secure Boot,关闭win10的快速启动
+制作镜像：推荐ventoy
+确保是否为 UEFI 模式
+# 若输出了一堆东西，即` efi `变量，则说明已在 `UEFI `模式。否则请确认你的启动方式是否为 `UEFI`。 ls /sys/firmware/efi/efivars 分区(Btrfs) Btrfs文件系统不需要单独区分每个盘的大小，只需要单独分出一个盘即可。
+单系统需要先将磁盘转为gpt格式，双系统的话，在win11上已经转过了，/dev/nvme0n1p6是安装磁盘，根据实际情况改成自己的磁盘 # 或者执行命令 lsblk #显示分区情况 parted /dev/sdx #执行parted，进行磁盘类型变更 (parted)mktable #输入mktable New disk label type? gpt #输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可 quit #最后quit退出parted命令行交互 # 格式化磁盘 mkfs.btrfs -f /dev/nvme0n1p6 # 如果是单个磁盘，不需要要保留磁盘数据则执行以下命令可以直接选择将磁盘转为`gpt` cfdisk -z /dev/nvme0n1p6 挂载分区 mount /dev/nvme0n1p6 /mnt 创建子卷 # 根据需要在/mnt中创建子卷 btrfs su cr /mnt/@ # 挂载到 root，必需 btrfs su cr /mnt/@boot # boot 子卷, 可选 btrfs su cr /mnt/@home # home ，可选 btrfs su cr /mnt/@var # var, 可选 btrfs su cr /mnt/@opt # opt, 可选 btrfs su cr /mnt/@snapshot # 快照文件, 可选 btrfs su cr /mnt/@swap # swapfile ，可选 #检查创建好的子卷 btrfs su li /mnt #创建16G的交换文件 大小根据需要更改 btrfs filesystem mkswapfile -s 16g /mnt/@swap/swapfile 挂载子卷 # 先卸载上面创建子卷时的挂载目录，否则会失败 umount /mnt # 挂载根目录子卷 (这是SSD硬盘的参数，如果是机械硬盘，有些参数不太合适，请自行查询挂载参数） mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,discard=async,subvol=@ /dev/nvme0n1p6 /mnt # 创建其他子卷挂载目录 最好和上面的子卷保持一致 mkdir -pv /mnt/{boot,home,var,opt,.</description>
+    </item>
+    
+  </channel>
+</rss>

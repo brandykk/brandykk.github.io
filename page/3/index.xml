@@ -1,0 +1,620 @@
+<?xml-stylesheet href="/rss.xsl" type="text/xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Brandy</title>
+    <link>https://brandykk.gitee.io/</link>
+    <description>Recent content on Brandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Tue, 07 Feb 2023 10:42:28 +0800</lastBuildDate>
+    
+        <atom:link href="https://brandykk.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+        <item>
+        <title>Nodejs连接sqlite数据库</title>
+        <link>https://brandykk.gitee.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <pubDate>Sat, 15 May 2021 21:28:07 +0800</pubDate>
+        
+        <guid>https://brandykk.gitee.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+        <description>Brandy https://brandykk.gitee.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/ -&lt;h2 id=&#34;编译nodejs相关模块better-sqlite3&#34;&gt;编译nodejs相关模块better-sqlite3&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;安装 &lt;a href=&#34;https://github.com/felixrieseberg/windows-build-tools&#34;&gt;windows-build-tools&lt;/a&gt;， 注意用管理员身份启动终端（如果安装node的时侯已经安装了相关的tools就略过这一步）&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;npm install --global windows-build-tools
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;这里有个点要注意一下，这个工具分版本 vs2015, vs2017， 默认是2017，如果是需要2015版安装时后面加参数&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;npm install --global windows-build-tools --vs2015
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果不知道当前需要哪个版本，先默认安装，后面编译出错会报出来&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;安装 better-sqlite3&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;npm install better-sqlite3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;如果顺利这里就成功了。&lt;/p&gt;
+&lt;p&gt;这里有情况&lt;/p&gt;
+&lt;p&gt;node-gyp报错，仔细看一下，如果是visual studio 工具问题，基本上是版本原因，回第一步&lt;/p&gt;
+&lt;p&gt;如果只是node-gyp错误&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;npm uninstall node-gyp -g
+npm install -g node-gyp
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;然后再执行安装命令，需要注意，少数情况下node版本也会造成编译失败。&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;启动 electron 并调用 better-sqlite3&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;const DB = require(&amp;lsquo;better-sqlite3&amp;rsquo;);&lt;/p&gt;
+&lt;p&gt;这里还有个可能的报错，编译的node版本对不上，需要使用 electron-rebuild&lt;/p&gt;
+&lt;p&gt;npm install &amp;ndash;save-dev electron-rebuild&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;./node_modules/.bin/electron-rebuild
+# 在windows下如果上述命令遇到了问题，尝试这个：
+.\node_modules\.bin\electron-rebuild.cmd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个特别慢， 而且到最后我也没成功， 所以用了别的命令&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-npm&#34; data-lang=&#34;npm&#34;&gt;electron-rebuild -f -w better-sqlite3
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;或者在package.json的scripts中加入并运行这个&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;rebuild&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;electron-rebuild -f -w better-sqlite3&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#a61717;background-color:#e3d2d2&#34;&gt;,&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;better-sqlite3基础操作apihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd&#34;&gt;better-sqlite3基础操作：&lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/HEAD/docs/api.md&#34;&gt;API&lt;/a&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;h3 id=&#34;new-databasepath-options&#34;&gt;new Database(path, [options])&lt;/h3&gt;
+&lt;p&gt;创建一个新的数据库连接。 如果数据库文件不存在，则会创建它。 这是同步发生的，这意味着您可以立即开始执行查询。 您可以创建一个 &lt;a href=&#34;https://www.sqlite.org/inmemorydb.html&#34;&gt;内存数据库 &lt;/a&gt;通过传递 &lt;code&gt;&amp;quot;:memory:&amp;quot;&lt;/code&gt;作为第一个论点。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;还可以通过传递由返回的缓冲区来创建内存数据库 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#serializeoptions---buffer&#34;&gt;&lt;code&gt;.serialize()&lt;/code&gt;&lt;/a&gt;，而不是将字符串作为第一个参数传递。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;接受各种选项：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;options.readonly&lt;/code&gt;：以只读模式打开数据库连接（默认值： &lt;code&gt;false&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;options.fileMustExist&lt;/code&gt;：如果数据库不存在，则 &lt;code&gt;Error&lt;/code&gt;将被抛出，而不是创建一个新文件。  此选项不影响内存中或只读数据库连接（默认值： &lt;code&gt;false&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;options.timeout&lt;/code&gt;：在对锁定的数据库执行查询之前，在引发查询前要等待的毫秒数 &lt;code&gt;SQLITE_BUSY&lt;/code&gt;错误（默认值： &lt;code&gt;5000&lt;/code&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;options.verbose&lt;/code&gt;：提供一个由数据库连接执行的每个SQL字符串调用的函数（默认值： &lt;code&gt;null&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; Database = require(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;better-sqlite3&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; db = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Database(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;foobar.db&amp;#39;&lt;/span&gt;, { verbose: console.log });
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;h3 id=&#34;preparestring---statement&#34;&gt;.prepare(&lt;em&gt;string&lt;/em&gt;) -&amp;gt; Statement&lt;/h3&gt;
+&lt;p&gt;创建一个新的准备 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#class-statement&#34;&gt;&lt;code&gt;Statement&lt;/code&gt;&lt;/a&gt;从给定的SQL字符串。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; stmt = db.prepare(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;SELECT name, age FROM cats&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;transactionfunction---function&#34;&gt;.transaction(&lt;em&gt;function&lt;/em&gt;) -&amp;gt; &lt;em&gt;function&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;创建一个始终在 内部运行的函数 &lt;a href=&#34;https://sqlite.org/lang_transaction.html&#34;&gt;事务 &lt;/a&gt;。 调用该函数时，它将开始新的事务。 当函数返回时，事务将被提交。 如果抛出异常，则事务将回滚（并且异常将照常传播）。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; insert = db.prepare(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;INSERT INTO cats (name, age) VALUES (@name, @age)&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; insertMany = db.transaction((cats) =&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; cat &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;of&lt;/span&gt; cats) insert.run(cat);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;});
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;insertMany([
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  { name: &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Joey&amp;#39;&lt;/span&gt;, age: &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  { name: &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Sally&amp;#39;&lt;/span&gt;, age: &lt;span style=&#34;color:#b452cd&#34;&gt;4&lt;/span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  { name: &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Junior&amp;#39;&lt;/span&gt;, age: &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; },
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;]);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;可以从其他事务功能内部调用事务功能。 这样做时，内部事务将成为一个 &lt;a href=&#34;https://www.sqlite.org/lang_savepoint.html&#34;&gt;保存点 &lt;/a&gt;。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; newExpense = db.prepare(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;INSERT INTO expenses (note, dollars) VALUES (?, ?)&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; adopt = db.transaction((cats) =&amp;gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  newExpense.run(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;adoption fees&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;20&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  insertMany(cats); &lt;span style=&#34;color:#228b22&#34;&gt;// nested transaction
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;});
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;execstring---this&#34;&gt;.exec(&lt;em&gt;string&lt;/em&gt;) -&amp;gt; &lt;strong&gt;this&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;执行给定的SQL字符串。 与 不同 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#preparestring---statement&#34;&gt;准备好的语句 &lt;/a&gt;，它可以执行包含多个SQL语句的字符串。 与使用 相比，此函数执行效果较差且安全性较低 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#preparestring---statement&#34;&gt;准备好的语句 &lt;/a&gt;。 仅当需要从外部源（通常是文件）执行SQL时，才应使用此方法。 如果发生错误，则执行停止，并且不再执行其他语句。 您必须手动回滚更改。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; migration = fs.readFileSync(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;migrate-schema.sql&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;utf8&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;db.exec(migration);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;close--此&#34;&gt;.close（）-&amp;gt; &lt;em&gt;此&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;关闭数据库连接。  调用此方法后，将无法创建或执行任何语句。&lt;/p&gt;
+&lt;h3 id=&#34;runbindparameters---object&#34;&gt;.run([&lt;em&gt;&amp;hellip;bindParameters&lt;/em&gt;]) -&amp;gt; &lt;em&gt;object&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;执行准备好的语句。  执行完成后，它会返回一个 &lt;code&gt;info&lt;/code&gt;描述所做任何更改的对象。  这 &lt;code&gt;info&lt;/code&gt;对象具有两个属性：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;info.changes&lt;/code&gt;：此操作插入，更新或删除的总行数。 更改 &lt;a href=&#34;https://www.sqlite.org/foreignkeys.html#fk_actions&#34;&gt;外键动作 &lt;/a&gt;或 &lt;a href=&#34;https://www.sqlite.org/lang_createtrigger.html&#34;&gt;触发程序 &lt;/a&gt;所做的 不计算在内。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;info.lastInsertRowid&lt;/code&gt;： 的 &lt;a href=&#34;https://www.sqlite.org/lang_createtable.html#rowid&#34;&gt;rowid &lt;/a&gt;插入数据库的最后一行 （忽略那些由 引起的行 &lt;a href=&#34;https://www.sqlite.org/lang_createtrigger.html&#34;&gt;触发器程序 &lt;/a&gt;）。 如果当前语句未在数据库中插入任何行，则应完全忽略该数字。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;如果执行该语句失败，则 &lt;code&gt;Error&lt;/code&gt;被抛出。&lt;/p&gt;
+&lt;p&gt;您可以指定 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#binding-parameters&#34;&gt;bind参数 &lt;/a&gt;，仅对给定执行绑定。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; stmt = db.prepare(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;INSERT INTO cats (name, age) VALUES (?, ?)&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; info = stmt.run(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Joey&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console.log(info.changes); &lt;span style=&#34;color:#228b22&#34;&gt;// =&amp;gt; 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;getbindparameters---row&#34;&gt;.get([&lt;em&gt;&amp;hellip;bindParameters&lt;/em&gt;]) -&amp;gt; &lt;em&gt;row&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;* &lt;em&gt;（仅适用于返回数据的语句）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;执行准备好的语句。  执行完成后，它将返回一个对象，该对象代表查询检索的第一行。  对象的键代表列名。&lt;/p&gt;
+&lt;p&gt;如果该语句成功但没有找到数据， &lt;code&gt;undefined&lt;/code&gt;返回。  如果执行该语句失败，则 &lt;code&gt;Error&lt;/code&gt;被抛出。&lt;/p&gt;
+&lt;p&gt;您可以指定 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#binding-parameters&#34;&gt;bind参数 &lt;/a&gt;，仅对给定执行绑定。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; stmt = db.prepare(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;SELECT age FROM cats WHERE name = ?&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; cat = stmt.get(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Joey&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console.log(cat.age); &lt;span style=&#34;color:#228b22&#34;&gt;// =&amp;gt; 2
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;allbindparameters---array-of-rows&#34;&gt;.all([&lt;em&gt;&amp;hellip;bindParameters&lt;/em&gt;]) -&amp;gt; &lt;em&gt;array of rows&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;* &lt;em&gt;（仅适用于返回数据的语句）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;如同 &lt;code&gt;.get()&lt;/code&gt;，而不是仅检索一行，而是将检索所有匹配的行。  返回值是一个行对象数组。&lt;/p&gt;
+&lt;p&gt;如果未找到任何行，则该数组将为空。  如果执行该语句失败，则 &lt;code&gt;Error&lt;/code&gt;被抛出。&lt;/p&gt;
+&lt;p&gt;您可以指定 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#binding-parameters&#34;&gt;bind参数 &lt;/a&gt;，仅对给定执行绑定。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; stmt = db.prepare(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;SELECT * FROM cats WHERE name = ?&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; cats = stmt.all(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Joey&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;console.log(cats.length); &lt;span style=&#34;color:#228b22&#34;&gt;// =&amp;gt; 1
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;iteratebindparameters---iterator&#34;&gt;.iterate([&lt;em&gt;&amp;hellip;bindParameters&lt;/em&gt;]) -&amp;gt; &lt;em&gt;iterator&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;* &lt;em&gt;（仅适用于返回数据的语句）&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;如同 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#allbindparameters---array-of-rows&#34;&gt;&lt;code&gt;.all()&lt;/code&gt;&lt;/a&gt;，但返回的是 ，而不是一起返回每一行， 一个一行地 &lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols&#34;&gt;迭代器 &lt;/a&gt;因此您可以 检索行。 如果您打算无论如何都要检索每一行， &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#allbindparameters---array-of-rows&#34;&gt;&lt;code&gt;.all()&lt;/code&gt;&lt;/a&gt;会稍微好一些。&lt;/p&gt;
+&lt;p&gt;如果执行该语句失败，则 &lt;code&gt;Error&lt;/code&gt;被抛出并且迭代器被关闭。&lt;/p&gt;
+&lt;p&gt;您可以指定 &lt;a href=&#34;https://github.com/JoshuaWise/better-sqlite3/blob/master/docs/api.md#binding-parameters&#34;&gt;bind参数 &lt;/a&gt;，仅对给定执行绑定。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-js&#34; data-lang=&#34;js&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; stmt = db.prepare(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;SELECT * FROM cats&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt; (&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;const&lt;/span&gt; cat &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;of&lt;/span&gt; stmt.iterate()) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt; (cat.name === &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;Joey&amp;#39;&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    console.log(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#39;found him!&amp;#39;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;break&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Spring定时器依赖注入</title>
+        <link>https://brandykk.gitee.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</link>
+        <pubDate>Sun, 18 Apr 2021 16:09:32 +0800</pubDate>
+        
+        <guid>https://brandykk.gitee.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</guid>
+        <description>Brandy https://brandykk.gitee.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/ -&lt;ul&gt;
+&lt;li&gt;工具类&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;* 创建工具类
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;**/&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#008b45;font-weight:bold&#34;&gt;ApplicationContextUtil&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;implements&lt;/span&gt; ApplicationContextAware {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; ApplicationContext applicationContext;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; ApplicationContext &lt;span style=&#34;color:#008b45&#34;&gt;getApplicationContext&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; applicationContext;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;setApplicationContext&lt;/span&gt;(ApplicationContext applicationContext) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        ApplicationContextUtil.&lt;span style=&#34;color:#658b00&#34;&gt;applicationContext&lt;/span&gt; = applicationContext;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; Object &lt;span style=&#34;color:#008b45&#34;&gt;getBean&lt;/span&gt;(String beanName) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; applicationContext.&lt;span style=&#34;color:#658b00&#34;&gt;getBean&lt;/span&gt;(beanName);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;配置bean&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-xml&#34; data-lang=&#34;xml&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;&amp;lt;bean&lt;/span&gt;  &lt;span style=&#34;color:#658b00&#34;&gt;id =&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;applicationContextUtil&amp;#34;&lt;/span&gt;  &lt;span style=&#34;color:#658b00&#34;&gt;class =&lt;/span&gt;&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;org.sihai.soil.util.ApplicationContextUtil&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;&amp;gt;&amp;lt;/bean &amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;获取service&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;realmEbi = (RealmEbi) ApplicationContextUtil.&lt;span style=&#34;color:#658b00&#34;&gt;getBean&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;realmEbi&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;realmEbi.&lt;span style=&#34;color:#658b00&#34;&gt;insertHour&lt;/span&gt;(RealmApplianceModel.&lt;span style=&#34;color:#658b00&#34;&gt;sendData3&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Java模拟鼠标键盘操作</title>
+        <link>https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</link>
+        <pubDate>Sun, 18 Apr 2021 12:25:27 +0800</pubDate>
+        
+        <guid>https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</guid>
+        <description>Brandy https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;/**
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * 定时执行模拟鼠标键盘操作
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * Robot中主要的鼠标和键盘控制方法有：
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * •    void keyPress(int keycode) 按下给定的键。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * •    void keyRelease(int keycode) 释放给定的键。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * •    void mouseMove(int x, int y) 将鼠标指针移动到给定屏幕坐标。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * •    void mousePress(int buttons) 按下一个或多个鼠标按钮。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * •    void mouseRelease(int buttons) 释放一个或多个鼠标按钮。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * •    void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     */&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;mouse&lt;/span&gt;(){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Thread(()-&amp;gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;while&lt;/span&gt; (&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;true&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    Thread.&lt;span style=&#34;color:#658b00&#34;&gt;sleep&lt;/span&gt;(&lt;span style=&#34;color:#b452cd&#34;&gt;1000&lt;/span&gt;*&lt;span style=&#34;color:#b452cd&#34;&gt;60&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    Robot robot = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Robot();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//设置Robot产生一个动作后的休眠时间,否则执行过快
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;setAutoDelay&lt;/span&gt;(&lt;span style=&#34;color:#b452cd&#34;&gt;1000&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//获取屏幕分辨率
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    Dimension d = Toolkit.&lt;span style=&#34;color:#658b00&#34;&gt;getDefaultToolkit&lt;/span&gt;().&lt;span style=&#34;color:#658b00&#34;&gt;getScreenSize&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    System.&lt;span style=&#34;color:#658b00&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;println&lt;/span&gt;(d);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    Rectangle screenRect = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Rectangle(d);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//截图
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    BufferedImage bufferedImage = robot.&lt;span style=&#34;color:#658b00&#34;&gt;createScreenCapture&lt;/span&gt;(screenRect);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//保存截图
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    File file = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; File(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;screenRect.png&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    ImageIO.&lt;span style=&#34;color:#658b00&#34;&gt;write&lt;/span&gt;(bufferedImage, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;png&amp;#34;&lt;/span&gt;, file);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//移动鼠标
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;mouseMove&lt;/span&gt;(&lt;span style=&#34;color:#b452cd&#34;&gt;500&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;500&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//点击鼠标
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//鼠标左键
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    System.&lt;span style=&#34;color:#658b00&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;单击&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;mousePress&lt;/span&gt;(InputEvent.&lt;span style=&#34;color:#658b00&#34;&gt;BUTTON1_MASK&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;mouseRelease&lt;/span&gt;(InputEvent.&lt;span style=&#34;color:#658b00&#34;&gt;BUTTON1_MASK&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//鼠标右键
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    System.&lt;span style=&#34;color:#658b00&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;右击&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;mousePress&lt;/span&gt;(InputEvent.&lt;span style=&#34;color:#658b00&#34;&gt;BUTTON3_MASK&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;mouseRelease&lt;/span&gt;(InputEvent.&lt;span style=&#34;color:#658b00&#34;&gt;BUTTON3_MASK&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//按下ESC，退出右键状态
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    System.&lt;span style=&#34;color:#658b00&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;按下ESC&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;keyPress&lt;/span&gt;(KeyEvent.&lt;span style=&#34;color:#658b00&#34;&gt;VK_ESCAPE&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;keyRelease&lt;/span&gt;(KeyEvent.&lt;span style=&#34;color:#658b00&#34;&gt;VK_ESCAPE&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//滚动鼠标滚轴
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    System.&lt;span style=&#34;color:#658b00&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;滚轴&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;mouseWheel&lt;/span&gt;(&lt;span style=&#34;color:#b452cd&#34;&gt;5&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#228b22&#34;&gt;//按下Alt+TAB键
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;keyPress&lt;/span&gt;(KeyEvent.&lt;span style=&#34;color:#658b00&#34;&gt;VK_ALT&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; i=&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;;i&amp;lt;=&lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;;i++)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        robot.&lt;span style=&#34;color:#658b00&#34;&gt;keyPress&lt;/span&gt;(KeyEvent.&lt;span style=&#34;color:#658b00&#34;&gt;VK_TAB&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                        robot.&lt;span style=&#34;color:#658b00&#34;&gt;keyRelease&lt;/span&gt;(KeyEvent.&lt;span style=&#34;color:#658b00&#34;&gt;VK_TAB&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    robot.&lt;span style=&#34;color:#658b00&#34;&gt;keyRelease&lt;/span&gt;(KeyEvent.&lt;span style=&#34;color:#658b00&#34;&gt;VK_ALT&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                } &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;catch&lt;/span&gt; (InterruptedException e) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    e.&lt;span style=&#34;color:#658b00&#34;&gt;printStackTrace&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                } &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;catch&lt;/span&gt; (AWTException e) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    e.&lt;span style=&#34;color:#658b00&#34;&gt;printStackTrace&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                } &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;catch&lt;/span&gt; (IOException e) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    e.&lt;span style=&#34;color:#658b00&#34;&gt;printStackTrace&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        });
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Java树结构递归封装</title>
+        <link>https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</link>
+        <pubDate>Sun, 18 Apr 2021 12:07:25 +0800</pubDate>
+        
+        <guid>https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</guid>
+        <description>Brandy https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#008b45;text-decoration:underline&#34;&gt;java.util.ArrayList&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#008b45;text-decoration:underline&#34;&gt;java.util.Comparator&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#008b45;text-decoration:underline&#34;&gt;java.util.List&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#008b45;font-weight:bold&#34;&gt;text&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;main&lt;/span&gt;(String[] args) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    	&lt;span style=&#34;color:#228b22&#34;&gt;//测试方法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;        Node n1 = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Node(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;根节点&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;-1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Node n2 = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Node(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;01&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;一级子节点&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;0&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Node n3 = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Node(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;011&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;二级子节点1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;01&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;3&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Node n4 = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Node(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;012&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;二级子节点2&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;01&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;2&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Node n5 = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Node(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;013&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;二级子节点3&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;01&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Node n6 = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Node(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;0131&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;三级子节点1&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;013&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        Node n7 = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; Node(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;0132&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;三级子节点2&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;013&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        List&amp;lt;Node&amp;gt; nodeList = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; ArrayList();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nodeList.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(n1);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nodeList.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(n2);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nodeList.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(n3);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nodeList.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(n4);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nodeList.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(n5);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nodeList.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(n6);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nodeList.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(n7);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        nodeList = getInfiniteLevelTree(nodeList);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        System.&lt;span style=&#34;color:#658b00&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;println&lt;/span&gt;( getInfiniteLevelTree(nodeList));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#228b22&#34;&gt;// 入口方法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; List&amp;lt;Node&amp;gt; &lt;span style=&#34;color:#008b45&#34;&gt;getInfiniteLevelTree&lt;/span&gt;(List&amp;lt;Node&amp;gt; nodeList) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        List&amp;lt;Node&amp;gt; list = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#228b22&#34;&gt;// 遍历节点列表
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt; (Node node : nodeList) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt; (node.&lt;span style=&#34;color:#658b00&#34;&gt;getParentId&lt;/span&gt;().&lt;span style=&#34;color:#658b00&#34;&gt;equals&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;-1&amp;#34;&lt;/span&gt;)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#228b22&#34;&gt;// parentID为-1（根节点）作为入口
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                node.&lt;span style=&#34;color:#658b00&#34;&gt;setChildren&lt;/span&gt;(getChildrenNode(node.&lt;span style=&#34;color:#658b00&#34;&gt;getId&lt;/span&gt;(), nodeList));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                list.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(node);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#228b22&#34;&gt;// 排序
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;        list.&lt;span style=&#34;color:#658b00&#34;&gt;sort&lt;/span&gt;(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; NodeOrderComparator());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; list;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#228b22&#34;&gt;// 获取子节点的递归方法
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; List&amp;lt;Node&amp;gt; &lt;span style=&#34;color:#008b45&#34;&gt;getChildrenNode&lt;/span&gt;(String id, List&amp;lt;Node&amp;gt; nodeList) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        List&amp;lt;Node&amp;gt; lists = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;for&lt;/span&gt; (Node node : nodeList) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;if&lt;/span&gt; (node.&lt;span style=&#34;color:#658b00&#34;&gt;getParentId&lt;/span&gt;().&lt;span style=&#34;color:#658b00&#34;&gt;equals&lt;/span&gt;(id)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                &lt;span style=&#34;color:#228b22&#34;&gt;// 递归获取子节点
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;                node.&lt;span style=&#34;color:#658b00&#34;&gt;setChildren&lt;/span&gt;(getChildrenNode(node.&lt;span style=&#34;color:#658b00&#34;&gt;getId&lt;/span&gt;(), nodeList));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                lists.&lt;span style=&#34;color:#658b00&#34;&gt;add&lt;/span&gt;(node);
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#228b22&#34;&gt;// 排序
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;        lists.&lt;span style=&#34;color:#658b00&#34;&gt;sort&lt;/span&gt;(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; NodeOrderComparator());
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; lists;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// 节点Bean
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#008b45;font-weight:bold&#34;&gt;Node&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; String id;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; String name;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; String parentId;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; order;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; List&amp;lt;Node&amp;gt; children = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;Node&lt;/span&gt;(String id, String name, String parentId, &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; order) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;super&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;id&lt;/span&gt; = id;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;name&lt;/span&gt; = name;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;parentId&lt;/span&gt; = parentId;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;order&lt;/span&gt; = order;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#008b45&#34;&gt;getId&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; id;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;setId&lt;/span&gt;(String id) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;id&lt;/span&gt; = id;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#008b45&#34;&gt;getName&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; name;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;setName&lt;/span&gt;(String name) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;name&lt;/span&gt; = name;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#008b45&#34;&gt;getParentId&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; parentId;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;setParentId&lt;/span&gt;(String parentId) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;parentId&lt;/span&gt; = parentId;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;getOrder&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; order;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;setOrder&lt;/span&gt;(&lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; order) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;order&lt;/span&gt; = order;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; List&amp;lt;Node&amp;gt; &lt;span style=&#34;color:#008b45&#34;&gt;getChildren&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; children;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;setChildren&lt;/span&gt;(List&amp;lt;Node&amp;gt; children) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;children&lt;/span&gt; = children;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#707a7c&#34;&gt;@Override&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; String &lt;span style=&#34;color:#008b45&#34;&gt;toString&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;Node [id=&amp;#34;&lt;/span&gt; + id + &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;, name=&amp;#34;&lt;/span&gt; + name + &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;, parentId=&amp;#34;&lt;/span&gt; + parentId + &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;, order=&amp;#34;&lt;/span&gt; + order + &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;, children=&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                + children + &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;]&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// 节点排序Comparator
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#008b45;font-weight:bold&#34;&gt;NodeOrderComparator&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;implements&lt;/span&gt; Comparator&amp;lt;Node&amp;gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#228b22&#34;&gt;// 按照节点排序值进行排序
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;compare&lt;/span&gt;(Node n1, Node n2) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; (n1.&lt;span style=&#34;color:#658b00&#34;&gt;getOrder&lt;/span&gt;() &amp;lt; n2.&lt;span style=&#34;color:#658b00&#34;&gt;getOrder&lt;/span&gt;() ? -&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; : (n1.&lt;span style=&#34;color:#658b00&#34;&gt;getOrder&lt;/span&gt;() == n2.&lt;span style=&#34;color:#658b00&#34;&gt;getOrder&lt;/span&gt;() ? &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; : &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>Win10使用记录</title>
+        <link>https://brandykk.gitee.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
+        <pubDate>Sat, 17 Apr 2021 18:47:06 +0800</pubDate>
+        
+        <guid>https://brandykk.gitee.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</guid>
+        <description>Brandy https://brandykk.gitee.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/ -&lt;h2 id=&#34;安装jdk&#34;&gt;安装JDK&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;新建系统变量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;变量名： &lt;code&gt;JAVA_HOME&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;变量值：安装目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新建CLASSPATH变量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;变量名： &lt;code&gt;CLASSPATH&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;变量值： &lt;code&gt;.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加Path：&lt;/p&gt;
+&lt;p&gt;在系统变量区域，选择Path,点击下面的编辑按钮，在弹出的框中选择新建添加2行，一行输入 %JAVA_HOME%\bin ，一行输入 %JAVA_HOME%\jre\bin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在命令提示符中输入javac命令测试&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;maven配置&#34;&gt;MAVEN配置&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;新建系统变量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;变量名： &lt;code&gt;MAVEN_HOME&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;变量值：安装目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;添加Path：&lt;/p&gt;
+&lt;p&gt;在系统变量区域，选择Path,点击下面的编辑按钮，在弹出的框中选择新建添加 %MAVEN_HOME%\bin&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在命令提示符中输入 mvn -v 命令&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;安装mariadb代替mysql&#34;&gt;安装mariadb代替mysql&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://mariadb.org/download/?t=mariadb&amp;amp;p=mariadb&amp;amp;r=10.6.5&amp;amp;os=Linux&amp;amp;cpu=x86_64&amp;amp;pkg=tar_gz&amp;amp;i=systemd&amp;amp;m=blendbyte&#34;&gt;下载&lt;/a&gt;&lt;code&gt;mariadb&lt;/code&gt;压缩包&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;配置&lt;code&gt;mariadb&lt;/code&gt;环境变量&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;path&lt;/code&gt;中添加mariadb安装文件夹中的bin目录下&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在bin目录下执行命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意安装实际情况更改路径和密码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;mysql_install_db.exe --datadir=F:\projectManager\mariadbData --service=mariadb --password=  --port=13306
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# --datadir=后面是数据存放路径，可自定义；--service=后面是服务名称；--password=后面是密码，空就是没有密码；--port=后面是端口号，为了防止和mysql用了13306
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;mysql安装-推荐mariadb安装mariadb代替mysql&#34;&gt;mysql安装 &lt;a href=&#34;%E5%AE%89%E8%A3%85mariadb%E4%BB%A3%E6%9B%BFmysql&#34;&gt;推荐mariadb&lt;/a&gt;&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;安装目录下新建 my.ini 文件（注意修改下面的路径）&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-ini&#34; data-lang=&#34;ini&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;[Client]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;#设置3306端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;port&lt;/span&gt; = &lt;span style=&#34;color:#cd5555&#34;&gt;3306&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;[mysqld]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;#设置3306端口&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;port&lt;/span&gt; = &lt;span style=&#34;color:#cd5555&#34;&gt;3306&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 设置mysql的安装目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;basedir&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;D:\MySQL5.7\mysql-5.7.27-winx64&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 设置mysql数据库的数据的存放目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;datadir&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;D:\MySQL5.7\mysql-5.7.27-winx64\data&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 允许最大连接数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;max_connections&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;200&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 服务端使用的字符集默认为8比特编码的latin1字符集&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;character-set-server&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;utf8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 创建新表时将使用的默认存储引擎&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;default-storage-engine&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;INNODB&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;sql_mode&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;[mysql]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 设置mysql客户端默认字符集&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;default-character-set&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;utf8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;#开启查询缓存&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#658b00&#34;&gt;explicit_defaults_for_timestamp&lt;/span&gt;=&lt;span style=&#34;color:#cd5555&#34;&gt;true&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;新建系统变量&lt;br&gt;
+变量名称： MYSQL_HOME
+变量值： MySQL安装目录&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;编辑系统变量 Path&lt;br&gt;
+将 %MYSQL_HOME%\bin 添加到 Path即可&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;管理员身份运行命令提示符cmd&lt;br&gt;
+进入mysql安装bin目录,执行mysqld -install命令进行安装&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;执行命mysqld &amp;ndash;initialize &amp;ndash;console令初始化成功后，会生成data目录,并将初始密码打印在控制台&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;输入启动命令: net start mysql&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;输入：mysql -u root -p控制台密码，直接回车&lt;br&gt;
+接着输入以下命令：&lt;br&gt;
+alter user user() identified by &amp;ldquo;root&amp;rdquo;;	//修改密码为root&lt;br&gt;
+再次输入mysql -u root -proot即可&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;卸载服务&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# 管理员在安装目录的bin目录下执行
+.\mysqld.exe --remove mariadb
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;redis后台启动&#34;&gt;redis后台启动&lt;/h2&gt;
+&lt;p&gt;在reids安装目录执行命令，将其注册为服务&lt;br&gt;
+&lt;code&gt;redis-server --service-install redis.windows.conf&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;win10双系统删除多余efi分区&#34;&gt;win10双系统删除多余EFI分区&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;win10下进行以下操作：&lt;/code&gt;
+参考：&lt;a href=&#34;https://blog.csdn.net/g1027785756/article/details/82999451&#34;&gt;CSDN博客&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ol&gt;
+&lt;li&gt;管理员权限打开cmd控制台，输入：【diskpart】进入命令行分区管理工具&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;输入【list disk】查看磁盘信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;输入【select disk n】选择所安装的系统EFI分区的磁盘。n：表示磁盘号。 例如：select disk 1；标识选择了磁盘号为1的磁盘&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;4&#34;&gt;
+&lt;li&gt;输入【list partition】查看所选磁盘下的分区信息&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;5&#34;&gt;
+&lt;li&gt;输入【select partition n】选择EFI分区所在的系统分区上。n：表示分区号。例如：select partition 1；表示选择了当前磁盘下分区号为1的磁盘分区&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;6&#34;&gt;
+&lt;li&gt;输入【assign letter=p】p是盘符，只要和自己本地已有的盘符不重复即可，这一步可以将EFI分区转为和普通盘一样的可见磁盘&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;7&#34;&gt;
+&lt;li&gt;在我的电脑处查看win10的磁盘会发现多了一个盘，不能直接打开，会提示权限不够&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;8&#34;&gt;
+&lt;li&gt;管理员权限打开记事本，从文件打开p盘，会发现有已安装系统的引导，直接删除即可&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;ol start=&#34;9&#34;&gt;
+&lt;li&gt;回到【diskpart】工具处输入【remove letter=p】即可删除p盘—&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;定时关机&#34;&gt;定时关机&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-cmd&#34; data-lang=&#34;cmd&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;shutdown -s -t 秒数
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;# 取消关机
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;shutdown -a
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;修改win11计算机名称&#34;&gt;修改win11计算机名称&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;管理员打开终端执行命令后重启&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-po&#34; data-lang=&#34;po&#34;&gt;Rename-Computer -NewName &amp;#34;name&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;- https://brandykk.gitee.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+        <item>
+        <title>About</title>
+        <link>https://brandykk.gitee.io/about/about/</link>
+        <pubDate>Mon, 01 Feb 2021 17:02:29 +0800</pubDate>
+        
+        <guid>https://brandykk.gitee.io/about/about/</guid>
+        <description>Brandy https://brandykk.gitee.io/about/about/ -&lt;pre&gt;&lt;code&gt;没什么内容，偶尔随便记录一些自己的东西而已,测试
+&lt;/code&gt;&lt;/pre&gt;
+- https://brandykk.gitee.io/about/about/ - This is a customized copyright.</description>
+        </item>
+    
+    
+    
+    
+  </channel>
+</rss> 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>springboot on Brandy</title>
+    <link>https://brandykk.gitee.io/tags/springboot/</link>
+    <description>Recent content in springboot on Brandy</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <copyright>This is a customized copyright.</copyright>
+    <lastBuildDate>Sat, 07 Aug 2021 23:03:10 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot</title>
+      <link>https://brandykk.gitee.io/posts/java/spring/springboot/</link>
+      <pubDate>Sat, 07 Aug 2021 23:03:10 +0800</pubDate>
+      
+      <guid>https://brandykk.gitee.io/posts/java/spring/springboot/</guid>
+      <description>小彩蛋：修改springboot启动banner,也就是控制台打印的图像 在resources在创建banner.txt,然后把网上复制的banner粘贴进去
+.::::. .::::::::. ::::::::::: &amp;#39;:::::::::::.. :::::::::::::::&amp;#39; &amp;#39;:::::::::::. .::::::::::::::&amp;#39; .:::::::::::... ::::::::::::::&amp;#39;&amp;#39; .:::. &amp;#39;::::::::&amp;#39;&amp;#39;:::: .::::::::. &amp;#39;:::::&amp;#39; &amp;#39;:::: .::::&amp;#39;:::::::. ::::: &amp;#39;::::. .:::::&amp;#39; &amp;#39;:::::::::. ::::: &amp;#39;:::. .:::::&amp;#39; &amp;#39;:::::::::.::::: &amp;#39;::. .::::&amp;#39;&amp;#39; &amp;#39;:::::::::::::: &amp;#39;::. .::&amp;#39;&amp;#39; &amp;#39;:::::::::::: :::... ..:::: &amp;#39;:::::::::&amp;#39; .:&amp;#39; &amp;#39;&amp;#39;&amp;#39;&amp;#39; ..&amp;#39;&amp;#39;&amp;#39;&amp;#39;&amp;#39;:&amp;#39; &amp;#39;:::::.&amp;#39; 1. springboot依赖 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.3&amp;lt;/version&amp;gt; &amp;lt;relativePath/&amp;gt; &amp;lt;!-- lookup parent from repository --&amp;gt; &amp;lt;/parent&amp;gt; &amp;lt;groupId&amp;gt;com.bin&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;springboot&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;name&amp;gt;springboot&amp;lt;/name&amp;gt; &amp;lt;description&amp;gt;Demo project for Spring Boot&amp;lt;/description&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;java.</description>
+    </item>
+    
+  </channel>
+</rss>
