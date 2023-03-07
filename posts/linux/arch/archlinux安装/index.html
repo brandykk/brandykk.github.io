@@ -20,8 +20,8 @@
 <meta property="og:description" content="ArchLinux个人安装记录" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2021-06-18T21:14:52+08:00" />
-<meta property="article:modified_time" content="2021-06-18T21:14:52+08:00" /><meta property="og:site_name" content="白小生" />
+<meta property="article:published_time" content="2023-03-07T16:00:00+08:00" />
+<meta property="article:modified_time" content="2023-03-07T16:00:00+08:00" /><meta property="og:site_name" content="白小生" />
 
 
 
@@ -709,7 +709,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                     <div class="post-meta">
                         
                         <time itemprop="datePublished">
-                            2021-06-18 21:14
+                            2023-03-07 16:00
                         </time>
                         
 
@@ -734,9 +734,9 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                             
 
                             
-                            23 min
+                            24 min
                             
-                            56 s.
+                            59 s.
                         
                     </div>
                 </div>
@@ -747,9 +747,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                 <div class="post-body" v-pre>
                 
                     <blockquote>
-<p>更新于2023年3月5日；适用于Arch和win11双系统，btrfs文件系统，kde桌面</p>
+<p>更新于2023年3月7日；适用于Arch和win11双系统，btrfs文件系统，kde桌面</p>
 </blockquote>
-<p><a href="https://blog.csdn.net/kimux/article/details/128700223">参考</a></p>
 <h2 id="准备工作">准备工作</h2>
 <ul>
 <li>
@@ -770,18 +769,21 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 <ul>
 <li>单系统需要先将磁盘转为<code>gpt</code>格式，双系统的话，在win11上已经转过了，<!-- raw HTML omitted --><code>/dev/nvme0n1p6</code><!-- raw HTML omitted -->是安装磁盘，根据实际情况改成自己的磁盘</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 或者执行命令</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 如果需要转gpt则执行命令</span>
 </span></span><span style="display:flex;"><span>lsblk                       <span style="color:#228b22">#显示分区情况</span>
 </span></span><span style="display:flex;"><span>parted /dev/sdx             <span style="color:#228b22">#执行parted，进行磁盘类型变更</span>
 </span></span><span style="display:flex;"><span>(parted)mktable             <span style="color:#228b22">#输入mktable</span>
 </span></span><span style="display:flex;"><span>New disk label type? gpt    <span style="color:#228b22">#输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可</span>
 </span></span><span style="display:flex;"><span>quit                        <span style="color:#228b22">#最后quit退出parted命令行交互</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 或</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 如果是单个磁盘，不需要要保留磁盘数据则执行以下命令可以直接选择将磁盘转为`gpt`（不会读取硬盘已有分区）</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># cfdisk -z /dev/nvme0n1p6</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 不需要转gpt,在已有分区基础上继续分区（会读取硬盘已有分区）</span>
+</span></span><span style="display:flex;"><span>cfdisk /dev/nvme0n1p6
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 格式化磁盘</span>
 </span></span><span style="display:flex;"><span>mkfs.btrfs -f /dev/nvme0n1p6
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 如果是单个磁盘，不需要要保留磁盘数据则执行以下命令可以直接选择将磁盘转为`gpt`</span>
-</span></span><span style="display:flex;"><span>cfdisk -z /dev/nvme0n1p6
 </span></span></code></pre></div><ul>
 <li>挂载分区</li>
 </ul>
@@ -871,9 +873,13 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#228b22"># 把环境切换到新系统的/mnt 下</span>
 </span></span><span style="display:flex;"><span>arch-chroot /mnt
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 配置neovim</span>
 </span></span><span style="display:flex;"><span>ln -s /bin/nvim /bin/vi
 </span></span><span style="display:flex;"><span>ln -s /bin/nvim /bin/vim
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 设置时区</span>
 </span></span><span style="display:flex;"><span>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime    
@@ -886,6 +892,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 设置语言，不建议zh_CN,中文可能会出现乱码</span>
 </span></span><span style="display:flex;"><span><span style="color:#658b00">echo</span> <span style="color:#cd5555">&#34;LANG=en_US.UTF-8&#34;</span> &gt; /etc/locale.conf
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 设置主机名</span>
 </span></span><span style="display:flex;"><span><span style="color:#658b00">echo</span> 主机名 &gt; /etc/hostname
@@ -900,16 +908,22 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 如果不生效需要则执行下面命令</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># timedatectl set-local-rtc 1</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装引导（此时会无法识别win,等进入桌面后再设置）</span>
 </span></span><span style="display:flex;"><span>pacman -S grub efibootmgr os-prober ntfs-3g
 </span></span><span style="display:flex;"><span>grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=ArchLinux
 </span></span><span style="display:flex;"><span>grub-mkconfig -o /boot/grub/grub.cfg
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装nvidia显卡</span>
 </span></span><span style="display:flex;"><span>pacman -S nvidia nvidia-settings nvidia-utils nvidia-prime opencl-nvidia
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装声卡</span>
 </span></span><span style="display:flex;"><span>pacman -S pipewire pipewire-pulse pipewire-jack pipewire-alsa pavucontrol
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 配置btrfs</span>
 </span></span><span style="display:flex;"><span>vi /etc/mkinitcpio.conf
@@ -921,6 +935,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>HOOKS  (去掉fsck 添加 btrfs ）
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 使其生效，注意看是否有报错</span>
 </span></span><span style="display:flex;"><span>mkinitcpio -P
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 配置root密码</span>
 </span></span><span style="display:flex;"><span>passwd
@@ -934,6 +950,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 找到这样的一行,把前面的注释符号#去掉</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22">#%wheel ALL=(ALL:ALL) ALL</span>
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 启用TRIM 会帮助清理 SSD 中的块，从而延长 SSD 的使用寿命</span>
 </span></span><span style="display:flex;"><span>systemctl <span style="color:#658b00">enable</span> fstrim.timer
 </span></span><span style="display:flex;"><span>
@@ -943,6 +961,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span><span style="color:#00688b">ParallelDownloads</span> = <span style="color:#b452cd">5</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 在/etc/pacman.conf文件中取消 VerbosePkgLists 的注释，软件更新时会更方便新旧版本对比</span>
 </span></span><span style="display:flex;"><span>VerbosePkgLists
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 重启</span>
 </span></span><span style="display:flex;"><span><span style="color:#658b00">exit</span>                <span style="color:#228b22"># 退回安装环境#</span>
@@ -1050,8 +1070,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># GRUB_DEFAULT=saved		# (btrfs文件系统不适用）</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># GRUB_SAVEDEFAULT=true	# (btrfs文件系统不适用）</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 去掉`GRUB_CMDLINE_LINUX_DEFAULT`一行中最后的 quiet 参数，同时把 log level 的数值从 3 改成 5。这样是为了后续如果出现系统错误，方便排错。同时在同一行加入 nowatchdog 参数，这可以显著提高开关机速度</span>
-</span></span><span style="display:flex;"><span><span style="color:#00688b">GRUB_CMDLINE_LINUX_DEFAULT</span>=<span style="color:#cd5555">&#39;log level=5 nowatchdog&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 去掉`GRUB_CMDLINE_LINUX_DEFAULT`一行中最后的 quiet 参数，同时把 loglevel 的数值从 3 改成 5。这样是为了后续如果出现系统错误，方便排错。同时在同一行加入 nowatchdog 参数，这可以显著提高开关机速度</span>
+</span></span><span style="display:flex;"><span><span style="color:#00688b">GRUB_CMDLINE_LINUX_DEFAULT</span>=<span style="color:#cd5555">&#39;loglevel=5 nowatchdog&#39;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 双系统识别；最后一行取消注释，如果没有则添加</span>
 </span></span><span style="display:flex;"><span><span style="color:#00688b">GRUB_DISABLE_OS_PROBER</span>=<span style="color:#658b00">false</span>
@@ -1096,17 +1116,14 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22">#安装几个开源中文字体 一般装上文泉驿就能解决大多wine应用中文方块的问题</span>
-</span></span><span style="display:flex;"><span>yay -S adobe-source-han-serif-cn-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22">#ark压缩与dolphin同用右键解压</span>
 </span></span><span style="display:flex;"><span>yay -S ark p7zip unrar unarchiver lzop lrzip
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22">#确保Discover(软件中心）可用 图片查看器</span>
-</span></span><span style="display:flex;"><span>yay -S packagekit-qt5 gwenview
+</span></span><span style="display:flex;"><span><span style="color:#228b22">#确保Discover(软件中心）可用 图片查看器 kde分区管理工具 kde科学计算器</span>
+</span></span><span style="display:flex;"><span>yay -S packagekit-qt5 gwenview partitionmanager kcalc
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22">#安装常用的火狐、谷歌浏览器</span>
-</span></span><span style="display:flex;"><span>yay -S firefox chromium
+</span></span><span style="display:flex;"><span><span style="color:#228b22">#安装常用的火狐、谷歌浏览器 博客 视频播放器 </span>
+</span></span><span style="display:flex;"><span>yay -S firefox chromium hugo mpv 
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># wps</span>
 </span></span><span style="display:flex;"><span>yay -Syu wps-office ttf-wps-fonts  ttf-ms-fonts wps-office-fonts wps-office-mui-zh-cn
@@ -1117,14 +1134,11 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 开启自动登陆可用kwalletmanager将钱包密码置空（可选）</span>
 </span></span><span style="display:flex;"><span>yay -S kwalletmanager
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 博客</span>
-</span></span><span style="display:flex;"><span>yay -S hugo
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 截图软件</span>
 </span></span><span style="display:flex;"><span>yay -S flameshot
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 配置命令</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 可配置快捷键命令</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 普通截图</span>
 </span></span><span style="display:flex;"><span>flameshot gui
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 延迟2秒截图，适合截取鼠标悬停的提示信息</span>
@@ -1303,7 +1317,6 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>mkdir /home/lv/.local/share/applications
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 创建.desktop后缀文件</span>
-</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>[Desktop Entry]
 </span></span><span style="display:flex;"><span><span style="color:#00688b">Encoding</span>=UTF-8
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 版本号</span>
@@ -1336,10 +1349,16 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>sshpass -p <span style="color:#cd5555">&#39;root&#39;</span> ssh root@127.0.0.1 -p <span style="color:#b452cd">22</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 连接并执行命令</span>
 </span></span><span style="display:flex;"><span>sshpass -p <span style="color:#cd5555">&#39;R0ck9&#39;</span> ssh -t secadmin@192.168.1.110 <span style="color:#cd5555">&#39;cd /opt/iot/monitor-xunshi &amp;&amp; su &amp;&amp; exec $SHELL&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># dolphin中连接sftp，需要先在dolphin地址栏连接上一次（直接输入ip），然后再配`网络文件夹`</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 插件</span>
+</span></span><span style="display:flex;"><span>dolphin-plugins	<span style="color:#228b22"># 提供git/svn等版本管理功能</span>
 </span></span></code></pre></div><ul>
 <li>IDEA、DataGrip</li>
 </ul>
-<p><a href="https://33tool.com/idea/">临时打开</a>、<a href="https://www.exception.site/">可参考</a></p>
+<p><a href="https://33tool.com/idea/">参考1</a>、<a href="https://www.exception.site/">参考2</a></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-txt" data-lang="txt"><span style="display:flex;"><span>版本：IntelliJ IDEA 2021.2.3 (Ultimate Edition)
 </span></span><span style="display:flex;"><span>在插件中添加地址：https://plugins.zhile.io
 </span></span><span style="display:flex;"><span>插件：
@@ -1403,13 +1422,26 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 <li>解压中文乱码</li>
 </ul>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 使用unar解压</span>
-</span></span><span style="display:flex;"><span>sudo pacman -Sy unarchiver
+</span></span><span style="display:flex;"><span>sudo pacman -Syu unarchiver
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>unar -e cp936 ./xx.zip
+</span></span></code></pre></div><ul>
+<li>深度日历安装</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 安装</span>
+</span></span><span style="display:flex;"><span>yay -Syu deepin-calendar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 如果无法启动则在控制台输入命令查看是否有报错</span>
+</span></span><span style="display:flex;"><span>dde-calendar
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 如果报错：</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># dde-calendar: error while loading shared libraries: libdframeworkdbus.so.2: cannot open shared object file: No such file or directory</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 则安装community/deepin-qt-dbus-factory依赖库</span>
+</span></span><span style="display:flex;"><span>yay -Syu deepin-qt-dbus-factory
 </span></span></code></pre></div>
                     
                     <HR width="100%" id="EOF">
-		    <p style="color:#777;">最后修改于 2021-06-18</p>
+		    <p style="color:#777;">最后修改于 2023-03-07</p>
                     
                 </div>
             </div>
@@ -1418,14 +1450,14 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
             <nav class="post-pagination">
 
                 
-                <a class="newer-posts" href="/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/">
-			下回<br>Java中list&lt;Map&gt;排序
+                <a class="newer-posts">
+			下回<br>已经到头啦。
                 </a>
                 
                 
                 
-                <a class="older-posts" href="/posts/tool/hugo%E4%BD%BF%E7%94%A8/">
-			上回<br>Hugo使用
+                <a class="older-posts" href="/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/">
+			上回<br>服务器生成证书说明
                 </a>
                 
             </nav>
