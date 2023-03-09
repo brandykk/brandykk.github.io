@@ -734,9 +734,9 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                             
 
                             
-                            24 min
+                            25 min
                             
-                            59 s.
+                            33 s.
                         
                     </div>
                 </div>
@@ -780,7 +780,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 如果是单个磁盘，不需要要保留磁盘数据则执行以下命令可以直接选择将磁盘转为`gpt`（不会读取硬盘已有分区）</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># cfdisk -z /dev/nvme0n1p6</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 不需要转gpt,在已有分区基础上继续分区（会读取硬盘已有分区）</span>
-</span></span><span style="display:flex;"><span>cfdisk /dev/nvme0n1p6
+</span></span><span style="display:flex;"><span>cfdisk /dev/nvme0n1
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 格式化磁盘</span>
 </span></span><span style="display:flex;"><span>mkfs.btrfs -f /dev/nvme0n1p6
@@ -818,16 +818,16 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>mkdir -pv /mnt/{boot,home,var,opt,.snapshot,.swap}
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 挂载创建好的目录</span>
-</span></span><span style="display:flex;"><span>mount -t btrfs -o <span style="color:#00688b">subvol</span>=@boot /dev/nvme0n1p6 /mnt/boot
-</span></span><span style="display:flex;"><span>mount -t btrfs -o <span style="color:#00688b">subvol</span>=@home /dev/nvme0n1p6 /mnt/home
-</span></span><span style="display:flex;"><span>mount -t btrfs -o <span style="color:#00688b">subvol</span>=@var /dev/nvme0n1p6 /mnt/var
-</span></span><span style="display:flex;"><span>mount -t btrfs -o <span style="color:#00688b">subvol</span>=@opt /dev/nvme0n1p6 /mnt/opt
-</span></span><span style="display:flex;"><span>mount -t btrfs -o <span style="color:#00688b">subvol</span>=@snapshot /dev/nvme0n1p6 /mnt/.snapshot
-</span></span><span style="display:flex;"><span>mount -t btrfs -o <span style="color:#00688b">subvol</span>=<span style="color:#00688b">subvol</span>=@swap /dev/nvme0n1p6 /mnt/.swap
+</span></span><span style="display:flex;"><span>mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,discard=async,subvol=@boot /dev/nvme0n1p6 /mnt/boot
+</span></span><span style="display:flex;"><span>mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,discard=async,subvol=@home /dev/nvme0n1p6 /mnt/home
+</span></span><span style="display:flex;"><span>mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,discard=async,subvol=@var /dev/nvme0n1p6 /mnt/var
+</span></span><span style="display:flex;"><span>mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,discard=async,subvol=@opt /dev/nvme0n1p6 /mnt/opt
+</span></span><span style="display:flex;"><span>mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,discard=async,subvol=@snapshot /dev/nvme0n1p6 /mnt/.snapshot
+</span></span><span style="display:flex;"><span>mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,discard=async,subvol=<span style="color:#00688b">subvol</span>=@swap /dev/nvme0n1p6 /mnt/.swap
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 挂载win11的EFI分区</span>
 </span></span><span style="display:flex;"><span>mkdir /mnt/boot/efi
-</span></span><span style="display:flex;"><span>mount -t vfat /dev/nvme0n1p6 /mnt/boot/efi
+</span></span><span style="display:flex;"><span>mount -t vfat /dev/nvme0n1p1 /mnt/boot/efi
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 激活swap</span>
 </span></span><span style="display:flex;"><span>swapon /mnt/.swap/swapfile
@@ -917,10 +917,16 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装nvidia显卡</span>
-</span></span><span style="display:flex;"><span>pacman -S nvidia nvidia-settings nvidia-utils nvidia-prime opencl-nvidia
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装nvidia显卡驱动 nvidia基础 设置  工具 显卡切换 opencl支持 32位包 视频解码支持 32w</span>
+</span></span><span style="display:flex;"><span>pacman -S nvidia nvidia-settings nvidia-utils nvidia-prime opencl-nvidia lib32-nvidia-utils mesa-vdpau ib32-mesa-vdpau
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装声卡</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装intel驱动 vulkan 视频驱动</span>
+</span></span><span style="display:flex;"><span>yay -Syu mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装AMD驱动 基础 32位基础包	Vulkan 支持 32位Vulkan 支持 2D 加速</span>
+</span></span><span style="display:flex;"><span>yay -Syu mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon xf86-video-amdgpu 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 安装声卡驱动</span>
 </span></span><span style="display:flex;"><span>pacman -S pipewire pipewire-pulse pipewire-jack pipewire-alsa pavucontrol
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------</span>
@@ -1001,11 +1007,11 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 启用NetworkManager</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22">#确保iwd开机处于关闭状态，其无线连接会与NetworkManager冲突</span>
-</span></span><span style="display:flex;"><span>sudo systemctl disable iwd
-</span></span><span style="display:flex;"><span>sudo systemctl <span style="color:#658b00">enable</span> NetworkManager
+</span></span><span style="display:flex;"><span>systemctl disable iwd
+</span></span><span style="display:flex;"><span>systemctl <span style="color:#658b00">enable</span> NetworkManager
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 启用蓝牙</span>
-</span></span><span style="display:flex;"><span>sudo systemctl <span style="color:#658b00">enable</span> bluetooth
+</span></span><span style="display:flex;"><span>systemctl <span style="color:#658b00">enable</span> bluetooth
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 重启</span>
 </span></span><span style="display:flex;"><span>reboot
@@ -1058,7 +1064,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span></code></pre></div><ul>
 <li>修改grub</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 开机直接进入系统，而没有grub界面（注释掉这一行）</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># kate /etc/default/grub</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 开机直接进入系统，而没有grub界面（注释掉这一行）</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># GRUB_TIMEOUT_STYLE=hidden</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 修改界面等待时间（默认5）</span>
@@ -1070,8 +1077,8 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># GRUB_DEFAULT=saved		# (btrfs文件系统不适用）</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># GRUB_SAVEDEFAULT=true	# (btrfs文件系统不适用）</span>
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 去掉`GRUB_CMDLINE_LINUX_DEFAULT`一行中最后的 quiet 参数，同时把 loglevel 的数值从 3 改成 5。这样是为了后续如果出现系统错误，方便排错。同时在同一行加入 nowatchdog 参数，这可以显著提高开关机速度</span>
-</span></span><span style="display:flex;"><span><span style="color:#00688b">GRUB_CMDLINE_LINUX_DEFAULT</span>=<span style="color:#cd5555">&#39;loglevel=5 nowatchdog&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 去掉`GRUB_CMDLINE_LINUX_DEFAULT`一行中最后的 quiet 参数，同时把 loglevel 的数值从 3 改成 5。这样是为了后续如果出现系统错误，方便排错。同时在同一行加入 nowatchdog 参数，这可以显著提高开关机速度 ibt=off确保nvidia驱动可用</span>
+</span></span><span style="display:flex;"><span><span style="color:#00688b">GRUB_CMDLINE_LINUX_DEFAULT</span>=<span style="color:#cd5555">&#34;loglevel=3 nowatchdog ibt=off&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 双系统识别；最后一行取消注释，如果没有则添加</span>
 </span></span><span style="display:flex;"><span><span style="color:#00688b">GRUB_DISABLE_OS_PROBER</span>=<span style="color:#658b00">false</span>
