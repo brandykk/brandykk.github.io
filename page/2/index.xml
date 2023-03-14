@@ -2014,12 +2014,25 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo server
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 打包 在项目根目录下打包，public目录中&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;2-主题&#34;&gt;2. 主题&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;主题&#34;&gt;主题&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/nodejh/hugo-theme-cactus-plus/blob/master/README_zh-cn.md&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
 &lt;ol start=&#34;3&#34;&gt;
 &lt;li&gt;&lt;a href=&#34;https://brandykk.gitee.io/&#34;&gt;我的地址&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
-- https://brandykk.gitee.io/posts/tool/git%E5%9F%BA%E7%A1%80/ - This is a customized copyright.</description>
+&lt;hr&gt;
+&lt;h2 id=&#34;github令牌&#34;&gt;github令牌&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;先申请token令牌&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 移除远程连接&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote remove origin
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 将令牌添加在地址前面用@符号区分&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git remote add origin https://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@github.com/brandykk/brandykk.github.io.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 关联main分支&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push --set-upstream origin main 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/tool/git%E5%9F%BA%E7%A1%80/ - This is a customized copyright.</description>
         </item>
     
     
