@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>db on Brandy</title>
-    <link>https://brandykk.gitee.io/tags/db/</link>
+    <link>https://brandykk.github.io/tags/db/</link>
     <description>Recent content in db on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Sun, 20 Jun 2021 13:50:00 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/tags/db/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 13:50:00 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/db/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>达梦数据库</title>
-      <link>https://brandykk.gitee.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+      <link>https://brandykk.github.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sun, 20 Jun 2021 13:50:00 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+      <guid>https://brandykk.github.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>查询模式sql -- 获取当前用户下的所有表 SELECT * FROM user_tables ORDER BY table_name; -- 获取当前用户下的模式名 SELECT distinct object_name FROM all_objects WHERE object_type=&amp;#39;SCH&amp;#39;; -- 获取当前用户下模式（库）的信息 SELECT * FROM dba_segments; -- 获取模式下的表 SELECT table_name FROM dba_tables WHERE owner=&amp;#39;模式（库）名&amp;#39;; 常用函数 wm_concat(column)	分组时,将其他字段用,分割显示 </description>
     </item>
     

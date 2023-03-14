@@ -19,7 +19,7 @@
 <meta property="og:title" content="Java验证码" />
 <meta property="og:description" content="Utility.java import org.apache.commons.lang3.StringUtils; import org.apache.commons.logging.Log; import org.apache.commons.logging.LogFactory; import java.math.BigDecimal; import java.text.SimpleDateFormat; import java.util.*; public class Utility { protected final static Log logger = LogFactory.getLog(Utility.class); public static &lt;T&gt; List&lt;T&gt; newArray(int size, Class&lt;T&gt; clazz) { List&lt;T&gt; l = new ArrayList&lt;T&gt;(); for (int i = 0; i &lt; size; i&#43;&#43;) { T newInstance; try { newInstance = clazz.newInstance(); } catch (Exception e) { newInstance = null; } l.add(newInstance); } return l; } public static String randomString(int len, int type) { StringBuffer str = new StringBuffer(); // 默认去掉了容易混淆的字符oOLlI，要添加请使用addChars参数 String codestr = &#34;ABCDEFGHJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz&#34;; String codeNum = &#34;0123456789&#34;; //	switch (type) { //	case 0: //	codestr = &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&#34;; //	break; //	case 1: //	codestr = &#34;0123456789&#34;; //	break; //	case 2: //	codestr = &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#34;; //	break; //	case 3: //	codestr = &#34;abcdefghijklmnopqrstuvwxyz&#34;; //	break; //	default: //	// 默认去掉了容易混淆的字符oOLl和数字01，要添加请使用addChars参数 //	codestr = &#34;ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789&#34;; //	break; //	} char[] codes = codestr." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://brandykk.gitee.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/" /><meta property="article:section" content="posts" />
+<meta property="og:url" content="https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2021-06-20T13:58:34+08:00" />
 <meta property="article:modified_time" content="2021-06-20T13:58:34+08:00" /><meta property="og:site_name" content="白小生" />
 
@@ -82,7 +82,7 @@
 <body>
     	<div id="app"><div id="sideContainer" class="side-container">
     
-    <a class="a-block nav-head false" href="https://brandykk.gitee.io">
+    <a class="a-block nav-head false" href="https://brandykk.github.io">
     
         <div class="nav-title">
             Brandy
@@ -376,7 +376,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                 menu
             </i>
         </button>
-        <a id="navTitle" class="navbar-brand" href="https://brandykk.gitee.io">
+        <a id="navTitle" class="navbar-brand" href="https://brandykk.github.io">
             Brandy
         </a>
         
@@ -390,7 +390,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </nav>
 <div class="single-column-header-container" id="pageHead"
      v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
-    <a href="https://brandykk.gitee.io">
+    <a href="https://brandykk.github.io">
         <div class="single-column-header-title">Brandy</div>
         
         <div class="single-column-header-subtitle">个人使用</div>

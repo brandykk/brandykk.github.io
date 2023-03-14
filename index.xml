@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Brandy</title>
-    <link>https://brandykk.gitee.io/</link>
+    <link>https://brandykk.github.io/</link>
     <description>Recent content on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate>
     
-        <atom:link href="https://brandykk.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://brandykk.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     
         <item>
         <title>ArchLinux安装记录</title>
-        <link>https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</link>
+        <link>https://brandykk.github.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</link>
         <pubDate>Tue, 07 Mar 2023 16:00:00 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/ -&lt;blockquote&gt;
+        <guid>https://brandykk.github.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</guid>
+        <description>Brandy https://brandykk.github.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/ -&lt;blockquote&gt;
 &lt;p&gt;更新于2023年3月7日；适用于Arch和win11双系统，btrfs文件系统，kde桌面&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;准备工作&#34;&gt;&lt;em&gt;&lt;strong&gt;准备工作&lt;/strong&gt;&lt;/em&gt;&lt;/h2&gt;
@@ -694,18 +694,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 执行命令&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kbuildsycoca5 --noincremental
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;#重启&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>服务器生成证书说明</title>
-        <link>https://brandykk.gitee.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/</link>
+        <link>https://brandykk.github.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/</link>
         <pubDate>Tue, 07 Feb 2023 10:42:28 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/ -&lt;blockquote&gt;
+        <guid>https://brandykk.github.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/</guid>
+        <description>Brandy https://brandykk.github.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/ -&lt;blockquote&gt;
 &lt;p&gt;此文档使用的系统:  WSL2-ArchLinux 进行的以下操作：建议用root账号进行操作，并在统一目录下操作。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;hr&gt;
@@ -789,18 +789,18 @@ keepalive_timeout 70;
 &lt;li&gt;在浏览器设置中搜索证书》》管理设备证书》》导入》》选择刚刚导出的证书》》选择&lt;code&gt;将所有的证书都放入下列储存&lt;/code&gt;》点击&lt;code&gt;受信任的根证书颁发机构&lt;/code&gt;》》确定&lt;/li&gt;
 &lt;li&gt;双击&lt;code&gt;ca.crt&lt;/code&gt;进行根证书安装》》本地计算机》》选择&lt;code&gt;将所有的证书都放入下列储存&lt;/code&gt;》点击&lt;code&gt;受信任的根证书颁发机构&lt;/code&gt;》》确定&lt;/li&gt;
 &lt;/ol&gt;
-- https://brandykk.gitee.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/ - This is a customized copyright.</description>
+- https://brandykk.github.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Linux子系统</title>
-        <link>https://brandykk.gitee.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</link>
+        <link>https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</link>
         <pubDate>Mon, 13 Jun 2022 09:50:21 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/ -&lt;h2 id=&#34;在win11上安装archlinux子系统&#34;&gt;在win11上安装archlinux子系统&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</guid>
+        <description>Brandy https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/ -&lt;h2 id=&#34;在win11上安装archlinux子系统&#34;&gt;在win11上安装archlinux子系统&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;需要先开启linux子系统和虚拟平台服务,&lt;a href=&#34;https://zhuanlan.zhihu.com/p/417410431&#34;&gt;参考&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -886,18 +886,18 @@ keepalive_timeout 70;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#00688b&#34;&gt;WantedBy&lt;/span&gt;=multi-user.target
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# systemctl enable mariadb-local.service&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Docker使用</title>
-        <link>https://brandykk.gitee.io/posts/tool/docker/</link>
+        <link>https://brandykk.github.io/posts/tool/docker/</link>
         <pubDate>Wed, 19 Jan 2022 20:00:28 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/tool/docker/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/tool/docker/ -&lt;h2 id=&#34;docker下载&#34;&gt;Docker下载&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/tool/docker/</guid>
+        <description>Brandy https://brandykk.github.io/posts/tool/docker/ -&lt;h2 id=&#34;docker下载&#34;&gt;Docker下载&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# archlinux&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo pacman -Syu docker
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 将用户lv追加进docker用户组&lt;/span&gt;
@@ -944,18 +944,18 @@ keepalive_timeout 70;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 运行刚刚的容器id&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker &lt;span style=&#34;color:#658b00&#34;&gt;exec&lt;/span&gt; -it b8a0ae8742e2 bash
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/tool/docker/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/tool/docker/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Linux基础命令</title>
-        <link>https://brandykk.gitee.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
+        <link>https://brandykk.github.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
         <pubDate>Fri, 08 Oct 2021 17:24:15 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 查看内核信息&lt;/span&gt;
+        <guid>https://brandykk.github.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
+        <description>Brandy https://brandykk.github.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 查看内核信息&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;uname -a
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 查看端口号&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;-t (tcp) 仅显示tcp相关选项
@@ -968,18 +968,18 @@ keepalive_timeout 70;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;netstat -ntlp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 查看所有80端口使用情况&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;netstat -ntulp | grep &lt;span style=&#34;color:#b452cd&#34;&gt;80&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>C语言基础学习</title>
-        <link>https://brandykk.gitee.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>
+        <link>https://brandykk.github.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>
         <pubDate>Mon, 04 Oct 2021 17:00:42 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/ -&lt;h2 id=&#34;第一个c语言程序&#34;&gt;第一个C语言程序&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</guid>
+        <description>Brandy https://brandykk.github.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/ -&lt;h2 id=&#34;第一个c语言程序&#34;&gt;第一个C语言程序&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;c语言中在同一个项目中只能有一个主方法入口（main）&lt;/p&gt;
 &lt;p&gt;从上往下按照顺序执行代码，所以main方法要在最下面&lt;/p&gt;
@@ -1109,18 +1109,18 @@ keepalive_timeout 70;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>SpringBoot</title>
-        <link>https://brandykk.gitee.io/posts/java/spring/springboot/</link>
+        <link>https://brandykk.github.io/posts/java/spring/springboot/</link>
         <pubDate>Sat, 07 Aug 2021 23:03:10 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/spring/springboot/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/spring/springboot/ -&lt;ul&gt;
+        <guid>https://brandykk.github.io/posts/java/spring/springboot/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/spring/springboot/ -&lt;ul&gt;
 &lt;li&gt;小彩蛋：修改springboot启动banner,也就是控制台打印的图像&lt;/li&gt;
 &lt;/ul&gt;
 &lt;blockquote&gt;
@@ -1642,18 +1642,18 @@ keepalive_timeout 70;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;setXsjzServerName&lt;/span&gt;(String xsjzServerName) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;this&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;xsjzServerName&lt;/span&gt; = xsjzServerName;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/spring/springboot/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/spring/springboot/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>SpringMVC</title>
-        <link>https://brandykk.gitee.io/posts/java/spring/springmvc/</link>
+        <link>https://brandykk.github.io/posts/java/spring/springmvc/</link>
         <pubDate>Sat, 07 Aug 2021 21:09:25 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/spring/springmvc/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/spring/springmvc/ -&lt;h1 id=&#34;springmvc&#34;&gt;SpringMVC&lt;/h1&gt;
+        <guid>https://brandykk.github.io/posts/java/spring/springmvc/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/spring/springmvc/ -&lt;h1 id=&#34;springmvc&#34;&gt;SpringMVC&lt;/h1&gt;
 &lt;p&gt;MVC 模式代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Model（模型）&lt;/strong&gt; - 模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器。&lt;/li&gt;
@@ -1876,18 +1876,18 @@ ${msg}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        model.&lt;span style=&#34;color:#658b00&#34;&gt;addAttribute&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;msg&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;HelloSpringMVC&amp;#34;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;hello&amp;#34;&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/spring/springmvc/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/spring/springmvc/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Jdbc</title>
-        <link>https://brandykk.gitee.io/posts/java/jdbc/</link>
+        <link>https://brandykk.github.io/posts/java/jdbc/</link>
         <pubDate>Thu, 05 Aug 2021 22:01:35 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/jdbc/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/jdbc/ -&lt;h2 id=&#34;jdbc程序&#34;&gt;JDBC程序&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/java/jdbc/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/jdbc/ -&lt;h2 id=&#34;jdbc程序&#34;&gt;JDBC程序&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;jdbcUtil&lt;/span&gt;() &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;throws&lt;/span&gt; ClassNotFoundException, SQLException {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#228b22&#34;&gt;//1. 加载驱动
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;        Class.&lt;span style=&#34;color:#658b00&#34;&gt;forName&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;com.mysql.jdbc.Driver&amp;#34;&lt;/span&gt;);
@@ -1918,18 +1918,18 @@ ${msg}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        connection.&lt;span style=&#34;color:#658b00&#34;&gt;close&lt;/span&gt;();
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/jdbc/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/jdbc/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Spring重点</title>
-        <link>https://brandykk.gitee.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/</link>
+        <link>https://brandykk.github.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/</link>
         <pubDate>Wed, 28 Jul 2021 21:54:52 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/ -&lt;h2 id=&#34;1-ioc理论推导&#34;&gt;1. IOC理论推导&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/ -&lt;h2 id=&#34;1-ioc理论推导&#34;&gt;1. IOC理论推导&lt;/h2&gt;
 &lt;h3 id=&#34;11-原来的写法&#34;&gt;1.1. 原来的写法&lt;/h3&gt;
 &lt;h4 id=&#34;111--userdao接口&#34;&gt;1.1.1  UserDao接口&lt;/h4&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;public&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color:#008b45;font-weight:bold&#34;&gt;UserDao&lt;/span&gt; {
@@ -3710,7 +3710,7 @@ ${msg}
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &amp;lt;aop:advisor advice-ref=&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;txAdvice&amp;#34;&lt;/span&gt; pointcut-ref=&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;txPoint&amp;#34;&lt;/span&gt;/&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &amp;lt;/aop:config&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/beans&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/ - This is a customized copyright.</description>
         </item>
     
     

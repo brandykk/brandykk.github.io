@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>arch on Brandy</title>
-    <link>https://brandykk.gitee.io/tags/arch/</link>
+    <link>https://brandykk.github.io/tags/arch/</link>
     <description>Recent content in arch on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/tags/arch/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/arch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ArchLinux安装记录</title>
-      <link>https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</link>
+      <link>https://brandykk.github.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</link>
       <pubDate>Tue, 07 Mar 2023 16:00:00 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</guid>
+      <guid>https://brandykk.github.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</guid>
       <description>更新于2023年3月7日；适用于Arch和win11双系统，btrfs文件系统，kde桌面
 准备工作 先安装win10,然后再安装linux,关闭主板设置中的 Secure Boot,关闭win10的快速启动
 制作镜像：推荐ventoy

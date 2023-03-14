@@ -2,72 +2,72 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Brandy</title>
-    <link>https://brandykk.gitee.io/categories/</link>
+    <link>https://brandykk.github.io/categories/</link>
     <description>Recent content in Categories on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>linux</title>
-      <link>https://brandykk.gitee.io/categories/linux/</link>
+      <link>https://brandykk.github.io/categories/linux/</link>
       <pubDate>Tue, 07 Mar 2023 16:00:00 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/categories/linux/</guid>
+      <guid>https://brandykk.github.io/categories/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>windows</title>
-      <link>https://brandykk.gitee.io/categories/windows/</link>
+      <link>https://brandykk.github.io/categories/windows/</link>
       <pubDate>Mon, 13 Jun 2022 09:50:21 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/categories/windows/</guid>
+      <guid>https://brandykk.github.io/categories/windows/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tool</title>
-      <link>https://brandykk.gitee.io/categories/tool/</link>
+      <link>https://brandykk.github.io/categories/tool/</link>
       <pubDate>Wed, 19 Jan 2022 20:00:28 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/categories/tool/</guid>
+      <guid>https://brandykk.github.io/categories/tool/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C</title>
-      <link>https://brandykk.gitee.io/categories/c/</link>
+      <link>https://brandykk.github.io/categories/c/</link>
       <pubDate>Mon, 04 Oct 2021 17:00:42 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/categories/c/</guid>
+      <guid>https://brandykk.github.io/categories/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>https://brandykk.gitee.io/categories/java/</link>
+      <link>https://brandykk.github.io/categories/java/</link>
       <pubDate>Sat, 07 Aug 2021 23:03:10 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/categories/java/</guid>
+      <guid>https://brandykk.github.io/categories/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>开发</title>
-      <link>https://brandykk.gitee.io/categories/%E5%BC%80%E5%8F%91/</link>
+      <link>https://brandykk.github.io/categories/%E5%BC%80%E5%8F%91/</link>
       <pubDate>Sun, 20 Jun 2021 16:18:38 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/categories/%E5%BC%80%E5%8F%91/</guid>
+      <guid>https://brandykk.github.io/categories/%E5%BC%80%E5%8F%91/</guid>
       <description></description>
     </item>
     
     <item>
       <title>DB</title>
-      <link>https://brandykk.gitee.io/categories/db/</link>
+      <link>https://brandykk.github.io/categories/db/</link>
       <pubDate>Sat, 15 May 2021 21:28:07 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/categories/db/</guid>
+      <guid>https://brandykk.github.io/categories/db/</guid>
       <description></description>
     </item>
     

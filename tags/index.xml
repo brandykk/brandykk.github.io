@@ -2,144 +2,144 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Brandy</title>
-    <link>https://brandykk.gitee.io/tags/</link>
+    <link>https://brandykk.github.io/tags/</link>
     <description>Recent content in Tags on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>arch</title>
-      <link>https://brandykk.gitee.io/tags/arch/</link>
+      <link>https://brandykk.github.io/tags/arch/</link>
       <pubDate>Tue, 07 Mar 2023 16:00:00 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/arch/</guid>
+      <guid>https://brandykk.github.io/tags/arch/</guid>
       <description></description>
     </item>
     
     <item>
       <title>linux</title>
-      <link>https://brandykk.gitee.io/tags/linux/</link>
+      <link>https://brandykk.github.io/tags/linux/</link>
       <pubDate>Tue, 07 Feb 2023 10:42:28 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/linux/</guid>
+      <guid>https://brandykk.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>“windows”</title>
-      <link>https://brandykk.gitee.io/tags/windows/</link>
+      <link>https://brandykk.github.io/tags/windows/</link>
       <pubDate>Mon, 13 Jun 2022 09:50:21 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/windows/</guid>
+      <guid>https://brandykk.github.io/tags/windows/</guid>
       <description></description>
     </item>
     
     <item>
       <title>dokcer</title>
-      <link>https://brandykk.gitee.io/tags/dokcer/</link>
+      <link>https://brandykk.github.io/tags/dokcer/</link>
       <pubDate>Wed, 19 Jan 2022 20:00:28 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/dokcer/</guid>
+      <guid>https://brandykk.github.io/tags/dokcer/</guid>
       <description></description>
     </item>
     
     <item>
       <title>C</title>
-      <link>https://brandykk.gitee.io/tags/c/</link>
+      <link>https://brandykk.github.io/tags/c/</link>
       <pubDate>Mon, 04 Oct 2021 17:00:42 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/c/</guid>
+      <guid>https://brandykk.github.io/tags/c/</guid>
       <description></description>
     </item>
     
     <item>
       <title>springboot</title>
-      <link>https://brandykk.gitee.io/tags/springboot/</link>
+      <link>https://brandykk.github.io/tags/springboot/</link>
       <pubDate>Sat, 07 Aug 2021 23:03:10 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/springboot/</guid>
+      <guid>https://brandykk.github.io/tags/springboot/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spring</title>
-      <link>https://brandykk.gitee.io/tags/spring/</link>
+      <link>https://brandykk.github.io/tags/spring/</link>
       <pubDate>Sat, 07 Aug 2021 21:09:25 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/spring/</guid>
+      <guid>https://brandykk.github.io/tags/spring/</guid>
       <description></description>
     </item>
     
     <item>
       <title>mybatis</title>
-      <link>https://brandykk.gitee.io/tags/mybatis/</link>
+      <link>https://brandykk.github.io/tags/mybatis/</link>
       <pubDate>Thu, 05 Aug 2021 22:01:35 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/mybatis/</guid>
+      <guid>https://brandykk.github.io/tags/mybatis/</guid>
       <description></description>
     </item>
     
     <item>
       <title>java</title>
-      <link>https://brandykk.gitee.io/tags/java/</link>
+      <link>https://brandykk.github.io/tags/java/</link>
       <pubDate>Tue, 20 Jul 2021 21:53:26 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/java/</guid>
+      <guid>https://brandykk.github.io/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>utils</title>
-      <link>https://brandykk.gitee.io/tags/utils/</link>
+      <link>https://brandykk.github.io/tags/utils/</link>
       <pubDate>Tue, 20 Jul 2021 21:53:26 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/utils/</guid>
+      <guid>https://brandykk.github.io/tags/utils/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Thread</title>
-      <link>https://brandykk.gitee.io/tags/thread/</link>
+      <link>https://brandykk.github.io/tags/thread/</link>
       <pubDate>Mon, 19 Jul 2021 22:04:34 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/thread/</guid>
+      <guid>https://brandykk.github.io/tags/thread/</guid>
       <description></description>
     </item>
     
     <item>
       <title>db</title>
-      <link>https://brandykk.gitee.io/tags/db/</link>
+      <link>https://brandykk.github.io/tags/db/</link>
       <pubDate>Sun, 20 Jun 2021 13:50:00 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/db/</guid>
+      <guid>https://brandykk.github.io/tags/db/</guid>
       <description></description>
     </item>
     
     <item>
       <title>git</title>
-      <link>https://brandykk.gitee.io/tags/git/</link>
+      <link>https://brandykk.github.io/tags/git/</link>
       <pubDate>Sun, 20 Jun 2021 13:45:44 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/git/</guid>
+      <guid>https://brandykk.github.io/tags/git/</guid>
       <description></description>
     </item>
     
     <item>
       <title>hugo</title>
-      <link>https://brandykk.gitee.io/tags/hugo/</link>
+      <link>https://brandykk.github.io/tags/hugo/</link>
       <pubDate>Fri, 18 Jun 2021 20:48:28 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/hugo/</guid>
+      <guid>https://brandykk.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SQLITE</title>
-      <link>https://brandykk.gitee.io/tags/sqlite/</link>
+      <link>https://brandykk.github.io/tags/sqlite/</link>
       <pubDate>Sat, 15 May 2021 21:28:07 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/tags/sqlite/</guid>
+      <guid>https://brandykk.github.io/tags/sqlite/</guid>
       <description></description>
     </item>
     

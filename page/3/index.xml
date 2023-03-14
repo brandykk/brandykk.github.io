@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Brandy</title>
-    <link>https://brandykk.gitee.io/</link>
+    <link>https://brandykk.github.io/</link>
     <description>Recent content on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate>
     
-        <atom:link href="https://brandykk.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://brandykk.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     
         <item>
         <title>Nodejs连接sqlite数据库</title>
-        <link>https://brandykk.gitee.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <link>https://brandykk.github.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
         <pubDate>Sat, 15 May 2021 21:28:07 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/ -&lt;h2 id=&#34;编译nodejs相关模块better-sqlite3&#34;&gt;编译nodejs相关模块better-sqlite3&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+        <description>Brandy https://brandykk.github.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/ -&lt;h2 id=&#34;编译nodejs相关模块better-sqlite3&#34;&gt;编译nodejs相关模块better-sqlite3&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;安装 &lt;a href=&#34;https://github.com/felixrieseberg/windows-build-tools&#34;&gt;windows-build-tools&lt;/a&gt;， 注意用管理员身份启动终端（如果安装node的时侯已经安装了相关的tools就略过这一步）&lt;/li&gt;
 &lt;/ol&gt;
@@ -141,18 +141,18 @@ npm install -g node-gyp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;break&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Spring定时器依赖注入</title>
-        <link>https://brandykk.gitee.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</link>
+        <link>https://brandykk.github.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</link>
         <pubDate>Sun, 18 Apr 2021 16:09:32 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/ -&lt;ul&gt;
+        <guid>https://brandykk.github.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/ -&lt;ul&gt;
 &lt;li&gt;工具类&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;/**
@@ -183,18 +183,18 @@ npm install -g node-gyp
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;realmEbi = (RealmEbi) ApplicationContextUtil.&lt;span style=&#34;color:#658b00&#34;&gt;getBean&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;realmEbi&amp;#34;&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;realmEbi.&lt;span style=&#34;color:#658b00&#34;&gt;insertHour&lt;/span&gt;(RealmApplianceModel.&lt;span style=&#34;color:#658b00&#34;&gt;sendData3&lt;/span&gt;);
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Java模拟鼠标键盘操作</title>
-        <link>https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</link>
+        <link>https://brandykk.github.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</link>
         <pubDate>Sun, 18 Apr 2021 12:25:27 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;/**
+        <guid>https://brandykk.github.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;/**
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * 定时执行模拟鼠标键盘操作
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * Robot中主要的鼠标和键盘控制方法有：
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;     * •    void keyPress(int keycode) 按下给定的键。
@@ -264,18 +264,18 @@ npm install -g node-gyp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        });
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Java树结构递归封装</title>
-        <link>https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</link>
+        <link>https://brandykk.github.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</link>
         <pubDate>Sun, 18 Apr 2021 12:07:25 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+        <guid>https://brandykk.github.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#008b45;text-decoration:underline&#34;&gt;java.util.ArrayList&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#008b45;text-decoration:underline&#34;&gt;java.util.Comparator&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#008b45;text-decoration:underline&#34;&gt;java.util.List&lt;/span&gt;;
@@ -400,18 +400,18 @@ npm install -g node-gyp
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; (n1.&lt;span style=&#34;color:#658b00&#34;&gt;getOrder&lt;/span&gt;() &amp;lt; n2.&lt;span style=&#34;color:#658b00&#34;&gt;getOrder&lt;/span&gt;() ? -&lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt; : (n1.&lt;span style=&#34;color:#658b00&#34;&gt;getOrder&lt;/span&gt;() == n2.&lt;span style=&#34;color:#658b00&#34;&gt;getOrder&lt;/span&gt;() ? &lt;span style=&#34;color:#b452cd&#34;&gt;0&lt;/span&gt; : &lt;span style=&#34;color:#b452cd&#34;&gt;1&lt;/span&gt;));
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Win10使用记录</title>
-        <link>https://brandykk.gitee.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
+        <link>https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
         <pubDate>Sat, 17 Apr 2021 18:47:06 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/ -&lt;h2 id=&#34;安装jdk&#34;&gt;安装JDK&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</guid>
+        <description>Brandy https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/ -&lt;h2 id=&#34;安装jdk&#34;&gt;安装JDK&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;新建系统变量&lt;/p&gt;
@@ -597,20 +597,20 @@ alter user user() identified by &amp;ldquo;root&amp;rdquo;;	//修改密码为roo
 &lt;p&gt;管理员打开终端执行命令后重启&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-po&#34; data-lang=&#34;po&#34;&gt;Rename-Computer -NewName &amp;#34;name&amp;#34;
-&lt;/code&gt;&lt;/pre&gt;- https://brandykk.gitee.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/ - This is a customized copyright.</description>
+&lt;/code&gt;&lt;/pre&gt;- https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>About</title>
-        <link>https://brandykk.gitee.io/about/about/</link>
+        <link>https://brandykk.github.io/about/about/</link>
         <pubDate>Mon, 01 Feb 2021 17:02:29 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/about/about/</guid>
-        <description>Brandy https://brandykk.gitee.io/about/about/ -&lt;pre&gt;&lt;code&gt;没什么内容，偶尔随便记录一些自己的东西而已,测试
+        <guid>https://brandykk.github.io/about/about/</guid>
+        <description>Brandy https://brandykk.github.io/about/about/ -&lt;pre&gt;&lt;code&gt;没什么内容，偶尔随便记录一些自己的东西而已,测试
 &lt;/code&gt;&lt;/pre&gt;
-- https://brandykk.gitee.io/about/about/ - This is a customized copyright.</description>
+- https://brandykk.github.io/about/about/ - This is a customized copyright.</description>
         </item>
     
     

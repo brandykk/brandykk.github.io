@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Brandy</title>
-    <link>https://brandykk.gitee.io/</link>
+    <link>https://brandykk.github.io/</link>
     <description>Recent content on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate>
     
-        <atom:link href="https://brandykk.gitee.io/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://brandykk.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     
         <item>
         <title>Java中常用工具类</title>
-        <link>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
+        <link>https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
         <pubDate>Tue, 20 Jul 2021 21:53:26 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/ -&lt;h2 id=&#34;java自带的方法&#34;&gt;java自带的方法&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/ -&lt;h2 id=&#34;java自带的方法&#34;&gt;java自带的方法&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;List集合拼接成以逗号分隔的字符串&lt;/li&gt;
 &lt;/ol&gt;
@@ -160,18 +160,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;FileUtils.&lt;span style=&#34;color:#658b00&#34;&gt;writeLines&lt;/span&gt;(&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; File(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;demo2.txt&amp;#34;&lt;/span&gt;), lines);  
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;// 复制文件  
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;FileUtils.&lt;span style=&#34;color:#658b00&#34;&gt;copyFile&lt;/span&gt;(srcFile, destFile);  
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Java中的线程</title>
-        <link>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</link>
+        <link>https://brandykk.github.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</link>
         <pubDate>Mon, 19 Jul 2021 22:04:34 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/ -&lt;h2 id=&#34;创建线程的方法&#34;&gt;创建线程的方法&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/ -&lt;h2 id=&#34;创建线程的方法&#34;&gt;创建线程的方法&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;继承&lt;code&gt;Thread&lt;/code&gt;类,重写&lt;code&gt;run()&lt;/code&gt;方法,调用&lt;code&gt;start()&lt;/code&gt;方法开启&lt;/li&gt;
 &lt;li&gt;实现&lt;code&gt;Runnable&lt;/code&gt;,重写&lt;code&gt;run()&lt;/code&gt;方法,调用&lt;code&gt;start()&lt;/code&gt;方法开启&lt;/li&gt;
@@ -354,18 +354,18 @@
 &lt;li&gt;&lt;code&gt;ThreadFactory threadFactory&lt;/code&gt; 线程工厂，这是一个函数式接口，里面只定义了一个&lt;code&gt;newThread(Runnable task)&lt;/code&gt;方法，需要自己实现工厂的方法，在这里我们可以对线程进行自定义的初始化，例如给线程设定名字，这样方便后期的调试。&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;RejectedExecutionHandler handler&lt;/code&gt;拒绝服务处理，这也是一个函数式接口，我们需要实现&lt;code&gt;rejectedExecution(Runnable r, ThreadPoolExecutor executor)&lt;/code&gt;这个方法，这里可以根据需求自定义你希望在处理逻辑。当然Java里面也有已经定义好的四种策略静态类。可以通过&lt;code&gt;ThreadPoolExecutor&lt;/code&gt;调用&lt;/li&gt;
 &lt;/ul&gt;
-- https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/ - This is a customized copyright.</description>
+- https://brandykk.github.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Java枚举使用</title>
-        <link>https://brandykk.gitee.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</link>
+        <link>https://brandykk.github.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</link>
         <pubDate>Thu, 08 Jul 2021 21:25:54 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/ -&lt;h2 id=&#34;实现接口相当于简单的抽象工厂&#34;&gt;实现接口,相当于简单的抽象工厂&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/ -&lt;h2 id=&#34;实现接口相当于简单的抽象工厂&#34;&gt;实现接口,相当于简单的抽象工厂&lt;/h2&gt;
 &lt;h3 id=&#34;接口方法&#34;&gt;接口方法&lt;/h3&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//接口方法
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;interface&lt;/span&gt; &lt;span style=&#34;color:#008b45;font-weight:bold&#34;&gt;EnumInterface&lt;/span&gt;{
@@ -421,18 +421,18 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Java面试题</title>
-        <link>https://brandykk.gitee.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+        <link>https://brandykk.github.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
         <pubDate>Sun, 20 Jun 2021 16:18:38 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/ -&lt;h2 id=&#34;spring&#34;&gt;Spring&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+        <description>Brandy https://brandykk.github.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/ -&lt;h2 id=&#34;spring&#34;&gt;Spring&lt;/h2&gt;
 &lt;h3 id=&#34;1-spring的优良特性&#34;&gt;1. spring的优良特性&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;ol&gt;
@@ -1299,18 +1299,18 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 &lt;p&gt;举例：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;序列化：&lt;/strong&gt; 使用outputStream将一个对象中的数据写入流并生成文件&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;反序列化：&lt;/strong&gt; 使用inputStream将文件中的数据读出来放进对象&lt;/p&gt;
-- https://brandykk.gitee.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/ - This is a customized copyright.</description>
+- https://brandykk.github.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Java验证码</title>
-        <link>https://brandykk.gitee.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</link>
+        <link>https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</link>
         <pubDate>Sun, 20 Jun 2021 13:58:34 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/ -&lt;h2 id=&#34;utilityjava&#34;&gt;Utility.java&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/ -&lt;h2 id=&#34;utilityjava&#34;&gt;Utility.java&lt;/h2&gt;
 &lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#008b45;text-decoration:underline&#34;&gt;org.apache.commons.lang3.StringUtils&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;import&lt;/span&gt; &lt;span style=&#34;color:#008b45;text-decoration:underline&#34;&gt;org.apache.commons.logging.Log&lt;/span&gt;;
@@ -1828,18 +1828,18 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;		&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;Verify_&amp;#34;&lt;/span&gt; + ipAddrByRequest;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;	}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;!-- raw HTML omitted --&gt;
-- https://brandykk.gitee.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/ - This is a customized copyright.</description>
+- https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Jdk1.8</title>
-        <link>https://brandykk.gitee.io/posts/java/jdk1.8/</link>
+        <link>https://brandykk.github.io/posts/java/jdk1.8/</link>
         <pubDate>Sun, 20 Jun 2021 13:53:54 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/jdk1.8/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/jdk1.8/ -&lt;h2 id=&#34;获取当前日期&#34;&gt;获取当前日期&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/java/jdk1.8/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/jdk1.8/ -&lt;h2 id=&#34;获取当前日期&#34;&gt;获取当前日期&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;LocalDate date = LocalDate.&lt;span style=&#34;color:#658b00&#34;&gt;now&lt;/span&gt;();
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;System.&lt;span style=&#34;color:#658b00&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;println&lt;/span&gt;(&lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;获取当前日期：&amp;#34;&lt;/span&gt; + date);
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-console&#34; data-lang=&#34;console&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888&#34;&gt;获取当前日期：2020-12-23
@@ -1931,18 +1931,18 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888&#34;&gt;rangeClosed()输出结果：[1, 2, 3, 4, 5]
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888&#34;&gt;sum()计算总和：10
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#888&#34;&gt;sorted()排序：[1, 2, 3, 4, 5, 6, 7]
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/jdk1.8/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/jdk1.8/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>达梦数据库</title>
-        <link>https://brandykk.gitee.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+        <link>https://brandykk.github.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
         <pubDate>Sun, 20 Jun 2021 13:50:00 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/ -&lt;h2 id=&#34;查询模式sql&#34;&gt;查询模式sql&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/ -&lt;h2 id=&#34;查询模式sql&#34;&gt;查询模式sql&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;-- 获取当前用户下的所有表
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;SELECT&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;*&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;FROM&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;user_tables&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;ORDER&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;BY&lt;/span&gt;&lt;span style=&#34;color:#bbb&#34;&gt; &lt;/span&gt;&lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;table_name&lt;/span&gt;;&lt;span style=&#34;color:#bbb&#34;&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#bbb&#34;&gt;
@@ -1958,18 +1958,18 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 &lt;ul&gt;
 &lt;li&gt;wm_concat(column)	分组时,将其他字段用&lt;code&gt;,&lt;/code&gt;分割显示&lt;/li&gt;
 &lt;/ul&gt;
-- https://brandykk.gitee.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/ - This is a customized copyright.</description>
+- https://brandykk.github.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Git基础</title>
-        <link>https://brandykk.gitee.io/posts/tool/git%E5%9F%BA%E7%A1%80/</link>
+        <link>https://brandykk.github.io/posts/tool/git%E5%9F%BA%E7%A1%80/</link>
         <pubDate>Sun, 20 Jun 2021 13:45:44 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/tool/git%E5%9F%BA%E7%A1%80/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/tool/git%E5%9F%BA%E7%A1%80/ -&lt;h2 id=&#34;git命令&#34;&gt;git命令&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/tool/git%E5%9F%BA%E7%A1%80/</guid>
+        <description>Brandy https://brandykk.github.io/posts/tool/git%E5%9F%BA%E7%A1%80/ -&lt;h2 id=&#34;git命令&#34;&gt;git命令&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 全局设置提交代码的联系邮箱&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git config --global user.email &lt;span style=&#34;color:#cd5555&#34;&gt;&amp;#34;mescal1993@hotmail.com&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
@@ -2032,18 +2032,18 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 关联main分支&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git push --set-upstream origin main 
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/tool/git%E5%9F%BA%E7%A1%80/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/tool/git%E5%9F%BA%E7%A1%80/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Java中list&lt;Map&gt;排序</title>
-        <link>https://brandykk.gitee.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</link>
+        <link>https://brandykk.github.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</link>
         <pubDate>Sat, 19 Jun 2021 22:56:16 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//通过key排序
+        <guid>https://brandykk.github.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</guid>
+        <description>Brandy https://brandykk.github.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/ -&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-java&#34; data-lang=&#34;java&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//通过key排序
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;    &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;private&lt;/span&gt; &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#00688b;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#008b45&#34;&gt;sort1&lt;/span&gt;() {
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#228b22&#34;&gt;//List&amp;lt;Map&amp;lt;String,Object&amp;gt;&amp;gt;根据map的key值排序
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;        List&amp;lt;Map&amp;lt;String,Object&amp;gt;&amp;gt; list = &lt;span style=&#34;color:#8b008b;font-weight:bold&#34;&gt;new&lt;/span&gt; ArrayList&amp;lt;&amp;gt;();
@@ -2112,18 +2112,18 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;//        Collections.sort(listEntry,co);
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;&lt;/span&gt;        System.&lt;span style=&#34;color:#658b00&#34;&gt;out&lt;/span&gt;.&lt;span style=&#34;color:#658b00&#34;&gt;println&lt;/span&gt;(listEntry);
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/ - This is a customized copyright.</description>
         </item>
     
     
     
         <item>
         <title>Hugo使用</title>
-        <link>https://brandykk.gitee.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/</link>
+        <link>https://brandykk.github.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/</link>
         <pubDate>Fri, 18 Jun 2021 20:48:28 +0800</pubDate>
         
-        <guid>https://brandykk.gitee.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/</guid>
-        <description>Brandy https://brandykk.gitee.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/ -&lt;h2 id=&#34;安装hugo&#34;&gt;安装hugo&lt;/h2&gt;
+        <guid>https://brandykk.github.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/</guid>
+        <description>Brandy https://brandykk.github.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/ -&lt;h2 id=&#34;安装hugo&#34;&gt;安装hugo&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;#arch&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sudo pacman -Sy hugo
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;初始化博客&#34;&gt;初始化博客&lt;/h2&gt;
@@ -2148,7 +2148,7 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-zsh&#34; data-lang=&#34;zsh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 执行命令&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;hugo
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#228b22&#34;&gt;# 生成public文件夹，文件夹中的便是最终可以部署的文件&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.gitee.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/ - This is a customized copyright.</description>
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;- https://brandykk.github.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/ - This is a customized copyright.</description>
         </item>
     
     

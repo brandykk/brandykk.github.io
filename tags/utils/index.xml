@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>utils on Brandy</title>
-    <link>https://brandykk.gitee.io/tags/utils/</link>
+    <link>https://brandykk.github.io/tags/utils/</link>
     <description>Recent content in utils on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Tue, 20 Jul 2021 21:53:26 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/tags/utils/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jul 2021 21:53:26 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/utils/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java中常用工具类</title>
-      <link>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
+      <link>https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
       <pubDate>Tue, 20 Jul 2021 21:53:26 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
+      <guid>https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
       <description>java自带的方法 List集合拼接成以逗号分隔的字符串 //将list转为字符串 List&amp;lt;String&amp;gt; strings = Arrays.asList(&amp;#34;a,b,c,d&amp;#34;); //List&amp;lt;String&amp;gt; strings = Collections.singletonList(&amp;#34;a,b,c,d&amp;#34;); System.out.println(strings);//[a,b,c,d] //第一种方法: stream流 String collect = strings.stream().collect(Collectors.joining(&amp;#34;,&amp;#34;)); System.out.println(collect);//a,b,c,d //第二种方法: String自己的join方法 String join = String.join(&amp;#34;,&amp;#34;, strings); System.out.println(join);//a,b,c,d 比较字符串是否相等,忽略大小写 if (strA.equalsIgnoreCase(strB)) { System.out.println(&amp;#34;相等&amp;#34;); } 比较两个对象 当我们用equals比较两个对象是否相等的时候，还需要对左边的对象进行判空，不然可能会报空指针异常，我们可以用java.util包下Objects封装好的比较是否相等的方法
 Objects.equals(strA, strB); 源码是这样的
 public static boolean equals(Object a, Object b) { return (a == b) || (a != null &amp;amp;&amp;amp; a.equals(b)); } 两个List集合取交集 必须是ArrayList

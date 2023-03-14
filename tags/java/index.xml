@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>java on Brandy</title>
-    <link>https://brandykk.gitee.io/tags/java/</link>
+    <link>https://brandykk.github.io/tags/java/</link>
     <description>Recent content in java on Brandy</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Tue, 20 Jul 2021 21:53:26 +0800</lastBuildDate><atom:link href="https://brandykk.gitee.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Jul 2021 21:53:26 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java中常用工具类</title>
-      <link>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
+      <link>https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
       <pubDate>Tue, 20 Jul 2021 21:53:26 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
+      <guid>https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
       <description>java自带的方法 List集合拼接成以逗号分隔的字符串 //将list转为字符串 List&amp;lt;String&amp;gt; strings = Arrays.asList(&amp;#34;a,b,c,d&amp;#34;); //List&amp;lt;String&amp;gt; strings = Collections.singletonList(&amp;#34;a,b,c,d&amp;#34;); System.out.println(strings);//[a,b,c,d] //第一种方法: stream流 String collect = strings.stream().collect(Collectors.joining(&amp;#34;,&amp;#34;)); System.out.println(collect);//a,b,c,d //第二种方法: String自己的join方法 String join = String.join(&amp;#34;,&amp;#34;, strings); System.out.println(join);//a,b,c,d 比较字符串是否相等,忽略大小写 if (strA.equalsIgnoreCase(strB)) { System.out.println(&amp;#34;相等&amp;#34;); } 比较两个对象 当我们用equals比较两个对象是否相等的时候，还需要对左边的对象进行判空，不然可能会报空指针异常，我们可以用java.util包下Objects封装好的比较是否相等的方法
 Objects.equals(strA, strB); 源码是这样的
 public static boolean equals(Object a, Object b) { return (a == b) || (a != null &amp;amp;&amp;amp; a.equals(b)); } 两个List集合取交集 必须是ArrayList
@@ -22,10 +22,10 @@ List&amp;lt;String&amp;gt; list1 = new ArrayList&amp;lt;&amp;gt;(); list1.add(&a
     
     <item>
       <title>Java中的线程</title>
-      <link>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</link>
+      <link>https://brandykk.github.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</link>
       <pubDate>Mon, 19 Jul 2021 22:04:34 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</guid>
+      <guid>https://brandykk.github.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</guid>
       <description>创建线程的方法 继承Thread类,重写run()方法,调用start()方法开启 实现Runnable,重写run()方法,调用start()方法开启 通过Callable和FutureTask创建线程 通过线程池创建线程 继承Thread类 线程开启后不一定立即执行,由CPU调度执行
 public class ThreadRun { public static void main(String[] args) { //开启线程 ThreadDemoOne threadDemoOne = new ThreadDemoOne(); threadDemoOne.start(); for (int i = 0; i &amp;lt; 5000; i++) { System.out.printf(&amp;#34;普通代码: %d%n&amp;#34;, i); } } } /** *	继承Thread类的方法,并重run() **/ class ThreadDemoOne extends Thread { @Override public void run() { for (int i = 0; i &amp;lt; 5000; i++) { System.out.println(&amp;#34;线程在这里!!&amp;#34;); } } } 执行结果
 线程在这里!! 普通代码: 694 普通代码: 695 线程在这里!</description>
@@ -33,19 +33,19 @@ public class ThreadRun { public static void main(String[] args) { //开启线程
     
     <item>
       <title>Java枚举使用</title>
-      <link>https://brandykk.gitee.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</link>
+      <link>https://brandykk.github.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Thu, 08 Jul 2021 21:25:54 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</guid>
+      <guid>https://brandykk.github.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</guid>
       <description>实现接口,相当于简单的抽象工厂 接口方法 //接口方法 interface EnumInterface{ void show(); } 枚举 //实现接口并重写方法 enum Enumenum implements EnumInterface{ AAA(1){ @Override public void show() { System.out.println(&amp;#34;AAA&amp;#34;); } }, BBB(2){ @Override public void show() { System.out.println(&amp;#34;BBB&amp;#34;); } } ; private int i; //通过i调用show() static void getEnumbyI(int a){ Arrays.stream(Enumenum.values()).filter(item-&amp;gt;item.getI() == a).findFirst().get().show(); } //构造方法 Enumenum(int i) { this.i = i; } public int getI() { return i; } } 测试 /** * 枚举的使用 */ public class EnumApplication { public static void main(String[] args) { getEnumByI(); } //通过值获取枚举的方法 private static void getEnumByI(){ try { Enumenum.</description>
     </item>
     
     <item>
       <title>Java面试题</title>
-      <link>https://brandykk.gitee.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
+      <link>https://brandykk.github.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
       <pubDate>Sun, 20 Jun 2021 16:18:38 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
+      <guid>https://brandykk.github.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <description>Spring 1. spring的优良特性 非侵入式: 基于spring开发的应用中的对象可以不依赖于spring的API; 依赖注入: DI,反转控制(IOC)最经典的实现 面向切面:AOP 容器:spring是一个容器,因为它包含并且管理应用对象的生命周期 组件化: spring实现了使用简单的组件配置组合成一个复杂的应用,在spring中可以使用XML和JAVA注解组合这些对象 一站式: 在IOC和AOP的基础上可以整合各种企业应用的开源框架和优秀的第三方库(实际上spring自身也提供了表述层的springMVC和持久层的springJDBC) 2. SpringBean生命周期 Bean从创建到销毁的整个过程： 分4大步：
 实例化 通过反射去推断构造函数进行实例化 实例工厂、静态工厂 属性赋值 解析自动装配（DI的体现） 循环依赖 初始化 调用XXXAware回调方法 调用初始化生命周期回调（三种） 如果bean实现AOP,创建动态代理 销毁 在spring容器关闭的时候进行调用 调用销毁生命周期回调 3. IOC 控制反转：当我们创建对象时使用new来创建，比如UserService service = new UserService（）但是当我们改变创建的对象时需要更改每一个类中的new Service
 所以便引入了IOC，IOC是一种思想，IOC负责创建对象、管理对象（DI：@Autowired、set方法、构造器）、装配对象、配置对象，并且管理这些对象的整个生命周期。
@@ -59,46 +59,46 @@ DEFAULT 使用数据库本身使用的隔离级别 ORACLE（读已提交） MySQ
     
     <item>
       <title>Java验证码</title>
-      <link>https://brandykk.gitee.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</link>
+      <link>https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</link>
       <pubDate>Sun, 20 Jun 2021 13:58:34 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</guid>
+      <guid>https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</guid>
       <description>Utility.java import org.apache.commons.lang3.StringUtils; import org.apache.commons.logging.Log; import org.apache.commons.logging.LogFactory; import java.math.BigDecimal; import java.text.SimpleDateFormat; import java.util.*; public class Utility { protected final static Log logger = LogFactory.getLog(Utility.class); public static &amp;lt;T&amp;gt; List&amp;lt;T&amp;gt; newArray(int size, Class&amp;lt;T&amp;gt; clazz) { List&amp;lt;T&amp;gt; l = new ArrayList&amp;lt;T&amp;gt;(); for (int i = 0; i &amp;lt; size; i++) { T newInstance; try { newInstance = clazz.newInstance(); } catch (Exception e) { newInstance = null; } l.add(newInstance); } return l; } public static String randomString(int len, int type) { StringBuffer str = new StringBuffer(); // 默认去掉了容易混淆的字符oOLlI，要添加请使用addChars参数 String codestr = &amp;#34;ABCDEFGHJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz&amp;#34;; String codeNum = &amp;#34;0123456789&amp;#34;; //	switch (type) { //	case 0: //	codestr = &amp;#34;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&amp;#34;; //	break; //	case 1: //	codestr = &amp;#34;0123456789&amp;#34;; //	break; //	case 2: //	codestr = &amp;#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&amp;#34;; //	break; //	case 3: //	codestr = &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;; //	break; //	default: //	// 默认去掉了容易混淆的字符oOLl和数字01，要添加请使用addChars参数 //	codestr = &amp;#34;ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789&amp;#34;; //	break; //	} char[] codes = codestr.</description>
     </item>
     
     <item>
       <title>Jdk1.8</title>
-      <link>https://brandykk.gitee.io/posts/java/jdk1.8/</link>
+      <link>https://brandykk.github.io/posts/java/jdk1.8/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:54 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/jdk1.8/</guid>
+      <guid>https://brandykk.github.io/posts/java/jdk1.8/</guid>
       <description>获取当前日期 LocalDate date = LocalDate.now(); System.out.println(&amp;#34;获取当前日期：&amp;#34; + date); 获取当前日期：2020-12-23 LocalDate.of(int year, int month, int dayOfMonth) 该方法的月份从1开始 LocalDate date = LocalDate.of(2020, 1, 31); System.out.println(&amp;#34;输出时间：&amp;#34; + date); 输出时间：2020-01-31 时间计算 LocalDate date = LocalDate.of(2020, 1, 31); // 加一天，也可以使用负数-1实现减一天 LocalDate date1 = date.plusDays(1); // 加月份 LocalDate date2 = date.plusMonths(1); // 减 LocalDate date3 = date.minusDays(1); System.out.println(&amp;#34;输出时间：&amp;#34; + date); System.out.println(&amp;#34;date加1天：&amp;#34; + date1); System.out.println(&amp;#34;date加1月：&amp;#34; + date2); System.out.println(&amp;#34;date减1天：&amp;#34; + date3); 输出时间：2020-01-31 date加1天：2020-02-01 date加1月：2020-02-29 date减1天：2020-01-30 格式化 1. 字符串、时间转换 DateTimeFormatter formatter = DateTimeFormatter.</description>
     </item>
     
     <item>
       <title>Java中list&lt;Map&gt;排序</title>
-      <link>https://brandykk.gitee.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</link>
+      <link>https://brandykk.github.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Sat, 19 Jun 2021 22:56:16 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</guid>
+      <guid>https://brandykk.github.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</guid>
       <description>//通过key排序 private static void sort1() { //List&amp;lt;Map&amp;lt;String,Object&amp;gt;&amp;gt;根据map的key值排序 List&amp;lt;Map&amp;lt;String,Object&amp;gt;&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); Map&amp;lt;String,Object&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); map.put(&amp;#34;a&amp;#34;,&amp;#34;1&amp;#34;); Map&amp;lt;String,Object&amp;gt; map1 = new HashMap&amp;lt;&amp;gt;(); map1.put(&amp;#34;a&amp;#34;,&amp;#34;6&amp;#34;); Map&amp;lt;String,Object&amp;gt; map2 = new HashMap&amp;lt;&amp;gt;(); map2.put(&amp;#34;a&amp;#34;,&amp;#34;3&amp;#34;); Map&amp;lt;String,Object&amp;gt; map3 = new HashMap&amp;lt;&amp;gt;(); map3.put(&amp;#34;a&amp;#34;,&amp;#34;5&amp;#34;); Map&amp;lt;String,Object&amp;gt; map4 = new HashMap&amp;lt;&amp;gt;(); map4.put(&amp;#34;a&amp;#34;,&amp;#34;4&amp;#34;); Map&amp;lt;String,Object&amp;gt; map5 = new HashMap&amp;lt;&amp;gt;(); map5.put(&amp;#34;a&amp;#34;,&amp;#34;2&amp;#34;); list.add(map); list.add(map1); list.add(map2); list.add(map3); list.add(map4); list.add(map5); //重写map的排序方式 Comparator&amp;lt;Map&amp;lt;String,Object&amp;gt;&amp;gt; co = new Comparator&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt;() { @Override public int compare(Map&amp;lt;String, Object&amp;gt; o1, Map&amp;lt;String, Object&amp;gt; o2) { return String.</description>
     </item>
     
     <item>
       <title>Java模拟鼠标键盘操作</title>
-      <link>https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</link>
+      <link>https://brandykk.github.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Sun, 18 Apr 2021 12:25:27 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</guid>
+      <guid>https://brandykk.github.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</guid>
       <description>/** * 定时执行模拟鼠标键盘操作 * Robot中主要的鼠标和键盘控制方法有： * • void keyPress(int keycode) 按下给定的键。 * • void keyRelease(int keycode) 释放给定的键。 * • void mouseMove(int x, int y) 将鼠标指针移动到给定屏幕坐标。 * • void mousePress(int buttons) 按下一个或多个鼠标按钮。 * • void mouseRelease(int buttons) 释放一个或多个鼠标按钮。 * • void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。 */ private static void mouse(){ new Thread(()-&amp;gt;{ while (true){ try { Thread.sleep(1000*60); Robot robot = new Robot(); //设置Robot产生一个动作后的休眠时间,否则执行过快 robot.setAutoDelay(1000); //获取屏幕分辨率 Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); System.out.println(d); Rectangle screenRect = new Rectangle(d); //截图 BufferedImage bufferedImage = robot.</description>
     </item>
     
     <item>
       <title>Java树结构递归封装</title>
-      <link>https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</link>
+      <link>https://brandykk.github.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</link>
       <pubDate>Sun, 18 Apr 2021 12:07:25 +0800</pubDate>
       
-      <guid>https://brandykk.gitee.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</guid>
+      <guid>https://brandykk.github.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</guid>
       <description>import java.util.ArrayList; import java.util.Comparator; import java.util.List; public class text { public static void main(String[] args) { //测试方法 Node n1 = new Node(&amp;#34;0&amp;#34;, &amp;#34;根节点&amp;#34;, &amp;#34;-1&amp;#34;, 0); Node n2 = new Node(&amp;#34;01&amp;#34;, &amp;#34;一级子节点&amp;#34;, &amp;#34;0&amp;#34;, 0); Node n3 = new Node(&amp;#34;011&amp;#34;, &amp;#34;二级子节点1&amp;#34;, &amp;#34;01&amp;#34;, 3); Node n4 = new Node(&amp;#34;012&amp;#34;, &amp;#34;二级子节点2&amp;#34;, &amp;#34;01&amp;#34;, 2); Node n5 = new Node(&amp;#34;013&amp;#34;, &amp;#34;二级子节点3&amp;#34;, &amp;#34;01&amp;#34;, 1); Node n6 = new Node(&amp;#34;0131&amp;#34;, &amp;#34;三级子节点1&amp;#34;, &amp;#34;013&amp;#34;, 1); Node n7 = new Node(&amp;#34;0132&amp;#34;, &amp;#34;三级子节点2&amp;#34;, &amp;#34;013&amp;#34;, 1); List&amp;lt;Node&amp;gt; nodeList = new ArrayList(); nodeList.</description>
     </item>
     
