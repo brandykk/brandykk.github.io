@@ -1746,9 +1746,9 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                             
 
                             
-                            25 min
+                            26 min
                             
-                            58 s.
+                            26 s.
                         
                     </div>
                 </div>
@@ -2141,6 +2141,9 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 开启自动登陆可用kwalletmanager将钱包密码置空（可选）</span>
 </span></span><span style="display:flex;"><span>yay -S kwalletmanager
 </span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># wvscode</span>
+</span></span><span style="display:flex;"><span>yay -Syu visual-studio-code
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># -------------------------------------------------------------------------------------------------</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 截图软件</span>
@@ -2150,6 +2153,9 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>flameshot gui
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 延迟2秒截图，适合截取鼠标悬停的提示信息</span>
 </span></span><span style="display:flex;"><span>flameshot gui -d <span style="color:#b452cd">2000</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 有ocr的截图，但是是electorn</span>
+</span></span><span style="display:flex;"><span>yay -Syu e-search
 </span></span></code></pre></div><hr>
 <h3 id="oh-my-zsh">oh-my-zsh</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 将oh-my-zsh下载至本地home目录 将文件夹内~/.oh-my-zsh/templates/下的文件复制为~/.zshrc文件自行配置</span>
@@ -2397,10 +2403,13 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span><span style="display:flex;"><span>chsh -s /bin/zsh
 </span></span></code></pre></div><hr>
 <h3 id="span-id全局菜单安装kde设置span下载窗口脚本失败下载kwin窗口脚本失败处理"><!-- raw HTML omitted -->kde设置<!-- raw HTML omitted --><a href="#%E4%B8%8B%E8%BD%BDkwin%E7%AA%97%E5%8F%A3%E8%84%9A%E6%9C%AC%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86">^下载窗口脚本失败^</a></h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 下载 全局菜单  最大化按钮</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 下载 全局菜单  最大化按钮 applet-window-buttons-git</span>
 </span></span><span style="display:flex;"><span>yay -Syu applet-window-appmenu-git
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 标题栏展示程序名称并且最大化隐藏窗口标题栏和按钮 下载挂件`Active Window Control` `window title applet`</span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 最大化隐藏窗口标题栏</span>
+</span></span><span style="display:flex;"><span><span style="color:#cd5555">`</span>/home/lv/.config/kwinrc<span style="color:#cd5555">`</span>文件中找到<span style="color:#cd5555">`</span>[Windows]<span style="color:#cd5555">`</span>标签：BorderlessMaximizedWindows=<span style="color:#658b00">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 在面板中添加控制按钮 下载挂件`Active Window Control` `window title applet`</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># vscode菜单》》设置》》搜索Title Bar Style改为custom</span>
 </span></span></code></pre></div><hr>
