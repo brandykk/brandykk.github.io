@@ -7,12 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Mon, 13 Jun 2022 09:50:21 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jun 2022 09:50:21 +0800</lastBuildDate>
+    <atom:link href="https://brandykk.github.io/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux子系统</title>
       <link>https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Mon, 13 Jun 2022 09:50:21 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</guid>
       <description>在win11上安装archlinux子系统 需要先开启linux子系统和虚拟平台服务,参考
 1. 下载linux内核升级包 双击安装即可
@@ -23,12 +23,10 @@ github下载解压，里面的exe不需要安装，可以将exe路径配置环�
 输入一下命令，进行转行
 # 命令格式： # wsl --set-version &amp;lt;名称&amp;gt; 2 # 如： wsl --set-version archlinux 2 7. 首次进入系统执行命令 pacman -Syy pacman-key --init pacman-key --populate 8.</description>
     </item>
-    
     <item>
       <title>Win10使用记录</title>
       <link>https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 17 Apr 2021 18:47:06 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</guid>
       <description>安装JDK 新建系统变量
 变量名： JAVA_HOME 变量值：安装目录 新建CLASSPATH变量
@@ -47,6 +45,5 @@ MAVEN配置 新建系统变量
 mysql_install_db.exe --datadir=F:\projectManager\mariadbData --service=mariadb --password= --port=13306 # --datadir=后面是数据存放路径，可自定义；--service=后面是服务名称；--password=后面是密码，空就是没有密码；--port=后面是端口号，为了防止和mysql用了13306 mysql安装 推荐mariadb 安装目录下新建 my.ini 文件（注意修改下面的路径）
 [Client] #设置3306端口 port = 3306 [mysqld] #设置3306端口 port = 3306 # 设置mysql的安装目录 basedir=D:\MySQL5.7\mysql-5.7.27-winx64 # 设置mysql数据库的数据的存放目录 datadir=D:\MySQL5.7\mysql-5.7.27-winx64\data # 允许最大连接数 max_connections=200 # 服务端使用的字符集默认为8比特编码的latin1字符集 character-set-server=utf8 # 创建新表时将使用的默认存储引擎 default-storage-engine=INNODB sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES [mysql] # 设置mysql客户端默认字符集 default-character-set=utf8 #开启查询缓存 explicit_defaults_for_timestamp=true 新建系统变量</description>
     </item>
-    
   </channel>
 </rss>

@@ -27,9 +27,11 @@
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java中list&lt;Map&gt;排序"/>
 <meta name="twitter:description" content="List&lt;Map&gt;排序"/>
+
 
 
 
@@ -50,11 +52,8 @@
       <script src="/js/toc.js"></script>
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
 
-
-
-<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -80,98 +79,7 @@
 
 </head>
 <body>
-    	<div id="app"><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="https://brandykk.github.io">
-    
-        <div class="nav-title">
-            Brandy
-        </div>
-        
-        <div class="nav-subtitle">
-            个人使用
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/posts">
-                Archive
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/categories">
-                Categories
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/tags">
-                Tags
-            </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	This is a customized copyright.
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    
-    
-    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
-
-
-</div>
-    
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
-    </div>
-</div>
-<div class="single-column-drawer-container" id="drawer"
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
      v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
     <div class="drawer-content">
         <div class="drawer-menu">
@@ -312,76 +220,76 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
                 
                 <div class="post-body" v-pre>
                 
-                    <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">//通过key排序
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">sort1</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//List&lt;Map&lt;String,Object&gt;&gt;根据map的key值排序
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        List&lt;Map&lt;String,Object&gt;&gt; list = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();
-</span></span><span style="display:flex;"><span>        Map&lt;String,Object&gt; map = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
-</span></span><span style="display:flex;"><span>        map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;1&#34;</span>);
-</span></span><span style="display:flex;"><span>        Map&lt;String,Object&gt; map1 = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
-</span></span><span style="display:flex;"><span>        map1.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;6&#34;</span>);
-</span></span><span style="display:flex;"><span>        Map&lt;String,Object&gt; map2 = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
-</span></span><span style="display:flex;"><span>        map2.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;3&#34;</span>);
-</span></span><span style="display:flex;"><span>        Map&lt;String,Object&gt; map3 = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
-</span></span><span style="display:flex;"><span>        map3.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;5&#34;</span>);
-</span></span><span style="display:flex;"><span>        Map&lt;String,Object&gt; map4 = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
-</span></span><span style="display:flex;"><span>        map4.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;4&#34;</span>);
-</span></span><span style="display:flex;"><span>        Map&lt;String,Object&gt; map5 = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
-</span></span><span style="display:flex;"><span>        map5.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;2&#34;</span>);
-</span></span><span style="display:flex;"><span>        list.<span style="color:#658b00">add</span>(map);
-</span></span><span style="display:flex;"><span>        list.<span style="color:#658b00">add</span>(map1);
-</span></span><span style="display:flex;"><span>        list.<span style="color:#658b00">add</span>(map2);
-</span></span><span style="display:flex;"><span>        list.<span style="color:#658b00">add</span>(map3);
-</span></span><span style="display:flex;"><span>        list.<span style="color:#658b00">add</span>(map4);
-</span></span><span style="display:flex;"><span>        list.<span style="color:#658b00">add</span>(map5);
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//重写map的排序方式
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        Comparator&lt;Map&lt;String,Object&gt;&gt; co = <span style="color:#8b008b;font-weight:bold">new</span> Comparator&lt;Map&lt;String, Object&gt;&gt;() {
-</span></span><span style="display:flex;"><span>            <span style="color:#707a7c">@Override</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">compare</span>(Map&lt;String, Object&gt; o1, Map&lt;String, Object&gt; o2) {
-</span></span><span style="display:flex;"><span>                <span style="color:#8b008b;font-weight:bold">return</span> String.<span style="color:#658b00">valueOf</span>(o1.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)).<span style="color:#658b00">compareTo</span>(String.<span style="color:#658b00">valueOf</span>(o2.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)));
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        };
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//lambda方式
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        Comparator&lt;Map&lt;String,Object&gt;&gt; co1 = (o1,o2)-&gt;String.<span style="color:#658b00">valueOf</span>(o1.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)).<span style="color:#658b00">compareTo</span>(String.<span style="color:#658b00">valueOf</span>(o2.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)));
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//Comparator.comparing()
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        Comparator&lt;Map&lt;String,Object&gt;&gt; co2 = Comparator.<span style="color:#658b00">comparing</span>(o -&gt; String.<span style="color:#658b00">valueOf</span>(o.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//调用排序
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        list.<span style="color:#658b00">sort</span>(co);
-</span></span><span style="display:flex;"><span><span style="color:#228b22">//        list.sort(co.reversed());
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">//        Collections.sort(list,co);
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
-</span></span><span style="display:flex;"><span>        System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(list);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//根据value排序
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">sort2</span>(){
-</span></span><span style="display:flex;"><span>        Map&lt;String,Object&gt; map = <span style="color:#8b008b;font-weight:bold">new</span> HashMap&lt;&gt;();
-</span></span><span style="display:flex;"><span>        map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;1&#34;</span>);
-</span></span><span style="display:flex;"><span>        map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;b&#34;</span>,<span style="color:#cd5555">&#34;3&#34;</span>);
-</span></span><span style="display:flex;"><span>        map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;c&#34;</span>,<span style="color:#cd5555">&#34;5&#34;</span>);
-</span></span><span style="display:flex;"><span>        map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;d&#34;</span>,<span style="color:#cd5555">&#34;2&#34;</span>);
-</span></span><span style="display:flex;"><span>        map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;e&#34;</span>,<span style="color:#cd5555">&#34;4&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//用Map.Entry
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        Comparator&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,Object&gt;&gt; co = <span style="color:#8b008b;font-weight:bold">new</span> Comparator&lt;Map.<span style="color:#658b00">Entry</span>&lt;String, Object&gt;&gt;() {
-</span></span><span style="display:flex;"><span>            <span style="color:#707a7c">@Override</span>
-</span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">int</span> <span style="color:#008b45">compare</span>(Map.<span style="color:#658b00">Entry</span>&lt;String, Object&gt; o1, Map.<span style="color:#658b00">Entry</span>&lt;String, Object&gt; o2) {
-</span></span><span style="display:flex;"><span>                <span style="color:#8b008b;font-weight:bold">return</span> String.<span style="color:#658b00">valueOf</span>(o1.<span style="color:#658b00">getValue</span>()).<span style="color:#658b00">compareTo</span>(String.<span style="color:#658b00">valueOf</span>(o2.<span style="color:#658b00">getValue</span>()));
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        };
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//用lambda
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        Comparator&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,Object&gt;&gt; co1 = (o1, o2) -&gt; String.<span style="color:#658b00">valueOf</span>(o1.<span style="color:#658b00">getValue</span>()).<span style="color:#658b00">compareTo</span>(String.<span style="color:#658b00">valueOf</span>(o2.<span style="color:#658b00">getValue</span>()));
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//Comparator.comparing()
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        Comparator&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,Object&gt;&gt; co2 = Comparator.<span style="color:#658b00">comparing</span>(o -&gt; String.<span style="color:#658b00">valueOf</span>(o.<span style="color:#658b00">getValue</span>()));
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//将map转换为map.entrySet()
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        List&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,Object&gt;&gt; listEntry = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;(map.<span style="color:#658b00">entrySet</span>());
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//调用排序
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        listEntry.<span style="color:#658b00">sort</span>(co);
-</span></span><span style="display:flex;"><span><span style="color:#228b22">//        listEntry.sort(co.reversed());
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">//        Collections.sort(listEntry,co);
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(listEntry);
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div>
+                    <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">//通过key排序</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">sort1</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//List&lt;Map&lt;String,Object&gt;&gt;根据map的key值排序</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>List&lt;Map&lt;String,Object&gt;&gt;<span style="color:#bbb"> </span>list<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>ArrayList&lt;&gt;();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Map&lt;String,Object&gt;<span style="color:#bbb"> </span>map<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>HashMap&lt;&gt;();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;1&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Map&lt;String,Object&gt;<span style="color:#bbb"> </span>map1<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>HashMap&lt;&gt;();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map1.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;6&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Map&lt;String,Object&gt;<span style="color:#bbb"> </span>map2<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>HashMap&lt;&gt;();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map2.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;3&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Map&lt;String,Object&gt;<span style="color:#bbb"> </span>map3<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>HashMap&lt;&gt;();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map3.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Map&lt;String,Object&gt;<span style="color:#bbb"> </span>map4<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>HashMap&lt;&gt;();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map4.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;4&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Map&lt;String,Object&gt;<span style="color:#bbb"> </span>map5<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>HashMap&lt;&gt;();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map5.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;2&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>list.<span style="color:#658b00">add</span>(map);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>list.<span style="color:#658b00">add</span>(map1);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>list.<span style="color:#658b00">add</span>(map2);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>list.<span style="color:#658b00">add</span>(map3);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>list.<span style="color:#658b00">add</span>(map4);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>list.<span style="color:#658b00">add</span>(map5);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//重写map的排序方式</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Comparator&lt;Map&lt;String,Object&gt;&gt;<span style="color:#bbb"> </span>co<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Comparator&lt;Map&lt;String,<span style="color:#bbb"> </span>Object&gt;&gt;()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#707a7c">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">int</span><span style="color:#bbb"> </span><span style="color:#008b45">compare</span>(Map&lt;String,<span style="color:#bbb"> </span>Object&gt;<span style="color:#bbb"> </span>o1,<span style="color:#bbb"> </span>Map&lt;String,<span style="color:#bbb"> </span>Object&gt;<span style="color:#bbb"> </span>o2)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>String.<span style="color:#658b00">valueOf</span>(o1.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)).<span style="color:#658b00">compareTo</span>(String.<span style="color:#658b00">valueOf</span>(o2.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>};<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//lambda方式</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Comparator&lt;Map&lt;String,Object&gt;&gt;<span style="color:#bbb"> </span>co1<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>(o1,o2)-&gt;String.<span style="color:#658b00">valueOf</span>(o1.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)).<span style="color:#658b00">compareTo</span>(String.<span style="color:#658b00">valueOf</span>(o2.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//Comparator.comparing()</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Comparator&lt;Map&lt;String,Object&gt;&gt;<span style="color:#bbb"> </span>co2<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Comparator.<span style="color:#658b00">comparing</span>(o<span style="color:#bbb"> </span>-&gt;<span style="color:#bbb"> </span>String.<span style="color:#658b00">valueOf</span>(o.<span style="color:#658b00">get</span>(<span style="color:#cd5555">&#34;a&#34;</span>)));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//调用排序</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>list.<span style="color:#658b00">sort</span>(co);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//        list.sort(co.reversed());</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//        Collections.sort(list,co);</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(list);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//根据value排序</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">sort2</span>(){<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Map&lt;String,Object&gt;<span style="color:#bbb"> </span>map<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>HashMap&lt;&gt;();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;a&#34;</span>,<span style="color:#cd5555">&#34;1&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;b&#34;</span>,<span style="color:#cd5555">&#34;3&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;c&#34;</span>,<span style="color:#cd5555">&#34;5&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;d&#34;</span>,<span style="color:#cd5555">&#34;2&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>map.<span style="color:#658b00">put</span>(<span style="color:#cd5555">&#34;e&#34;</span>,<span style="color:#cd5555">&#34;4&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//用Map.Entry</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Comparator&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,Object&gt;&gt;<span style="color:#bbb"> </span>co<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Comparator&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,<span style="color:#bbb"> </span>Object&gt;&gt;()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#707a7c">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">int</span><span style="color:#bbb"> </span><span style="color:#008b45">compare</span>(Map.<span style="color:#658b00">Entry</span>&lt;String,<span style="color:#bbb"> </span>Object&gt;<span style="color:#bbb"> </span>o1,<span style="color:#bbb"> </span>Map.<span style="color:#658b00">Entry</span>&lt;String,<span style="color:#bbb"> </span>Object&gt;<span style="color:#bbb"> </span>o2)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>String.<span style="color:#658b00">valueOf</span>(o1.<span style="color:#658b00">getValue</span>()).<span style="color:#658b00">compareTo</span>(String.<span style="color:#658b00">valueOf</span>(o2.<span style="color:#658b00">getValue</span>()));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>};<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//用lambda</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Comparator&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,Object&gt;&gt;<span style="color:#bbb"> </span>co1<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>(o1,<span style="color:#bbb"> </span>o2)<span style="color:#bbb"> </span>-&gt;<span style="color:#bbb"> </span>String.<span style="color:#658b00">valueOf</span>(o1.<span style="color:#658b00">getValue</span>()).<span style="color:#658b00">compareTo</span>(String.<span style="color:#658b00">valueOf</span>(o2.<span style="color:#658b00">getValue</span>()));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//Comparator.comparing()</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>Comparator&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,Object&gt;&gt;<span style="color:#bbb"> </span>co2<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Comparator.<span style="color:#658b00">comparing</span>(o<span style="color:#bbb"> </span>-&gt;<span style="color:#bbb"> </span>String.<span style="color:#658b00">valueOf</span>(o.<span style="color:#658b00">getValue</span>()));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//将map转换为map.entrySet()</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>List&lt;Map.<span style="color:#658b00">Entry</span>&lt;String,Object&gt;&gt;<span style="color:#bbb"> </span>listEntry<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>ArrayList&lt;&gt;(map.<span style="color:#658b00">entrySet</span>());<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//调用排序</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>listEntry.<span style="color:#658b00">sort</span>(co);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//        listEntry.sort(co.reversed());</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//        Collections.sort(listEntry,co);</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(listEntry);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div>
                     
                     <HR width="100%" id="EOF">
 		    <p style="color:#777;">最后修改于 2021-06-19</p>
@@ -416,13 +324,109 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 
 
 
+
+
             </div>
         </div>
     </div>
 
 
                     </div>
-            </div><div id="single-column-footer">
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.github.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
 <br>
 移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>

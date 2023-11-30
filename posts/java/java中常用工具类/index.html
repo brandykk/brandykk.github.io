@@ -27,9 +27,11 @@
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java中常用工具类"/>
 <meta name="twitter:description" content="java中常用的方便使用的工具合集"/>
+
 
 
 
@@ -50,11 +52,8 @@
       <script src="/js/toc.js"></script>
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
 
-
-
-<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -80,231 +79,7 @@
 
 </head>
 <body>
-    	<div id="app"><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="https://brandykk.github.io">
-    
-        <div class="nav-title">
-            Brandy
-        </div>
-        
-        <div class="nav-subtitle">
-            个人使用
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/posts">
-                Archive
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/categories">
-                Categories
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/tags">
-                Tags
-            </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	This is a customized copyright.
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    
-    
-    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
-
-
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- 目录 -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#java%e8%87%aa%e5%b8%a6%e7%9a%84%e6%96%b9%e6%b3%95" onclick="onNavClick(`#java自带的方法-nav`)" id="java自带的方法-nav">
-									java自带的方法
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#apache-commons%e5%b7%a5%e5%85%b7%e7%b1%bb%e5%ba%93" onclick="onNavClick(`#apache-commons工具类库-nav`)" id="apache-commons工具类库-nav">
-									apache commons工具类库
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#commons-langjavalang%e7%9a%84%e5%a2%9e%e5%bc%ba%e7%89%88" onclick="onNavClick(`#commons-langjavalang的增强版-nav`)" id="commons-langjavalang的增强版-nav">
-									commons-lang，java.lang的增强版
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#commons-collections-%e9%9b%86%e5%90%88%e5%b7%a5%e5%85%b7%e7%b1%bb" onclick="onNavClick(`#commons-collections-集合工具类-nav`)" id="commons-collections-集合工具类-nav">
-									commons-collections 集合工具类
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#common-beanutils-%e6%93%8d%e4%bd%9c%e5%af%b9%e8%b1%a1" onclick="onNavClick(`#common-beanutils-操作对象-nav`)" id="common-beanutils-操作对象-nav">
-									common-beanutils 操作对象
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#commons-io-%e6%96%87%e4%bb%b6%e6%b5%81%e5%a4%84%e7%90%86" onclick="onNavClick(`#commons-io-文件流处理-nav`)" id="commons-io-文件流处理-nav">
-									commons-io 文件流处理
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
-
-</div>
-    
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
-    </div>
-</div>
-<div class="single-column-drawer-container" id="drawer"
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
      v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
     <div class="drawer-content">
         <div class="drawer-menu">
@@ -372,7 +147,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#java%e8%87%aa%e5%b8%a6%e7%9a%84%e6%96%b9%e6%b3%95" onclick="onNavClick(`#java自带的方法-nav`)" id="java自带的方法-nav">
+								<a href="#java%e8%87%aa%e5%b8%a6%e7%9a%84%e6%96%b9%e6%b3%95" class="nav-java自带的方法">
 									java自带的方法
 								</a>
 							</li>
@@ -390,7 +165,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#apache-commons%e5%b7%a5%e5%85%b7%e7%b1%bb%e5%ba%93" onclick="onNavClick(`#apache-commons工具类库-nav`)" id="apache-commons工具类库-nav">
+								<a href="#apache-commons%e5%b7%a5%e5%85%b7%e7%b1%bb%e5%ba%93" class="nav-apache-commons工具类库">
 									apache commons工具类库
 								</a>
 							</li>
@@ -414,7 +189,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#commons-langjavalang%e7%9a%84%e5%a2%9e%e5%bc%ba%e7%89%88" onclick="onNavClick(`#commons-langjavalang的增强版-nav`)" id="commons-langjavalang的增强版-nav">
+								<a href="#commons-langjavalang%e7%9a%84%e5%a2%9e%e5%bc%ba%e7%89%88" class="nav-commons-langjavalang的增强版">
 									commons-lang，java.lang的增强版
 								</a>
 							</li>
@@ -432,7 +207,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#commons-collections-%e9%9b%86%e5%90%88%e5%b7%a5%e5%85%b7%e7%b1%bb" onclick="onNavClick(`#commons-collections-集合工具类-nav`)" id="commons-collections-集合工具类-nav">
+								<a href="#commons-collections-%e9%9b%86%e5%90%88%e5%b7%a5%e5%85%b7%e7%b1%bb" class="nav-commons-collections-集合工具类">
 									commons-collections 集合工具类
 								</a>
 							</li>
@@ -450,7 +225,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#common-beanutils-%e6%93%8d%e4%bd%9c%e5%af%b9%e8%b1%a1" onclick="onNavClick(`#common-beanutils-操作对象-nav`)" id="common-beanutils-操作对象-nav">
+								<a href="#common-beanutils-%e6%93%8d%e4%bd%9c%e5%af%b9%e8%b1%a1" class="nav-common-beanutils-操作对象">
 									common-beanutils 操作对象
 								</a>
 							</li>
@@ -468,7 +243,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#commons-io-%e6%96%87%e4%bb%b6%e6%b5%81%e5%a4%84%e7%90%86" onclick="onNavClick(`#commons-io-文件流处理-nav`)" id="commons-io-文件流处理-nav">
+								<a href="#commons-io-%e6%96%87%e4%bb%b6%e6%b5%81%e5%a4%84%e7%90%86" class="nav-commons-io-文件流处理">
 									commons-io 文件流处理
 								</a>
 							</li>
@@ -585,53 +360,53 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 <ol>
 <li>List集合拼接成以逗号分隔的字符串</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#228b22">//将list转为字符串
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        List&lt;String&gt; strings = Arrays.<span style="color:#658b00">asList</span>(<span style="color:#cd5555">&#34;a,b,c,d&#34;</span>);
-</span></span><span style="display:flex;"><span>		<span style="color:#228b22">//List&lt;String&gt; strings = Collections.singletonList(&#34;a,b,c,d&#34;);
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(strings);<span style="color:#228b22">//[a,b,c,d]
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//第一种方法: stream流
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        String collect = strings.<span style="color:#658b00">stream</span>().<span style="color:#658b00">collect</span>(Collectors.<span style="color:#658b00">joining</span>(<span style="color:#cd5555">&#34;,&#34;</span>));
-</span></span><span style="display:flex;"><span>        System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(collect);<span style="color:#228b22">//a,b,c,d
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//第二种方法: String自己的join方法
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        String join = String.<span style="color:#658b00">join</span>(<span style="color:#cd5555">&#34;,&#34;</span>, strings);
-</span></span><span style="display:flex;"><span>        System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(join);<span style="color:#228b22">//a,b,c,d
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//将list转为字符串</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>List&lt;String&gt;<span style="color:#bbb"> </span>strings<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Arrays.<span style="color:#658b00">asList</span>(<span style="color:#cd5555">&#34;a,b,c,d&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">		</span><span style="color:#228b22">//List&lt;String&gt; strings = Collections.singletonList(&#34;a,b,c,d&#34;);</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(strings);<span style="color:#228b22">//[a,b,c,d]</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//第一种方法: stream流</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>String<span style="color:#bbb"> </span>collect<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>strings.<span style="color:#658b00">stream</span>().<span style="color:#658b00">collect</span>(Collectors.<span style="color:#658b00">joining</span>(<span style="color:#cd5555">&#34;,&#34;</span>));<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(collect);<span style="color:#228b22">//a,b,c,d</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//第二种方法: String自己的join方法</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>String<span style="color:#bbb"> </span>join<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>String.<span style="color:#658b00">join</span>(<span style="color:#cd5555">&#34;,&#34;</span>,<span style="color:#bbb"> </span>strings);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(join);<span style="color:#228b22">//a,b,c,d</span><span style="color:#bbb">
 </span></span></span></code></pre></div><ol start="2">
 <li>比较字符串是否相等,忽略大小写</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">if</span> (strA.<span style="color:#658b00">equalsIgnoreCase</span>(strB)) {  
-</span></span><span style="display:flex;"><span>  System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;相等&#34;</span>);  
-</span></span><span style="display:flex;"><span>}  
-</span></span></code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">if</span><span style="color:#bbb"> </span>(strA.<span style="color:#658b00">equalsIgnoreCase</span>(strB))<span style="color:#bbb"> </span>{<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;相等&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">  
+</span></span></span></code></pre></div><ol start="3">
 <li>比较两个对象</li>
 </ol>
 <blockquote>
 <p>当我们用equals比较两个对象是否相等的时候，还需要对左边的对象进行判空，不然可能会报空指针异常，我们可以用java.util包下Objects封装好的比较是否相等的方法</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Objects.<span style="color:#658b00">equals</span>(strA, strB);  
-</span></span></code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>Objects.<span style="color:#658b00">equals</span>(strA,<span style="color:#bbb"> </span>strB);<span style="color:#bbb">  
+</span></span></span></code></pre></div><blockquote>
 <p>源码是这样的</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">boolean</span> <span style="color:#008b45">equals</span>(Object a, Object b) {  
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">return</span> (a == b) || (a != <span style="color:#8b008b;font-weight:bold">null</span> &amp;&amp; a.<span style="color:#658b00">equals</span>(b));  
-</span></span><span style="display:flex;"><span>}  
-</span></span></code></pre></div><ol start="4">
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">boolean</span><span style="color:#bbb"> </span><span style="color:#008b45">equals</span>(Object<span style="color:#bbb"> </span>a,<span style="color:#bbb"> </span>Object<span style="color:#bbb"> </span>b)<span style="color:#bbb"> </span>{<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>(a<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span>b)<span style="color:#bbb"> </span>||<span style="color:#bbb"> </span>(a<span style="color:#bbb"> </span>!=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">null</span><span style="color:#bbb"> </span>&amp;&amp;<span style="color:#bbb"> </span>a.<span style="color:#658b00">equals</span>(b));<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">  
+</span></span></span></code></pre></div><ol start="4">
 <li>两个List集合取交集</li>
 </ol>
 <blockquote>
 <p>必须是ArrayList</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List&lt;String&gt; list1 = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();  
-</span></span><span style="display:flex;"><span>list1.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;a&#34;</span>);  
-</span></span><span style="display:flex;"><span>list1.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;b&#34;</span>);  
-</span></span><span style="display:flex;"><span>list1.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;c&#34;</span>);  
-</span></span><span style="display:flex;"><span>List&lt;String&gt; list2 = <span style="color:#8b008b;font-weight:bold">new</span> ArrayList&lt;&gt;();  
-</span></span><span style="display:flex;"><span>list2.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;a&#34;</span>);  
-</span></span><span style="display:flex;"><span>list2.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;b&#34;</span>);  
-</span></span><span style="display:flex;"><span>list2.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;d&#34;</span>);  
-</span></span><span style="display:flex;"><span>list1.<span style="color:#658b00">retainAll</span>(list2);  
-</span></span><span style="display:flex;"><span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(list1); <span style="color:#228b22">// 输出[a, b]  
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>List&lt;String&gt;<span style="color:#bbb"> </span>list1<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>ArrayList&lt;&gt;();<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>list1.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;a&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>list1.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;b&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>list1.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;c&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>List&lt;String&gt;<span style="color:#bbb"> </span>list2<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>ArrayList&lt;&gt;();<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>list2.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;a&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>list2.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;b&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>list2.<span style="color:#658b00">add</span>(<span style="color:#cd5555">&#34;d&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>list1.<span style="color:#658b00">retainAll</span>(list2);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(list1);<span style="color:#bbb"> </span><span style="color:#228b22">// 输出[a, b]  </span><span style="color:#bbb">
 </span></span></span></code></pre></div><h2 id="apache-commons工具类库">apache commons工具类库</h2>
 <blockquote>
 <p>apache commons是最强大的，也是使用最广泛的工具类库，里面的子库非常多，下面介绍几个最常用的</p>
@@ -648,33 +423,33 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span></code></pre></div><ol>
 <li>首字母转成大写</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String str = <span style="color:#cd5555">&#34;yideng&#34;</span>;  
-</span></span><span style="display:flex;"><span>String capitalize = StringUtils.<span style="color:#658b00">capitalize</span>(str);  
-</span></span><span style="display:flex;"><span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(capitalize); <span style="color:#228b22">// 输出Yideng  
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>String<span style="color:#bbb"> </span>str<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;yideng&#34;</span>;<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>String<span style="color:#bbb"> </span>capitalize<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>StringUtils.<span style="color:#658b00">capitalize</span>(str);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(capitalize);<span style="color:#bbb"> </span><span style="color:#228b22">// 输出Yideng  </span><span style="color:#bbb">
 </span></span></span></code></pre></div><ol start="2">
 <li>重复拼接字符串</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">// Date类型转String类型  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>String date = DateFormatUtils.<span style="color:#658b00">format</span>(<span style="color:#8b008b;font-weight:bold">new</span> Date(), <span style="color:#cd5555">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>);  
-</span></span><span style="display:flex;"><span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(date); <span style="color:#228b22">// 输出 2021-05-01 01:01:01  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>  
-</span></span><span style="display:flex;"><span><span style="color:#228b22">// String类型转Date类型  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>Date date = DateUtils.<span style="color:#658b00">parseDate</span>(<span style="color:#cd5555">&#34;2021-05-01 01:01:01&#34;</span>, <span style="color:#cd5555">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>);  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#228b22">// 计算一个小时后的日期  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>Date date = DateUtils.<span style="color:#658b00">addHours</span>(<span style="color:#8b008b;font-weight:bold">new</span> Date(), <span style="color:#b452cd">1</span>);  
-</span></span></code></pre></div><ol start="3">
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">// Date类型转String类型  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>String<span style="color:#bbb"> </span>date<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>DateFormatUtils.<span style="color:#658b00">format</span>(<span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Date(),<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(date);<span style="color:#bbb"> </span><span style="color:#228b22">// 输出 2021-05-01 01:01:01  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// String类型转Date类型  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Date<span style="color:#bbb"> </span>date<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>DateUtils.<span style="color:#658b00">parseDate</span>(<span style="color:#cd5555">&#34;2021-05-01 01:01:01&#34;</span>,<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// 计算一个小时后的日期  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Date<span style="color:#bbb"> </span>date<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>DateUtils.<span style="color:#658b00">addHours</span>(<span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Date(),<span style="color:#bbb"> </span>1);<span style="color:#bbb">  
+</span></span></span></code></pre></div><ol start="3">
 <li>包装临时对象</li>
 </ol>
 <blockquote>
 <p>当一个方法需要返回两个及以上字段时，我们一般会封装成一个临时对象返回，现在有了Pair和Triple就不需要了</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">// 返回两个字段  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>ImmutablePair&lt;Integer, String&gt; pair = ImmutablePair.<span style="color:#658b00">of</span>(<span style="color:#b452cd">1</span>, <span style="color:#cd5555">&#34;yideng&#34;</span>);  
-</span></span><span style="display:flex;"><span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(pair.<span style="color:#658b00">getLeft</span>() + <span style="color:#cd5555">&#34;,&#34;</span> + pair.<span style="color:#658b00">getRight</span>()); <span style="color:#228b22">// 输出 1,yideng  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">// 返回三个字段  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>ImmutableTriple&lt;Integer, String, Date&gt; triple = ImmutableTriple.<span style="color:#658b00">of</span>(<span style="color:#b452cd">1</span>, <span style="color:#cd5555">&#34;yideng&#34;</span>, <span style="color:#8b008b;font-weight:bold">new</span> Date());  
-</span></span><span style="display:flex;"><span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(triple.<span style="color:#658b00">getLeft</span>() + <span style="color:#cd5555">&#34;,&#34;</span> + triple.<span style="color:#658b00">getMiddle</span>() + <span style="color:#cd5555">&#34;,&#34;</span> + triple.<span style="color:#658b00">getRight</span>()); <span style="color:#228b22">// 输出 1,yideng,Wed Apr 07 23:30:00 CST 2021  
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">// 返回两个字段  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ImmutablePair&lt;Integer,<span style="color:#bbb"> </span>String&gt;<span style="color:#bbb"> </span>pair<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>ImmutablePair.<span style="color:#658b00">of</span>(1,<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;yideng&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(pair.<span style="color:#658b00">getLeft</span>()<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;,&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>pair.<span style="color:#658b00">getRight</span>());<span style="color:#bbb"> </span><span style="color:#228b22">// 输出 1,yideng  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// 返回三个字段  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>ImmutableTriple&lt;Integer,<span style="color:#bbb"> </span>String,<span style="color:#bbb"> </span>Date&gt;<span style="color:#bbb"> </span>triple<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>ImmutableTriple.<span style="color:#658b00">of</span>(1,<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;yideng&#34;</span>,<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Date());<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(triple.<span style="color:#658b00">getLeft</span>()<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;,&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>triple.<span style="color:#658b00">getMiddle</span>()<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;,&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>triple.<span style="color:#658b00">getRight</span>());<span style="color:#bbb"> </span><span style="color:#228b22">// 输出 1,yideng,Wed Apr 07 23:30:00 CST 2021  </span><span style="color:#bbb">
 </span></span></span></code></pre></div><h3 id="commons-collections-集合工具类">commons-collections 集合工具类</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;dependency&gt;</span>  
 </span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;groupId&gt;</span>org.apache.commons<span style="color:#8b008b;font-weight:bold">&lt;/groupId&gt;</span>  
@@ -684,13 +459,13 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span></code></pre></div><ol>
 <li>集合取交集</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">// 两个集合取交集  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>Collection&lt;String&gt; collection = CollectionUtils.<span style="color:#658b00">retainAll</span>(listA, listB);  
-</span></span><span style="display:flex;"><span><span style="color:#228b22">// 两个集合取并集  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>Collection&lt;String&gt; collection = CollectionUtils.<span style="color:#658b00">union</span>(listA, listB);  
-</span></span><span style="display:flex;"><span><span style="color:#228b22">// 两个集合取差集  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>Collection&lt;String&gt; collection = CollectionUtils.<span style="color:#658b00">subtract</span>(listA, listB);  
-</span></span></code></pre></div><h3 id="common-beanutils-操作对象">common-beanutils 操作对象</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">// 两个集合取交集  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Collection&lt;String&gt;<span style="color:#bbb"> </span>collection<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>CollectionUtils.<span style="color:#658b00">retainAll</span>(listA,<span style="color:#bbb"> </span>listB);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// 两个集合取并集  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Collection&lt;String&gt;<span style="color:#bbb"> </span>collection<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>CollectionUtils.<span style="color:#658b00">union</span>(listA,<span style="color:#bbb"> </span>listB);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// 两个集合取差集  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Collection&lt;String&gt;<span style="color:#bbb"> </span>collection<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>CollectionUtils.<span style="color:#658b00">subtract</span>(listA,<span style="color:#bbb"> </span>listB);<span style="color:#bbb">  
+</span></span></span></code></pre></div><h3 id="common-beanutils-操作对象">common-beanutils 操作对象</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;dependency&gt;</span>  
 </span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;groupId&gt;</span>commons-beanutils<span style="color:#8b008b;font-weight:bold">&lt;/groupId&gt;</span>  
 </span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;artifactId&gt;</span>commons-beanutils<span style="color:#8b008b;font-weight:bold">&lt;/artifactId&gt;</span>  
@@ -699,13 +474,13 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span></code></pre></div><ol>
 <li>对象和map互转</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">// 对象转map  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>Map&lt;String, String&gt; map = BeanUtils.<span style="color:#658b00">describe</span>(user);  
-</span></span><span style="display:flex;"><span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(map); <span style="color:#228b22">// 输出 {&#34;id&#34;:&#34;1&#34;,&#34;name&#34;:&#34;yideng&#34;}  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">// map转对象  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>User newUser = <span style="color:#8b008b;font-weight:bold">new</span> User();  
-</span></span><span style="display:flex;"><span>BeanUtils.<span style="color:#658b00">populate</span>(newUser, map);  
-</span></span><span style="display:flex;"><span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(newUser); <span style="color:#228b22">// 输出 {&#34;id&#34;:1,&#34;name&#34;:&#34;yideng&#34;}  
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">// 对象转map  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>Map&lt;String,<span style="color:#bbb"> </span>String&gt;<span style="color:#bbb"> </span>map<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>BeanUtils.<span style="color:#658b00">describe</span>(user);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(map);<span style="color:#bbb"> </span><span style="color:#228b22">// 输出 {&#34;id&#34;:&#34;1&#34;,&#34;name&#34;:&#34;yideng&#34;}  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// map转对象  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>User<span style="color:#bbb"> </span>newUser<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>User();<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>BeanUtils.<span style="color:#658b00">populate</span>(newUser,<span style="color:#bbb"> </span>map);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(newUser);<span style="color:#bbb"> </span><span style="color:#228b22">// 输出 {&#34;id&#34;:1,&#34;name&#34;:&#34;yideng&#34;}  </span><span style="color:#bbb">
 </span></span></span></code></pre></div><h3 id="commons-io-文件流处理">commons-io 文件流处理</h3>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;dependency&gt;</span>  
 </span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">&lt;groupId&gt;</span>commons-io<span style="color:#8b008b;font-weight:bold">&lt;/groupId&gt;</span>  
@@ -715,14 +490,14 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span></code></pre></div><ol>
 <li>文件处理</li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>File file = <span style="color:#8b008b;font-weight:bold">new</span> File(<span style="color:#cd5555">&#34;demo1.txt&#34;</span>);  
-</span></span><span style="display:flex;"><span><span style="color:#228b22">// 读取文件  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>List&lt;String&gt; lines = FileUtils.<span style="color:#658b00">readLines</span>(file, Charset.<span style="color:#658b00">defaultCharset</span>());  
-</span></span><span style="display:flex;"><span><span style="color:#228b22">// 写入文件  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>FileUtils.<span style="color:#658b00">writeLines</span>(<span style="color:#8b008b;font-weight:bold">new</span> File(<span style="color:#cd5555">&#34;demo2.txt&#34;</span>), lines);  
-</span></span><span style="display:flex;"><span><span style="color:#228b22">// 复制文件  
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>FileUtils.<span style="color:#658b00">copyFile</span>(srcFile, destFile);  
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>File<span style="color:#bbb"> </span>file<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>File(<span style="color:#cd5555">&#34;demo1.txt&#34;</span>);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// 读取文件  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>List&lt;String&gt;<span style="color:#bbb"> </span>lines<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>FileUtils.<span style="color:#658b00">readLines</span>(file,<span style="color:#bbb"> </span>Charset.<span style="color:#658b00">defaultCharset</span>());<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// 写入文件  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>FileUtils.<span style="color:#658b00">writeLines</span>(<span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>File(<span style="color:#cd5555">&#34;demo2.txt&#34;</span>),<span style="color:#bbb"> </span>lines);<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">// 复制文件  </span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>FileUtils.<span style="color:#658b00">copyFile</span>(srcFile,<span style="color:#bbb"> </span>destFile);<span style="color:#bbb">  
+</span></span></span></code></pre></div>
                     
                     <HR width="100%" id="EOF">
 		    <p style="color:#777;">最后修改于 2021-07-20</p>
@@ -757,13 +532,242 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 
 
 
+
+
             </div>
         </div>
     </div>
 
 
                     </div>
-            </div><div id="single-column-footer">
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.github.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#java%e8%87%aa%e5%b8%a6%e7%9a%84%e6%96%b9%e6%b3%95" class="nav-java自带的方法">
+									java自带的方法
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#apache-commons%e5%b7%a5%e5%85%b7%e7%b1%bb%e5%ba%93" class="nav-apache-commons工具类库">
+									apache commons工具类库
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#commons-langjavalang%e7%9a%84%e5%a2%9e%e5%bc%ba%e7%89%88" class="nav-commons-langjavalang的增强版">
+									commons-lang，java.lang的增强版
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#commons-collections-%e9%9b%86%e5%90%88%e5%b7%a5%e5%85%b7%e7%b1%bb" class="nav-commons-collections-集合工具类">
+									commons-collections 集合工具类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#common-beanutils-%e6%93%8d%e4%bd%9c%e5%af%b9%e8%b1%a1" class="nav-common-beanutils-操作对象">
+									common-beanutils 操作对象
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#commons-io-%e6%96%87%e4%bb%b6%e6%b5%81%e5%a4%84%e7%90%86" class="nav-commons-io-文件流处理">
+									commons-io 文件流处理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
 <br>
 移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>

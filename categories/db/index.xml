@@ -7,12 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Sat, 15 May 2021 21:28:07 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/categories/db/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 May 2021 21:28:07 +0800</lastBuildDate>
+    <atom:link href="https://brandykk.github.io/categories/db/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nodejs连接sqlite数据库</title>
       <link>https://brandykk.github.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sat, 15 May 2021 21:28:07 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>编译nodejs相关模块better-sqlite3 安装 windows-build-tools， 注意用管理员身份启动终端（如果安装node的时侯已经安装了相关的tools就略过这一步） npm install --global windows-build-tools 这里有个点要注意一下，这个工具分版本 vs2015, vs2017， 默认是2017，如果是需要2015版安装时后面加参数
 npm install --global windows-build-tools --vs2015 如果不知道当前需要哪个版本，先默认安装，后面编译出错会报出来
@@ -28,6 +28,5 @@ npm install &amp;ndash;save-dev electron-rebuild
 electron-rebuild -f -w better-sqlite3 或者在package.json的scripts中加入并运行这个
 &amp;#34;rebuild&amp;#34;: &amp;#34;electron-rebuild -f -w better-sqlite3&amp;#34;, better-sqlite3基础操作：API new Database(path, [options]) 创建一个新的数据库连接。 如果数据库文件不存在，则会创建它。 这是同步发生的，这意味着您可以立即开始执行查询。 您可以创建一个 内存数据库 通过传递 &amp;quot;:memory:&amp;quot;作为第一个论点。</description>
     </item>
-    
   </channel>
 </rss>

@@ -27,9 +27,11 @@
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Nodejs连接sqlite数据库"/>
 <meta name="twitter:description" content="使用niodejs操作sqlite数据库"/>
+
 
 
 
@@ -50,11 +52,8 @@
       <script src="/js/toc.js"></script>
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
 
-
-
-<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -80,321 +79,7 @@
 
 </head>
 <body>
-    	<div id="app"><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="https://brandykk.github.io">
-    
-        <div class="nav-title">
-            Brandy
-        </div>
-        
-        <div class="nav-subtitle">
-            个人使用
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/posts">
-                Archive
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/categories">
-                Categories
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/tags">
-                Tags
-            </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	This is a customized copyright.
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    
-    
-    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
-
-
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- 目录 -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#%e7%bc%96%e8%af%91nodejs%e7%9b%b8%e5%85%b3%e6%a8%a1%e5%9d%97better-sqlite3" onclick="onNavClick(`#编译nodejs相关模块better-sqlite3-nav`)" id="编译nodejs相关模块better-sqlite3-nav">
-									编译nodejs相关模块better-sqlite3
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#better-sqlite3%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9capihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd" onclick="onNavClick(`#better-sqlite3基础操作apihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd-nav`)" id="better-sqlite3基础操作apihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd-nav">
-									better-sqlite3基础操作：API
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#new-databasepath-options" onclick="onNavClick(`#new-databasepath-options-nav`)" id="new-databasepath-options-nav">
-									new Database(path, [options])
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#preparestring---statement" onclick="onNavClick(`#preparestring---statement-nav`)" id="preparestring---statement-nav">
-									.prepare(string) -&gt; Statement
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#transactionfunction---function" onclick="onNavClick(`#transactionfunction---function-nav`)" id="transactionfunction---function-nav">
-									.transaction(function) -&gt; function
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#execstring---this" onclick="onNavClick(`#execstring---this-nav`)" id="execstring---this-nav">
-									.exec(string) -&gt; this
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#close--%e6%ad%a4" onclick="onNavClick(`#close--此-nav`)" id="close--此-nav">
-									.close（）-&gt; 此
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#runbindparameters---object" onclick="onNavClick(`#runbindparameters---object-nav`)" id="runbindparameters---object-nav">
-									.run([…bindParameters]) -&gt; object
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#getbindparameters---row" onclick="onNavClick(`#getbindparameters---row-nav`)" id="getbindparameters---row-nav">
-									.get([…bindParameters]) -&gt; row
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#allbindparameters---array-of-rows" onclick="onNavClick(`#allbindparameters---array-of-rows-nav`)" id="allbindparameters---array-of-rows-nav">
-									.all([…bindParameters]) -&gt; array of rows
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#iteratebindparameters---iterator" onclick="onNavClick(`#iteratebindparameters---iterator-nav`)" id="iteratebindparameters---iterator-nav">
-									.iterate([…bindParameters]) -&gt; iterator
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
-
-</div>
-    
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
-    </div>
-</div>
-<div class="single-column-drawer-container" id="drawer"
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
      v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
     <div class="drawer-content">
         <div class="drawer-menu">
@@ -462,7 +147,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e7%bc%96%e8%af%91nodejs%e7%9b%b8%e5%85%b3%e6%a8%a1%e5%9d%97better-sqlite3" onclick="onNavClick(`#编译nodejs相关模块better-sqlite3-nav`)" id="编译nodejs相关模块better-sqlite3-nav">
+								<a href="#%e7%bc%96%e8%af%91nodejs%e7%9b%b8%e5%85%b3%e6%a8%a1%e5%9d%97better-sqlite3" class="nav-编译nodejs相关模块better-sqlite3">
 									编译nodejs相关模块better-sqlite3
 								</a>
 							</li>
@@ -480,7 +165,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#better-sqlite3%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9capihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd" onclick="onNavClick(`#better-sqlite3基础操作apihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd-nav`)" id="better-sqlite3基础操作apihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd-nav">
+								<a href="#better-sqlite3%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9capihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd" class="nav-better-sqlite3基础操作apihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd">
 									better-sqlite3基础操作：API
 								</a>
 							</li>
@@ -504,7 +189,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#new-databasepath-options" onclick="onNavClick(`#new-databasepath-options-nav`)" id="new-databasepath-options-nav">
+								<a href="#new-databasepath-options" class="nav-new-databasepath-options">
 									new Database(path, [options])
 								</a>
 							</li>
@@ -522,7 +207,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#preparestring---statement" onclick="onNavClick(`#preparestring---statement-nav`)" id="preparestring---statement-nav">
+								<a href="#preparestring---statement" class="nav-preparestring---statement">
 									.prepare(string) -&gt; Statement
 								</a>
 							</li>
@@ -540,7 +225,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#transactionfunction---function" onclick="onNavClick(`#transactionfunction---function-nav`)" id="transactionfunction---function-nav">
+								<a href="#transactionfunction---function" class="nav-transactionfunction---function">
 									.transaction(function) -&gt; function
 								</a>
 							</li>
@@ -558,7 +243,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#execstring---this" onclick="onNavClick(`#execstring---this-nav`)" id="execstring---this-nav">
+								<a href="#execstring---this" class="nav-execstring---this">
 									.exec(string) -&gt; this
 								</a>
 							</li>
@@ -576,7 +261,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#close--%e6%ad%a4" onclick="onNavClick(`#close--此-nav`)" id="close--此-nav">
+								<a href="#close--%e6%ad%a4" class="nav-close--此">
 									.close（）-&gt; 此
 								</a>
 							</li>
@@ -594,7 +279,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#runbindparameters---object" onclick="onNavClick(`#runbindparameters---object-nav`)" id="runbindparameters---object-nav">
+								<a href="#runbindparameters---object" class="nav-runbindparameters---object">
 									.run([…bindParameters]) -&gt; object
 								</a>
 							</li>
@@ -612,7 +297,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#getbindparameters---row" onclick="onNavClick(`#getbindparameters---row-nav`)" id="getbindparameters---row-nav">
+								<a href="#getbindparameters---row" class="nav-getbindparameters---row">
 									.get([…bindParameters]) -&gt; row
 								</a>
 							</li>
@@ -630,7 +315,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#allbindparameters---array-of-rows" onclick="onNavClick(`#allbindparameters---array-of-rows-nav`)" id="allbindparameters---array-of-rows-nav">
+								<a href="#allbindparameters---array-of-rows" class="nav-allbindparameters---array-of-rows">
 									.all([…bindParameters]) -&gt; array of rows
 								</a>
 							</li>
@@ -648,7 +333,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#iteratebindparameters---iterator" onclick="onNavClick(`#iteratebindparameters---iterator-nav`)" id="iteratebindparameters---iterator-nav">
+								<a href="#iteratebindparameters---iterator" class="nav-iteratebindparameters---iterator">
 									.iterate([…bindParameters]) -&gt; iterator
 								</a>
 							</li>
@@ -915,13 +600,332 @@ npm install -g node-gyp
 
 
 
+
+
             </div>
         </div>
     </div>
 
 
                     </div>
-            </div><div id="single-column-footer">
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.github.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%bc%96%e8%af%91nodejs%e7%9b%b8%e5%85%b3%e6%a8%a1%e5%9d%97better-sqlite3" class="nav-编译nodejs相关模块better-sqlite3">
+									编译nodejs相关模块better-sqlite3
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#better-sqlite3%e5%9f%ba%e7%a1%80%e6%93%8d%e4%bd%9capihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd" class="nav-better-sqlite3基础操作apihttpsgithubcomjoshuawisebetter-sqlite3blobheaddocsapimd">
+									better-sqlite3基础操作：API
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#new-databasepath-options" class="nav-new-databasepath-options">
+									new Database(path, [options])
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#preparestring---statement" class="nav-preparestring---statement">
+									.prepare(string) -&gt; Statement
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#transactionfunction---function" class="nav-transactionfunction---function">
+									.transaction(function) -&gt; function
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#execstring---this" class="nav-execstring---this">
+									.exec(string) -&gt; this
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#close--%e6%ad%a4" class="nav-close--此">
+									.close（）-&gt; 此
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#runbindparameters---object" class="nav-runbindparameters---object">
+									.run([…bindParameters]) -&gt; object
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#getbindparameters---row" class="nav-getbindparameters---row">
+									.get([…bindParameters]) -&gt; row
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#allbindparameters---array-of-rows" class="nav-allbindparameters---array-of-rows">
+									.all([…bindParameters]) -&gt; array of rows
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#iteratebindparameters---iterator" class="nav-iteratebindparameters---iterator">
+									.iterate([…bindParameters]) -&gt; iterator
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
 <br>
 移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>

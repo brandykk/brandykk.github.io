@@ -27,9 +27,11 @@
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SpringMVC"/>
 <meta name="twitter:description" content="SpringMVC学习"/>
+
 
 
 
@@ -50,11 +52,8 @@
       <script src="/js/toc.js"></script>
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
 
-
-
-<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -80,317 +79,7 @@
 
 </head>
 <body>
-    	<div id="app"><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="https://brandykk.github.io">
-    
-        <div class="nav-title">
-            Brandy
-        </div>
-        
-        <div class="nav-subtitle">
-            个人使用
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/posts">
-                Archive
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/categories">
-                Categories
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/tags">
-                Tags
-            </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	This is a customized copyright.
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    
-    
-    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
-
-
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- 目录 -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#springmvc" onclick="onNavClick(`#springmvc-nav`)" id="springmvc-nav">
-									SpringMVC
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#springmvc%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86" onclick="onNavClick(`#springmvc工作原理-nav`)" id="springmvc工作原理-nav">
-									SpringMVC工作原理
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#%e7%90%86%e8%ae%ba" onclick="onNavClick(`#理论-nav`)" id="理论-nav">
-									理论
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e4%bb%a3%e7%a0%81" onclick="onNavClick(`#代码-nav`)" id="代码-nav">
-									代码
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-webxml" onclick="onNavClick(`#1-webxml-nav`)" id="1-webxml-nav">
-									1. web.xml
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-springmvc-servletxml" onclick="onNavClick(`#2-springmvc-servletxml-nav`)" id="2-springmvc-servletxml-nav">
-									2. springmvc-servlet.xml
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4jsp" onclick="onNavClick(`#4jsp-nav`)" id="4jsp-nav">
-									4.jsp
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#5controller" onclick="onNavClick(`#5controller-nav`)" id="5controller-nav">
-									5.controller
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#%e4%bd%bf%e7%94%a8%e6%b3%a8%e8%a7%a3%e9%85%8d%e7%bd%ae" onclick="onNavClick(`#使用注解配置-nav`)" id="使用注解配置-nav">
-									使用注解配置
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#requestmapping" onclick="onNavClick(`#requestmapping-nav`)" id="requestmapping-nav">
-									requestMapping
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
-
-</div>
-    
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
-    </div>
-</div>
-<div class="single-column-drawer-container" id="drawer"
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
      v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
     <div class="drawer-content">
         <div class="drawer-menu">
@@ -452,7 +141,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#springmvc" onclick="onNavClick(`#springmvc-nav`)" id="springmvc-nav">
+								<a href="#springmvc" class="nav-springmvc">
 									SpringMVC
 								</a>
 							</li>
@@ -476,7 +165,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#springmvc%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86" onclick="onNavClick(`#springmvc工作原理-nav`)" id="springmvc工作原理-nav">
+								<a href="#springmvc%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86" class="nav-springmvc工作原理">
 									SpringMVC工作原理
 								</a>
 							</li>
@@ -500,7 +189,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e7%90%86%e8%ae%ba" onclick="onNavClick(`#理论-nav`)" id="理论-nav">
+								<a href="#%e7%90%86%e8%ae%ba" class="nav-理论">
 									理论
 								</a>
 							</li>
@@ -518,7 +207,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e4%bb%a3%e7%a0%81" onclick="onNavClick(`#代码-nav`)" id="代码-nav">
+								<a href="#%e4%bb%a3%e7%a0%81" class="nav-代码">
 									代码
 								</a>
 							</li>
@@ -542,7 +231,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-webxml" onclick="onNavClick(`#1-webxml-nav`)" id="1-webxml-nav">
+								<a href="#1-webxml" class="nav-1-webxml">
 									1. web.xml
 								</a>
 							</li>
@@ -560,7 +249,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-springmvc-servletxml" onclick="onNavClick(`#2-springmvc-servletxml-nav`)" id="2-springmvc-servletxml-nav">
+								<a href="#2-springmvc-servletxml" class="nav-2-springmvc-servletxml">
 									2. springmvc-servlet.xml
 								</a>
 							</li>
@@ -578,7 +267,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4jsp" onclick="onNavClick(`#4jsp-nav`)" id="4jsp-nav">
+								<a href="#4jsp" class="nav-4jsp">
 									4.jsp
 								</a>
 							</li>
@@ -596,7 +285,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#5controller" onclick="onNavClick(`#5controller-nav`)" id="5controller-nav">
+								<a href="#5controller" class="nav-5controller">
 									5.controller
 								</a>
 							</li>
@@ -618,7 +307,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e4%bd%bf%e7%94%a8%e6%b3%a8%e8%a7%a3%e9%85%8d%e7%bd%ae" onclick="onNavClick(`#使用注解配置-nav`)" id="使用注解配置-nav">
+								<a href="#%e4%bd%bf%e7%94%a8%e6%b3%a8%e8%a7%a3%e9%85%8d%e7%bd%ae" class="nav-使用注解配置">
 									使用注解配置
 								</a>
 							</li>
@@ -640,7 +329,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#requestmapping" onclick="onNavClick(`#requestmapping-nav`)" id="requestmapping-nav">
+								<a href="#requestmapping" class="nav-requestmapping">
 									requestMapping
 								</a>
 							</li>
@@ -896,29 +585,29 @@ ${msg}
 &lt;/body&gt;
 &lt;/html&gt;
 </code></pre><h4 id="5controller">5.controller</h4>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span> <span style="color:#008b45;text-decoration:underline">lv.controller</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.web.servlet.ModelAndView</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.web.servlet.mvc.Controller</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">javax.servlet.http.HttpServletRequest</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">javax.servlet.http.HttpServletResponse</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">HelloController</span> <span style="color:#8b008b;font-weight:bold">implements</span> Controller {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> ModelAndView <span style="color:#008b45">handleRequest</span>(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) <span style="color:#8b008b;font-weight:bold">throws</span> Exception {
-</span></span><span style="display:flex;"><span>        ModelAndView mv = <span style="color:#8b008b;font-weight:bold">new</span> ModelAndView();
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//业务代码
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        String result = <span style="color:#cd5555">&#34;HelloServletMVC&#34;</span>;
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//数据封装  在jsp中可以拿到数据
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        mv.<span style="color:#658b00">addObject</span>(<span style="color:#cd5555">&#34;msg&#34;</span>, result);
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//试图跳转  设置jsp页面
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        mv.<span style="color:#658b00">setViewName</span>(<span style="color:#cd5555">&#34;hello&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> mv;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="使用注解配置">使用注解配置</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">lv.controller</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.web.servlet.ModelAndView</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.web.servlet.mvc.Controller</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">javax.servlet.http.HttpServletRequest</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">javax.servlet.http.HttpServletResponse</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">HelloController</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">implements</span><span style="color:#bbb"> </span>Controller<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>ModelAndView<span style="color:#bbb"> </span><span style="color:#008b45">handleRequest</span>(HttpServletRequest<span style="color:#bbb"> </span>httpServletRequest,<span style="color:#bbb"> </span>HttpServletResponse<span style="color:#bbb"> </span>httpServletResponse)<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">throws</span><span style="color:#bbb"> </span>Exception<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>ModelAndView<span style="color:#bbb"> </span>mv<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>ModelAndView();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//业务代码</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>String<span style="color:#bbb"> </span>result<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;HelloServletMVC&#34;</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//数据封装  在jsp中可以拿到数据</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>mv.<span style="color:#658b00">addObject</span>(<span style="color:#cd5555">&#34;msg&#34;</span>,<span style="color:#bbb"> </span>result);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//试图跳转  设置jsp页面</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>mv.<span style="color:#658b00">setViewName</span>(<span style="color:#cd5555">&#34;hello&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>mv;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="使用注解配置">使用注解配置</h3>
 <ul>
 <li>springmvc-servlet.xml配置</li>
 </ul>
@@ -949,31 +638,31 @@ ${msg}
 </span></span></code></pre></div><ul>
 <li>controller</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span> <span style="color:#008b45;text-decoration:underline">lv.controller</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.stereotype.Controller</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.ui.Model</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.web.bind.annotation.RequestMapping</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#707a7c">@Controller</span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">AnnotationController</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@RequestMapping</span>(<span style="color:#cd5555">&#34;/hello&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">controller</span>(Model model) {
-</span></span><span style="display:flex;"><span>        model.<span style="color:#658b00">addAttribute</span>(<span style="color:#cd5555">&#34;msg&#34;</span>, <span style="color:#cd5555">&#34;HelloSpringMVC&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;hello&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="requestmapping">requestMapping</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">lv.controller</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.stereotype.Controller</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.ui.Model</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.web.bind.annotation.RequestMapping</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#707a7c">@Controller</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">AnnotationController</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@RequestMapping</span>(<span style="color:#cd5555">&#34;/hello&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span><span style="color:#008b45">controller</span>(Model<span style="color:#bbb"> </span>model)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>model.<span style="color:#658b00">addAttribute</span>(<span style="color:#cd5555">&#34;msg&#34;</span>,<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;HelloSpringMVC&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#cd5555">&#34;hello&#34;</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h2 id="requestmapping">requestMapping</h2>
 <blockquote>
 <p>使用<code>@PathVariable</code>可以将参数赋值给mapping映射的路径上</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#707a7c">@RequestMapping</span>(<span style="color:#cd5555">&#34;/hello/{a}/{b}&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">add</span>(Model model, <span style="color:#707a7c">@PathVariable</span> <span style="color:#00688b;font-weight:bold">int</span> a, <span style="color:#707a7c">@PathVariable</span> String b) {
-</span></span><span style="display:flex;"><span>        model.<span style="color:#658b00">addAttribute</span>(<span style="color:#cd5555">&#34;msg&#34;</span>, <span style="color:#cd5555">&#34;HelloSpringMVC&#34;</span>);
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;hello&#34;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#707a7c">@RequestMapping</span>(<span style="color:#cd5555">&#34;/hello/{a}/{b}&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span><span style="color:#008b45">add</span>(Model<span style="color:#bbb"> </span>model,<span style="color:#bbb"> </span><span style="color:#707a7c">@PathVariable</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">int</span><span style="color:#bbb"> </span>a,<span style="color:#bbb"> </span><span style="color:#707a7c">@PathVariable</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>b)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>model.<span style="color:#658b00">addAttribute</span>(<span style="color:#cd5555">&#34;msg&#34;</span>,<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;HelloSpringMVC&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#cd5555">&#34;hello&#34;</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div>
                     
                     <HR width="100%" id="EOF">
 		    <p style="color:#777;">最后修改于 2021-08-07</p>
@@ -1008,13 +697,328 @@ ${msg}
 
 
 
+
+
             </div>
         </div>
     </div>
 
 
                     </div>
-            </div><div id="single-column-footer">
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.github.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#springmvc" class="nav-springmvc">
+									SpringMVC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#springmvc%e5%b7%a5%e4%bd%9c%e5%8e%9f%e7%90%86" class="nav-springmvc工作原理">
+									SpringMVC工作原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e7%90%86%e8%ae%ba" class="nav-理论">
+									理论
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e4%bb%a3%e7%a0%81" class="nav-代码">
+									代码
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-webxml" class="nav-1-webxml">
+									1. web.xml
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-springmvc-servletxml" class="nav-2-springmvc-servletxml">
+									2. springmvc-servlet.xml
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4jsp" class="nav-4jsp">
+									4.jsp
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5controller" class="nav-5controller">
+									5.controller
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%bd%bf%e7%94%a8%e6%b3%a8%e8%a7%a3%e9%85%8d%e7%bd%ae" class="nav-使用注解配置">
+									使用注解配置
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#requestmapping" class="nav-requestmapping">
+									requestMapping
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
 <br>
 移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>

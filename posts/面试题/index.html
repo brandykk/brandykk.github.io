@@ -27,9 +27,11 @@
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java面试题"/>
 <meta name="twitter:description" content="随便记录点面试可能问的东西"/>
+
 
 
 
@@ -50,11 +52,8 @@
       <script src="/js/toc.js"></script>
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
 
-
-
-<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -80,1185 +79,7 @@
 
 </head>
 <body>
-    	<div id="app"><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="https://brandykk.github.io">
-    
-        <div class="nav-title">
-            Brandy
-        </div>
-        
-        <div class="nav-subtitle">
-            个人使用
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/posts">
-                Archive
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/categories">
-                Categories
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/tags">
-                Tags
-            </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	This is a customized copyright.
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    
-    
-    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
-
-
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- 目录 -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#spring" onclick="onNavClick(`#spring-nav`)" id="spring-nav">
-									Spring
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-spring%e7%9a%84%e4%bc%98%e8%89%af%e7%89%b9%e6%80%a7" onclick="onNavClick(`#1-spring的优良特性-nav`)" id="1-spring的优良特性-nav">
-									1. spring的优良特性
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-springbean%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f" onclick="onNavClick(`#2-springbean生命周期-nav`)" id="2-springbean生命周期-nav">
-									2. SpringBean生命周期
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#3-ioc" onclick="onNavClick(`#3-ioc-nav`)" id="3-ioc-nav">
-									3. IOC
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4-spring%e4%ba%8b%e5%8a%a1" onclick="onNavClick(`#4-spring事务-nav`)" id="4-spring事务-nav">
-									4. Spring事务
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#5-spring%e4%ba%8b%e5%8a%a1%e9%9a%94%e7%a6%bb" onclick="onNavClick(`#5-spring事务隔离-nav`)" id="5-spring事务隔离-nav">
-									5. Spring事务隔离
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#6-aop" onclick="onNavClick(`#6-aop-nav`)" id="6-aop-nav">
-									6. AOP
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#springmvc" onclick="onNavClick(`#springmvc-nav`)" id="springmvc-nav">
-									springMVC
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1%e4%bb%80%e4%b9%88%e6%98%afmvc" onclick="onNavClick(`#1什么是mvc-nav`)" id="1什么是mvc-nav">
-									1.什么是MVC？
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-%e4%bb%80%e4%b9%88%e6%98%afspringmvc" onclick="onNavClick(`#2-什么是springmvc-nav`)" id="2-什么是springmvc-nav">
-									2. 什么是SpringMVC？
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#3-springmvc%e7%9a%84%e7%89%b9%e7%82%b9" onclick="onNavClick(`#3-springmvc的特点-nav`)" id="3-springmvc的特点-nav">
-									3. SpringMVC的特点：
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4-springmvc%e4%b8%ad%e7%9a%84%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6" onclick="onNavClick(`#4-springmvc中的核心组件-nav`)" id="4-springmvc中的核心组件-nav">
-									4. SpringMVC中的核心组件
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#5-%e5%85%b3%e4%ba%8edispatcherservlet%e7%9a%84%e9%85%8d%e7%bd%ae%e8%af%b4%e6%98%8e" onclick="onNavClick(`#5-关于dispatcherservlet的配置说明-nav`)" id="5-关于dispatcherservlet的配置说明-nav">
-									5. 关于DispatcherServlet的配置说明
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#springboot" onclick="onNavClick(`#springboot-nav`)" id="springboot-nav">
-									SpringBoot
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-springboot%e6%a0%b8%e5%bf%83%e6%b3%a8%e8%a7%a3" onclick="onNavClick(`#1-springboot核心注解-nav`)" id="1-springboot核心注解-nav">
-									1. SpringBoot核心注解
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-springboot%e5%90%af%e5%8a%a8%e5%8e%9f%e7%90%86" onclick="onNavClick(`#2-springboot启动原理-nav`)" id="2-springboot启动原理-nav">
-									2. SpringBoot启动原理
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#3springboot%e5%86%85%e7%bd%aetomcat%e5%90%af%e5%8a%a8%e5%8e%9f%e7%90%86" onclick="onNavClick(`#3springboot内置tomcat启动原理-nav`)" id="3springboot内置tomcat启动原理-nav">
-									3.SpringBoot内置Tomcat启动原理
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4-%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" onclick="onNavClick(`#4-自动配置原理-nav`)" id="4-自动配置原理-nav">
-									4. 自动配置原理
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#%e4%ba%a4%e6%8d%a2%e4%b8%a4%e4%b8%aa%e5%8f%98%e9%87%8f%e7%9a%84%e5%80%bc" onclick="onNavClick(`#交换两个变量的值-nav`)" id="交换两个变量的值-nav">
-									交换两个变量的值
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e5%8d%95%e4%be%8b%e6%a8%a1%e5%bc%8f" onclick="onNavClick(`#单例模式-nav`)" id="单例模式-nav">
-									单例模式
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-%e6%87%92%e6%b1%89%e5%bc%8f%e7%ba%bf%e7%a8%8b%e4%b8%8d%e5%ae%89%e5%85%a8" onclick="onNavClick(`#1-懒汉式线程不安全-nav`)" id="1-懒汉式线程不安全-nav">
-									1. 懒汉式(线程不安全)
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-%e6%87%92%e6%b1%89%e5%bc%8f%e7%ba%bf%e7%a8%8b%e5%ae%89%e5%85%a8" onclick="onNavClick(`#2-懒汉式线程安全-nav`)" id="2-懒汉式线程安全-nav">
-									2. 懒汉式(线程安全)
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#3-%e9%a5%bf%e6%b1%89%e5%bc%8f" onclick="onNavClick(`#3-饿汉式-nav`)" id="3-饿汉式-nav">
-									3. 饿汉式
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4-%e9%9d%99%e6%80%81%e5%86%85%e9%83%a8%e7%b1%bb" onclick="onNavClick(`#4-静态内部类-nav`)" id="4-静态内部类-nav">
-									4. 静态内部类
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#5-%e6%9e%9a%e4%b8%be%e5%ae%98%e6%96%b9%e6%8e%a8%e8%8d%90" onclick="onNavClick(`#5-枚举官方推荐-nav`)" id="5-枚举官方推荐-nav">
-									5. 枚举（官方推荐）
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#6-%e5%8f%8c%e9%87%8d%e6%a0%a1%e9%aa%8c%e9%94%81" onclick="onNavClick(`#6-双重校验锁-nav`)" id="6-双重校验锁-nav">
-									6. 双重校验锁
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#mybatis" onclick="onNavClick(`#mybatis-nav`)" id="mybatis-nav">
-									mybatis
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-%e4%b8%80%e7%ba%a7%e7%bc%93%e5%ad%98" onclick="onNavClick(`#1-一级缓存-nav`)" id="1-一级缓存-nav">
-									1. 一级缓存
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-%e4%ba%8c%e7%ba%a7%e7%bc%93%e5%ad%98" onclick="onNavClick(`#2-二级缓存-nav`)" id="2-二级缓存-nav">
-									2. 二级缓存
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#3-mybatis%e5%88%86%e9%a1%b5" onclick="onNavClick(`#3-mybatis分页-nav`)" id="3-mybatis分页-nav">
-									3. mybatis分页
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#mysql" onclick="onNavClick(`#mysql-nav`)" id="mysql-nav">
-									mysql
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-%e5%ba%93%e8%a1%a8%e8%ae%be%e8%ae%a1" onclick="onNavClick(`#1-库表设计-nav`)" id="1-库表设计-nav">
-									1. 库表设计
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-mysql%e6%95%b0%e6%8d%ae%e5%bc%95%e6%93%8e%e7%9a%84%e5%8c%ba%e5%88%ab" onclick="onNavClick(`#2-mysql数据引擎的区别-nav`)" id="2-mysql数据引擎的区别-nav">
-									2. mysql数据引擎的区别
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#3-%e4%b9%90%e8%a7%82%e9%94%81" onclick="onNavClick(`#3-乐观锁-nav`)" id="3-乐观锁-nav">
-									3. 乐观锁
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4-%e6%82%b2%e8%a7%82%e9%94%81" onclick="onNavClick(`#4-悲观锁-nav`)" id="4-悲观锁-nav">
-									4. 悲观锁
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#5-sql%e4%bc%98%e5%8c%96" onclick="onNavClick(`#5-sql优化-nav`)" id="5-sql优化-nav">
-									5. sql优化
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4-%e4%ba%8b%e5%8a%a1" onclick="onNavClick(`#4-事务-nav`)" id="4-事务-nav">
-									4. 事务
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#5-%e6%ad%bb%e9%94%81" onclick="onNavClick(`#5-死锁-nav`)" id="5-死锁-nav">
-									5. 死锁
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#6-%e7%b4%a2%e5%bc%95" onclick="onNavClick(`#6-索引-nav`)" id="6-索引-nav">
-									6. 索引
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#7-%e7%b4%a2%e5%bc%95%e5%a4%b1%e6%95%88%e7%9a%84%e5%87%a0%e7%a7%8d%e6%83%85%e5%86%b5mysql" onclick="onNavClick(`#7-索引失效的几种情况mysql-nav`)" id="7-索引失效的几种情况mysql-nav">
-									7. 索引失效的几种情况（MySQL）
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#java%e9%9b%86%e5%90%88%e4%bd%93%e7%b3%bb" onclick="onNavClick(`#java集合体系-nav`)" id="java集合体系-nav">
-									java集合体系
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b" onclick="onNavClick(`#多线程-nav`)" id="多线程-nav">
-									多线程
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-java-%e5%ae%9e%e7%8e%b0%e7%ba%bf%e7%a8%8b%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f" onclick="onNavClick(`#1-java-实现线程有哪几种方式-nav`)" id="1-java-实现线程有哪几种方式-nav">
-									1. Java 实现线程有哪几种方式？
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-%e4%b8%80%e4%b8%aa%e7%ba%bf%e7%a8%8b%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e7%8a%b6%e6%80%81%e5%ae%83%e4%bb%ac%e4%b9%8b%e9%97%b4%e5%a6%82%e4%bd%95%e6%b5%81%e8%bd%ac%e7%9a%84" onclick="onNavClick(`#2-一个线程的生命周期有哪几种状态它们之间如何流转的-nav`)" id="2-一个线程的生命周期有哪几种状态它们之间如何流转的-nav">
-									2. 一个线程的生命周期有哪几种状态？它们之间如何流转的？
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#3-%e7%ba%bf%e7%a8%8b%e6%b1%a0%e7%9a%84%e4%bd%9c%e7%94%a8%e6%98%af%e4%bb%80%e4%b9%88%e5%b8%b8%e8%a7%81%e7%9a%84%e5%8f%82%e6%95%b0%e6%9c%89%e5%93%aa%e4%ba%9b" onclick="onNavClick(`#3-线程池的作用是什么常见的参数有哪些-nav`)" id="3-线程池的作用是什么常见的参数有哪些-nav">
-									3. 线程池的作用是什么，常见的参数有哪些？
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#redis" onclick="onNavClick(`#redis-nav`)" id="redis-nav">
-									redis
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-redis%e5%8d%95%e7%ba%bf%e7%a8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%bf%98%e5%bf%ab" onclick="onNavClick(`#1-redis单线程为什么还快-nav`)" id="1-redis单线程为什么还快-nav">
-									1. redis单线程为什么还快
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-redis%e5%88%a0%e9%99%a4%e6%9c%ba%e5%88%b6" onclick="onNavClick(`#2-redis删除机制-nav`)" id="2-redis删除机制-nav">
-									2. redis删除机制
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#%e6%83%b0%e6%80%a7%e5%88%a0%e9%99%a4" onclick="onNavClick(`#惰性删除-nav`)" id="惰性删除-nav">
-									惰性删除
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e5%ae%9a%e6%9c%9f%e5%88%a0%e9%99%a4" onclick="onNavClick(`#定期删除-nav`)" id="定期删除-nav">
-									定期删除
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#3-redis%e6%8c%81%e4%b9%85%e5%8c%96%e6%9c%ba%e5%88%b6" onclick="onNavClick(`#3-redis持久化机制-nav`)" id="3-redis持久化机制-nav">
-									3. redis持久化机制
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4-%e7%bc%93%e5%ad%98%e7%a9%bf%e9%80%8f%e5%87%bb%e7%a9%bf%e9%9b%aa%e5%b4%a9" onclick="onNavClick(`#4-缓存穿透击穿雪崩-nav`)" id="4-缓存穿透击穿雪崩-nav">
-									4. 缓存穿透、击穿、雪崩
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#%e6%b7%b1%e6%8b%b7%e8%b4%9d%e5%92%8c%e6%b5%85%e6%8b%b7%e8%b4%9d" onclick="onNavClick(`#深拷贝和浅拷贝-nav`)" id="深拷贝和浅拷贝-nav">
-									深拷贝和浅拷贝
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#%e5%ba%8f%e5%88%97%e5%8c%96%e5%92%8c%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96" onclick="onNavClick(`#序列化和反序列化-nav`)" id="序列化和反序列化-nav">
-									序列化和反序列化
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
-
-</div>
-    
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
-    </div>
-</div>
-<div class="single-column-drawer-container" id="drawer"
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
      v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
     <div class="drawer-content">
         <div class="drawer-menu">
@@ -1326,7 +147,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#spring" onclick="onNavClick(`#spring-nav`)" id="spring-nav">
+								<a href="#spring" class="nav-spring">
 									Spring
 								</a>
 							</li>
@@ -1350,7 +171,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-spring%e7%9a%84%e4%bc%98%e8%89%af%e7%89%b9%e6%80%a7" onclick="onNavClick(`#1-spring的优良特性-nav`)" id="1-spring的优良特性-nav">
+								<a href="#1-spring%e7%9a%84%e4%bc%98%e8%89%af%e7%89%b9%e6%80%a7" class="nav-1-spring的优良特性">
 									1. spring的优良特性
 								</a>
 							</li>
@@ -1368,7 +189,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-springbean%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f" onclick="onNavClick(`#2-springbean生命周期-nav`)" id="2-springbean生命周期-nav">
+								<a href="#2-springbean%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f" class="nav-2-springbean生命周期">
 									2. SpringBean生命周期
 								</a>
 							</li>
@@ -1386,7 +207,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3-ioc" onclick="onNavClick(`#3-ioc-nav`)" id="3-ioc-nav">
+								<a href="#3-ioc" class="nav-3-ioc">
 									3. IOC
 								</a>
 							</li>
@@ -1404,7 +225,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4-spring%e4%ba%8b%e5%8a%a1" onclick="onNavClick(`#4-spring事务-nav`)" id="4-spring事务-nav">
+								<a href="#4-spring%e4%ba%8b%e5%8a%a1" class="nav-4-spring事务">
 									4. Spring事务
 								</a>
 							</li>
@@ -1422,7 +243,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#5-spring%e4%ba%8b%e5%8a%a1%e9%9a%94%e7%a6%bb" onclick="onNavClick(`#5-spring事务隔离-nav`)" id="5-spring事务隔离-nav">
+								<a href="#5-spring%e4%ba%8b%e5%8a%a1%e9%9a%94%e7%a6%bb" class="nav-5-spring事务隔离">
 									5. Spring事务隔离
 								</a>
 							</li>
@@ -1440,7 +261,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#6-aop" onclick="onNavClick(`#6-aop-nav`)" id="6-aop-nav">
+								<a href="#6-aop" class="nav-6-aop">
 									6. AOP
 								</a>
 							</li>
@@ -1462,7 +283,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#springmvc" onclick="onNavClick(`#springmvc-nav`)" id="springmvc-nav">
+								<a href="#springmvc" class="nav-springmvc">
 									springMVC
 								</a>
 							</li>
@@ -1490,7 +311,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1%e4%bb%80%e4%b9%88%e6%98%afmvc" onclick="onNavClick(`#1什么是mvc-nav`)" id="1什么是mvc-nav">
+								<a href="#1%e4%bb%80%e4%b9%88%e6%98%afmvc" class="nav-1什么是mvc">
 									1.什么是MVC？
 								</a>
 							</li>
@@ -1508,7 +329,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-%e4%bb%80%e4%b9%88%e6%98%afspringmvc" onclick="onNavClick(`#2-什么是springmvc-nav`)" id="2-什么是springmvc-nav">
+								<a href="#2-%e4%bb%80%e4%b9%88%e6%98%afspringmvc" class="nav-2-什么是springmvc">
 									2. 什么是SpringMVC？
 								</a>
 							</li>
@@ -1526,7 +347,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3-springmvc%e7%9a%84%e7%89%b9%e7%82%b9" onclick="onNavClick(`#3-springmvc的特点-nav`)" id="3-springmvc的特点-nav">
+								<a href="#3-springmvc%e7%9a%84%e7%89%b9%e7%82%b9" class="nav-3-springmvc的特点">
 									3. SpringMVC的特点：
 								</a>
 							</li>
@@ -1544,7 +365,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4-springmvc%e4%b8%ad%e7%9a%84%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6" onclick="onNavClick(`#4-springmvc中的核心组件-nav`)" id="4-springmvc中的核心组件-nav">
+								<a href="#4-springmvc%e4%b8%ad%e7%9a%84%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6" class="nav-4-springmvc中的核心组件">
 									4. SpringMVC中的核心组件
 								</a>
 							</li>
@@ -1562,7 +383,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#5-%e5%85%b3%e4%ba%8edispatcherservlet%e7%9a%84%e9%85%8d%e7%bd%ae%e8%af%b4%e6%98%8e" onclick="onNavClick(`#5-关于dispatcherservlet的配置说明-nav`)" id="5-关于dispatcherservlet的配置说明-nav">
+								<a href="#5-%e5%85%b3%e4%ba%8edispatcherservlet%e7%9a%84%e9%85%8d%e7%bd%ae%e8%af%b4%e6%98%8e" class="nav-5-关于dispatcherservlet的配置说明">
 									5. 关于DispatcherServlet的配置说明
 								</a>
 							</li>
@@ -1586,7 +407,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#springboot" onclick="onNavClick(`#springboot-nav`)" id="springboot-nav">
+								<a href="#springboot" class="nav-springboot">
 									SpringBoot
 								</a>
 							</li>
@@ -1610,7 +431,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-springboot%e6%a0%b8%e5%bf%83%e6%b3%a8%e8%a7%a3" onclick="onNavClick(`#1-springboot核心注解-nav`)" id="1-springboot核心注解-nav">
+								<a href="#1-springboot%e6%a0%b8%e5%bf%83%e6%b3%a8%e8%a7%a3" class="nav-1-springboot核心注解">
 									1. SpringBoot核心注解
 								</a>
 							</li>
@@ -1628,7 +449,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-springboot%e5%90%af%e5%8a%a8%e5%8e%9f%e7%90%86" onclick="onNavClick(`#2-springboot启动原理-nav`)" id="2-springboot启动原理-nav">
+								<a href="#2-springboot%e5%90%af%e5%8a%a8%e5%8e%9f%e7%90%86" class="nav-2-springboot启动原理">
 									2. SpringBoot启动原理
 								</a>
 							</li>
@@ -1646,7 +467,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3springboot%e5%86%85%e7%bd%aetomcat%e5%90%af%e5%8a%a8%e5%8e%9f%e7%90%86" onclick="onNavClick(`#3springboot内置tomcat启动原理-nav`)" id="3springboot内置tomcat启动原理-nav">
+								<a href="#3springboot%e5%86%85%e7%bd%aetomcat%e5%90%af%e5%8a%a8%e5%8e%9f%e7%90%86" class="nav-3springboot内置tomcat启动原理">
 									3.SpringBoot内置Tomcat启动原理
 								</a>
 							</li>
@@ -1664,7 +485,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4-%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" onclick="onNavClick(`#4-自动配置原理-nav`)" id="4-自动配置原理-nav">
+								<a href="#4-%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" class="nav-4-自动配置原理">
 									4. 自动配置原理
 								</a>
 							</li>
@@ -1686,7 +507,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e4%ba%a4%e6%8d%a2%e4%b8%a4%e4%b8%aa%e5%8f%98%e9%87%8f%e7%9a%84%e5%80%bc" onclick="onNavClick(`#交换两个变量的值-nav`)" id="交换两个变量的值-nav">
+								<a href="#%e4%ba%a4%e6%8d%a2%e4%b8%a4%e4%b8%aa%e5%8f%98%e9%87%8f%e7%9a%84%e5%80%bc" class="nav-交换两个变量的值">
 									交换两个变量的值
 								</a>
 							</li>
@@ -1704,7 +525,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e5%8d%95%e4%be%8b%e6%a8%a1%e5%bc%8f" onclick="onNavClick(`#单例模式-nav`)" id="单例模式-nav">
+								<a href="#%e5%8d%95%e4%be%8b%e6%a8%a1%e5%bc%8f" class="nav-单例模式">
 									单例模式
 								</a>
 							</li>
@@ -1728,7 +549,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-%e6%87%92%e6%b1%89%e5%bc%8f%e7%ba%bf%e7%a8%8b%e4%b8%8d%e5%ae%89%e5%85%a8" onclick="onNavClick(`#1-懒汉式线程不安全-nav`)" id="1-懒汉式线程不安全-nav">
+								<a href="#1-%e6%87%92%e6%b1%89%e5%bc%8f%e7%ba%bf%e7%a8%8b%e4%b8%8d%e5%ae%89%e5%85%a8" class="nav-1-懒汉式线程不安全">
 									1. 懒汉式(线程不安全)
 								</a>
 							</li>
@@ -1746,7 +567,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-%e6%87%92%e6%b1%89%e5%bc%8f%e7%ba%bf%e7%a8%8b%e5%ae%89%e5%85%a8" onclick="onNavClick(`#2-懒汉式线程安全-nav`)" id="2-懒汉式线程安全-nav">
+								<a href="#2-%e6%87%92%e6%b1%89%e5%bc%8f%e7%ba%bf%e7%a8%8b%e5%ae%89%e5%85%a8" class="nav-2-懒汉式线程安全">
 									2. 懒汉式(线程安全)
 								</a>
 							</li>
@@ -1764,7 +585,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3-%e9%a5%bf%e6%b1%89%e5%bc%8f" onclick="onNavClick(`#3-饿汉式-nav`)" id="3-饿汉式-nav">
+								<a href="#3-%e9%a5%bf%e6%b1%89%e5%bc%8f" class="nav-3-饿汉式">
 									3. 饿汉式
 								</a>
 							</li>
@@ -1782,7 +603,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4-%e9%9d%99%e6%80%81%e5%86%85%e9%83%a8%e7%b1%bb" onclick="onNavClick(`#4-静态内部类-nav`)" id="4-静态内部类-nav">
+								<a href="#4-%e9%9d%99%e6%80%81%e5%86%85%e9%83%a8%e7%b1%bb" class="nav-4-静态内部类">
 									4. 静态内部类
 								</a>
 							</li>
@@ -1800,7 +621,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#5-%e6%9e%9a%e4%b8%be%e5%ae%98%e6%96%b9%e6%8e%a8%e8%8d%90" onclick="onNavClick(`#5-枚举官方推荐-nav`)" id="5-枚举官方推荐-nav">
+								<a href="#5-%e6%9e%9a%e4%b8%be%e5%ae%98%e6%96%b9%e6%8e%a8%e8%8d%90" class="nav-5-枚举官方推荐">
 									5. 枚举（官方推荐）
 								</a>
 							</li>
@@ -1818,7 +639,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#6-%e5%8f%8c%e9%87%8d%e6%a0%a1%e9%aa%8c%e9%94%81" onclick="onNavClick(`#6-双重校验锁-nav`)" id="6-双重校验锁-nav">
+								<a href="#6-%e5%8f%8c%e9%87%8d%e6%a0%a1%e9%aa%8c%e9%94%81" class="nav-6-双重校验锁">
 									6. 双重校验锁
 								</a>
 							</li>
@@ -1840,7 +661,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#mybatis" onclick="onNavClick(`#mybatis-nav`)" id="mybatis-nav">
+								<a href="#mybatis" class="nav-mybatis">
 									mybatis
 								</a>
 							</li>
@@ -1864,7 +685,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-%e4%b8%80%e7%ba%a7%e7%bc%93%e5%ad%98" onclick="onNavClick(`#1-一级缓存-nav`)" id="1-一级缓存-nav">
+								<a href="#1-%e4%b8%80%e7%ba%a7%e7%bc%93%e5%ad%98" class="nav-1-一级缓存">
 									1. 一级缓存
 								</a>
 							</li>
@@ -1882,7 +703,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-%e4%ba%8c%e7%ba%a7%e7%bc%93%e5%ad%98" onclick="onNavClick(`#2-二级缓存-nav`)" id="2-二级缓存-nav">
+								<a href="#2-%e4%ba%8c%e7%ba%a7%e7%bc%93%e5%ad%98" class="nav-2-二级缓存">
 									2. 二级缓存
 								</a>
 							</li>
@@ -1900,7 +721,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3-mybatis%e5%88%86%e9%a1%b5" onclick="onNavClick(`#3-mybatis分页-nav`)" id="3-mybatis分页-nav">
+								<a href="#3-mybatis%e5%88%86%e9%a1%b5" class="nav-3-mybatis分页">
 									3. mybatis分页
 								</a>
 							</li>
@@ -1922,7 +743,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#mysql" onclick="onNavClick(`#mysql-nav`)" id="mysql-nav">
+								<a href="#mysql" class="nav-mysql">
 									mysql
 								</a>
 							</li>
@@ -1946,7 +767,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-%e5%ba%93%e8%a1%a8%e8%ae%be%e8%ae%a1" onclick="onNavClick(`#1-库表设计-nav`)" id="1-库表设计-nav">
+								<a href="#1-%e5%ba%93%e8%a1%a8%e8%ae%be%e8%ae%a1" class="nav-1-库表设计">
 									1. 库表设计
 								</a>
 							</li>
@@ -1964,7 +785,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-mysql%e6%95%b0%e6%8d%ae%e5%bc%95%e6%93%8e%e7%9a%84%e5%8c%ba%e5%88%ab" onclick="onNavClick(`#2-mysql数据引擎的区别-nav`)" id="2-mysql数据引擎的区别-nav">
+								<a href="#2-mysql%e6%95%b0%e6%8d%ae%e5%bc%95%e6%93%8e%e7%9a%84%e5%8c%ba%e5%88%ab" class="nav-2-mysql数据引擎的区别">
 									2. mysql数据引擎的区别
 								</a>
 							</li>
@@ -1982,7 +803,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3-%e4%b9%90%e8%a7%82%e9%94%81" onclick="onNavClick(`#3-乐观锁-nav`)" id="3-乐观锁-nav">
+								<a href="#3-%e4%b9%90%e8%a7%82%e9%94%81" class="nav-3-乐观锁">
 									3. 乐观锁
 								</a>
 							</li>
@@ -2000,7 +821,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4-%e6%82%b2%e8%a7%82%e9%94%81" onclick="onNavClick(`#4-悲观锁-nav`)" id="4-悲观锁-nav">
+								<a href="#4-%e6%82%b2%e8%a7%82%e9%94%81" class="nav-4-悲观锁">
 									4. 悲观锁
 								</a>
 							</li>
@@ -2018,7 +839,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#5-sql%e4%bc%98%e5%8c%96" onclick="onNavClick(`#5-sql优化-nav`)" id="5-sql优化-nav">
+								<a href="#5-sql%e4%bc%98%e5%8c%96" class="nav-5-sql优化">
 									5. sql优化
 								</a>
 							</li>
@@ -2036,7 +857,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4-%e4%ba%8b%e5%8a%a1" onclick="onNavClick(`#4-事务-nav`)" id="4-事务-nav">
+								<a href="#4-%e4%ba%8b%e5%8a%a1" class="nav-4-事务">
 									4. 事务
 								</a>
 							</li>
@@ -2054,7 +875,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#5-%e6%ad%bb%e9%94%81" onclick="onNavClick(`#5-死锁-nav`)" id="5-死锁-nav">
+								<a href="#5-%e6%ad%bb%e9%94%81" class="nav-5-死锁">
 									5. 死锁
 								</a>
 							</li>
@@ -2072,7 +893,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#6-%e7%b4%a2%e5%bc%95" onclick="onNavClick(`#6-索引-nav`)" id="6-索引-nav">
+								<a href="#6-%e7%b4%a2%e5%bc%95" class="nav-6-索引">
 									6. 索引
 								</a>
 							</li>
@@ -2090,7 +911,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#7-%e7%b4%a2%e5%bc%95%e5%a4%b1%e6%95%88%e7%9a%84%e5%87%a0%e7%a7%8d%e6%83%85%e5%86%b5mysql" onclick="onNavClick(`#7-索引失效的几种情况mysql-nav`)" id="7-索引失效的几种情况mysql-nav">
+								<a href="#7-%e7%b4%a2%e5%bc%95%e5%a4%b1%e6%95%88%e7%9a%84%e5%87%a0%e7%a7%8d%e6%83%85%e5%86%b5mysql" class="nav-7-索引失效的几种情况mysql">
 									7. 索引失效的几种情况（MySQL）
 								</a>
 							</li>
@@ -2112,7 +933,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#java%e9%9b%86%e5%90%88%e4%bd%93%e7%b3%bb" onclick="onNavClick(`#java集合体系-nav`)" id="java集合体系-nav">
+								<a href="#java%e9%9b%86%e5%90%88%e4%bd%93%e7%b3%bb" class="nav-java集合体系">
 									java集合体系
 								</a>
 							</li>
@@ -2130,7 +951,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b" onclick="onNavClick(`#多线程-nav`)" id="多线程-nav">
+								<a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b" class="nav-多线程">
 									多线程
 								</a>
 							</li>
@@ -2154,7 +975,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-java-%e5%ae%9e%e7%8e%b0%e7%ba%bf%e7%a8%8b%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f" onclick="onNavClick(`#1-java-实现线程有哪几种方式-nav`)" id="1-java-实现线程有哪几种方式-nav">
+								<a href="#1-java-%e5%ae%9e%e7%8e%b0%e7%ba%bf%e7%a8%8b%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f" class="nav-1-java-实现线程有哪几种方式">
 									1. Java 实现线程有哪几种方式？
 								</a>
 							</li>
@@ -2172,7 +993,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-%e4%b8%80%e4%b8%aa%e7%ba%bf%e7%a8%8b%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e7%8a%b6%e6%80%81%e5%ae%83%e4%bb%ac%e4%b9%8b%e9%97%b4%e5%a6%82%e4%bd%95%e6%b5%81%e8%bd%ac%e7%9a%84" onclick="onNavClick(`#2-一个线程的生命周期有哪几种状态它们之间如何流转的-nav`)" id="2-一个线程的生命周期有哪几种状态它们之间如何流转的-nav">
+								<a href="#2-%e4%b8%80%e4%b8%aa%e7%ba%bf%e7%a8%8b%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e7%8a%b6%e6%80%81%e5%ae%83%e4%bb%ac%e4%b9%8b%e9%97%b4%e5%a6%82%e4%bd%95%e6%b5%81%e8%bd%ac%e7%9a%84" class="nav-2-一个线程的生命周期有哪几种状态它们之间如何流转的">
 									2. 一个线程的生命周期有哪几种状态？它们之间如何流转的？
 								</a>
 							</li>
@@ -2190,7 +1011,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3-%e7%ba%bf%e7%a8%8b%e6%b1%a0%e7%9a%84%e4%bd%9c%e7%94%a8%e6%98%af%e4%bb%80%e4%b9%88%e5%b8%b8%e8%a7%81%e7%9a%84%e5%8f%82%e6%95%b0%e6%9c%89%e5%93%aa%e4%ba%9b" onclick="onNavClick(`#3-线程池的作用是什么常见的参数有哪些-nav`)" id="3-线程池的作用是什么常见的参数有哪些-nav">
+								<a href="#3-%e7%ba%bf%e7%a8%8b%e6%b1%a0%e7%9a%84%e4%bd%9c%e7%94%a8%e6%98%af%e4%bb%80%e4%b9%88%e5%b8%b8%e8%a7%81%e7%9a%84%e5%8f%82%e6%95%b0%e6%9c%89%e5%93%aa%e4%ba%9b" class="nav-3-线程池的作用是什么常见的参数有哪些">
 									3. 线程池的作用是什么，常见的参数有哪些？
 								</a>
 							</li>
@@ -2212,7 +1033,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#redis" onclick="onNavClick(`#redis-nav`)" id="redis-nav">
+								<a href="#redis" class="nav-redis">
 									redis
 								</a>
 							</li>
@@ -2236,7 +1057,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-redis%e5%8d%95%e7%ba%bf%e7%a8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%bf%98%e5%bf%ab" onclick="onNavClick(`#1-redis单线程为什么还快-nav`)" id="1-redis单线程为什么还快-nav">
+								<a href="#1-redis%e5%8d%95%e7%ba%bf%e7%a8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%bf%98%e5%bf%ab" class="nav-1-redis单线程为什么还快">
 									1. redis单线程为什么还快
 								</a>
 							</li>
@@ -2254,7 +1075,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-redis%e5%88%a0%e9%99%a4%e6%9c%ba%e5%88%b6" onclick="onNavClick(`#2-redis删除机制-nav`)" id="2-redis删除机制-nav">
+								<a href="#2-redis%e5%88%a0%e9%99%a4%e6%9c%ba%e5%88%b6" class="nav-2-redis删除机制">
 									2. redis删除机制
 								</a>
 							</li>
@@ -2278,7 +1099,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e6%83%b0%e6%80%a7%e5%88%a0%e9%99%a4" onclick="onNavClick(`#惰性删除-nav`)" id="惰性删除-nav">
+								<a href="#%e6%83%b0%e6%80%a7%e5%88%a0%e9%99%a4" class="nav-惰性删除">
 									惰性删除
 								</a>
 							</li>
@@ -2296,7 +1117,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e5%ae%9a%e6%9c%9f%e5%88%a0%e9%99%a4" onclick="onNavClick(`#定期删除-nav`)" id="定期删除-nav">
+								<a href="#%e5%ae%9a%e6%9c%9f%e5%88%a0%e9%99%a4" class="nav-定期删除">
 									定期删除
 								</a>
 							</li>
@@ -2318,7 +1139,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3-redis%e6%8c%81%e4%b9%85%e5%8c%96%e6%9c%ba%e5%88%b6" onclick="onNavClick(`#3-redis持久化机制-nav`)" id="3-redis持久化机制-nav">
+								<a href="#3-redis%e6%8c%81%e4%b9%85%e5%8c%96%e6%9c%ba%e5%88%b6" class="nav-3-redis持久化机制">
 									3. redis持久化机制
 								</a>
 							</li>
@@ -2336,7 +1157,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4-%e7%bc%93%e5%ad%98%e7%a9%bf%e9%80%8f%e5%87%bb%e7%a9%bf%e9%9b%aa%e5%b4%a9" onclick="onNavClick(`#4-缓存穿透击穿雪崩-nav`)" id="4-缓存穿透击穿雪崩-nav">
+								<a href="#4-%e7%bc%93%e5%ad%98%e7%a9%bf%e9%80%8f%e5%87%bb%e7%a9%bf%e9%9b%aa%e5%b4%a9" class="nav-4-缓存穿透击穿雪崩">
 									4. 缓存穿透、击穿、雪崩
 								</a>
 							</li>
@@ -2358,7 +1179,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e6%b7%b1%e6%8b%b7%e8%b4%9d%e5%92%8c%e6%b5%85%e6%8b%b7%e8%b4%9d" onclick="onNavClick(`#深拷贝和浅拷贝-nav`)" id="深拷贝和浅拷贝-nav">
+								<a href="#%e6%b7%b1%e6%8b%b7%e8%b4%9d%e5%92%8c%e6%b5%85%e6%8b%b7%e8%b4%9d" class="nav-深拷贝和浅拷贝">
 									深拷贝和浅拷贝
 								</a>
 							</li>
@@ -2376,7 +1197,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#%e5%ba%8f%e5%88%97%e5%8c%96%e5%92%8c%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96" onclick="onNavClick(`#序列化和反序列化-nav`)" id="序列化和反序列化-nav">
+								<a href="#%e5%ba%8f%e5%88%97%e5%8c%96%e5%92%8c%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96" class="nav-序列化和反序列化">
 									序列化和反序列化
 								</a>
 							</li>
@@ -2771,18 +1592,18 @@ SpringMVC 对 MVC 流程进行了封装，屏蔽掉很多底层代码，让开�
 <blockquote>
 <p>a=10,b=20;在不使用第三个变量的情况下交换a,b的值</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">//使用异或运算; 也是最常见的对称加密算法
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">int</span> a = <span style="color:#b452cd">10</span>;<span style="color:#228b22">//原a
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span><span style="color:#00688b;font-weight:bold">int</span> b = <span style="color:#b452cd">20</span><span style="color:#a61717;background-color:#e3d2d2">；</span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22">//此时已赋值的a已经包含了原a和原b两个值的内容
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>a = a ^ b; <span style="color:#228b22">//已赋值的
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">//*****对密文使用密钥进行解密获得原文*****
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">//把原a赋值给b
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">//把原b当作密钥  用密文a 异或 原b 得到原a值,并赋值给b
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>b = a ^ b; <span style="color:#228b22">//已赋值的b(即原a)称为 现b
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">//把现b(即: 原a)当作密钥    用密文a 异或 现b(即: 原a) 得到原b值,并赋值给a
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>a = a ^ b;
-</span></span><span style="display:flex;"><span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(String.<span style="color:#658b00">format</span>(<span style="color:#cd5555">&#34;a: %d ; b: %d&#34;</span>, a, b));<span style="color:#228b22">//输出a: 20 ; b: 10
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#228b22">//使用异或运算; 也是最常见的对称加密算法</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00688b;font-weight:bold">int</span><span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>10;<span style="color:#228b22">//原a</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#00688b;font-weight:bold">int</span><span style="color:#bbb"> </span>b<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>20<span style="color:#a61717;background-color:#e3d2d2">；</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//此时已赋值的a已经包含了原a和原b两个值的内容</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>a<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>^<span style="color:#bbb"> </span>b;<span style="color:#bbb"> </span><span style="color:#228b22">//已赋值的</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//*****对密文使用密钥进行解密获得原文*****</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//把原a赋值给b</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//把原b当作密钥  用密文a 异或 原b 得到原a值,并赋值给b</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>b<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>^<span style="color:#bbb"> </span>b;<span style="color:#bbb"> </span><span style="color:#228b22">//已赋值的b(即原a)称为 现b</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#228b22">//把现b(即: 原a)当作密钥    用密文a 异或 现b(即: 原a) 得到原b值,并赋值给a</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>a<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>a<span style="color:#bbb"> </span>^<span style="color:#bbb"> </span>b;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(String.<span style="color:#658b00">format</span>(<span style="color:#cd5555">&#34;a: %d ; b: %d&#34;</span>,<span style="color:#bbb"> </span>a,<span style="color:#bbb"> </span>b));<span style="color:#228b22">//输出a: 20 ; b: 10</span><span style="color:#bbb">
 </span></span></span></code></pre></div><blockquote>
 <p>拓展</p>
 </blockquote>
@@ -2819,112 +1640,112 @@ SpringMVC 对 MVC 流程进行了封装，屏蔽掉很多底层代码，让开�
 <p>getInstance()的返回值是一个对象的引用，并不是一个新的实例，所以不要错误的理解成多个对象。</p>
 </blockquote>
 <h3 id="1-懒汉式线程不安全">1. 懒汉式(线程不安全)</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> Singleton singleton;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#008b45">Singleton</span>() {
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//通过此方法获取对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> Singleton <span style="color:#008b45">getInstance</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">if</span> (singleton == <span style="color:#8b008b;font-weight:bold">null</span>) {
-</span></span><span style="display:flex;"><span>            singleton = <span style="color:#8b008b;font-weight:bold">new</span> Singleton();
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> singleton;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="2-懒汉式线程安全">2. 懒汉式(线程安全)</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span>singleton;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008b45">Singleton</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//通过此方法获取对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span><span style="color:#008b45">getInstance</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">if</span><span style="color:#bbb"> </span>(singleton<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">null</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>singleton<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Singleton();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>singleton;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="2-懒汉式线程安全">2. 懒汉式(线程安全)</h3>
 <blockquote>
 <p>添加了<code>synchronized</code>关键字</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> Singleton singleton;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#008b45">Singleton</span>() {
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//通过此方法获取对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">synchronized</span> Singleton <span style="color:#008b45">getInstance</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">if</span> (singleton == <span style="color:#8b008b;font-weight:bold">null</span>) {
-</span></span><span style="display:flex;"><span>            singleton = <span style="color:#8b008b;font-weight:bold">new</span> Singleton();
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> singleton;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="3-饿汉式">3. 饿汉式</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//直接创建好对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> Singleton singleton = <span style="color:#8b008b;font-weight:bold">new</span> Singleton();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#008b45">Singleton</span>() {
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//通过此方法获取对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">synchronized</span> Singleton <span style="color:#008b45">getInstance</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> singleton;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="4-静态内部类">4. 静态内部类</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span> {
-</span></span><span style="display:flex;"><span>   <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">class</span>  <span style="color:#008b45;font-weight:bold">SingletonHandler</span>{
-</span></span><span style="display:flex;"><span>       <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">final</span> Singleton SINGLETON = <span style="color:#8b008b;font-weight:bold">new</span> Singleton();
-</span></span><span style="display:flex;"><span>   }
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#008b45">Singleton</span>() {}
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//通过此方法获取对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#8b008b;font-weight:bold">synchronized</span> Singleton <span style="color:#008b45">getInstance</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> SingletonHandler.<span style="color:#658b00">SINGLETON</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="5-枚举官方推荐">5. 枚举（官方推荐）</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#008b45">Singleton</span>() {}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//通过此方法获取对象
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> Singleton <span style="color:#008b45">getInstance</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> SingletonEnum.<span style="color:#658b00">INSTANCE</span>.<span style="color:#658b00">getInstance</span>();
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#228b22">//通过枚举实现单例
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">enum</span> SingletonEnum {
-</span></span><span style="display:flex;"><span>        INSTANCE;
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">private</span> Singleton singleton;
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//jvm保证此方法只调用一次
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#008b45">SingletonEnum</span>(){
-</span></span><span style="display:flex;"><span>            System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;init&#34;</span>);
-</span></span><span style="display:flex;"><span>            singleton = <span style="color:#8b008b;font-weight:bold">new</span> Singleton();
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">public</span> Singleton <span style="color:#008b45">getInstance</span>(){
-</span></span><span style="display:flex;"><span>            System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;实例化对象&#34;</span>);
-</span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">return</span> singleton;
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="6-双重校验锁">6. 双重校验锁</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span> {  
-</span></span><span style="display:flex;"><span>   <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">volatile</span> <span style="color:#8b008b;font-weight:bold">static</span> Singleton singleton;  
-</span></span><span style="display:flex;"><span>   <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#008b45">Singleton</span> (){}  
-</span></span><span style="display:flex;"><span>   <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> Singleton <span style="color:#008b45">getSingleton</span>() {  
-</span></span><span style="display:flex;"><span>   <span style="color:#8b008b;font-weight:bold">if</span> (singleton == <span style="color:#8b008b;font-weight:bold">null</span>) {  
-</span></span><span style="display:flex;"><span>       <span style="color:#8b008b;font-weight:bold">synchronized</span> (Singleton.<span style="color:#658b00">class</span>) {  
-</span></span><span style="display:flex;"><span>       <span style="color:#8b008b;font-weight:bold">if</span> (singleton == <span style="color:#8b008b;font-weight:bold">null</span>) {  
-</span></span><span style="display:flex;"><span>           singleton = <span style="color:#8b008b;font-weight:bold">new</span> Singleton();  
-</span></span><span style="display:flex;"><span>       }  
-</span></span><span style="display:flex;"><span>       }  
-</span></span><span style="display:flex;"><span>   }  
-</span></span><span style="display:flex;"><span>   <span style="color:#8b008b;font-weight:bold">return</span> singleton;  
-</span></span><span style="display:flex;"><span>   }  
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span>singleton;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008b45">Singleton</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//通过此方法获取对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">synchronized</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span><span style="color:#008b45">getInstance</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">if</span><span style="color:#bbb"> </span>(singleton<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">null</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>singleton<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Singleton();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>singleton;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="3-饿汉式">3. 饿汉式</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//直接创建好对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span>singleton<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Singleton();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008b45">Singleton</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//通过此方法获取对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">synchronized</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span><span style="color:#008b45">getInstance</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>singleton;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="4-静态内部类">4. 静态内部类</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span>  <span style="color:#008b45;font-weight:bold">SingletonHandler</span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">       </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">final</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span>SINGLETON<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Singleton();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008b45">Singleton</span>()<span style="color:#bbb"> </span>{}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//通过此方法获取对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">synchronized</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span><span style="color:#008b45">getInstance</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>SingletonHandler.<span style="color:#658b00">SINGLETON</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="5-枚举官方推荐">5. 枚举（官方推荐）</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//私有化构造函数,使其不能通过new来创建对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008b45">Singleton</span>()<span style="color:#bbb"> </span>{}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//通过此方法获取对象</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span><span style="color:#008b45">getInstance</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>SingletonEnum.<span style="color:#658b00">INSTANCE</span>.<span style="color:#658b00">getInstance</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#228b22">//通过枚举实现单例</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">enum</span><span style="color:#bbb"> </span>SingletonEnum<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>INSTANCE;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span>singleton;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//jvm保证此方法只调用一次</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008b45">SingletonEnum</span>(){<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;init&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>singleton<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Singleton();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span><span style="color:#008b45">getInstance</span>(){<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;实例化对象&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>singleton;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="6-双重校验锁">6. 双重校验锁</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Singleton</span><span style="color:#bbb"> </span>{<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">volatile</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span>singleton;<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#008b45">Singleton</span><span style="color:#bbb"> </span>(){}<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span>Singleton<span style="color:#bbb"> </span><span style="color:#008b45">getSingleton</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span><span style="color:#8b008b;font-weight:bold">if</span><span style="color:#bbb"> </span>(singleton<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">null</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">       </span><span style="color:#8b008b;font-weight:bold">synchronized</span><span style="color:#bbb"> </span>(Singleton.<span style="color:#658b00">class</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">       </span><span style="color:#8b008b;font-weight:bold">if</span><span style="color:#bbb"> </span>(singleton<span style="color:#bbb"> </span>==<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">null</span>)<span style="color:#bbb"> </span>{<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">           </span>singleton<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Singleton();<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">       </span>}<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">       </span>}<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span>}<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>singleton;<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">   </span>}<span style="color:#bbb">  
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><hr>
 <h2 id="mybatis">mybatis</h2>
 <h3 id="1-一级缓存">1. 一级缓存</h3>
 <ol>
@@ -3388,13 +2209,1196 @@ RTREE即空间数据索引，多用于地理数据的存储，相比于其他索
 
 
 
+
+
             </div>
         </div>
     </div>
 
 
                     </div>
-            </div><div id="single-column-footer">
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.github.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#spring" class="nav-spring">
+									Spring
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-spring%e7%9a%84%e4%bc%98%e8%89%af%e7%89%b9%e6%80%a7" class="nav-1-spring的优良特性">
+									1. spring的优良特性
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-springbean%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f" class="nav-2-springbean生命周期">
+									2. SpringBean生命周期
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3-ioc" class="nav-3-ioc">
+									3. IOC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4-spring%e4%ba%8b%e5%8a%a1" class="nav-4-spring事务">
+									4. Spring事务
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5-spring%e4%ba%8b%e5%8a%a1%e9%9a%94%e7%a6%bb" class="nav-5-spring事务隔离">
+									5. Spring事务隔离
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6-aop" class="nav-6-aop">
+									6. AOP
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#springmvc" class="nav-springmvc">
+									springMVC
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1%e4%bb%80%e4%b9%88%e6%98%afmvc" class="nav-1什么是mvc">
+									1.什么是MVC？
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-%e4%bb%80%e4%b9%88%e6%98%afspringmvc" class="nav-2-什么是springmvc">
+									2. 什么是SpringMVC？
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3-springmvc%e7%9a%84%e7%89%b9%e7%82%b9" class="nav-3-springmvc的特点">
+									3. SpringMVC的特点：
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4-springmvc%e4%b8%ad%e7%9a%84%e6%a0%b8%e5%bf%83%e7%bb%84%e4%bb%b6" class="nav-4-springmvc中的核心组件">
+									4. SpringMVC中的核心组件
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5-%e5%85%b3%e4%ba%8edispatcherservlet%e7%9a%84%e9%85%8d%e7%bd%ae%e8%af%b4%e6%98%8e" class="nav-5-关于dispatcherservlet的配置说明">
+									5. 关于DispatcherServlet的配置说明
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#springboot" class="nav-springboot">
+									SpringBoot
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-springboot%e6%a0%b8%e5%bf%83%e6%b3%a8%e8%a7%a3" class="nav-1-springboot核心注解">
+									1. SpringBoot核心注解
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-springboot%e5%90%af%e5%8a%a8%e5%8e%9f%e7%90%86" class="nav-2-springboot启动原理">
+									2. SpringBoot启动原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3springboot%e5%86%85%e7%bd%aetomcat%e5%90%af%e5%8a%a8%e5%8e%9f%e7%90%86" class="nav-3springboot内置tomcat启动原理">
+									3.SpringBoot内置Tomcat启动原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4-%e8%87%aa%e5%8a%a8%e9%85%8d%e7%bd%ae%e5%8e%9f%e7%90%86" class="nav-4-自动配置原理">
+									4. 自动配置原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e4%ba%a4%e6%8d%a2%e4%b8%a4%e4%b8%aa%e5%8f%98%e9%87%8f%e7%9a%84%e5%80%bc" class="nav-交换两个变量的值">
+									交换两个变量的值
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%8d%95%e4%be%8b%e6%a8%a1%e5%bc%8f" class="nav-单例模式">
+									单例模式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-%e6%87%92%e6%b1%89%e5%bc%8f%e7%ba%bf%e7%a8%8b%e4%b8%8d%e5%ae%89%e5%85%a8" class="nav-1-懒汉式线程不安全">
+									1. 懒汉式(线程不安全)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-%e6%87%92%e6%b1%89%e5%bc%8f%e7%ba%bf%e7%a8%8b%e5%ae%89%e5%85%a8" class="nav-2-懒汉式线程安全">
+									2. 懒汉式(线程安全)
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3-%e9%a5%bf%e6%b1%89%e5%bc%8f" class="nav-3-饿汉式">
+									3. 饿汉式
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4-%e9%9d%99%e6%80%81%e5%86%85%e9%83%a8%e7%b1%bb" class="nav-4-静态内部类">
+									4. 静态内部类
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5-%e6%9e%9a%e4%b8%be%e5%ae%98%e6%96%b9%e6%8e%a8%e8%8d%90" class="nav-5-枚举官方推荐">
+									5. 枚举（官方推荐）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6-%e5%8f%8c%e9%87%8d%e6%a0%a1%e9%aa%8c%e9%94%81" class="nav-6-双重校验锁">
+									6. 双重校验锁
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#mybatis" class="nav-mybatis">
+									mybatis
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-%e4%b8%80%e7%ba%a7%e7%bc%93%e5%ad%98" class="nav-1-一级缓存">
+									1. 一级缓存
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-%e4%ba%8c%e7%ba%a7%e7%bc%93%e5%ad%98" class="nav-2-二级缓存">
+									2. 二级缓存
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3-mybatis%e5%88%86%e9%a1%b5" class="nav-3-mybatis分页">
+									3. mybatis分页
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#mysql" class="nav-mysql">
+									mysql
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-%e5%ba%93%e8%a1%a8%e8%ae%be%e8%ae%a1" class="nav-1-库表设计">
+									1. 库表设计
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-mysql%e6%95%b0%e6%8d%ae%e5%bc%95%e6%93%8e%e7%9a%84%e5%8c%ba%e5%88%ab" class="nav-2-mysql数据引擎的区别">
+									2. mysql数据引擎的区别
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3-%e4%b9%90%e8%a7%82%e9%94%81" class="nav-3-乐观锁">
+									3. 乐观锁
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4-%e6%82%b2%e8%a7%82%e9%94%81" class="nav-4-悲观锁">
+									4. 悲观锁
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5-sql%e4%bc%98%e5%8c%96" class="nav-5-sql优化">
+									5. sql优化
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4-%e4%ba%8b%e5%8a%a1" class="nav-4-事务">
+									4. 事务
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#5-%e6%ad%bb%e9%94%81" class="nav-5-死锁">
+									5. 死锁
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#6-%e7%b4%a2%e5%bc%95" class="nav-6-索引">
+									6. 索引
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#7-%e7%b4%a2%e5%bc%95%e5%a4%b1%e6%95%88%e7%9a%84%e5%87%a0%e7%a7%8d%e6%83%85%e5%86%b5mysql" class="nav-7-索引失效的几种情况mysql">
+									7. 索引失效的几种情况（MySQL）
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#java%e9%9b%86%e5%90%88%e4%bd%93%e7%b3%bb" class="nav-java集合体系">
+									java集合体系
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%a4%9a%e7%ba%bf%e7%a8%8b" class="nav-多线程">
+									多线程
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-java-%e5%ae%9e%e7%8e%b0%e7%ba%bf%e7%a8%8b%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e6%96%b9%e5%bc%8f" class="nav-1-java-实现线程有哪几种方式">
+									1. Java 实现线程有哪几种方式？
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-%e4%b8%80%e4%b8%aa%e7%ba%bf%e7%a8%8b%e7%9a%84%e7%94%9f%e5%91%bd%e5%91%a8%e6%9c%9f%e6%9c%89%e5%93%aa%e5%87%a0%e7%a7%8d%e7%8a%b6%e6%80%81%e5%ae%83%e4%bb%ac%e4%b9%8b%e9%97%b4%e5%a6%82%e4%bd%95%e6%b5%81%e8%bd%ac%e7%9a%84" class="nav-2-一个线程的生命周期有哪几种状态它们之间如何流转的">
+									2. 一个线程的生命周期有哪几种状态？它们之间如何流转的？
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3-%e7%ba%bf%e7%a8%8b%e6%b1%a0%e7%9a%84%e4%bd%9c%e7%94%a8%e6%98%af%e4%bb%80%e4%b9%88%e5%b8%b8%e8%a7%81%e7%9a%84%e5%8f%82%e6%95%b0%e6%9c%89%e5%93%aa%e4%ba%9b" class="nav-3-线程池的作用是什么常见的参数有哪些">
+									3. 线程池的作用是什么，常见的参数有哪些？
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#redis" class="nav-redis">
+									redis
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-redis%e5%8d%95%e7%ba%bf%e7%a8%8b%e4%b8%ba%e4%bb%80%e4%b9%88%e8%bf%98%e5%bf%ab" class="nav-1-redis单线程为什么还快">
+									1. redis单线程为什么还快
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-redis%e5%88%a0%e9%99%a4%e6%9c%ba%e5%88%b6" class="nav-2-redis删除机制">
+									2. redis删除机制
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#%e6%83%b0%e6%80%a7%e5%88%a0%e9%99%a4" class="nav-惰性删除">
+									惰性删除
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%ae%9a%e6%9c%9f%e5%88%a0%e9%99%a4" class="nav-定期删除">
+									定期删除
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#3-redis%e6%8c%81%e4%b9%85%e5%8c%96%e6%9c%ba%e5%88%b6" class="nav-3-redis持久化机制">
+									3. redis持久化机制
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4-%e7%bc%93%e5%ad%98%e7%a9%bf%e9%80%8f%e5%87%bb%e7%a9%bf%e9%9b%aa%e5%b4%a9" class="nav-4-缓存穿透击穿雪崩">
+									4. 缓存穿透、击穿、雪崩
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#%e6%b7%b1%e6%8b%b7%e8%b4%9d%e5%92%8c%e6%b5%85%e6%8b%b7%e8%b4%9d" class="nav-深拷贝和浅拷贝">
+									深拷贝和浅拷贝
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#%e5%ba%8f%e5%88%97%e5%8c%96%e5%92%8c%e5%8f%8d%e5%ba%8f%e5%88%97%e5%8c%96" class="nav-序列化和反序列化">
+									序列化和反序列化
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
 <br>
 移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>

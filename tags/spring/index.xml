@@ -7,12 +7,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Sat, 07 Aug 2021 21:09:25 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 07 Aug 2021 21:09:25 +0800</lastBuildDate>
+    <atom:link href="https://brandykk.github.io/tags/spring/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SpringMVC</title>
       <link>https://brandykk.github.io/posts/java/spring/springmvc/</link>
       <pubDate>Sat, 07 Aug 2021 21:09:25 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/spring/springmvc/</guid>
       <description>SpringMVC MVC 模式代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发。
 Model（模型） - 模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器。 View（视图） - 视图代表模型包含的数据的可视化。 Controller（控制器） - 控制器作用于模型和视图上。它控制数据流向模型对象，并在数据变化时更新视图。它使视图与模型分离开。 MVC的优点：
@@ -44,24 +44,19 @@ controller只做三件事接收参数、调用业务、使用业务结果渲染�
 SpringMVC接口解释
 （1）DispatcherServlet接口： Spring提供的前端控制器，所有的请求都有经过它来统一分发。在DispatcherServlet将请求分发给Spring Controller之前，需要借助于Spring提供的HandlerMapping定位到具体的Controller。 （2）HandlerMapping接口： 能够完成客户请求到Controller映射。 （3）Controller接口： 需要为并发用户处理上述请求，因此实现Controller接口时，必须保证线程安全并且可重用。 Controller将处理用户请求，这和Struts Action扮演的角色是一致的。一旦Controller处理完用户请求，则返回ModelAndView对象给DispatcherServlet前端控制器，ModelAndView中包含了模型（Model）和视图（View）。 从宏观角度考虑，DispatcherServlet是整个Web应用的控制器；从微观考虑，Controller是单个Http请求处理过程中的控制器，而ModelAndView是Http请求过程中返回的模型（Model）和视图（View）。 （4）ViewResolver接口： Spring提供的视图解析器（ViewResolver）在Web应用中查找View对象，从而将相应结果渲染给客户。 4.</description>
     </item>
-    
     <item>
       <title>Spring重点</title>
       <link>https://brandykk.github.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/</link>
       <pubDate>Wed, 28 Jul 2021 21:54:52 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/</guid>
       <description>1. IOC理论推导 1.1. 原来的写法 1.1.1 UserDao接口 public interface UserDao { void getUser(); } 1.1.2 UserDaoImpl实现类 public class UserDaoImpl implements UserDao { @Override public void getUser() { System.out.println(&amp;#34;默认获取用户数据&amp;#34;); } } 1.1.3 UserService业务接口 public interface IUserService { void getUser(); } 1.1.4 UserServiceImpl业务实现类 public class UserServiceImpl implements IUserService { private UserDao userDao = new UserDaoImpl(); @Override public void getUser() { userDao.getUser(); } } 1.1.5 UserTest测试 public class UserTest { public static void main(String[] args) { //用户实际调用的业务层，Dao层不会直接调用 IUserService userService = new UserServiceImpl(); userService.</description>
     </item>
-    
     <item>
       <title>Spring定时器依赖注入</title>
       <link>https://brandykk.github.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 18 Apr 2021 16:09:32 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</guid>
       <description> 工具类 /** * 创建工具类 **/ public class ApplicationContextUtil implements ApplicationContextAware { private static ApplicationContext applicationContext; public static ApplicationContext getApplicationContext() { return applicationContext; } public void setApplicationContext(ApplicationContext applicationContext) { ApplicationContextUtil.applicationContext = applicationContext; } public static Object getBean(String beanName) { return applicationContext.getBean(beanName); } } 配置bean &amp;lt;bean id =&amp;#34;applicationContextUtil&amp;#34; class =&amp;#34;org.sihai.soil.util.ApplicationContextUtil&amp;#34; &amp;gt;&amp;lt;/bean &amp;gt; 获取service realmEbi = (RealmEbi) ApplicationContextUtil.getBean(&amp;#34;realmEbi&amp;#34;); realmEbi.insertHour(RealmApplianceModel.sendData3); </description>
     </item>
-    
   </channel>
 </rss>

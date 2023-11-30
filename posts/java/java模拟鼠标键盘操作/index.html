@@ -27,9 +27,11 @@
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Java模拟鼠标键盘操作"/>
 <meta name="twitter:description" content="/** * 定时执行模拟鼠标键盘操作 * Robot中主要的鼠标和键盘控制方法有： * • void keyPress(int keycode) 按下给定的键。 * • void keyRelease(int keycode) 释放给定的键。 * • void mouseMove(int x, int y) 将鼠标指针移动到给定屏幕坐标。 * • void mousePress(int buttons) 按下一个或多个鼠标按钮。 * • void mouseRelease(int buttons) 释放一个或多个鼠标按钮。 * • void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。 */ private static void mouse(){ new Thread(()-&gt;{ while (true){ try { Thread.sleep(1000*60); Robot robot = new Robot(); //设置Robot产生一个动作后的休眠时间,否则执行过快 robot.setAutoDelay(1000); //获取屏幕分辨率 Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); System.out.println(d); Rectangle screenRect = new Rectangle(d); //截图 BufferedImage bufferedImage = robot."/>
+
 
 
 
@@ -50,11 +52,8 @@
       <script src="/js/toc.js"></script>
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
 
-
-
-<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -80,98 +79,7 @@
 
 </head>
 <body>
-    	<div id="app"><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="https://brandykk.github.io">
-    
-        <div class="nav-title">
-            Brandy
-        </div>
-        
-        <div class="nav-subtitle">
-            个人使用
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/posts">
-                Archive
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/categories">
-                Categories
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/tags">
-                Tags
-            </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	This is a customized copyright.
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    
-    
-    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
-
-
-</div>
-    
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
-    </div>
-</div>
-<div class="single-column-drawer-container" id="drawer"
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
      v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
     <div class="drawer-content">
         <div class="drawer-menu">
@@ -317,68 +225,68 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void mousePress(int buttons) 按下一个或多个鼠标按钮。
 </span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void mouseRelease(int buttons) 释放一个或多个鼠标按钮。
 </span></span></span><span style="display:flex;"><span><span style="color:#228b22">     * •    void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     */</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">mouse</span>(){
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">new</span> Thread(()-&gt;{
-</span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">while</span> (<span style="color:#8b008b;font-weight:bold">true</span>){
-</span></span><span style="display:flex;"><span>                <span style="color:#8b008b;font-weight:bold">try</span> {
-</span></span><span style="display:flex;"><span>                    Thread.<span style="color:#658b00">sleep</span>(<span style="color:#b452cd">1000</span>*<span style="color:#b452cd">60</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    Robot robot = <span style="color:#8b008b;font-weight:bold">new</span> Robot();
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//设置Robot产生一个动作后的休眠时间,否则执行过快
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    robot.<span style="color:#658b00">setAutoDelay</span>(<span style="color:#b452cd">1000</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//获取屏幕分辨率
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    Dimension d = Toolkit.<span style="color:#658b00">getDefaultToolkit</span>().<span style="color:#658b00">getScreenSize</span>();
-</span></span><span style="display:flex;"><span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(d);
-</span></span><span style="display:flex;"><span>                    Rectangle screenRect = <span style="color:#8b008b;font-weight:bold">new</span> Rectangle(d);
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//截图
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    BufferedImage bufferedImage = robot.<span style="color:#658b00">createScreenCapture</span>(screenRect);
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//保存截图
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    File file = <span style="color:#8b008b;font-weight:bold">new</span> File(<span style="color:#cd5555">&#34;screenRect.png&#34;</span>);
-</span></span><span style="display:flex;"><span>                    ImageIO.<span style="color:#658b00">write</span>(bufferedImage, <span style="color:#cd5555">&#34;png&#34;</span>, file);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//移动鼠标
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    robot.<span style="color:#658b00">mouseMove</span>(<span style="color:#b452cd">500</span>, <span style="color:#b452cd">500</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//点击鼠标
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    <span style="color:#228b22">//鼠标左键
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;单击&#34;</span>);
-</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mousePress</span>(InputEvent.<span style="color:#658b00">BUTTON1_MASK</span>);
-</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mouseRelease</span>(InputEvent.<span style="color:#658b00">BUTTON1_MASK</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//鼠标右键
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;右击&#34;</span>);
-</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mousePress</span>(InputEvent.<span style="color:#658b00">BUTTON3_MASK</span>);
-</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mouseRelease</span>(InputEvent.<span style="color:#658b00">BUTTON3_MASK</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//按下ESC，退出右键状态
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;按下ESC&#34;</span>);
-</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_ESCAPE</span>);
-</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_ESCAPE</span>);
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//滚动鼠标滚轴
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;滚轴&#34;</span>);
-</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">mouseWheel</span>(<span style="color:#b452cd">5</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#228b22">//按下Alt+TAB键
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>                    robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_ALT</span>);
-</span></span><span style="display:flex;"><span>                    <span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#00688b;font-weight:bold">int</span> i=<span style="color:#b452cd">1</span>;i&lt;=<span style="color:#b452cd">2</span>;i++)
-</span></span><span style="display:flex;"><span>                    {
-</span></span><span style="display:flex;"><span>                        robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_TAB</span>);
-</span></span><span style="display:flex;"><span>                        robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_TAB</span>);
-</span></span><span style="display:flex;"><span>                    }
-</span></span><span style="display:flex;"><span>                    robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_ALT</span>);
-</span></span><span style="display:flex;"><span>                } <span style="color:#8b008b;font-weight:bold">catch</span> (InterruptedException e) {
-</span></span><span style="display:flex;"><span>                    e.<span style="color:#658b00">printStackTrace</span>();
-</span></span><span style="display:flex;"><span>                } <span style="color:#8b008b;font-weight:bold">catch</span> (AWTException e) {
-</span></span><span style="display:flex;"><span>                    e.<span style="color:#658b00">printStackTrace</span>();
-</span></span><span style="display:flex;"><span>                } <span style="color:#8b008b;font-weight:bold">catch</span> (IOException e) {
-</span></span><span style="display:flex;"><span>                    e.<span style="color:#658b00">printStackTrace</span>();
-</span></span><span style="display:flex;"><span>                }
-</span></span><span style="display:flex;"><span>            }
-</span></span><span style="display:flex;"><span>        });
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div>
+</span></span></span><span style="display:flex;"><span><span style="color:#228b22">     */</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">mouse</span>(){<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Thread(()-&gt;{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span><span style="color:#8b008b;font-weight:bold">while</span><span style="color:#bbb"> </span>(<span style="color:#8b008b;font-weight:bold">true</span>){<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#8b008b;font-weight:bold">try</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>Thread.<span style="color:#658b00">sleep</span>(1000*60);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>Robot<span style="color:#bbb"> </span>robot<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Robot();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//设置Robot产生一个动作后的休眠时间,否则执行过快</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">setAutoDelay</span>(1000);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//获取屏幕分辨率</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>Dimension<span style="color:#bbb"> </span>d<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>Toolkit.<span style="color:#658b00">getDefaultToolkit</span>().<span style="color:#658b00">getScreenSize</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(d);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>Rectangle<span style="color:#bbb"> </span>screenRect<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>Rectangle(d);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//截图</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>BufferedImage<span style="color:#bbb"> </span>bufferedImage<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>robot.<span style="color:#658b00">createScreenCapture</span>(screenRect);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//保存截图</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>File<span style="color:#bbb"> </span>file<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">new</span><span style="color:#bbb"> </span>File(<span style="color:#cd5555">&#34;screenRect.png&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>ImageIO.<span style="color:#658b00">write</span>(bufferedImage,<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;png&#34;</span>,<span style="color:#bbb"> </span>file);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//移动鼠标</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">mouseMove</span>(500,<span style="color:#bbb"> </span>500);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//点击鼠标</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//鼠标左键</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;单击&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">mousePress</span>(InputEvent.<span style="color:#658b00">BUTTON1_MASK</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">mouseRelease</span>(InputEvent.<span style="color:#658b00">BUTTON1_MASK</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//鼠标右键</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;右击&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">mousePress</span>(InputEvent.<span style="color:#658b00">BUTTON3_MASK</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">mouseRelease</span>(InputEvent.<span style="color:#658b00">BUTTON3_MASK</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//按下ESC，退出右键状态</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;按下ESC&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_ESCAPE</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_ESCAPE</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//滚动鼠标滚轴</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(<span style="color:#cd5555">&#34;滚轴&#34;</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">mouseWheel</span>(5);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#228b22">//按下Alt+TAB键</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_ALT</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span><span style="color:#8b008b;font-weight:bold">for</span>(<span style="color:#00688b;font-weight:bold">int</span><span style="color:#bbb"> </span>i=1;i&lt;=2;i++)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>robot.<span style="color:#658b00">keyPress</span>(KeyEvent.<span style="color:#658b00">VK_TAB</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                        </span>robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_TAB</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>robot.<span style="color:#658b00">keyRelease</span>(KeyEvent.<span style="color:#658b00">VK_ALT</span>);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>}<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">catch</span><span style="color:#bbb"> </span>(InterruptedException<span style="color:#bbb"> </span>e)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>e.<span style="color:#658b00">printStackTrace</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>}<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">catch</span><span style="color:#bbb"> </span>(AWTException<span style="color:#bbb"> </span>e)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>e.<span style="color:#658b00">printStackTrace</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>}<span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">catch</span><span style="color:#bbb"> </span>(IOException<span style="color:#bbb"> </span>e)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                    </span>e.<span style="color:#658b00">printStackTrace</span>();<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">            </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>});<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div>
                     
                     <HR width="100%" id="EOF">
 		    <p style="color:#777;">最后修改于 2021-04-18</p>
@@ -413,13 +321,109 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 
 
 
+
+
             </div>
         </div>
     </div>
 
 
                     </div>
-            </div><div id="single-column-footer">
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.github.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
 <br>
 移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>

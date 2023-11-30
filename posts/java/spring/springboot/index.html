@@ -27,9 +27,11 @@
 
 
 
+
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="SpringBoot"/>
 <meta name="twitter:description" content="srpingboot基础"/>
+
 
 
 
@@ -50,11 +52,8 @@
       <script src="/js/toc.js"></script>
     
     <link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-<link rel="stylesheet" href="/scss/journal.min.c5d92f380bf10f6849c7ac487c7df2b22c081e0851e5339224f1ae29210b20d2.css" integrity="sha256-xdkvOAvxD2hJx6xIfH3ysiwIHghR5TOSJPGuKSELINI=" media="screen">
 
-
-
-<link rel="stylesheet" href="/scss/dark-mode.min.9f8d8c2df9285089d141edd4a50cb7506c7948e6ab79a29968dced1bd0ab7d22.css" integrity="sha256-n42MLfkoUInRQe3UpQy3UGx5SOareaKZaNztG9CrfSI=" media="screen">
+<link rel="stylesheet" href="/scss/dark-mode.min.cb53f1bee2b8900cb4f082afbf00175d6618f281cf9a2fe8619e3b52d20b5721.css" integrity="sha256-y1PxvuK4kAy08IKvvwAXXWYY8oHPmi/oYZ47UtILVyE=" media="screen">
 
 
 <link rel="stylesheet"
@@ -80,341 +79,7 @@
 
 </head>
 <body>
-    	<div id="app"><div id="sideContainer" class="side-container">
-    
-    <a class="a-block nav-head false" href="https://brandykk.github.io">
-    
-        <div class="nav-title">
-            Brandy
-        </div>
-        
-        <div class="nav-subtitle">
-            个人使用
-        </div>
-        
-    </a>
-
-    <div class="nav-link-list">
-        
-        
-            
-            
-            
-                
-            
-            
-            
-            <a class="a-block nav-link-item active" href="/posts">
-                Archive
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/categories">
-                Categories
-            </a>
-            
-        
-            
-            
-            
-            
-            
-            <a class="a-block nav-link-item false" href="/tags">
-                Tags
-            </a>
-            
-        
-    </div>
-
-    
-
-    <div class="nav-footer">
-        
-Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
-<br>
-移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
-<br>
-
-&copy;
-	
-	This is a customized copyright.
-	
-
-    </div>
-    
-</div><div id="extraContainer" class="extra-container">
-    
-    
-    <div class="toc animated-visibility" :class="{ invisible: scrollY <= 140 }">
-
-
-	<div class="toc-content">
-	
-		
-		
-		
-		<center>- 目录 -</center>
-		
-		
-		<ul>
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-springboot%e4%be%9d%e8%b5%96" onclick="onNavClick(`#1-springboot依赖-nav`)" id="1-springboot依赖-nav">
-									1. springboot依赖
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2-%e5%8e%9f%e7%90%86" onclick="onNavClick(`#2-原理-nav`)" id="2-原理-nav">
-									2. 原理
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#2-%e4%b8%bb%e7%a8%8b%e5%ba%8f" onclick="onNavClick(`#2-主程序-nav`)" id="2-主程序-nav">
-									2. 主程序
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#springapplication" onclick="onNavClick(`#springapplication-nav`)" id="springapplication-nav">
-									SpringApplication
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#springboot%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6httpsdocsspringiospring-bootdocscurrentreferencehtml" onclick="onNavClick(`#springboot配置文件httpsdocsspringiospring-bootdocscurrentreferencehtml-nav`)" id="springboot配置文件httpsdocsspringiospring-bootdocscurrentreferencehtml-nav">
-									Springboot配置文件
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#1-%e4%bd%bf%e7%94%a8yaml%e7%bb%99%e5%b1%9e%e6%80%a7%e8%b5%8b%e5%80%bc" onclick="onNavClick(`#1-使用yaml给属性赋值-nav`)" id="1-使用yaml给属性赋值-nav">
-									1. 使用yaml给属性赋值
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#2%e4%bd%bf%e7%94%a8properties%e8%b5%8b%e5%80%bc" onclick="onNavClick(`#2使用properties赋值-nav`)" id="2使用properties赋值-nav">
-									2.使用properties赋值
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#3yaml%e6%94%af%e6%8c%81%e6%9d%be%e6%95%a3%e7%bb%91%e5%ae%9a" onclick="onNavClick(`#3yaml支持松散绑定-nav`)" id="3yaml支持松散绑定-nav">
-									3.yaml支持松散绑定
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-						
-							<li>
-								<a href="#4yaml%e6%94%af%e6%8c%81jsr-303" onclick="onNavClick(`#4yaml支持jsr-303-nav`)" id="4yaml支持jsr-303-nav">
-									4.yaml支持jsr-303
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-							
-								</ul>
-							
-						
-						
-						
-							<li>
-								<a href="#springboot-web%e5%bc%80%e5%8f%91" onclick="onNavClick(`#springboot-web开发-nav`)" id="springboot-web开发-nav">
-									Springboot Web开发
-								</a>
-							</li>
-						
-						
-					
-				
-			
-				
-				
-					
-						
-						
-						
-						
-							
-								
-									<ul>
-								
-							
-						
-						
-							<li>
-								<a href="#springboot%e9%85%8d%e7%bd%ae%e6%97%a0%e6%b3%95%e6%b3%a8%e5%85%a5%e9%97%ae%e9%a2%98" onclick="onNavClick(`#springboot配置无法注入问题-nav`)" id="springboot配置无法注入问题-nav">
-									Springboot配置无法注入问题
-								</a>
-							</li>
-						
-						
-					
-				
-			
-		</ul>
-	</div>
-
-</div>
-    
-    <div class="pagination">
-        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
-            <i class="material-icons pagination-action-icon">
-                keyboard_arrow_up
-            </i>
-        </a>
-        
-        <a type="button" class="pagination-action" id="darkModeToggleButton">
-            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
-                dark_mode
-            </span>
-        </a>
-        
-        
-    </div>
-</div>
-<div class="single-column-drawer-container" id="drawer"
+    	<div id="app"><div class="single-column-drawer-container" id="drawer"
      v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
     <div class="drawer-content">
         <div class="drawer-menu">
@@ -482,7 +147,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-springboot%e4%be%9d%e8%b5%96" onclick="onNavClick(`#1-springboot依赖-nav`)" id="1-springboot依赖-nav">
+								<a href="#1-springboot%e4%be%9d%e8%b5%96" class="nav-1-springboot依赖">
 									1. springboot依赖
 								</a>
 							</li>
@@ -500,7 +165,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-%e5%8e%9f%e7%90%86" onclick="onNavClick(`#2-原理-nav`)" id="2-原理-nav">
+								<a href="#2-%e5%8e%9f%e7%90%86" class="nav-2-原理">
 									2. 原理
 								</a>
 							</li>
@@ -524,7 +189,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2-%e4%b8%bb%e7%a8%8b%e5%ba%8f" onclick="onNavClick(`#2-主程序-nav`)" id="2-主程序-nav">
+								<a href="#2-%e4%b8%bb%e7%a8%8b%e5%ba%8f" class="nav-2-主程序">
 									2. 主程序
 								</a>
 							</li>
@@ -546,7 +211,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#springapplication" onclick="onNavClick(`#springapplication-nav`)" id="springapplication-nav">
+								<a href="#springapplication" class="nav-springapplication">
 									SpringApplication
 								</a>
 							</li>
@@ -564,7 +229,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#springboot%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6httpsdocsspringiospring-bootdocscurrentreferencehtml" onclick="onNavClick(`#springboot配置文件httpsdocsspringiospring-bootdocscurrentreferencehtml-nav`)" id="springboot配置文件httpsdocsspringiospring-bootdocscurrentreferencehtml-nav">
+								<a href="#springboot%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6httpsdocsspringiospring-bootdocscurrentreferencehtml" class="nav-springboot配置文件httpsdocsspringiospring-bootdocscurrentreferencehtml">
 									Springboot配置文件
 								</a>
 							</li>
@@ -588,7 +253,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#1-%e4%bd%bf%e7%94%a8yaml%e7%bb%99%e5%b1%9e%e6%80%a7%e8%b5%8b%e5%80%bc" onclick="onNavClick(`#1-使用yaml给属性赋值-nav`)" id="1-使用yaml给属性赋值-nav">
+								<a href="#1-%e4%bd%bf%e7%94%a8yaml%e7%bb%99%e5%b1%9e%e6%80%a7%e8%b5%8b%e5%80%bc" class="nav-1-使用yaml给属性赋值">
 									1. 使用yaml给属性赋值
 								</a>
 							</li>
@@ -606,7 +271,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#2%e4%bd%bf%e7%94%a8properties%e8%b5%8b%e5%80%bc" onclick="onNavClick(`#2使用properties赋值-nav`)" id="2使用properties赋值-nav">
+								<a href="#2%e4%bd%bf%e7%94%a8properties%e8%b5%8b%e5%80%bc" class="nav-2使用properties赋值">
 									2.使用properties赋值
 								</a>
 							</li>
@@ -624,7 +289,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#3yaml%e6%94%af%e6%8c%81%e6%9d%be%e6%95%a3%e7%bb%91%e5%ae%9a" onclick="onNavClick(`#3yaml支持松散绑定-nav`)" id="3yaml支持松散绑定-nav">
+								<a href="#3yaml%e6%94%af%e6%8c%81%e6%9d%be%e6%95%a3%e7%bb%91%e5%ae%9a" class="nav-3yaml支持松散绑定">
 									3.yaml支持松散绑定
 								</a>
 							</li>
@@ -642,7 +307,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#4yaml%e6%94%af%e6%8c%81jsr-303" onclick="onNavClick(`#4yaml支持jsr-303-nav`)" id="4yaml支持jsr-303-nav">
+								<a href="#4yaml%e6%94%af%e6%8c%81jsr-303" class="nav-4yaml支持jsr-303">
 									4.yaml支持jsr-303
 								</a>
 							</li>
@@ -664,7 +329,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#springboot-web%e5%bc%80%e5%8f%91" onclick="onNavClick(`#springboot-web开发-nav`)" id="springboot-web开发-nav">
+								<a href="#springboot-web%e5%bc%80%e5%8f%91" class="nav-springboot-web开发">
 									Springboot Web开发
 								</a>
 							</li>
@@ -688,7 +353,7 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#springboot%e9%85%8d%e7%bd%ae%e6%97%a0%e6%b3%95%e6%b3%a8%e5%85%a5%e9%97%ae%e9%a2%98" onclick="onNavClick(`#springboot配置无法注入问题-nav`)" id="springboot配置无法注入问题-nav">
+								<a href="#springboot%e9%85%8d%e7%bd%ae%e6%97%a0%e6%b3%95%e6%b3%a8%e5%85%a5%e9%97%ae%e9%a2%98" class="nav-springboot配置无法注入问题">
 									Springboot配置无法注入问题
 								</a>
 							</li>
@@ -898,16 +563,16 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </li>
 </ul>
 <h3 id="2-主程序">2. 主程序</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#707a7c">@SpringBootApplication</span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">SpringbootApplication</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">static</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">main</span>(String[] args) {
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//springboot应用启动
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>        SpringApplication.<span style="color:#658b00">run</span>(SpringbootApplication.<span style="color:#658b00">class</span>, args);
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#707a7c">@SpringBootApplication</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">SpringbootApplication</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">main</span>(String[]<span style="color:#bbb"> </span>args)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//springboot应用启动</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>SpringApplication.<span style="color:#658b00">run</span>(SpringbootApplication.<span style="color:#658b00">class</span>,<span style="color:#bbb"> </span>args);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><ul>
 <li>@SpringBootApplication
 <ul>
 <li>@SpringBootConfiguration：springboot的配置
@@ -996,135 +661,135 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 <ol>
 <li>
 <p>基础对象类</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span> <span style="color:#008b45;text-decoration:underline">com.bin.pojo</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Dog</span> {
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> String dogName;
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> String dogEat;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">toString</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;Dog{&#34;</span> +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;dogName=&#39;&#34;</span> + dogName + <span style="color:#cd5555">&#39;\&#39;&#39;</span> +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;, dogEat=&#39;&#34;</span> + dogEat + <span style="color:#cd5555">&#39;\&#39;&#39;</span> +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#39;}&#39;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">getDogName</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> dogName;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setDogName</span>(String dogName) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dogName</span> = dogName;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">getDogEat</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> dogEat;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setDogEat</span>(String dogEat) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dogEat</span> = dogEat;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">com.bin.pojo</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Dog</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>dogName;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>dogEat;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span><span style="color:#008b45">toString</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#cd5555">&#34;Dog{&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;dogName=&#39;&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>dogName<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#cd5555">&#39;\&#39;&#39;</span><span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;, dogEat=&#39;&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>dogEat<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#cd5555">&#39;\&#39;&#39;</span><span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#39;}&#39;</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span><span style="color:#008b45">getDogName</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>dogName;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setDogName</span>(String<span style="color:#bbb"> </span>dogName)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dogName</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>dogName;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span><span style="color:#008b45">getDogEat</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>dogEat;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setDogEat</span>(String<span style="color:#bbb"> </span>dogEat)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dogEat</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>dogEat;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
 <li>
 <p>封装对象类</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span> <span style="color:#008b45;text-decoration:underline">com.bin.pojo</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">com.fasterxml.jackson.annotation.JsonFormat</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.boot.context.properties.ConfigurationProperties</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.format.annotation.DateTimeFormat</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.stereotype.Component</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">java.time.LocalDateTime</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">java.util.List</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">java.util.Map</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#707a7c">@Component</span>
-</span></span><span style="display:flex;"><span><span style="color:#707a7c">@ConfigurationProperties</span>(prefix = <span style="color:#cd5555">&#34;user&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">User</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> String name;
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> Integer age;
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> Boolean flag;
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@JsonFormat</span>(pattern = <span style="color:#cd5555">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@DateTimeFormat</span>(pattern = <span style="color:#cd5555">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> LocalDateTime time;
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> Map&lt;String,String&gt; map;
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> List&lt;String&gt; list;
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> Dog dog;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> LocalDateTime <span style="color:#008b45">getTime</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> time;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setTime</span>(LocalDateTime time) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">time</span> = time;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@Override</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">toString</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> <span style="color:#cd5555">&#34;User{&#34;</span> +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;name=&#39;&#34;</span> + name + <span style="color:#cd5555">&#39;\&#39;&#39;</span> +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;, age=&#34;</span> + age +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;, flag=&#34;</span> + flag +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;, time=&#34;</span> + time +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;, map=&#34;</span> + map +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;, list=&#34;</span> + list +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#34;, dog=&#34;</span> + dog +
-</span></span><span style="display:flex;"><span>                <span style="color:#cd5555">&#39;}&#39;</span>;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> Dog <span style="color:#008b45">getDog</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> dog;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setDog</span>(Dog dog) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dog</span> = dog;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> String <span style="color:#008b45">getName</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> name;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setName</span>(String name) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">name</span> = name;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> Integer <span style="color:#008b45">getAge</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> age;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setAge</span>(Integer age) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">age</span> = age;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> Boolean <span style="color:#008b45">getFlag</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> flag;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setFlag</span>(Boolean flag) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">flag</span> = flag;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> Map&lt;String, String&gt; <span style="color:#008b45">getMap</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> map;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setMap</span>(Map&lt;String, String&gt; map) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">map</span> = map;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> List&lt;String&gt; <span style="color:#008b45">getList</span>() {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">return</span> list;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setList</span>(List&lt;String&gt; list) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">list</span> = list;
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">com.bin.pojo</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">com.fasterxml.jackson.annotation.JsonFormat</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.boot.context.properties.ConfigurationProperties</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.format.annotation.DateTimeFormat</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.stereotype.Component</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">java.time.LocalDateTime</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">java.util.List</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">java.util.Map</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#707a7c">@Component</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#707a7c">@ConfigurationProperties</span>(prefix<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;user&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">User</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>name;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>Integer<span style="color:#bbb"> </span>age;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>Boolean<span style="color:#bbb"> </span>flag;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@JsonFormat</span>(pattern<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@DateTimeFormat</span>(pattern<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;yyyy-MM-dd HH:mm:ss&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>LocalDateTime<span style="color:#bbb"> </span>time;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>Map&lt;String,String&gt;<span style="color:#bbb"> </span>map;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>List&lt;String&gt;<span style="color:#bbb"> </span>list;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>Dog<span style="color:#bbb"> </span>dog;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>LocalDateTime<span style="color:#bbb"> </span><span style="color:#008b45">getTime</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>time;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setTime</span>(LocalDateTime<span style="color:#bbb"> </span>time)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">time</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>time;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@Override</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span><span style="color:#008b45">toString</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span><span style="color:#cd5555">&#34;User{&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;name=&#39;&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>name<span style="color:#bbb"> </span>+<span style="color:#bbb"> </span><span style="color:#cd5555">&#39;\&#39;&#39;</span><span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;, age=&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>age<span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;, flag=&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>flag<span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;, time=&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>time<span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;, map=&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>map<span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;, list=&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>list<span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#34;, dog=&#34;</span><span style="color:#bbb"> </span>+<span style="color:#bbb"> </span>dog<span style="color:#bbb"> </span>+<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">                </span><span style="color:#cd5555">&#39;}&#39;</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>Dog<span style="color:#bbb"> </span><span style="color:#008b45">getDog</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>dog;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setDog</span>(Dog<span style="color:#bbb"> </span>dog)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">dog</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>dog;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span><span style="color:#008b45">getName</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>name;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setName</span>(String<span style="color:#bbb"> </span>name)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">name</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>name;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>Integer<span style="color:#bbb"> </span><span style="color:#008b45">getAge</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>age;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setAge</span>(Integer<span style="color:#bbb"> </span>age)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">age</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>age;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>Boolean<span style="color:#bbb"> </span><span style="color:#008b45">getFlag</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>flag;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setFlag</span>(Boolean<span style="color:#bbb"> </span>flag)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">flag</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>flag;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>Map&lt;String,<span style="color:#bbb"> </span>String&gt;<span style="color:#bbb"> </span><span style="color:#008b45">getMap</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>map;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setMap</span>(Map&lt;String,<span style="color:#bbb"> </span>String&gt;<span style="color:#bbb"> </span>map)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">map</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>map;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span>List&lt;String&gt;<span style="color:#bbb"> </span><span style="color:#008b45">getList</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">return</span><span style="color:#bbb"> </span>list;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setList</span>(List&lt;String&gt;<span style="color:#bbb"> </span>list)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">list</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>list;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div></li>
 <li>
 <p>application.yml</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">user</span>:<span style="color:#bbb">
@@ -1140,27 +805,27 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 </span></span></span></code></pre></div></li>
 <li>
 <p>测试</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span> <span style="color:#008b45;text-decoration:underline">com.bin</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">com.bin.pojo.User</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.junit.jupiter.api.Test</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.beans.factory.annotation.Autowired</span>;
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">import</span> <span style="color:#008b45;text-decoration:underline">org.springframework.boot.test.context.SpringBootTest</span>;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#707a7c">@SpringBootTest</span>
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">SpringbootApplicationTests</span> {
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@Autowired</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> User user;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@Test</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">contextLoads</span>() {
-</span></span><span style="display:flex;"><span>        System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(user);
-</span></span><span style="display:flex;"><span>        <span style="color:#228b22">//User{name=&#39;lv&#39;, age=36, flag=true, time=2021-10-10T12:32:20, map={key=1, value=2}, list=[a, b, c], dog=Dog{dogName=&#39;dog&#39;, dogEat=&#39;吃&#39;}}
-</span></span></span><span style="display:flex;"><span><span style="color:#228b22"></span>    }
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>使用<code>@ConfigurationProperties(prefix = &quot;user&quot;)</code>时会有idea报红提示，可以添加下面的依赖，也可以不添加，这个不影响</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">package</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">com.bin</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">com.bin.pojo.User</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.junit.jupiter.api.Test</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.beans.factory.annotation.Autowired</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">import</span><span style="color:#bbb"> </span><span style="color:#008b45;text-decoration:underline">org.springframework.boot.test.context.SpringBootTest</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#707a7c">@SpringBootTest</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">SpringbootApplicationTests</span><span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@Autowired</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>User<span style="color:#bbb"> </span>user;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@Test</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">contextLoads</span>()<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span>System.<span style="color:#658b00">out</span>.<span style="color:#658b00">println</span>(user);<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#228b22">//User{name=&#39;lv&#39;, age=36, flag=true, time=2021-10-10T12:32:20, map={key=1, value=2}, list=[a, b, c], dog=Dog{dogName=&#39;dog&#39;, dogEat=&#39;吃&#39;}}</span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><p>使用<code>@ConfigurationProperties(prefix = &quot;user&quot;)</code>时会有idea报红提示，可以添加下面的依赖，也可以不添加，这个不影响</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">&lt;dependency&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#8b008b;font-weight:bold">&lt;/groupId&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#8b008b;font-weight:bold">&lt;artifactId&gt;</span>spring-boot-configuration-processor<span style="color:#8b008b;font-weight:bold">&lt;/artifactId&gt;</span>
@@ -1172,12 +837,12 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 <li>更改注解：<code>@PropertySource(value = &quot;classpath:config.properties&quot;)</code></li>
 <li>在实体参数上加上注解<code>@Value(&quot;${name}&quot;)</code></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#707a7c">@PropertySource</span>(value = <span style="color:#cd5555">&#34;classpath:config.properties&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Persion</span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@Value</span>(<span style="color:#cd5555">&#34;${name}&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> String name;
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="3yaml支持松散绑定">3.yaml支持松散绑定</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#707a7c">@PropertySource</span>(value<span style="color:#bbb"> </span>=<span style="color:#bbb"> </span><span style="color:#cd5555">&#34;classpath:config.properties&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">class</span> <span style="color:#008b45;font-weight:bold">Persion</span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@Value</span>(<span style="color:#cd5555">&#34;${name}&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>name;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span>}<span style="color:#bbb">
+</span></span></span></code></pre></div><h3 id="3yaml支持松散绑定">3.yaml支持松散绑定</h3>
 <ul>
 <li>实体中的驼峰命名<code>userName</code></li>
 <li><code>yaml</code>中可以用<code>-</code>分割：<code>user-name</code></li>
@@ -1314,13 +979,13 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 <li>优先级：resources&gt;static&gt;public</li>
 </ol>
 <h3 id="springboot配置无法注入问题">Springboot配置无法注入问题</h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">private</span> <span style="color:#8b008b;font-weight:bold">static</span> String xsjzServerName;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>    <span style="color:#707a7c">@Value</span>(<span style="color:#cd5555">&#34;${capricorn.xsjzServerName}&#34;</span>)
-</span></span><span style="display:flex;"><span>    <span style="color:#8b008b;font-weight:bold">public</span> <span style="color:#00688b;font-weight:bold">void</span> <span style="color:#008b45">setXsjzServerName</span>(String xsjzServerName) {
-</span></span><span style="display:flex;"><span>        <span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">xsjzServerName</span> = xsjzServerName;
-</span></span><span style="display:flex;"><span>    }
-</span></span></code></pre></div>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">private</span><span style="color:#bbb"> </span><span style="color:#8b008b;font-weight:bold">static</span><span style="color:#bbb"> </span>String<span style="color:#bbb"> </span>xsjzServerName;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#707a7c">@Value</span>(<span style="color:#cd5555">&#34;${capricorn.xsjzServerName}&#34;</span>)<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#8b008b;font-weight:bold">public</span><span style="color:#bbb"> </span><span style="color:#00688b;font-weight:bold">void</span><span style="color:#bbb"> </span><span style="color:#008b45">setXsjzServerName</span>(String<span style="color:#bbb"> </span>xsjzServerName)<span style="color:#bbb"> </span>{<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#8b008b;font-weight:bold">this</span>.<span style="color:#658b00">xsjzServerName</span><span style="color:#bbb"> </span>=<span style="color:#bbb"> </span>xsjzServerName;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span>}<span style="color:#bbb">
+</span></span></span></code></pre></div>
                     
                     <HR width="100%" id="EOF">
 		    <p style="color:#777;">最后修改于 2021-08-07</p>
@@ -1355,13 +1020,352 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 
 
 
+
+
             </div>
         </div>
     </div>
 
 
                     </div>
-            </div><div id="single-column-footer">
+            </div><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://brandykk.github.io">
+    
+        <div class="nav-title">
+            Brandy
+        </div>
+        
+        <div class="nav-subtitle">
+            个人使用
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+                
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/posts">
+                Archive
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                Categories
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/tags">
+                Tags
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
+<br>
+移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>
+<br>
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    <div class="toc-wrapper">
+        
+
+        
+        <div class="toc">
+
+
+	<div class="toc-content">
+	
+		
+		
+		
+		<center>- 目录 -</center>
+		
+		
+		<ul>
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-springboot%e4%be%9d%e8%b5%96" class="nav-1-springboot依赖">
+									1. springboot依赖
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2-%e5%8e%9f%e7%90%86" class="nav-2-原理">
+									2. 原理
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#2-%e4%b8%bb%e7%a8%8b%e5%ba%8f" class="nav-2-主程序">
+									2. 主程序
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#springapplication" class="nav-springapplication">
+									SpringApplication
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#springboot%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6httpsdocsspringiospring-bootdocscurrentreferencehtml" class="nav-springboot配置文件httpsdocsspringiospring-bootdocscurrentreferencehtml">
+									Springboot配置文件
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#1-%e4%bd%bf%e7%94%a8yaml%e7%bb%99%e5%b1%9e%e6%80%a7%e8%b5%8b%e5%80%bc" class="nav-1-使用yaml给属性赋值">
+									1. 使用yaml给属性赋值
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#2%e4%bd%bf%e7%94%a8properties%e8%b5%8b%e5%80%bc" class="nav-2使用properties赋值">
+									2.使用properties赋值
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#3yaml%e6%94%af%e6%8c%81%e6%9d%be%e6%95%a3%e7%bb%91%e5%ae%9a" class="nav-3yaml支持松散绑定">
+									3.yaml支持松散绑定
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#4yaml%e6%94%af%e6%8c%81jsr-303" class="nav-4yaml支持jsr-303">
+									4.yaml支持jsr-303
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+							
+								</ul>
+							
+						
+						
+						
+							<li>
+								<a href="#springboot-web%e5%bc%80%e5%8f%91" class="nav-springboot-web开发">
+									Springboot Web开发
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+							
+								
+									<ul>
+								
+							
+						
+						
+							<li>
+								<a href="#springboot%e9%85%8d%e7%bd%ae%e6%97%a0%e6%b3%95%e6%b3%a8%e5%85%a5%e9%97%ae%e9%a2%98" class="nav-springboot配置无法注入问题">
+									Springboot配置无法注入问题
+								</a>
+							</li>
+						
+						
+					
+				
+			
+		</ul>
+	</div>
+
+</div>
+        
+    </div>
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top"
+            :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+    </div>
+</div><div id="single-column-footer">
 Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> by <a href="https://risehere.net/">Rise</a>
 <br>
 移植自 <a href="https://mak1t0.cc/" target="_blank" rel="noreferrer noopener">Makito</a>'s <a href="https://github.com/SumiMakito/hexo-theme-journal/" target="_blank" rel="noreferrer noopener">Journal.</a> <br>

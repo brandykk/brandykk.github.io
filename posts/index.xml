@@ -7,26 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Mar 2023 16:00:00 +0800</lastBuildDate>
+    <atom:link href="https://brandykk.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ArchLinux安装记录</title>
       <link>https://brandykk.github.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</link>
       <pubDate>Tue, 07 Mar 2023 16:00:00 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/linux/arch/archlinux%E5%AE%89%E8%A3%85/</guid>
       <description>更新于2023年3月7日；适用于Arch和win11双系统，btrfs文件系统，kde桌面
 准备工作 先安装win10,然后再安装linux,关闭主板设置中的 Secure Boot,关闭win10的快速启动
 制作镜像：推荐ventoy
 确保是否为 UEFI 模式
 # 若输出了一堆东西，即` efi `变量，则说明已在 `UEFI `模式。否则请确认你的启动方式是否为 `UEFI`。 ls /sys/firmware/efi/efivars 分区(Btrfs) Btrfs文件系统不需要单独区分每个盘的大小，只需要单独分出一个盘即可。
-单系统需要先将磁盘转为gpt格式，双系统的话，在win11上已经转过了，/dev/nvme0n1p6是安装磁盘，根据实际情况改成自己的磁盘 # 如果需要转gpt则执行命令 lsblk #显示分区情况 parted /dev/sdx #执行parted，进行磁盘类型变更 (parted)mktable #输入mktable New disk label type? gpt #输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可 quit #最后quit退出parted命令行交互 # 或 # 如果是单个磁盘，不需要要保留磁盘数据则执行以下命令可以直接选择将磁盘转为`gpt`（不会读取硬盘已有分区） # cfdisk -z /dev/nvme0n1p6 # 不需要转gpt,在已有分区基础上继续分区（会读取硬盘已有分区） cfdisk /dev/nvme0n1 # 格式化磁盘 mkfs.btrfs -f /dev/nvme0n1p6 创建子卷 # 挂在分区 mount /dev/nvme0n1p6 /mnt # 根据需要在/mnt中创建子卷 btrfs su cr /mnt/@ # 挂载到 root，必需 btrfs su cr /mnt/@boot # boot 子卷, 可选 btrfs su cr /mnt/@home # home ，可选 btrfs su cr /mnt/@var # var, 可选 btrfs su cr /mnt/@opt # opt, 可选 btrfs su cr /mnt/@snapshot # 快照文件, 可选 btrfs su cr /mnt/@swap # swapfile ，可选 #检查创建好的子卷 btrfs su li /mnt #创建16G的交换文件 大小根据需要更改 btrfs filesystem mkswapfile -s 16g /mnt/@swap/swapfile 挂载子卷 # 先卸载上面创建子卷时的挂载目录，否则会失败 umount /mnt # 挂载根目录子卷 (这是SSD硬盘的参数，如果是机械硬盘，有些参数不太合适，请自行查询挂载参数） mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,discard=async,subvol=@ /dev/nvme0n1p6 /mnt # 创建其他子卷挂载目录 最好和上面的子卷保持一致 mkdir -pv /mnt/{boot,home,var,opt,.</description>
+单系统需要先将磁盘转为gpt格式，双系统的话，在win11上已经转过了，/dev/nvme0n1p6是安装磁盘，根据实际情况改成自己的磁盘 # 如果需要转gpt则执行命令 lsblk #显示分区情况 parted /dev/sdx #执行parted，进行磁盘类型变更 (parted)mktable #输入mktable New disk label type? gpt #输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可 quit #最后quit退出parted命令行交互 # 或 # 如果是单个磁盘，不需要要保留磁盘数据则执行以下命令可以直接选择将磁盘转为`gpt`（不会读取硬盘已有分区） # cfdisk -z /dev/nvme0n1p6 # 不需要转gpt,在已有分区基础上继续分区（会读取硬盘已有分区） cfdisk /dev/nvme0n1 # 格式化磁盘 mkfs.btrfs -f /dev/nvme0n1p6 创建子卷 # 挂在分区 mount /dev/nvme0n1p6 /mnt # 根据需要在/mnt中创建子卷 btrfs su cr /mnt/@ # 挂载到 root，必需 btrfs su cr /mnt/@boot # boot 子卷, 可选 btrfs su cr /mnt/@home # home ，可选 btrfs su cr /mnt/@var # var, 可选 btrfs su cr /mnt/@opt # opt, 可选 btrfs su cr /mnt/@snapshot # 快照文件, 可选 btrfs su cr /mnt/@swap # swapfile ，可选 #检查创建好的子卷 btrfs su li /mnt #创建16G的交换文件 大小根据需要更改 btrfs filesystem mkswapfile -s 16g /mnt/@swap/swapfile 挂载子卷 # 先卸载上面创建子卷时的挂载目录，否则会失败 umount /mnt # 挂载根目录子卷 (这是SSD硬盘的参数，如果是机械硬盘，有些参数不太合适，请自行查询挂载参数） mount -t btrfs -o defaults,compress-force=zstd:5,space_cache=v2,autodefrag,subvol=@ /dev/nvme0n1p6 /mnt # 创建其他子卷挂载目录 最好和上面的子卷保持一致 mkdir -pv /mnt/{boot,home,var,opt,.</description>
     </item>
-    
     <item>
       <title>服务器生成证书说明</title>
       <link>https://brandykk.github.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/</link>
       <pubDate>Tue, 07 Feb 2023 10:42:28 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E8%AF%B4%E6%98%8E/</guid>
       <description>此文档使用的系统: WSL2-ArchLinux 进行的以下操作：建议用root账号进行操作，并在统一目录下操作。
 生成CA证书 生成CA私钥 openssl genrsa -des3 -out ca.key 2048 此命令应该会要求你输入一个ca.key对应的加密密码（可以输入个123456方便记）。输入后密码需要记下来后面还要用。
@@ -36,12 +34,10 @@ authorityKeyIdentifier=keyid,issuer basicConstraints=CA:FALSE keyUsage = digital
 生成HTTPS证书 生成HTTPS证书私钥 openssl genrsa -des3 -out xxxx.pem 1024 这里的xxxx指的就是上面说的主机名或者主机IP，下面的同理
 生成不加密的https主机证书私钥 openssl rsa -in xxxx.</description>
     </item>
-    
     <item>
       <title>Linux子系统</title>
       <link>https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Mon, 13 Jun 2022 09:50:21 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</guid>
       <description>在win11上安装archlinux子系统 需要先开启linux子系统和虚拟平台服务,参考
 1. 下载linux内核升级包 双击安装即可
@@ -52,51 +48,41 @@ github下载解压，里面的exe不需要安装，可以将exe路径配置环�
 输入一下命令，进行转行
 # 命令格式： # wsl --set-version &amp;lt;名称&amp;gt; 2 # 如： wsl --set-version archlinux 2 7. 首次进入系统执行命令 pacman -Syy pacman-key --init pacman-key --populate 8.</description>
     </item>
-    
     <item>
       <title>Docker使用</title>
       <link>https://brandykk.github.io/posts/tool/docker/</link>
       <pubDate>Wed, 19 Jan 2022 20:00:28 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/tool/docker/</guid>
       <description>Docker下载 # archlinux sudo pacman -Syu docker # 将用户lv追加进docker用户组 # 将当前用户添加进docker用户组 sudo gpasswd -a ${USER} docker Docker运行 # 修改docker默认镜像安装路径(没有则新建) vim /etc/docker/daemon.json # 修改文件中的路径 { &amp;#34;registry-mirrors&amp;#34;: [ &amp;#34;https://registry.cn-hangzhou.aliyuncs.com&amp;#34;, &amp;#34;https://hub-mirror.c.163.com&amp;#34; ] } # 重新加载配置文件 systemctl daemon-reload # 启动docker服务 systemctl start/stop docker.service Docker基础使用 # 下载镜像 docker pull archlinux # 运行archlinux docker run -it archlinux # 停止容器 docker stop&amp;lt;容器ID或容器名&amp;gt; # 删除镜像之前需要先删除对应的容器 # 查看容器 docker ps -a # 删除容器 docker rm 容器id # 查看docker image docker images # 删除image docker rmi 镜像id Docker中不能使用systemctl问题 # 执行命令 # test 是自己起的名字 # archlinux 是镜像名字 docker run --privileged -id --name test archlinux /usr/sbin/init # 运行刚刚的容器id docker exec -it b8a0ae8742e2 bash </description>
     </item>
-    
     <item>
       <title>Linux基础命令</title>
       <link>https://brandykk.github.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Fri, 08 Oct 2021 17:24:15 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/linux/linux%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4/</guid>
       <description># 查看内核信息 uname -a # 查看端口号 -t (tcp) 仅显示tcp相关选项 -u (udp)仅显示udp相关选项 -n 拒绝显示别名，能显示数字的全部转化为数字 -l 仅列出在Listen(监听)的服务状态 -p 显示建立相关链接的程序名 netstat -tunlp | grep 端口号 # 查看当前所有tcp端口 netstat -ntlp # 查看所有80端口使用情况 netstat -ntulp | grep 80 </description>
     </item>
-    
     <item>
       <title>C语言基础学习</title>
       <link>https://brandykk.github.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</link>
       <pubDate>Mon, 04 Oct 2021 17:00:42 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/c%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</guid>
       <description>第一个C语言程序 c语言中在同一个项目中只能有一个主方法入口（main）
 从上往下按照顺序执行代码，所以main方法要在最下面
 #include &amp;lt;stdio.h&amp;gt; //程序入口 int main(){ //打印内容 printf(&amp;#34;The First C&amp;#34;); //程序结束 return 0; } 数据类型 char	字符型 short 短整型 int 整型 long 长整型 long long 更长的整型 float 浮点型 double 双精度浮点型 //数据类型 void dateType(){ char c = &amp;#39;a&amp;#39;; int age = 20; long long l = 2000; //... } int main(){ printf(&amp;#34;The First C\n&amp;#34;); char c = &amp;#39;e&amp;#39;; printf(&amp;#34;c:%c\n&amp;#34;,c); //获取数据类型大小 printf(&amp;#34;%lu\n&amp;#34;,sizeof(char)); printf(&amp;#34;%lu\n&amp;#34;,sizeof(long )); printf(&amp;#34;%lu\n&amp;#34;,sizeof(long long )); //退出 return 0; } 练习 //在控制台输入两个数字 int main(){ int a = 0; int b = 0; //控制台输入1,2 scanf(&amp;#34;%d,%d&amp;#34;,&amp;amp;a,&amp;amp;b); printf(&amp;#34;a:%d\n&amp;#34;,a); printf(&amp;#34;b:%d\n&amp;#34;,b); return 0; } 常变量 常量用const关键字修饰，不可改变</description>
     </item>
-    
     <item>
       <title>SpringBoot</title>
       <link>https://brandykk.github.io/posts/java/spring/springboot/</link>
       <pubDate>Sat, 07 Aug 2021 23:03:10 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/spring/springboot/</guid>
       <description>小彩蛋：修改springboot启动banner,也就是控制台打印的图像 在resources在创建banner.txt,然后把网上复制的banner粘贴进去
 .::::. .::::::::. ::::::::::: &amp;#39;:::::::::::.. :::::::::::::::&amp;#39; &amp;#39;:::::::::::. .::::::::::::::&amp;#39; .:::::::::::... ::::::::::::::&amp;#39;&amp;#39; .:::. &amp;#39;::::::::&amp;#39;&amp;#39;:::: .::::::::. &amp;#39;:::::&amp;#39; &amp;#39;:::: .::::&amp;#39;:::::::. ::::: &amp;#39;::::. .:::::&amp;#39; &amp;#39;:::::::::. ::::: &amp;#39;:::. .:::::&amp;#39; &amp;#39;:::::::::.::::: &amp;#39;::. .::::&amp;#39;&amp;#39; &amp;#39;:::::::::::::: &amp;#39;::. .::&amp;#39;&amp;#39; &amp;#39;:::::::::::: :::... ..:::: &amp;#39;:::::::::&amp;#39; .:&amp;#39; &amp;#39;&amp;#39;&amp;#39;&amp;#39; ..&amp;#39;&amp;#39;&amp;#39;&amp;#39;&amp;#39;:&amp;#39; &amp;#39;:::::.&amp;#39; 1. springboot依赖 &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;UTF-8&amp;#34;?&amp;gt; &amp;lt;project xmlns=&amp;#34;http://maven.apache.org/POM/4.0.0&amp;#34; xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:schemaLocation=&amp;#34;http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd&amp;#34;&amp;gt; &amp;lt;modelVersion&amp;gt;4.0.0&amp;lt;/modelVersion&amp;gt; &amp;lt;parent&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-starter-parent&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.5.3&amp;lt;/version&amp;gt; &amp;lt;relativePath/&amp;gt; &amp;lt;!-- lookup parent from repository --&amp;gt; &amp;lt;/parent&amp;gt; &amp;lt;groupId&amp;gt;com.bin&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;springboot&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;0.0.1-SNAPSHOT&amp;lt;/version&amp;gt; &amp;lt;name&amp;gt;springboot&amp;lt;/name&amp;gt; &amp;lt;description&amp;gt;Demo project for Spring Boot&amp;lt;/description&amp;gt; &amp;lt;properties&amp;gt; &amp;lt;java.</description>
     </item>
-    
     <item>
       <title>SpringMVC</title>
       <link>https://brandykk.github.io/posts/java/spring/springmvc/</link>
       <pubDate>Sat, 07 Aug 2021 21:09:25 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/spring/springmvc/</guid>
       <description>SpringMVC MVC 模式代表 Model-View-Controller（模型-视图-控制器） 模式。这种模式用于应用程序的分层开发。
 Model（模型） - 模型代表一个存取数据的对象或 JAVA POJO。它也可以带有逻辑，在数据变化时更新控制器。 View（视图） - 视图代表模型包含的数据的可视化。 Controller（控制器） - 控制器作用于模型和视图上。它控制数据流向模型对象，并在数据变化时更新视图。它使视图与模型分离开。 MVC的优点：
@@ -128,62 +114,50 @@ controller只做三件事接收参数、调用业务、使用业务结果渲染�
 SpringMVC接口解释
 （1）DispatcherServlet接口： Spring提供的前端控制器，所有的请求都有经过它来统一分发。在DispatcherServlet将请求分发给Spring Controller之前，需要借助于Spring提供的HandlerMapping定位到具体的Controller。 （2）HandlerMapping接口： 能够完成客户请求到Controller映射。 （3）Controller接口： 需要为并发用户处理上述请求，因此实现Controller接口时，必须保证线程安全并且可重用。 Controller将处理用户请求，这和Struts Action扮演的角色是一致的。一旦Controller处理完用户请求，则返回ModelAndView对象给DispatcherServlet前端控制器，ModelAndView中包含了模型（Model）和视图（View）。 从宏观角度考虑，DispatcherServlet是整个Web应用的控制器；从微观考虑，Controller是单个Http请求处理过程中的控制器，而ModelAndView是Http请求过程中返回的模型（Model）和视图（View）。 （4）ViewResolver接口： Spring提供的视图解析器（ViewResolver）在Web应用中查找View对象，从而将相应结果渲染给客户。 4.</description>
     </item>
-    
     <item>
       <title>Jdbc</title>
       <link>https://brandykk.github.io/posts/java/jdbc/</link>
       <pubDate>Thu, 05 Aug 2021 22:01:35 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/jdbc/</guid>
       <description>JDBC程序 private static void jdbcUtil() throws ClassNotFoundException, SQLException { //1. 加载驱动 Class.forName(&amp;#34;com.mysql.jdbc.Driver&amp;#34;); //2.用户信息和url /** * useUnicode=true 使用unicode编码,支持中文 * characterEncoding=utf8 设置字符集为UTF-8 * useSSL=true 使用SSL安全连接 */ String url = &amp;#34;jdbc:mysql://localhost:3306/lvxiaobin?useUnicode=true&amp;amp;characterEncoding=utf8&amp;amp;useSSL=true&amp;#34;; String username = &amp;#34;lv&amp;#34;; String password = &amp;#34;xiao&amp;#34;; //3.接连成功,获取数据库对象 Connection connection = DriverManager.getConnection(url, username, password); //4.执行sql的对象 Statement statement = connection.createStatement(); //5.执行sql String sql = &amp;#34;select * from user&amp;#34;; //返回的结果集 ResultSet resultSet = statement.executeQuery(sql); while (resultSet.next()) { System.out.println(resultSet.getString(&amp;#34;id&amp;#34;)); } //6.释放连接 resultSet.close(); statement.close(); connection.close(); } </description>
     </item>
-    
     <item>
       <title>Spring重点</title>
       <link>https://brandykk.github.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/</link>
       <pubDate>Wed, 28 Jul 2021 21:54:52 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/spring/spring%E8%A6%81%E7%82%B9/</guid>
       <description>1. IOC理论推导 1.1. 原来的写法 1.1.1 UserDao接口 public interface UserDao { void getUser(); } 1.1.2 UserDaoImpl实现类 public class UserDaoImpl implements UserDao { @Override public void getUser() { System.out.println(&amp;#34;默认获取用户数据&amp;#34;); } } 1.1.3 UserService业务接口 public interface IUserService { void getUser(); } 1.1.4 UserServiceImpl业务实现类 public class UserServiceImpl implements IUserService { private UserDao userDao = new UserDaoImpl(); @Override public void getUser() { userDao.getUser(); } } 1.1.5 UserTest测试 public class UserTest { public static void main(String[] args) { //用户实际调用的业务层，Dao层不会直接调用 IUserService userService = new UserServiceImpl(); userService.</description>
     </item>
-    
     <item>
       <title>Java中常用工具类</title>
       <link>https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</link>
       <pubDate>Tue, 20 Jul 2021 21:53:26 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/java%E4%B8%AD%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7%E7%B1%BB/</guid>
       <description>java自带的方法 List集合拼接成以逗号分隔的字符串 //将list转为字符串 List&amp;lt;String&amp;gt; strings = Arrays.asList(&amp;#34;a,b,c,d&amp;#34;); //List&amp;lt;String&amp;gt; strings = Collections.singletonList(&amp;#34;a,b,c,d&amp;#34;); System.out.println(strings);//[a,b,c,d] //第一种方法: stream流 String collect = strings.stream().collect(Collectors.joining(&amp;#34;,&amp;#34;)); System.out.println(collect);//a,b,c,d //第二种方法: String自己的join方法 String join = String.join(&amp;#34;,&amp;#34;, strings); System.out.println(join);//a,b,c,d 比较字符串是否相等,忽略大小写 if (strA.equalsIgnoreCase(strB)) { System.out.println(&amp;#34;相等&amp;#34;); } 比较两个对象 当我们用equals比较两个对象是否相等的时候，还需要对左边的对象进行判空，不然可能会报空指针异常，我们可以用java.util包下Objects封装好的比较是否相等的方法
 Objects.equals(strA, strB); 源码是这样的
 public static boolean equals(Object a, Object b) { return (a == b) || (a != null &amp;amp;&amp;amp; a.equals(b)); } 两个List集合取交集 必须是ArrayList
 List&amp;lt;String&amp;gt; list1 = new ArrayList&amp;lt;&amp;gt;(); list1.add(&amp;#34;a&amp;#34;); list1.add(&amp;#34;b&amp;#34;); list1.add(&amp;#34;c&amp;#34;); List&amp;lt;String&amp;gt; list2 = new ArrayList&amp;lt;&amp;gt;(); list2.</description>
     </item>
-    
     <item>
       <title>Java中的线程</title>
       <link>https://brandykk.github.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</link>
       <pubDate>Mon, 19 Jul 2021 22:04:34 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/</guid>
       <description>创建线程的方法 继承Thread类,重写run()方法,调用start()方法开启 实现Runnable,重写run()方法,调用start()方法开启 通过Callable和FutureTask创建线程 通过线程池创建线程 继承Thread类 线程开启后不一定立即执行,由CPU调度执行
 public class ThreadRun { public static void main(String[] args) { //开启线程 ThreadDemoOne threadDemoOne = new ThreadDemoOne(); threadDemoOne.start(); for (int i = 0; i &amp;lt; 5000; i++) { System.out.printf(&amp;#34;普通代码: %d%n&amp;#34;, i); } } } /** *	继承Thread类的方法,并重run() **/ class ThreadDemoOne extends Thread { @Override public void run() { for (int i = 0; i &amp;lt; 5000; i++) { System.out.println(&amp;#34;线程在这里!!&amp;#34;); } } } 执行结果
 线程在这里!! 普通代码: 694 普通代码: 695 线程在这里!</description>
     </item>
-    
     <item>
       <title>Java枚举使用</title>
       <link>https://brandykk.github.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Thu, 08 Jul 2021 21:25:54 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/java%E6%9E%9A%E4%B8%BE%E4%BD%BF%E7%94%A8/</guid>
       <description>实现接口,相当于简单的抽象工厂 接口方法 //接口方法 interface EnumInterface{ void show(); } 枚举 //实现接口并重写方法 enum Enumenum implements EnumInterface{ AAA(1){ @Override public void show() { System.out.println(&amp;#34;AAA&amp;#34;); } }, BBB(2){ @Override public void show() { System.out.println(&amp;#34;BBB&amp;#34;); } } ; private int i; //通过i调用show() static void getEnumbyI(int a){ Arrays.stream(Enumenum.values()).filter(item-&amp;gt;item.getI() == a).findFirst().get().show(); } //构造方法 Enumenum(int i) { this.i = i; } public int getI() { return i; } } 测试 /** * 枚举的使用 */ public class EnumApplication { public static void main(String[] args) { getEnumByI(); } //通过值获取枚举的方法 private static void getEnumByI(){ try { Enumenum.</description>
     </item>
-    
     <item>
       <title>Java面试题</title>
       <link>https://brandykk.github.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</link>
       <pubDate>Sun, 20 Jun 2021 16:18:38 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/%E9%9D%A2%E8%AF%95%E9%A2%98/</guid>
       <description>Spring 1. spring的优良特性 非侵入式: 基于spring开发的应用中的对象可以不依赖于spring的API; 依赖注入: DI,反转控制(IOC)最经典的实现 面向切面:AOP 容器:spring是一个容器,因为它包含并且管理应用对象的生命周期 组件化: spring实现了使用简单的组件配置组合成一个复杂的应用,在spring中可以使用XML和JAVA注解组合这些对象 一站式: 在IOC和AOP的基础上可以整合各种企业应用的开源框架和优秀的第三方库(实际上spring自身也提供了表述层的springMVC和持久层的springJDBC) 2. SpringBean生命周期 Bean从创建到销毁的整个过程： 分4大步：
 实例化 通过反射去推断构造函数进行实例化 实例工厂、静态工厂 属性赋值 解析自动装配（DI的体现） 循环依赖 初始化 调用XXXAware回调方法 调用初始化生命周期回调（三种） 如果bean实现AOP,创建动态代理 销毁 在spring容器关闭的时候进行调用 调用销毁生命周期回调 3. IOC 控制反转：当我们创建对象时使用new来创建，比如UserService service = new UserService（）但是当我们改变创建的对象时需要更改每一个类中的new Service
@@ -195,66 +169,52 @@ public class ThreadRun { public static void main(String[] args) { //开启线程
 基于接口（不建议，不利于维护） 基于XML配置 使用注解 5. Spring事务隔离 脏读：一个事务读取了另一个事务中没有提交的数据 不可重复读：同一个事务中多次读取相同的数据时有另一个事务修改了数据，导致在同一个事务中多次读取出来的结果不一样 幻读：事务A对表中所有的数据进行修改，同时事务B在此表中添加了一条数据，此时会发生执行事务A的用户发现还有没有修改的数据，就像发生了幻觉一样 隔离级别
 DEFAULT 使用数据库本身使用的隔离级别 ORACLE（读已提交） MySQL（可重复读） READ_UNCOMITTED 读未提交（脏读）最低的隔离级别，一切皆有可能。 READ_COMMITED 读已提交，ORACLE默认隔离级别，有幻读以及不可重复读风险。 REPEATABLE_READ 可重复读，解决不可重复读的隔离级别，但还是有幻读风险。 SERLALIZABLE 串行化，最高的事务隔离级别，不管多少事务，挨个运行完一个事务的所有子事务之后才可以执行另外一个事务里面的所有子事务，这样就解决了脏读、不可重复读和幻读的问题了 6.</description>
     </item>
-    
     <item>
       <title>Java验证码</title>
       <link>https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</link>
       <pubDate>Sun, 20 Jun 2021 13:58:34 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</guid>
       <description>Utility.java import org.apache.commons.lang3.StringUtils; import org.apache.commons.logging.Log; import org.apache.commons.logging.LogFactory; import java.math.BigDecimal; import java.text.SimpleDateFormat; import java.util.*; public class Utility { protected final static Log logger = LogFactory.getLog(Utility.class); public static &amp;lt;T&amp;gt; List&amp;lt;T&amp;gt; newArray(int size, Class&amp;lt;T&amp;gt; clazz) { List&amp;lt;T&amp;gt; l = new ArrayList&amp;lt;T&amp;gt;(); for (int i = 0; i &amp;lt; size; i++) { T newInstance; try { newInstance = clazz.newInstance(); } catch (Exception e) { newInstance = null; } l.add(newInstance); } return l; } public static String randomString(int len, int type) { StringBuffer str = new StringBuffer(); // 默认去掉了容易混淆的字符oOLlI，要添加请使用addChars参数 String codestr = &amp;#34;ABCDEFGHJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz&amp;#34;; String codeNum = &amp;#34;0123456789&amp;#34;; //	switch (type) { //	case 0: //	codestr = &amp;#34;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&amp;#34;; //	break; //	case 1: //	codestr = &amp;#34;0123456789&amp;#34;; //	break; //	case 2: //	codestr = &amp;#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&amp;#34;; //	break; //	case 3: //	codestr = &amp;#34;abcdefghijklmnopqrstuvwxyz&amp;#34;; //	break; //	default: //	// 默认去掉了容易混淆的字符oOLl和数字01，要添加请使用addChars参数 //	codestr = &amp;#34;ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789&amp;#34;; //	break; //	} char[] codes = codestr.</description>
     </item>
-    
     <item>
       <title>Jdk1.8</title>
       <link>https://brandykk.github.io/posts/java/jdk1.8/</link>
       <pubDate>Sun, 20 Jun 2021 13:53:54 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/jdk1.8/</guid>
       <description>获取当前日期 LocalDate date = LocalDate.now(); System.out.println(&amp;#34;获取当前日期：&amp;#34; + date); 获取当前日期：2020-12-23 LocalDate.of(int year, int month, int dayOfMonth) 该方法的月份从1开始 LocalDate date = LocalDate.of(2020, 1, 31); System.out.println(&amp;#34;输出时间：&amp;#34; + date); 输出时间：2020-01-31 时间计算 LocalDate date = LocalDate.of(2020, 1, 31); // 加一天，也可以使用负数-1实现减一天 LocalDate date1 = date.plusDays(1); // 加月份 LocalDate date2 = date.plusMonths(1); // 减 LocalDate date3 = date.minusDays(1); System.out.println(&amp;#34;输出时间：&amp;#34; + date); System.out.println(&amp;#34;date加1天：&amp;#34; + date1); System.out.println(&amp;#34;date加1月：&amp;#34; + date2); System.out.println(&amp;#34;date减1天：&amp;#34; + date3); 输出时间：2020-01-31 date加1天：2020-02-01 date加1月：2020-02-29 date减1天：2020-01-30 格式化 1. 字符串、时间转换 DateTimeFormatter formatter = DateTimeFormatter.</description>
     </item>
-    
     <item>
       <title>达梦数据库</title>
       <link>https://brandykk.github.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sun, 20 Jun 2021 13:50:00 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/databases/%E8%BE%BE%E6%A2%A6%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>查询模式sql -- 获取当前用户下的所有表 SELECT * FROM user_tables ORDER BY table_name; -- 获取当前用户下的模式名 SELECT distinct object_name FROM all_objects WHERE object_type=&amp;#39;SCH&amp;#39;; -- 获取当前用户下模式（库）的信息 SELECT * FROM dba_segments; -- 获取模式下的表 SELECT table_name FROM dba_tables WHERE owner=&amp;#39;模式（库）名&amp;#39;; 常用函数 wm_concat(column)	分组时,将其他字段用,分割显示 </description>
     </item>
-    
     <item>
       <title>Git基础</title>
       <link>https://brandykk.github.io/posts/tool/git%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 20 Jun 2021 13:45:44 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/tool/git%E5%9F%BA%E7%A1%80/</guid>
       <description>git命令 # 全局设置提交代码的联系邮箱 git config --global user.email &amp;#34;mescal1993@hotmail.com&amp;#34; # 全局设置提交代码的显示名称 git config --global user.name &amp;#34;lv&amp;#34; # 解决每次提交代码都要输入帐号密码： 执行命令，然后在输入一次就好了 git config --global credential.helper store #初始化本地新的git仓库 git init #克隆github仓库 git clone 地址 #查看状态 git status # .：代表添加所有文件 git add . # 提交到本地仓库 git commit -m &amp;#39;update&amp;#39; # 推送到服务器 git push # 从服务器拉取 git pull # fatal: refusing to merge unrelated histories错误是两个仓库合并导致历史记录不一样导致的 git pull origin master --allow-unrelated-histories --rebase 配置gitee.io 安装hugo	中文文档 sudo pacman -Sy hugo # 在代码根目录 # 创建新模板 hugo new .</description>
     </item>
-    
     <item>
       <title>Java中list&lt;Map&gt;排序</title>
       <link>https://brandykk.github.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</link>
       <pubDate>Sat, 19 Jun 2021 22:56:16 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/java%E4%B8%ADlist-map%E6%8E%92%E5%BA%8F/</guid>
       <description>//通过key排序 private static void sort1() { //List&amp;lt;Map&amp;lt;String,Object&amp;gt;&amp;gt;根据map的key值排序 List&amp;lt;Map&amp;lt;String,Object&amp;gt;&amp;gt; list = new ArrayList&amp;lt;&amp;gt;(); Map&amp;lt;String,Object&amp;gt; map = new HashMap&amp;lt;&amp;gt;(); map.put(&amp;#34;a&amp;#34;,&amp;#34;1&amp;#34;); Map&amp;lt;String,Object&amp;gt; map1 = new HashMap&amp;lt;&amp;gt;(); map1.put(&amp;#34;a&amp;#34;,&amp;#34;6&amp;#34;); Map&amp;lt;String,Object&amp;gt; map2 = new HashMap&amp;lt;&amp;gt;(); map2.put(&amp;#34;a&amp;#34;,&amp;#34;3&amp;#34;); Map&amp;lt;String,Object&amp;gt; map3 = new HashMap&amp;lt;&amp;gt;(); map3.put(&amp;#34;a&amp;#34;,&amp;#34;5&amp;#34;); Map&amp;lt;String,Object&amp;gt; map4 = new HashMap&amp;lt;&amp;gt;(); map4.put(&amp;#34;a&amp;#34;,&amp;#34;4&amp;#34;); Map&amp;lt;String,Object&amp;gt; map5 = new HashMap&amp;lt;&amp;gt;(); map5.put(&amp;#34;a&amp;#34;,&amp;#34;2&amp;#34;); list.add(map); list.add(map1); list.add(map2); list.add(map3); list.add(map4); list.add(map5); //重写map的排序方式 Comparator&amp;lt;Map&amp;lt;String,Object&amp;gt;&amp;gt; co = new Comparator&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt;() { @Override public int compare(Map&amp;lt;String, Object&amp;gt; o1, Map&amp;lt;String, Object&amp;gt; o2) { return String.</description>
     </item>
-    
     <item>
       <title>Hugo使用</title>
       <link>https://brandykk.github.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/</link>
       <pubDate>Fri, 18 Jun 2021 20:48:28 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/tool/hugo%E4%BD%BF%E7%94%A8/</guid>
       <description>安装hugo #arch sudo pacman -Sy hugo 初始化博客 # 例如初始化site博客 hugo new site /path/to/site 创建文章 # 在博客根目录执行 cd /path/to/site # 初始化md文件 hugo new about.md # 初始化md文件并放在post文件夹下 hugo new post/first.md 主题 # 主题都在themes目录下 cd themes # 下载主题 git clone .... 运行测试 hugo server # 然后在浏览器中打开输出的地址 部署 # 执行命令 hugo # 生成public文件夹，文件夹中的便是最终可以部署的文件 </description>
     </item>
-    
     <item>
       <title>Nodejs连接sqlite数据库</title>
       <link>https://brandykk.github.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
       <pubDate>Sat, 15 May 2021 21:28:07 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/tool/nodejs%E8%BF%9E%E6%8E%A5sqlite%E6%95%B0%E6%8D%AE%E5%BA%93/</guid>
       <description>编译nodejs相关模块better-sqlite3 安装 windows-build-tools， 注意用管理员身份启动终端（如果安装node的时侯已经安装了相关的tools就略过这一步） npm install --global windows-build-tools 这里有个点要注意一下，这个工具分版本 vs2015, vs2017， 默认是2017，如果是需要2015版安装时后面加参数
 npm install --global windows-build-tools --vs2015 如果不知道当前需要哪个版本，先默认安装，后面编译出错会报出来
@@ -270,39 +230,31 @@ npm install &amp;ndash;save-dev electron-rebuild
 electron-rebuild -f -w better-sqlite3 或者在package.json的scripts中加入并运行这个
 &amp;#34;rebuild&amp;#34;: &amp;#34;electron-rebuild -f -w better-sqlite3&amp;#34;, better-sqlite3基础操作：API new Database(path, [options]) 创建一个新的数据库连接。 如果数据库文件不存在，则会创建它。 这是同步发生的，这意味着您可以立即开始执行查询。 您可以创建一个 内存数据库 通过传递 &amp;quot;:memory:&amp;quot;作为第一个论点。</description>
     </item>
-    
     <item>
       <title>Spring定时器依赖注入</title>
       <link>https://brandykk.github.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</link>
       <pubDate>Sun, 18 Apr 2021 16:09:32 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/spring/spring%E5%AE%9A%E6%97%B6%E5%99%A8%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5/</guid>
       <description> 工具类 /** * 创建工具类 **/ public class ApplicationContextUtil implements ApplicationContextAware { private static ApplicationContext applicationContext; public static ApplicationContext getApplicationContext() { return applicationContext; } public void setApplicationContext(ApplicationContext applicationContext) { ApplicationContextUtil.applicationContext = applicationContext; } public static Object getBean(String beanName) { return applicationContext.getBean(beanName); } } 配置bean &amp;lt;bean id =&amp;#34;applicationContextUtil&amp;#34; class =&amp;#34;org.sihai.soil.util.ApplicationContextUtil&amp;#34; &amp;gt;&amp;lt;/bean &amp;gt; 获取service realmEbi = (RealmEbi) ApplicationContextUtil.getBean(&amp;#34;realmEbi&amp;#34;); realmEbi.insertHour(RealmApplianceModel.sendData3); </description>
     </item>
-    
     <item>
       <title>Java模拟鼠标键盘操作</title>
       <link>https://brandykk.github.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</link>
       <pubDate>Sun, 18 Apr 2021 12:25:27 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/java%E6%A8%A1%E6%8B%9F%E9%BC%A0%E6%A0%87%E9%94%AE%E7%9B%98%E6%93%8D%E4%BD%9C/</guid>
       <description>/** * 定时执行模拟鼠标键盘操作 * Robot中主要的鼠标和键盘控制方法有： * • void keyPress(int keycode) 按下给定的键。 * • void keyRelease(int keycode) 释放给定的键。 * • void mouseMove(int x, int y) 将鼠标指针移动到给定屏幕坐标。 * • void mousePress(int buttons) 按下一个或多个鼠标按钮。 * • void mouseRelease(int buttons) 释放一个或多个鼠标按钮。 * • void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。 */ private static void mouse(){ new Thread(()-&amp;gt;{ while (true){ try { Thread.sleep(1000*60); Robot robot = new Robot(); //设置Robot产生一个动作后的休眠时间,否则执行过快 robot.setAutoDelay(1000); //获取屏幕分辨率 Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); System.out.println(d); Rectangle screenRect = new Rectangle(d); //截图 BufferedImage bufferedImage = robot.</description>
     </item>
-    
     <item>
       <title>Java树结构递归封装</title>
       <link>https://brandykk.github.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</link>
       <pubDate>Sun, 18 Apr 2021 12:07:25 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/java%E6%A0%91%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E5%B0%81%E8%A3%85/</guid>
       <description>import java.util.ArrayList; import java.util.Comparator; import java.util.List; public class text { public static void main(String[] args) { //测试方法 Node n1 = new Node(&amp;#34;0&amp;#34;, &amp;#34;根节点&amp;#34;, &amp;#34;-1&amp;#34;, 0); Node n2 = new Node(&amp;#34;01&amp;#34;, &amp;#34;一级子节点&amp;#34;, &amp;#34;0&amp;#34;, 0); Node n3 = new Node(&amp;#34;011&amp;#34;, &amp;#34;二级子节点1&amp;#34;, &amp;#34;01&amp;#34;, 3); Node n4 = new Node(&amp;#34;012&amp;#34;, &amp;#34;二级子节点2&amp;#34;, &amp;#34;01&amp;#34;, 2); Node n5 = new Node(&amp;#34;013&amp;#34;, &amp;#34;二级子节点3&amp;#34;, &amp;#34;01&amp;#34;, 1); Node n6 = new Node(&amp;#34;0131&amp;#34;, &amp;#34;三级子节点1&amp;#34;, &amp;#34;013&amp;#34;, 1); Node n7 = new Node(&amp;#34;0132&amp;#34;, &amp;#34;三级子节点2&amp;#34;, &amp;#34;013&amp;#34;, 1); List&amp;lt;Node&amp;gt; nodeList = new ArrayList(); nodeList.</description>
     </item>
-    
     <item>
       <title>Win10使用记录</title>
       <link>https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 17 Apr 2021 18:47:06 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</guid>
       <description>安装JDK 新建系统变量
 变量名： JAVA_HOME 变量值：安装目录 新建CLASSPATH变量
@@ -321,12 +273,10 @@ MAVEN配置 新建系统变量
 mysql_install_db.exe --datadir=F:\projectManager\mariadbData --service=mariadb --password= --port=13306 # --datadir=后面是数据存放路径，可自定义；--service=后面是服务名称；--password=后面是密码，空就是没有密码；--port=后面是端口号，为了防止和mysql用了13306 mysql安装 推荐mariadb 安装目录下新建 my.ini 文件（注意修改下面的路径）
 [Client] #设置3306端口 port = 3306 [mysqld] #设置3306端口 port = 3306 # 设置mysql的安装目录 basedir=D:\MySQL5.7\mysql-5.7.27-winx64 # 设置mysql数据库的数据的存放目录 datadir=D:\MySQL5.7\mysql-5.7.27-winx64\data # 允许最大连接数 max_connections=200 # 服务端使用的字符集默认为8比特编码的latin1字符集 character-set-server=utf8 # 创建新表时将使用的默认存储引擎 default-storage-engine=INNODB sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES [mysql] # 设置mysql客户端默认字符集 default-character-set=utf8 #开启查询缓存 explicit_defaults_for_timestamp=true 新建系统变量</description>
     </item>
-    
     <item>
       <title>Spring介绍</title>
       <link>https://brandykk.github.io/posts/java/spring/spring%E7%AE%80%E4%BB%8B/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://brandykk.github.io/posts/java/spring/spring%E7%AE%80%E4%BB%8B/</guid>
       <description>简介 Spring框架是一个开放源代码的J2EE应用程序框架，由[Rod Johnson](https://baike.baidu.com/item/Rod Johnson/1423612)发起，是针对bean的生命周期进行管理的轻量级容器（lightweight container）。 Spring解决了开发者在J2EE开发中遇到的许多常见的问题，提供了功能强大IOC、AOP及Web MVC等功能。Spring可以单独应用于构筑应用程序，也可以和Struts、Webwork、Tapestry等众多Web框架组合使用，并且可以与 Swing等桌面应用程序AP组合。因此， Spring不仅仅能应用于J2EE应用程序之中，也可以应用于桌面应用程序以及小应用程序之中。Spring框架主要由七部分组成，分别是 Spring Core、 Spring AOP、 Spring ORM、 Spring DAO、Spring Context、 Spring Web和 Spring Web MVC。
 Spring Framework 为现代基于 Java 的企业应用程序提供了一个全面的编程和配置模型 - 在任何类型的部署平台上。
@@ -338,6 +288,5 @@ Spring boot
 一个快速开发的脚手架 基于SpringBoot可以快速的开发单个微服务 约定大于配置 Spring Cloud
 springCloud是基于SpringBoot实现的 常用注解 @Autowired ：通过名字自动装配 @Qualifier： 如果Autowired不能唯一自动装配上属性，则要通过@Qualifier(value = &amp;quot;xxx&amp;quot;) @Nullable ： 字段可以为null @Resource ： 默认先通过名字，如果找不到再通过类型自动装配 @Component ：组件 等价于，说明这个bean被Spring管理了 </description>
     </item>
-    
   </channel>
 </rss>

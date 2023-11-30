@@ -7,15 +7,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Sun, 20 Jun 2021 13:45:44 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 20 Jun 2021 13:45:44 +0800</lastBuildDate>
+    <atom:link href="https://brandykk.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Git基础</title>
       <link>https://brandykk.github.io/posts/tool/git%E5%9F%BA%E7%A1%80/</link>
       <pubDate>Sun, 20 Jun 2021 13:45:44 +0800</pubDate>
-      
       <guid>https://brandykk.github.io/posts/tool/git%E5%9F%BA%E7%A1%80/</guid>
       <description>git命令 # 全局设置提交代码的联系邮箱 git config --global user.email &amp;#34;mescal1993@hotmail.com&amp;#34; # 全局设置提交代码的显示名称 git config --global user.name &amp;#34;lv&amp;#34; # 解决每次提交代码都要输入帐号密码： 执行命令，然后在输入一次就好了 git config --global credential.helper store #初始化本地新的git仓库 git init #克隆github仓库 git clone 地址 #查看状态 git status # .：代表添加所有文件 git add . # 提交到本地仓库 git commit -m &amp;#39;update&amp;#39; # 推送到服务器 git push # 从服务器拉取 git pull # fatal: refusing to merge unrelated histories错误是两个仓库合并导致历史记录不一样导致的 git pull origin master --allow-unrelated-histories --rebase 配置gitee.io 安装hugo	中文文档 sudo pacman -Sy hugo # 在代码根目录 # 创建新模板 hugo new .</description>
     </item>
-    
   </channel>
 </rss>
