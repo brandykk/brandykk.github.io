@@ -28,8 +28,7 @@
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Docker使用"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Docker使用"/>
 <meta name="twitter:description" content="docler简单使用教程"/>
 
 
@@ -201,8 +200,26 @@
 						
 						
 							<li>
-								<a href="#docker%e4%b8%ad%e4%b8%8d%e8%83%bd%e4%bd%bf%e7%94%a8systemctl%e9%97%ae%e9%a2%98" class="nav-docker中不能使用systemctl问题">
-									Docker中不能使用systemctl问题
+								<a href="#mariadb" class="nav-mariadb">
+									mariadb
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#redis" class="nav-redis">
+									redis
 								</a>
 							</li>
 						
@@ -299,9 +316,9 @@
                             
 
                             
-                            1 min
+                            3 min
                             
-                            26 s.
+                            45 s.
                         
                     </div>
                 </div>
@@ -315,8 +332,8 @@
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#228b22"># archlinux</span>
 </span></span><span style="display:flex;"><span>sudo pacman -Syu docker
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 将用户lv追加进docker用户组</span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 将当前用户添加进docker用户组</span>
-</span></span><span style="display:flex;"><span>sudo gpasswd -a <span style="color:#cd5555">${</span><span style="color:#00688b">USER</span><span style="color:#cd5555">}</span> docker
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 将当前用户添加进docker用户组 -a append; -G group</span>
+</span></span><span style="display:flex;"><span>sudo usermod -a -G docker lv
 </span></span></code></pre></div><h2 id="docker运行">Docker运行</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#228b22"># 修改docker默认镜像安装路径(没有则新建)</span>
 </span></span><span style="display:flex;"><span>vim /etc/docker/daemon.json
@@ -336,11 +353,19 @@
 </span></span></code></pre></div><h2 id="docker基础使用">Docker基础使用</h2>
 <div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#228b22"># 下载镜像</span>
 </span></span><span style="display:flex;"><span>docker pull archlinux
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 查看镜像</span>
+</span></span><span style="display:flex;"><span>docker images 
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 运行archlinux</span>
-</span></span><span style="display:flex;"><span> docker run -it archlinux 
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 停止容器</span>
-</span></span><span style="display:flex;"><span>docker stop&lt;容器ID或容器名&gt;
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 创建容器</span>
+</span></span><span style="display:flex;"><span>docker run
+</span></span><span style="display:flex;"><span>--name mariadb //容器名称
+</span></span><span style="display:flex;"><span>-p 13306:3306 //将容器端口映射到服务器：第一个参数是主机端口，第二个是容器端口
+</span></span><span style="display:flex;"><span>-e <span style="color:#00688b">MYSQL_ROOT_PASSWORD</span>=xxxxx //xxxxx ：设置为自己的密码
+</span></span><span style="display:flex;"><span>-v /data/mariadb/data:/var/lib/mysql // data/mariadb/data即二步骤中新建挂载数据的目录
+</span></span><span style="display:flex;"><span>-d mariadb:10.1.21 //如果你的mariadb是指定版本，那这块启动时需要携带指定，否则服务器会重新下载最新版本的容器 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 启动/停止容器</span>
+</span></span><span style="display:flex;"><span>docker start/stop &lt;容器ID或容器名&gt;
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 删除镜像之前需要先删除对应的容器</span>
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 查看容器</span>
 </span></span><span style="display:flex;"><span>docker ps -a
@@ -350,15 +375,46 @@
 </span></span><span style="display:flex;"><span>docker images
 </span></span><span style="display:flex;"><span><span style="color:#228b22"># 删除image</span>
 </span></span><span style="display:flex;"><span>docker rmi 镜像id
-</span></span></code></pre></div><h2 id="docker中不能使用systemctl问题">Docker中不能使用systemctl问题</h2>
-<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#228b22"># 执行命令 </span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># test 是自己起的名字</span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># archlinux 是镜像名字</span>
-</span></span><span style="display:flex;"><span>docker run --privileged -id --name <span style="color:#658b00">test</span> archlinux /usr/sbin/init
+</span></span></code></pre></div><h2 id="mariadb">mariadb</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 创建需要映射的目录</span>
+</span></span><span style="display:flex;"><span>mkdir /mnt/project/archLinux/docker/mariadb/data/
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#228b22"># 运行刚刚的容器id</span>
-</span></span><span style="display:flex;"><span>docker <span style="color:#658b00">exec</span> -it b8a0ae8742e2 bash
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 拉取mariadb镜像</span>
+</span></span><span style="display:flex;"><span>docker pull mariadb
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 创建容器,并指定密码和端口</span>
+</span></span><span style="display:flex;"><span>docker run --name docker-mariadb -p 13306:3306 -e <span style="color:#00688b">MYSQL_ROOT_PASSWORD</span>=root -v /mnt/project/archLinux/docker/mariadb/data/:/var/lib/mysql mariadb
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 启动容器</span>
+</span></span><span style="display:flex;"><span>docker start docker-mariadb
+</span></span></code></pre></div><ul>
+<li>&ndash;name mariadb //容器名称</li>
+<li>-p 13306:3306 //将容器端口映射到服务器：第一个参数是主机端口，第二个是容器端口</li>
+<li>-e MYSQL_ROOT_PASSWORD=xxxxx //xxxxx ：设置为自己的密码</li>
+<li>-v /data/mariadb/data:/var/lib/mysql // data/mariadb/data即二步骤中新建挂载数据的目录</li>
+<li>-d mariadb:10.1.21 //如果你的mariadb是指定版本，那这块启动时需要携带指定，否则服务器会重新下载最新版本的容器</li>
+</ul>
+<h2 id="redis">redis</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#eed;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span><span style="color:#228b22"># 创建映射目录</span>
+</span></span><span style="display:flex;"><span>mkdir -p /mnt/project/archLinux/docker/redis/{data,etc}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 拉取redis镜像</span>
+</span></span><span style="display:flex;"><span>docker pull redis
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 创建redis.conf放入创建好的etc文件夹下</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#228b22"># 创建容器</span>
+</span></span><span style="display:flex;"><span>docker run --name docker-redis  -p 16379:6379 -v 
+</span></span><span style="display:flex;"><span>/mnt/project/archLinux/docker/redis/data/:/data -v /mnt/project/archLinux/docker/redis/etc/redis.conf:/etc/redis/redis.conf -d redis redis-server /etc/redis/redis.conf --appendonly yes
+</span></span></code></pre></div><ul>
+<li>-p 16380:6380 端口映射：前表示主机部分，：后表示<a href="https://link.zhihu.com/?target=https%3A//cloud.tencent.com/product/tke%3Ffrom%3D10680">容器</a>部分。</li>
+<li>–name myredis 指定该容器名称，查看和进行操作都比较方便。</li>
+<li>-v 挂载目录，规则与端口映射相同。</li>
+<li>-d redis 表示后台启动redis</li>
+<li>redis-server /etc/redis/redis.conf 以配置文件启动redis，加载容器内的conf文件，最终找到的是挂载的目录/usr/local/<a href="https://link.zhihu.com/?target=https%3A//cloud.tencent.com/product/tke%3Ffrom%3D10680">docker</a>/redis.conf</li>
+<li>appendonly yes 开启redis 持久化</li>
+</ul>
+
                     
                     <HR width="100%" id="EOF">
 		    <p style="color:#777;">最后修改于 2022-01-19</p>
@@ -555,8 +611,26 @@ Hugo Theme <a href="https://github.com/amazingrise/hugo-theme-diary">Diary</a> b
 						
 						
 							<li>
-								<a href="#docker%e4%b8%ad%e4%b8%8d%e8%83%bd%e4%bd%bf%e7%94%a8systemctl%e9%97%ae%e9%a2%98" class="nav-docker中不能使用systemctl问题">
-									Docker中不能使用systemctl问题
+								<a href="#mariadb" class="nav-mariadb">
+									mariadb
+								</a>
+							</li>
+						
+						
+					
+				
+			
+				
+				
+					
+						
+						
+						
+						
+						
+							<li>
+								<a href="#redis" class="nav-redis">
+									redis
 								</a>
 							</li>
 						

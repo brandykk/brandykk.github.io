@@ -28,8 +28,7 @@
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Java验证码"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Java验证码"/>
 <meta name="twitter:description" content="Utility.java import org.apache.commons.lang3.StringUtils; import org.apache.commons.logging.Log; import org.apache.commons.logging.LogFactory; import java.math.BigDecimal; import java.text.SimpleDateFormat; import java.util.*; public class Utility { protected final static Log logger = LogFactory.getLog(Utility.class); public static &lt;T&gt; List&lt;T&gt; newArray(int size, Class&lt;T&gt; clazz) { List&lt;T&gt; l = new ArrayList&lt;T&gt;(); for (int i = 0; i &lt; size; i&#43;&#43;) { T newInstance; try { newInstance = clazz.newInstance(); } catch (Exception e) { newInstance = null; } l.add(newInstance); } return l; } public static String randomString(int len, int type) { StringBuffer str = new StringBuffer(); // 默认去掉了容易混淆的字符oOLlI，要添加请使用addChars参数 String codestr = &#34;ABCDEFGHJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz&#34;; String codeNum = &#34;0123456789&#34;; //	switch (type) { //	case 0: //	codestr = &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&#34;; //	break; //	case 1: //	codestr = &#34;0123456789&#34;; //	break; //	case 2: //	codestr = &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#34;; //	break; //	case 3: //	codestr = &#34;abcdefghijklmnopqrstuvwxyz&#34;; //	break; //	default: //	// 默认去掉了容易混淆的字符oOLl和数字01，要添加请使用addChars参数 //	codestr = &#34;ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789&#34;; //	break; //	} char[] codes = codestr."/>
 
 

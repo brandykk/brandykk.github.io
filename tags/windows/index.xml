@@ -14,36 +14,14 @@
       <link>https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</link>
       <pubDate>Mon, 13 Jun 2022 09:50:21 +0800</pubDate>
       <guid>https://brandykk.github.io/posts/windows/linux%E5%AD%90%E7%B3%BB%E7%BB%9F/</guid>
-      <description>在win11上安装archlinux子系统 需要先开启linux子系统和虚拟平台服务,参考
-1. 下载linux内核升级包 双击安装即可
-2. 将WSL2设置为默认版本 # 管理员输入命令 wsl --set-default-version 2 3. 安装LxRunOffline 默认会安装在C盘，用这个工具可以指定安装路径
-github下载解压，里面的exe不需要安装，可以将exe路径配置环境变量方便使用，或者在exe所在的文件夹下打开控制台使用命令
-4. 下载ArchLinux 下载tar.gz版本(清华源)，也可以在官网找
-5. 安装到WSL # LxRunOffline i -n &amp;lt;自定义名称&amp;gt; -f &amp;lt;Arch镜像位置&amp;gt; -d &amp;lt;安装系统的位置&amp;gt; -r root.x86_64 LxRunOffline i -n archlinux -f D:\WSL\archlinux_img\archlinux-bootstrap-2021.10.01-x86_64.tar.gz -d D:\WSL\archlinux -r root.x86_64 6. 进入系统 # wsl -d &amp;lt;名字&amp;gt; wsl -d archlinux 如果此处报：FATAL: kernel too old
-输入一下命令，进行转行
-# 命令格式： # wsl --set-version &amp;lt;名称&amp;gt; 2 # 如： wsl --set-version archlinux 2 7. 首次进入系统执行命令 pacman -Syy pacman-key --init pacman-key --populate 8.</description>
+      <description>在win11上安装archlinux子系统 需要先开启linux子系统和虚拟平台服务,参考&#xA;1. 下载linux内核升级包 双击安装即可&#xA;2. 将WSL2设置为默认版本 # 管理员输入命令 wsl --set-default-version 2 3. 安装LxRunOffline 默认会安装在C盘，用这个工具可以指定安装路径&#xA;github下载解压，里面的exe不需要安装，可以将exe路径配置环境变量方便使用，或者在exe所在的文件夹下打开控制台使用命令&#xA;4. 下载ArchLinux 下载tar.gz版本(清华源)，也可以在官网找&#xA;5. 安装到WSL # LxRunOffline i -n &amp;lt;自定义名称&amp;gt; -f &amp;lt;Arch镜像位置&amp;gt; -d &amp;lt;安装系统的位置&amp;gt; -r root.x86_64 LxRunOffline i -n archlinux -f D:\WSL\archlinux_img\archlinux-bootstrap-2021.10.01-x86_64.tar.gz -d D:\WSL\archlinux -r root.x86_64 6. 进入系统 # wsl -d &amp;lt;名字&amp;gt; wsl -d archlinux 如果此处报：FATAL: kernel too old&#xA;输入一下命令，进行转行&#xA;# 命令格式： # wsl --set-version &amp;lt;名称&amp;gt; 2 # 如： wsl --set-version archlinux 2 7. 首次进入系统执行命令 pacman -Syy pacman-key --init pacman-key --populate 8.</description>
     </item>
     <item>
       <title>Win10使用记录</title>
       <link>https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</link>
       <pubDate>Sat, 17 Apr 2021 18:47:06 +0800</pubDate>
       <guid>https://brandykk.github.io/posts/windows/win10%E5%AE%89%E8%A3%85%E5%BC%80%E5%8F%91%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7/</guid>
-      <description>安装JDK 新建系统变量
-变量名： JAVA_HOME 变量值：安装目录 新建CLASSPATH变量
-变量名： CLASSPATH 变量值： .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar 添加Path：
-在系统变量区域，选择Path,点击下面的编辑按钮，在弹出的框中选择新建添加2行，一行输入 %JAVA_HOME%\bin ，一行输入 %JAVA_HOME%\jre\bin
-在命令提示符中输入javac命令测试
-MAVEN配置 新建系统变量
-变量名： MAVEN_HOME 变量值：安装目录 添加Path：
-在系统变量区域，选择Path,点击下面的编辑按钮，在弹出的框中选择新建添加 %MAVEN_HOME%\bin
-在命令提示符中输入 mvn -v 命令
-安装mariadb代替mysql 下载mariadb压缩包
-配置mariadb环境变量
-在path中添加mariadb安装文件夹中的bin目录下
-在bin目录下执行命令
-注意安装实际情况更改路径和密码
-mysql_install_db.exe --datadir=F:\projectManager\mariadbData --service=mariadb --password= --port=13306 # --datadir=后面是数据存放路径，可自定义；--service=后面是服务名称；--password=后面是密码，空就是没有密码；--port=后面是端口号，为了防止和mysql用了13306 mysql安装 推荐mariadb 安装目录下新建 my.ini 文件（注意修改下面的路径）
-[Client] #设置3306端口 port = 3306 [mysqld] #设置3306端口 port = 3306 # 设置mysql的安装目录 basedir=D:\MySQL5.7\mysql-5.7.27-winx64 # 设置mysql数据库的数据的存放目录 datadir=D:\MySQL5.7\mysql-5.7.27-winx64\data # 允许最大连接数 max_connections=200 # 服务端使用的字符集默认为8比特编码的latin1字符集 character-set-server=utf8 # 创建新表时将使用的默认存储引擎 default-storage-engine=INNODB sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES [mysql] # 设置mysql客户端默认字符集 default-character-set=utf8 #开启查询缓存 explicit_defaults_for_timestamp=true 新建系统变量</description>
+      <description>安装JDK 新建系统变量&#xA;变量名： JAVA_HOME 变量值：安装目录 新建CLASSPATH变量&#xA;变量名： CLASSPATH 变量值： .;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar 添加Path：&#xA;在系统变量区域，选择Path,点击下面的编辑按钮，在弹出的框中选择新建添加2行，一行输入 %JAVA_HOME%\bin ，一行输入 %JAVA_HOME%\jre\bin&#xA;在命令提示符中输入javac命令测试&#xA;MAVEN配置 新建系统变量&#xA;变量名： MAVEN_HOME 变量值：安装目录 添加Path：&#xA;在系统变量区域，选择Path,点击下面的编辑按钮，在弹出的框中选择新建添加 %MAVEN_HOME%\bin&#xA;在命令提示符中输入 mvn -v 命令&#xA;安装mariadb代替mysql 下载mariadb压缩包&#xA;配置mariadb环境变量&#xA;在path中添加mariadb安装文件夹中的bin目录下&#xA;在bin目录下执行命令&#xA;注意安装实际情况更改路径和密码&#xA;mysql_install_db.exe --datadir=F:\projectManager\mariadbData --service=mariadb --password= --port=13306 # --datadir=后面是数据存放路径，可自定义；--service=后面是服务名称；--password=后面是密码，空就是没有密码；--port=后面是端口号，为了防止和mysql用了13306 mysql安装 推荐mariadb 安装目录下新建 my.ini 文件（注意修改下面的路径）&#xA;[Client] #设置3306端口 port = 3306 [mysqld] #设置3306端口 port = 3306 # 设置mysql的安装目录 basedir=D:\MySQL5.7\mysql-5.7.27-winx64 # 设置mysql数据库的数据的存放目录 datadir=D:\MySQL5.7\mysql-5.7.27-winx64\data # 允许最大连接数 max_connections=200 # 服务端使用的字符集默认为8比特编码的latin1字符集 character-set-server=utf8 # 创建新表时将使用的默认存储引擎 default-storage-engine=INNODB sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES [mysql] # 设置mysql客户端默认字符集 default-character-set=utf8 #开启查询缓存 explicit_defaults_for_timestamp=true 新建系统变量</description>
     </item>
   </channel>
 </rss>

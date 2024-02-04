@@ -28,8 +28,7 @@
 
 
 
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Java模拟鼠标键盘操作"/>
+<meta name="twitter:card" content="summary"/><meta name="twitter:title" content="Java模拟鼠标键盘操作"/>
 <meta name="twitter:description" content="/** * 定时执行模拟鼠标键盘操作 * Robot中主要的鼠标和键盘控制方法有： * • void keyPress(int keycode) 按下给定的键。 * • void keyRelease(int keycode) 释放给定的键。 * • void mouseMove(int x, int y) 将鼠标指针移动到给定屏幕坐标。 * • void mousePress(int buttons) 按下一个或多个鼠标按钮。 * • void mouseRelease(int buttons) 释放一个或多个鼠标按钮。 * • void mouseWheel(int wheelAmt) 在配有滚轮的鼠标上旋转滚轮。 */ private static void mouse(){ new Thread(()-&gt;{ while (true){ try { Thread.sleep(1000*60); Robot robot = new Robot(); //设置Robot产生一个动作后的休眠时间,否则执行过快 robot.setAutoDelay(1000); //获取屏幕分辨率 Dimension d = Toolkit.getDefaultToolkit().getScreenSize(); System.out.println(d); Rectangle screenRect = new Rectangle(d); //截图 BufferedImage bufferedImage = robot."/>
 
 
