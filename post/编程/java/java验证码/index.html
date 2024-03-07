@@ -1,0 +1,539 @@
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=UTF-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: dark)"><meta name=generator content="Hugo 0.123.7"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="Java验证码"><meta itemprop=description content="java验证码"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://brandykk.github.io/imgs/hugo_next_avatar.png"><meta itemprop=keywords content="java"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/css/main.min.85e230b4b7002592c787b8b9d6c88a3d6a5da0e394813dfbc5fcac2cdee04602.css><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return void 0;const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),void 0):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":false,"isHome":false,"isPage":true,"math":{"js":{"file":"es5/tex-mml-chtml.js","name":"mathjax","version":"3.2.0"},"render":"mathjax"},"mermaid":{"js":{"file":"dist/mermaid.min.js","name":"mermaid","version":"9.1.7"}},"path":"java%E9%AA%8C%E8%AF%81%E7%A0%81","permalink":"https://brandykk.github.io/post/%E7%BC%96%E7%A8%8B/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/","title":"Java验证码","waline":{"js":[{"alias":"waline","alias_name":"@waline/client","file":"dist/pageview.js","name":"pageview","version":"2.13.0"},{"alias":"waline","alias_name":"@waline/client","file":"dist/comment.js","name":"comment","version":"2.13.0"}]}}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>Java验证码 - BrandyKK</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>BrandyKK</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>简单记录小博客</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about/ class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于</a></li><li class="menu-item menu-item-archives"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>归档
+<span class=badge>22</span></a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><a href=#utilityjava>Utility.java</a></li><li><a href=#imageutiljava>ImageUtil.java</a></li><li><a href=#验证码调用方法并返回>验证码调用方法并返回</a></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image alt=brandyKK src=/imgs/img-lazy-loading.gif data-src=/imgs/hugo_next_avatar.png><p class=site-author-name itemprop=name>brandyKK</p><div class=site-description itemprop=description>个人简单记录一些文档</div></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>22</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>3</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>8</span>
+<span class=site-state-item-name>标签</span></a></div></nav></div><div class="links-of-social site-overview-item animated"></div><div class="cc-license animated" itemprop=license><a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh class=cc-opacity rel=noopener target=_blank title=共享知识><img src=/imgs/img-lazy-loading.gif data-src=/imgs/cc/big/by_nc_sa.svg alt=共享知识></a></div><div class="links-of-blogroll site-overview-item animated"><div class=links-of-blogroll-title><i class="fa fa-globe fa-fw"></i>
+友情链接</div><ul class=links-of-blogroll-list><li class=links-of-blogroll-item><a href=https://gitee.com/hugo-next/hugo-theme-next title=https://gitee.com/hugo-next/hugo-theme-next target=_blank>Hugo-NexT</a></li></ul></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-gtranslate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://brandykk.github.io/post/%E7%BC%96%E7%A8%8B/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content="/imgs/hugo_next_avatar.png"><meta itemprop=name content="brandyKK"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="brandyKK"><meta itemprop=description content="个人简单记录一些文档"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="Java验证码"><meta itemprop=description content="java验证码"></span><header class=post-header><h1 class=post-title itemprop="name headline">Java验证码</h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2024-03-07 14:40:15 +0800 CST" itemprop="dateCreated datePublished" datetime="2024-03-07 14:40:15 +0800 CST">2024-03-07
+</time></span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i>
+</span><span class=post-meta-item-text title=分类于>分类于：
+</span><span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/%E7%BC%96%E7%A8%8B itemprop=url rel=index><span itemprop=name>编程</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字数><span class=post-meta-item-icon><i class="far fa-file-word"></i>
+</span><span class=post-meta-item-text>字数：</span>
+<span>2215</span>
+</span><span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i>
+</span><span class=post-meta-item-text>阅读：&ap;</span>
+<span>5分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=utilityjava>Utility.java
+<a class=header-anchor href=#utilityjava></a></h2><details><summary>验证码调用工具类</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#f92672>import</span> org.apache.commons.lang3.StringUtils;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> org.apache.commons.logging.Log;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> org.apache.commons.logging.LogFactory;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.math.BigDecimal;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.text.SimpleDateFormat;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.*;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Utility</span> {
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>protected</span> <span style=color:#66d9ef>final</span> <span style=color:#66d9ef>static</span> Log logger <span style=color:#f92672>=</span> LogFactory.<span style=color:#a6e22e>getLog</span>(Utility.<span style=color:#a6e22e>class</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>newArray</span>(<span style=color:#66d9ef>int</span> size, Class<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> clazz) {
+</span></span><span style=display:flex><span>		List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> l <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span>();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> size; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>			T newInstance;
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>				newInstance <span style=color:#f92672>=</span> clazz.<span style=color:#a6e22e>newInstance</span>();
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>				newInstance <span style=color:#f92672>=</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>			l.<span style=color:#a6e22e>add</span>(newInstance);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> l;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>randomString</span>(<span style=color:#66d9ef>int</span> len, <span style=color:#66d9ef>int</span> type) {
+</span></span><span style=display:flex><span>		StringBuffer str <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuffer();
+</span></span><span style=display:flex><span>		<span style=color:#75715e>// 默认去掉了容易混淆的字符oOLlI，要添加请使用addChars参数</span>
+</span></span><span style=display:flex><span>		String codestr <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;ABCDEFGHJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz&#34;</span>;
+</span></span><span style=display:flex><span>		String codeNum <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;0123456789&#34;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>//		switch (type) {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//		case 0:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			codestr = &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz&#34;;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			break;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//		case 1:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			codestr = &#34;0123456789&#34;;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			break;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//		case 2:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			codestr = &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#34;;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			break;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//		case 3:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			codestr = &#34;abcdefghijklmnopqrstuvwxyz&#34;;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			break;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//		default:</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			// 默认去掉了容易混淆的字符oOLl和数字01，要添加请使用addChars参数</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			codestr = &#34;ABCDEFGHIJKMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789&#34;;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//			break;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//		}</span>
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>char</span><span style=color:#f92672>[]</span> codes <span style=color:#f92672>=</span> codestr.<span style=color:#a6e22e>toCharArray</span>();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>char</span><span style=color:#f92672>[]</span> codeNums <span style=color:#f92672>=</span> codeNum.<span style=color:#a6e22e>toCharArray</span>();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> len<span style=color:#f92672>/</span>2; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>int</span> r <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span>) (Math.<span style=color:#a6e22e>random</span>() <span style=color:#f92672>*</span> codestr.<span style=color:#a6e22e>length</span>());
+</span></span><span style=display:flex><span>			str.<span style=color:#a6e22e>append</span>(codes<span style=color:#f92672>[</span>r<span style=color:#f92672>]</span>);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span>) (Math.<span style=color:#a6e22e>random</span>()<span style=color:#f92672>*</span>codeNum.<span style=color:#a6e22e>length</span>());
+</span></span><span style=display:flex><span>			str.<span style=color:#a6e22e>append</span>(n);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		List<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> list<span style=color:#f92672>=</span>Arrays.<span style=color:#a6e22e>asList</span>(str.<span style=color:#a6e22e>toString</span>().<span style=color:#a6e22e>split</span>(<span style=color:#e6db74>&#34;&#34;</span>));
+</span></span><span style=display:flex><span>		Collections.<span style=color:#a6e22e>shuffle</span>(list);
+</span></span><span style=display:flex><span>		StringBuffer str1 <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuffer();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>for</span>(String s:list){
+</span></span><span style=display:flex><span>			str1.<span style=color:#a6e22e>append</span>(s);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> str1.<span style=color:#a6e22e>toString</span>();
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>randomString</span>(<span style=color:#66d9ef>int</span> length) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> randomString(length, <span style=color:#f92672>-</span>1);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>random</span>(<span style=color:#66d9ef>int</span> number) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> (<span style=color:#66d9ef>int</span>) (Math.<span style=color:#a6e22e>random</span>() <span style=color:#f92672>*</span> number);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> Random random <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Random();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>random</span>(<span style=color:#66d9ef>int</span> total, <span style=color:#66d9ef>int</span> count) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (count <span style=color:#f92672>==</span> 1)
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> total;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (count <span style=color:#f92672>==</span> 0) {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> 0;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>int</span> average <span style=color:#f92672>=</span> total <span style=color:#f92672>/</span> count;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>double</span> d <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextGaussian</span>();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (d <span style=color:#f92672>&lt;</span> <span style=color:#f92672>-</span>0.<span style=color:#a6e22e>75</span>)
+</span></span><span style=display:flex><span>			d <span style=color:#f92672>=</span> <span style=color:#f92672>-</span>0.<span style=color:#a6e22e>75</span>;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (d <span style=color:#f92672>&lt;</span> <span style=color:#f92672>-</span>1 <span style=color:#f92672>+</span> 1.<span style=color:#a6e22e>0</span> <span style=color:#f92672>/</span> count)
+</span></span><span style=display:flex><span>			d <span style=color:#f92672>=</span> <span style=color:#f92672>-</span>1 <span style=color:#f92672>+</span> 1.<span style=color:#a6e22e>0</span> <span style=color:#f92672>/</span> count;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (d <span style=color:#f92672>&gt;</span> 4)
+</span></span><span style=display:flex><span>			d <span style=color:#f92672>=</span> 4;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (d <span style=color:#f92672>&gt;</span> count <span style=color:#f92672>-</span> 0.<span style=color:#a6e22e>1</span>)
+</span></span><span style=display:flex><span>			d <span style=color:#f92672>=</span> count <span style=color:#f92672>-</span> 0.<span style=color:#a6e22e>1</span>;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> (<span style=color:#66d9ef>int</span>) (d <span style=color:#f92672>*</span> average <span style=color:#f92672>+</span> average);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>toString</span>(Object o) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (o <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>)
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>		Class c <span style=color:#f92672>=</span> o.<span style=color:#a6e22e>getClass</span>();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Integer.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> Integer.<span style=color:#a6e22e>toString</span>((Integer) o);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Float.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> Float.<span style=color:#a6e22e>toString</span>((Float) o);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Long.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> Long.<span style=color:#a6e22e>toString</span>((Long) o);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Double.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> Double.<span style=color:#a6e22e>toString</span>((Double) o);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> BigDecimal.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> o.<span style=color:#a6e22e>toString</span>();
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Boolean.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> Boolean.<span style=color:#a6e22e>toString</span>((Boolean) o);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Date.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>			SimpleDateFormat sdf <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> SimpleDateFormat(<span style=color:#e6db74>&#34;yyyy-MM-dd HH:mm:ss&#34;</span>);
+</span></span><span style=display:flex><span>			String ss <span style=color:#f92672>=</span> sdf.<span style=color:#a6e22e>format</span>(o);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> ss;
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> o.<span style=color:#a6e22e>toString</span>();
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>@SuppressWarnings</span>(<span style=color:#e6db74>&#34;unchecked&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> T <span style=color:#a6e22e>toObject</span>(String str, Class<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> c) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (str <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>)
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>			str <span style=color:#f92672>=</span> str.<span style=color:#a6e22e>trim</span>();
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> String.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) str;
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (StringUtils.<span style=color:#a6e22e>isBlank</span>(str)) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Integer.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) (Integer) Integer.<span style=color:#a6e22e>parseInt</span>(str);
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Long.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) (Long) Long.<span style=color:#a6e22e>parseLong</span>(str);
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Byte.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) <span style=color:#66d9ef>new</span> Byte((<span style=color:#66d9ef>byte</span>) Integer.<span style=color:#a6e22e>parseInt</span>(str, 16));
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Float.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) (Float) Float.<span style=color:#a6e22e>parseFloat</span>(str);
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Double.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) (Double) Double.<span style=color:#a6e22e>parseDouble</span>(str);
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Boolean.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>if</span>(<span style=color:#e6db74>&#34;1&#34;</span>.<span style=color:#a6e22e>equals</span>(str))
+</span></span><span style=display:flex><span>					<span style=color:#66d9ef>return</span> (T)Boolean.<span style=color:#a6e22e>TRUE</span>;
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) (Boolean) Boolean.<span style=color:#a6e22e>parseBoolean</span>(str);
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> BigDecimal.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) <span style=color:#66d9ef>new</span> BigDecimal(str);
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (c <span style=color:#f92672>==</span> Date.<span style=color:#a6e22e>class</span>) {
+</span></span><span style=display:flex><span>				SimpleDateFormat sdf <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> SimpleDateFormat(<span style=color:#e6db74>&#34;yyyy-MM-dd HH:mm:ss&#34;</span>);
+</span></span><span style=display:flex><span>				Date ss <span style=color:#f92672>=</span> sdf.<span style=color:#a6e22e>parse</span>(str);
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) ss;
+</span></span><span style=display:flex><span>			} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>return</span> (T) str;
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>			<span style=color:#75715e>// 打印异常信息，例当一个非常长的数字字符串转Integer时，若没有意识到Integer数字大小限制时，没有异常输出，难于找到原因。非常不利问题的解决</span>
+</span></span><span style=display:flex><span>			logger.<span style=color:#a6e22e>debug</span>(<span style=color:#e6db74>&#34;对象转换异常，调试用&#34;</span>, e);
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// 列举排序</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>sort</span>(Enumeration<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> enumer) {
+</span></span><span style=display:flex><span>		List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> l <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ArrayList<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span>();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>while</span> (enumer.<span style=color:#a6e22e>hasMoreElements</span>()) {
+</span></span><span style=display:flex><span>			T t <span style=color:#f92672>=</span> (T) enumer.<span style=color:#a6e22e>nextElement</span>();
+</span></span><span style=display:flex><span>			l.<span style=color:#a6e22e>add</span>(t);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		Collections.<span style=color:#a6e22e>sort</span>((List) l);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> l;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// 列表排序</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>sort</span>(List<span style=color:#f92672>&lt;</span>T<span style=color:#f92672>&gt;</span> l) {
+</span></span><span style=display:flex><span>		Collections.<span style=color:#a6e22e>sort</span>((List) l);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> l;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>substring</span>(String str, <span style=color:#66d9ef>int</span> from, <span style=color:#66d9ef>int</span> to) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (from <span style=color:#f92672>&gt;=</span> str.<span style=color:#a6e22e>length</span>())
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> <span style=color:#66d9ef>null</span>;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (from <span style=color:#f92672>&lt;</span> 0)
+</span></span><span style=display:flex><span>			from <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (to <span style=color:#f92672>&lt;</span> 0 <span style=color:#f92672>||</span> to <span style=color:#f92672>&gt;</span> str.<span style=color:#a6e22e>length</span>())
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> str.<span style=color:#a6e22e>substring</span>(from);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>return</span> str.<span style=color:#a6e22e>substring</span>(from, to);
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//	public static void main(String[] args) {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//		String in = randomString(4);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//		System.out.println(in);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//	}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></details><h2 id=imageutiljava>ImageUtil.java
+<a class=header-anchor href=#imageutiljava></a></h2><details><summary>图片生成工具类</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#f92672>import</span> lombok.extern.slf4j.Slf4j;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> org.jeecg.common.util.IOCloseUtil;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> javax.imageio.ImageIO;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.awt.*;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.awt.geom.AffineTransform;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.awt.image.BufferedImage;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.io.File;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.io.FileOutputStream;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.io.IOException;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.io.OutputStream;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.Arrays;
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> java.util.Random;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#a6e22e>@Slf4j</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>public</span> <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>ImageUtil</span> {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//使用到Algerian字体，系统里没有的话需要安装字体，字体只显示大写，去掉了1,0,i,o几个容易混淆的字符</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>final</span> String VERIFY_CODES <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;23456789ABCDEFGHJKLMNPQRSTUVWXYZ&#34;</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> Random random <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Random();
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * 使用系统默认字符源生成验证码
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param verifySize 验证码长度
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @return
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>generateVerifyCode</span>(<span style=color:#66d9ef>int</span> verifySize) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> generateVerifyCode(verifySize, VERIFY_CODES);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * 使用指定源生成验证码
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param verifySize 验证码长度
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param sources    验证码字符源
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @return
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> String <span style=color:#a6e22e>generateVerifyCode</span>(<span style=color:#66d9ef>int</span> verifySize, String sources) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (sources <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span> <span style=color:#f92672>||</span> sources.<span style=color:#a6e22e>length</span>() <span style=color:#f92672>==</span> 0) {
+</span></span><span style=display:flex><span>            sources <span style=color:#f92672>=</span> VERIFY_CODES;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> codesLen <span style=color:#f92672>=</span> sources.<span style=color:#a6e22e>length</span>();
+</span></span><span style=display:flex><span>        Random rand <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Random(System.<span style=color:#a6e22e>currentTimeMillis</span>());
+</span></span><span style=display:flex><span>        StringBuilder verifyCode <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> StringBuilder(verifySize);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> verifySize; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            verifyCode.<span style=color:#a6e22e>append</span>(sources.<span style=color:#a6e22e>charAt</span>(rand.<span style=color:#a6e22e>nextInt</span>(codesLen <span style=color:#f92672>-</span> 1)));
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> verifyCode.<span style=color:#a6e22e>toString</span>();
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * 生成随机验证码文件,并返回验证码值
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param w
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param h
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param outputFile
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param verifySize
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @return
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @throws IOException
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//    public static String outputVerifyImage(int w, int h, File outputFile, int verifySize) throws IOException {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//        String verifyCode = generateVerifyCode(verifySize);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//        outputImage(w, h, outputFile, verifyCode);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//        return verifyCode;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//    }</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * 输出随机验证码图片流,并返回验证码值
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param w
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param h
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param os
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param verifySize
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @return
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @throws IOException
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     */</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//    public static String outputVerifyImage(int w, int h, OutputStream os, int verifySize) throws IOException {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//        String verifyCode = generateVerifyCode(verifySize);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//        outputImage(w, h, os, verifyCode);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//        return verifyCode;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//    }</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * 生成指定验证码图像文件
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param w
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param h
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param outputFile
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param code
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @throws IOException
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>outputImage</span>(<span style=color:#66d9ef>int</span> w, <span style=color:#66d9ef>int</span> h, File outputFile, String code) <span style=color:#66d9ef>throws</span> IOException {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (outputFile <span style=color:#f92672>==</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span>;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        File dir <span style=color:#f92672>=</span> outputFile.<span style=color:#a6e22e>getParentFile</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (<span style=color:#f92672>!</span>dir.<span style=color:#a6e22e>exists</span>()) {
+</span></span><span style=display:flex><span>            dir.<span style=color:#a6e22e>mkdirs</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>            outputFile.<span style=color:#a6e22e>createNewFile</span>();
+</span></span><span style=display:flex><span>            FileOutputStream fos <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> FileOutputStream(outputFile);
+</span></span><span style=display:flex><span>            outputImage(w, h, fos, code);
+</span></span><span style=display:flex><span>            IOCloseUtil.<span style=color:#a6e22e>close</span>(fos);
+</span></span><span style=display:flex><span>        } <span style=color:#66d9ef>catch</span> (IOException e) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>throw</span> e;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>/**
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * 输出指定验证码图片流
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     *
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param w
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param h
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param os
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @param code
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     * @throws IOException
+</span></span></span><span style=display:flex><span><span style=color:#75715e>     */</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>public</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>outputImage</span>(<span style=color:#66d9ef>int</span> w, <span style=color:#66d9ef>int</span> h, OutputStream os, String code) <span style=color:#66d9ef>throws</span> IOException {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> verifySize <span style=color:#f92672>=</span> code.<span style=color:#a6e22e>length</span>();
+</span></span><span style=display:flex><span>        BufferedImage image <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> BufferedImage(w, h, BufferedImage.<span style=color:#a6e22e>TYPE_INT_RGB</span>);
+</span></span><span style=display:flex><span>        Random rand <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Random();
+</span></span><span style=display:flex><span>        Graphics2D g2 <span style=color:#f92672>=</span> image.<span style=color:#a6e22e>createGraphics</span>();
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>setRenderingHint</span>(RenderingHints.<span style=color:#a6e22e>KEY_ANTIALIASING</span>, RenderingHints.<span style=color:#a6e22e>VALUE_ANTIALIAS_ON</span>);
+</span></span><span style=display:flex><span>        Color<span style=color:#f92672>[]</span> colors <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Color<span style=color:#f92672>[</span>5<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>        Color<span style=color:#f92672>[]</span> colorSpaces <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Color<span style=color:#f92672>[]</span>{Color.<span style=color:#a6e22e>WHITE</span>, Color.<span style=color:#a6e22e>CYAN</span>,
+</span></span><span style=display:flex><span>                Color.<span style=color:#a6e22e>GRAY</span>, Color.<span style=color:#a6e22e>LIGHT_GRAY</span>, Color.<span style=color:#a6e22e>MAGENTA</span>, Color.<span style=color:#a6e22e>ORANGE</span>,
+</span></span><span style=display:flex><span>                Color.<span style=color:#a6e22e>PINK</span>, Color.<span style=color:#a6e22e>YELLOW</span>};
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>float</span><span style=color:#f92672>[]</span> fractions <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>float</span><span style=color:#f92672>[</span>colors.<span style=color:#a6e22e>length</span><span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> colors.<span style=color:#a6e22e>length</span>; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            colors<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> colorSpaces<span style=color:#f92672>[</span>rand.<span style=color:#a6e22e>nextInt</span>(colorSpaces.<span style=color:#a6e22e>length</span>)<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>            fractions<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> rand.<span style=color:#a6e22e>nextFloat</span>();
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        Arrays.<span style=color:#a6e22e>sort</span>(fractions);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>setColor</span>(Color.<span style=color:#a6e22e>GRAY</span>);<span style=color:#75715e>// 设置边框色</span>
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>fillRect</span>(0, 0, w, h);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        Color c <span style=color:#f92672>=</span> getRandColor(200, 250);
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>setColor</span>(c);<span style=color:#75715e>// 设置背景色</span>
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>fillRect</span>(0, 2, w, h <span style=color:#f92672>-</span> 4);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>//绘制干扰线</span>
+</span></span><span style=display:flex><span>        Random random <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Random();
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>setColor</span>(getRandColor(160, 200));<span style=color:#75715e>// 设置线条的颜色</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> 20; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> x <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(w <span style=color:#f92672>-</span> 1);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> y <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(h <span style=color:#f92672>-</span> 1);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> xl <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(6) <span style=color:#f92672>+</span> 1;
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> yl <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(12) <span style=color:#f92672>+</span> 1;
+</span></span><span style=display:flex><span>            g2.<span style=color:#a6e22e>drawLine</span>(x, y, x <span style=color:#f92672>+</span> xl <span style=color:#f92672>+</span> 40, y <span style=color:#f92672>+</span> yl <span style=color:#f92672>+</span> 20);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 添加噪点</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>float</span> yawpRate <span style=color:#f92672>=</span> 0.<span style=color:#a6e22e>05f</span>;<span style=color:#75715e>// 噪声率</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> area <span style=color:#f92672>=</span> (<span style=color:#66d9ef>int</span>) (yawpRate <span style=color:#f92672>*</span> w <span style=color:#f92672>*</span> h);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> area; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> x <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(w);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> y <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(h);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>int</span> rgb <span style=color:#f92672>=</span> getRandomIntColor();
+</span></span><span style=display:flex><span>            image.<span style=color:#a6e22e>setRGB</span>(x, y, rgb);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        shear(g2, w, h, c);<span style=color:#75715e>// 使图片扭曲</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>setColor</span>(getRandColor(100, 160));
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> fontSize <span style=color:#f92672>=</span> h <span style=color:#f92672>-</span> 4;
+</span></span><span style=display:flex><span>        Font font <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Font(<span style=color:#e6db74>&#34;Algerian&#34;</span>, Font.<span style=color:#a6e22e>ITALIC</span>, fontSize);
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>setFont</span>(font);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>char</span><span style=color:#f92672>[]</span> chars <span style=color:#f92672>=</span> code.<span style=color:#a6e22e>toCharArray</span>();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> verifySize; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            AffineTransform affine <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> AffineTransform();
+</span></span><span style=display:flex><span>            affine.<span style=color:#a6e22e>setToRotation</span>(Math.<span style=color:#a6e22e>PI</span> <span style=color:#f92672>/</span> 4 <span style=color:#f92672>*</span> rand.<span style=color:#a6e22e>nextDouble</span>() <span style=color:#f92672>*</span> (rand.<span style=color:#a6e22e>nextBoolean</span>() <span style=color:#f92672>?</span> 1 : <span style=color:#f92672>-</span>1), (w <span style=color:#f92672>/</span> verifySize) <span style=color:#f92672>*</span> i <span style=color:#f92672>+</span> fontSize <span style=color:#f92672>/</span> 2, h <span style=color:#f92672>/</span> 2);
+</span></span><span style=display:flex><span>            g2.<span style=color:#a6e22e>setTransform</span>(affine);
+</span></span><span style=display:flex><span>            g2.<span style=color:#a6e22e>drawChars</span>(chars, i, 1, ((w <span style=color:#f92672>-</span> 10) <span style=color:#f92672>/</span> verifySize) <span style=color:#f92672>*</span> i <span style=color:#f92672>+</span> 5, h <span style=color:#f92672>/</span> 2 <span style=color:#f92672>+</span> fontSize <span style=color:#f92672>/</span> 2 <span style=color:#f92672>-</span> 10);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        g2.<span style=color:#a6e22e>dispose</span>();
+</span></span><span style=display:flex><span>        ImageIO.<span style=color:#a6e22e>write</span>(image, <span style=color:#e6db74>&#34;png&#34;</span>, os);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> Color <span style=color:#a6e22e>getRandColor</span>(<span style=color:#66d9ef>int</span> fc, <span style=color:#66d9ef>int</span> bc) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (fc <span style=color:#f92672>&gt;</span> 255) {
+</span></span><span style=display:flex><span>            fc <span style=color:#f92672>=</span> 255;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (bc <span style=color:#f92672>&gt;</span> 255) {
+</span></span><span style=display:flex><span>            bc <span style=color:#f92672>=</span> 255;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> r <span style=color:#f92672>=</span> fc <span style=color:#f92672>+</span> random.<span style=color:#a6e22e>nextInt</span>(bc <span style=color:#f92672>-</span> fc);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> g <span style=color:#f92672>=</span> fc <span style=color:#f92672>+</span> random.<span style=color:#a6e22e>nextInt</span>(bc <span style=color:#f92672>-</span> fc);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> b <span style=color:#f92672>=</span> fc <span style=color:#f92672>+</span> random.<span style=color:#a6e22e>nextInt</span>(bc <span style=color:#f92672>-</span> fc);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>new</span> Color(r, g, b);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span> <span style=color:#a6e22e>getRandomIntColor</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> rgb <span style=color:#f92672>=</span> getRandomRgb();
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> color <span style=color:#f92672>=</span> 0;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> c : rgb) {
+</span></span><span style=display:flex><span>            color <span style=color:#f92672>=</span> color <span style=color:#f92672>&lt;&lt;</span> 8;
+</span></span><span style=display:flex><span>            color <span style=color:#f92672>=</span> color <span style=color:#f92672>|</span> c;
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> color;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> <span style=color:#a6e22e>getRandomRgb</span>() {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span><span style=color:#f92672>[]</span> rgb <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#66d9ef>int</span><span style=color:#f92672>[</span>3<span style=color:#f92672>]</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> 3; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            rgb<span style=color:#f92672>[</span>i<span style=color:#f92672>]</span> <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(255);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> rgb;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>shear</span>(Graphics g, <span style=color:#66d9ef>int</span> w1, <span style=color:#66d9ef>int</span> h1, Color color) {
+</span></span><span style=display:flex><span>        shearX(g, w1, h1, color);
+</span></span><span style=display:flex><span>        shearY(g, w1, h1, color);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>shearX</span>(Graphics g, <span style=color:#66d9ef>int</span> w1, <span style=color:#66d9ef>int</span> h1, Color color) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> period <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(2);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>boolean</span> borderGap <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> frames <span style=color:#f92672>=</span> 1;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> phase <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(2);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> h1; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>double</span> d <span style=color:#f92672>=</span> (<span style=color:#66d9ef>double</span>) (period <span style=color:#f92672>&gt;&gt;</span> 1)
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>*</span> Math.<span style=color:#a6e22e>sin</span>((<span style=color:#66d9ef>double</span>) i <span style=color:#f92672>/</span> (<span style=color:#66d9ef>double</span>) period
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>+</span> (6.<span style=color:#a6e22e>2831853071795862D</span> <span style=color:#f92672>*</span> (<span style=color:#66d9ef>double</span>) phase)
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>/</span> (<span style=color:#66d9ef>double</span>) frames);
+</span></span><span style=display:flex><span>            g.<span style=color:#a6e22e>copyArea</span>(0, i, w1, 1, (<span style=color:#66d9ef>int</span>) d, 0);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (borderGap) {
+</span></span><span style=display:flex><span>                g.<span style=color:#a6e22e>setColor</span>(color);
+</span></span><span style=display:flex><span>                g.<span style=color:#a6e22e>drawLine</span>((<span style=color:#66d9ef>int</span>) d, i, 0, i);
+</span></span><span style=display:flex><span>                g.<span style=color:#a6e22e>drawLine</span>((<span style=color:#66d9ef>int</span>) d <span style=color:#f92672>+</span> w1, i, w1, i);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>private</span> <span style=color:#66d9ef>static</span> <span style=color:#66d9ef>void</span> <span style=color:#a6e22e>shearY</span>(Graphics g, <span style=color:#66d9ef>int</span> w1, <span style=color:#66d9ef>int</span> h1, Color color) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> period <span style=color:#f92672>=</span> random.<span style=color:#a6e22e>nextInt</span>(40) <span style=color:#f92672>+</span> 10; <span style=color:#75715e>// 50;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>boolean</span> borderGap <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> frames <span style=color:#f92672>=</span> 20;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> phase <span style=color:#f92672>=</span> 7;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> 0; i <span style=color:#f92672>&lt;</span> w1; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>double</span> d <span style=color:#f92672>=</span> (<span style=color:#66d9ef>double</span>) (period <span style=color:#f92672>&gt;&gt;</span> 1)
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>*</span> Math.<span style=color:#a6e22e>sin</span>((<span style=color:#66d9ef>double</span>) i <span style=color:#f92672>/</span> (<span style=color:#66d9ef>double</span>) period
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>+</span> (6.<span style=color:#a6e22e>2831853071795862D</span> <span style=color:#f92672>*</span> (<span style=color:#66d9ef>double</span>) phase)
+</span></span><span style=display:flex><span>                    <span style=color:#f92672>/</span> (<span style=color:#66d9ef>double</span>) frames);
+</span></span><span style=display:flex><span>            g.<span style=color:#a6e22e>copyArea</span>(i, 0, 1, h1, 0, (<span style=color:#66d9ef>int</span>) d);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (borderGap) {
+</span></span><span style=display:flex><span>                g.<span style=color:#a6e22e>setColor</span>(color);
+</span></span><span style=display:flex><span>                g.<span style=color:#a6e22e>drawLine</span>(i, (<span style=color:#66d9ef>int</span>) d, i, 0);
+</span></span><span style=display:flex><span>                g.<span style=color:#a6e22e>drawLine</span>(i, (<span style=color:#66d9ef>int</span>) d <span style=color:#f92672>+</span> h1, i, h1);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//    public static void main(String[] args) throws IOException {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//        for (int i = 0; i &lt; 20; i++) {</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//            File dir = new File(&#34;E:/img/&#34;);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//            int w = 200, h = 80;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//            String verifyCode = generateVerifyCode(4);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//            File file = new File(dir, verifyCode + &#34;.jpg&#34;);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//            outputImage(w, h, file, verifyCode);</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//        }</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//    }</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div></details><h2 id=验证码调用方法并返回>验证码调用方法并返回
+<a class=header-anchor href=#%e9%aa%8c%e8%af%81%e7%a0%81%e8%b0%83%e7%94%a8%e6%96%b9%e6%b3%95%e5%b9%b6%e8%bf%94%e5%9b%9e></a></h2><details><summary>方法调用</summary><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>public</span> Result<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> <span style=color:#a6e22e>verify</span>(HttpServletRequest request, HttpServletResponse response) {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>		Result<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span> result <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> Result<span style=color:#f92672>&lt;&gt;</span>();
+</span></span><span style=display:flex><span>		<span style=color:#75715e>// 获取界面传过来的验证码</span>
+</span></span><span style=display:flex><span>		String securityCode <span style=color:#f92672>=</span> Utility.<span style=color:#a6e22e>randomString</span>(4);
+</span></span><span style=display:flex><span>		ByteArrayOutputStream bos <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> ByteArrayOutputStream();
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>			ImageUtil.<span style=color:#a6e22e>outputImage</span>(107, 40, bos, securityCode);
+</span></span><span style=display:flex><span>			redisUtil.<span style=color:#a6e22e>set</span>(getVerifyKey(request), securityCode.<span style=color:#a6e22e>toLowerCase</span>(Locale.<span style=color:#a6e22e>ENGLISH</span>), 1 <span style=color:#f92672>*</span> 60);
+</span></span><span style=display:flex><span>			String verifys <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> String(Base64.<span style=color:#a6e22e>encodeBase64</span>(bos.<span style=color:#a6e22e>toByteArray</span>()));
+</span></span><span style=display:flex><span>			result.<span style=color:#a6e22e>setResult</span>(verifys);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>catch</span> (JeecgBootException e) {
+</span></span><span style=display:flex><span>			e.<span style=color:#a6e22e>printStackTrace</span>();
+</span></span><span style=display:flex><span>			result.<span style=color:#a6e22e>error500</span>(<span style=color:#e6db74>&#34;生成验证码失败&#34;</span>);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>catch</span> (Exception e) {
+</span></span><span style=display:flex><span>			e.<span style=color:#a6e22e>printStackTrace</span>();
+</span></span><span style=display:flex><span>			result.<span style=color:#a6e22e>error500</span>(<span style=color:#e6db74>&#34;生成验证码失败&#34;</span>);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>finally</span> {
+</span></span><span style=display:flex><span>			<span style=color:#66d9ef>if</span> (bos <span style=color:#f92672>!=</span> <span style=color:#66d9ef>null</span>) {
+</span></span><span style=display:flex><span>				<span style=color:#66d9ef>try</span> {
+</span></span><span style=display:flex><span>					bos.<span style=color:#a6e22e>close</span>();
+</span></span><span style=display:flex><span>				} <span style=color:#66d9ef>catch</span> (IOException e) {
+</span></span><span style=display:flex><span>					e.<span style=color:#a6e22e>printStackTrace</span>();
+</span></span><span style=display:flex><span>				}
+</span></span><span style=display:flex><span>			}
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> result;
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>private</span> String <span style=color:#a6e22e>getVerifyKey</span>(HttpServletRequest request) {
+</span></span><span style=display:flex><span>		<span style=color:#75715e>// return request.getRequestedSessionId() + &#34;_Verify&#34;;</span>
+</span></span><span style=display:flex><span>		String ipAddrByRequest <span style=color:#f92672>=</span> IPUtils.<span style=color:#a6e22e>getIpAddr</span>(request);
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> (ipAddrByRequest.<span style=color:#a6e22e>contains</span>(<span style=color:#e6db74>&#34;.&#34;</span>)) {
+</span></span><span style=display:flex><span>			ipAddrByRequest <span style=color:#f92672>=</span> ipAddrByRequest.<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>&#34;.&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>);
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (ipAddrByRequest.<span style=color:#a6e22e>contains</span>(<span style=color:#e6db74>&#34;:&#34;</span>)) {
+</span></span><span style=display:flex><span>			ipAddrByRequest <span style=color:#f92672>=</span> ipAddrByRequest.<span style=color:#a6e22e>replace</span>(<span style=color:#e6db74>&#34;:&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>);
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;Verify_&#34;</span> <span style=color:#f92672>+</span> ipAddrByRequest;
+</span></span><span style=display:flex><span>	}
+</span></span></code></pre></div><details></div><footer class=post-footer><div class=post-tags><a href=/tags/java>java</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知识><ul><li class=post-copyright-title><strong>文章标题：</strong>
+Java验证码</li><li class=post-copyright-author><strong>本文作者： </strong>brandyKK</li><li class=post-copyright-link><strong>本文链接：</strong>
+<a id=post-cr-link href=https://brandykk.github.io/post/%E7%BC%96%E7%A8%8B/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/ title=Java验证码>https://brandykk.github.io/post/%E7%BC%96%E7%A8%8B/java/java%E9%AA%8C%E8%AF%81%E7%A0%81/</a></li><li class=post-copyright-license><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/%E7%BC%96%E7%A8%8B/java/java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B/ rel=next title=Java线程><i class="fa fa-chevron-left"></i> Java线程</a></div><div class="post-nav-prev post-nav-item"><a href=/post/%E7%BC%96%E7%A8%8B/java/jdbc/ rel=prev title=Jdbc>Jdbc
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2024
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>brandyKK</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.123.7 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.5.3 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":true,"giscus":{"cfg":{"category":"Comments","categoryid":null,"emit":false,"inputposition":"top","mapping":"title","reactions":false,"repo":"username/repo-name","repoid":null,"theme":"preferred_color_scheme"},"js":"https://giscus.app/client.js"},"hostname":"https://brandykk.github.io/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":true,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":false,"plugin":"busuanzi"}},"root":"/","scheme":"Gemini","sidebar":{"display":"hide","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.5.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":true,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.13.0"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.13.0"}}}</script><script type=text/javascript src=/js/main.min.11d6c39ce43fcb97ea816ea2c136c17f188cacbba49ae066e747ea0f71b633a0.js defer></script><script type=text/javascript src=/js/math.min.a6ada19a368d85dad9ead2040d86ae561a867fafef89391d1aa2aa5909366509.js defer></script><script type=text/javascript src=/js/mermaid.min.77ebf4c34a07c63b16a3dfd983ab79bca13df5bd4f4b9df22ddda6d365e117f6.js defer></script></body></html>

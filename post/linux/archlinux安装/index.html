@@ -1,0 +1,626 @@
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=UTF-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: dark)"><meta name=generator content="Hugo 0.123.7"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="ArchLinux安装"><meta itemprop=description content="archLinux安装"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://brandykk.github.io/imgs/hugo_next_avatar.png"><meta itemprop=keywords content="Arch"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/css/main.min.85e230b4b7002592c787b8b9d6c88a3d6a5da0e394813dfbc5fcac2cdee04602.css><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return void 0;const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),void 0):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":false,"isHome":false,"isPage":true,"math":{"js":{"file":"es5/tex-mml-chtml.js","name":"mathjax","version":"3.2.0"},"render":"mathjax"},"path":"archlinux%E5%AE%89%E8%A3%85","permalink":"https://brandykk.github.io/post/linux/archlinux%E5%AE%89%E8%A3%85/","title":"ArchLinux安装","waline":{"js":[{"alias":"waline","alias_name":"@waline/client","file":"dist/pageview.js","name":"pageview","version":"2.13.0"},{"alias":"waline","alias_name":"@waline/client","file":"dist/comment.js","name":"comment","version":"2.13.0"}]}}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>ArchLinux安装 - BrandyKK</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>BrandyKK</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>简单记录小博客</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about/ class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于</a></li><li class="menu-item menu-item-archives"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>归档
+<span class=badge>22</span></a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><a href=#准备工作><em><strong>准备工作</strong></em></a></li><li><a href=#分区btrfshttpswikiarchlinuxorgtitlebtrfs><em>分区(<a href=https://wiki.archlinux.org/title/Btrfs>Btrfs</a>)</em></a><ul><li><a href=#创建子卷>创建子卷</a></li><li><a href=#挂载子卷>挂载子卷</a></li></ul></li><li><a href=#连接网络><em>连接网络</em></a></li><li><a href=#更换国内镜像源加快下载速度><em>更换国内镜像源加快下载速度</em></a></li><li><a href=#安装基础系统><em>安装基础系统</em></a></li><li><a href=#生成-fstab-文件><em>生成 fstab 文件</em></a></li><li><a href=#基础配置><em>基础配置</em></a><ul><li><a href=#配置帐号>配置帐号</a></li><li><a href=#安装桌面>安装桌面</a></li><li><a href=#font-colorred重启font><font color=red>重启</font></a></li></ul></li><li><a href=#桌面配置><em>桌面配置</em></a><ul><li><a href=#配置aurhttpsgithubcomarchlinuxcnmirrorlist-repo><a href=https://github.com/archlinuxcn/mirrorlist-repo>配置AUR</a></a></li><li><a href=#安装驱动>安装驱动</a></li><li><a href=#更改中文>更改中文</a></li><li><a href=#修改grub>修改grub</a></li><li><a href=#开机挂载硬盘>开机挂载硬盘</a></li></ul></li><li><a href=#基础包安装><em>基础包安装</em></a><ul><li><a href=#oh-my-zsh>oh-my-zsh</a></li><li><a href=#neovim>neovim</a></li><li><a href=#jdkmaven>JDK、Maven</a></li><li><a href=#redismariadb>redis、mariadb</a></li><li><a href=#快捷方式>快捷方式</a></li><li><a href=#ssh>ssh</a></li><li><a href=#ideadatagrip>IDEA、DataGrip</a></li><li><a href=#pacman>pacman</a></li><li><a href=#span-id全局菜单安装kde设置span下载窗口脚本失败下载kwin窗口脚本失败处理><span id=全局菜单安装>kde设置</span><a href=#%E4%B8%8B%E8%BD%BDkwin%E7%AA%97%E5%8F%A3%E8%84%9A%E6%9C%AC%E5%A4%B1%E8%B4%A5%E5%A4%84%E7%90%86>^下载窗口脚本失败^</a></a></li></ul></li><li><a href=#可能遇到的问题><em>可能遇到的问题</em></a><ul><li><a href=#解压中文乱码>解压中文乱码</a></li><li><a href=#深度日历安装>深度日历安装</a></li><li><a href=#span-id下载kwin窗口脚本失败处理kde桌面下载kwin窗口脚本失败span全局菜单全局菜单安装><span id=下载kwin窗口脚本失败处理>kde桌面下载kwin窗口脚本失败</span><a href=#%E5%85%A8%E5%B1%80%E8%8F%9C%E5%8D%95%E5%AE%89%E8%A3%85>^全局菜单^</a></a></li></ul></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image alt=brandyKK src=/imgs/img-lazy-loading.gif data-src=/imgs/hugo_next_avatar.png><p class=site-author-name itemprop=name>brandyKK</p><div class=site-description itemprop=description>个人简单记录一些文档</div></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>22</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>3</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>8</span>
+<span class=site-state-item-name>标签</span></a></div></nav></div><div class="links-of-social site-overview-item animated"></div><div class="cc-license animated" itemprop=license><a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh class=cc-opacity rel=noopener target=_blank title=共享知识><img src=/imgs/img-lazy-loading.gif data-src=/imgs/cc/big/by_nc_sa.svg alt=共享知识></a></div><div class="links-of-blogroll site-overview-item animated"><div class=links-of-blogroll-title><i class="fa fa-globe fa-fw"></i>
+友情链接</div><ul class=links-of-blogroll-list><li class=links-of-blogroll-item><a href=https://gitee.com/hugo-next/hugo-theme-next title=https://gitee.com/hugo-next/hugo-theme-next target=_blank>Hugo-NexT</a></li></ul></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-gtranslate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://brandykk.github.io/post/linux/archlinux%E5%AE%89%E8%A3%85/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content="/imgs/hugo_next_avatar.png"><meta itemprop=name content="brandyKK"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="brandyKK"><meta itemprop=description content="个人简单记录一些文档"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="ArchLinux安装"><meta itemprop=description content="archLinux安装"></span><header class=post-header><h1 class=post-title itemprop="name headline">ArchLinux安装</h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2024-03-07 16:05:23 +0800 CST" itemprop="dateCreated datePublished" datetime="2024-03-07 16:05:23 +0800 CST">2024-03-07
+</time></span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i>
+</span><span class=post-meta-item-text title=分类于>分类于：
+</span><span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/linux itemprop=url rel=index><span itemprop=name>Linux</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字数><span class=post-meta-item-icon><i class="far fa-file-word"></i>
+</span><span class=post-meta-item-text>字数：</span>
+<span>5592</span>
+</span><span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i>
+</span><span class=post-meta-item-text>阅读：&ap;</span>
+<span>12分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><blockquote><p>更新于2023年3月7日；适用于Arch和win11双系统，btrfs文件系统，kde桌面</p></blockquote><h2 id=准备工作><em><strong>准备工作</strong></em>
+<a class=header-anchor href=#%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c></a></h2><ul><li><p><strong>先安装win10,然后再安装linux,关闭主板设置中的 <code>Secure Boot</code>,关闭win10的<code>快速启动</code></strong></p></li><li><p>制作镜像：推荐
+<a href=https://www.ventoy.net/cn/ title=ventoy rel="noopener external nofollow noreferrer" target=_blank class=exturl>ventoy
+<i class="fa fa-external-link-alt"></i></a></p></li><li><p>确保是否为 <code>UEFI</code> 模式</p></li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 若输出了一堆东西，即` efi `变量，则说明已在 `UEFI `模式。否则请确认你的启动方式是否为 `UEFI`。</span>
+</span></span><span style=display:flex><span>ls /sys/firmware/efi/efivars
+</span></span></code></pre></div><hr><h2 id=分区btrfshttpswikiarchlinuxorgtitlebtrfs><em>分区(
+<a href=https://wiki.archlinux.org/title/Btrfs title=Btrfs rel="noopener external nofollow noreferrer" target=_blank class=exturl>Btrfs
+<i class="fa fa-external-link-alt"></i>
+</a>)</em>
+<a class=header-anchor href=#%e5%88%86%e5%8c%babtrfshttpswikiarchlinuxorgtitlebtrfs></a></h2><p><a href=https://wiki.archlinux.org/title/Btrfs title="<code>Btrfs</code>" rel="noopener external nofollow noreferrer" target=_blank class=exturl><code>Btrfs</code>
+<i class="fa fa-external-link-alt"></i>
+</a>文件系统不需要单独区分每个盘的大小，只需要单独分出一个盘即可。</p><ul><li>单系统需要先将磁盘转为<code>gpt</code>格式，双系统的话，在win11上已经转过了，<font color=red><code>/dev/nvme0n1p6</code></font>是安装磁盘，根据实际情况改成自己的磁盘</li></ul><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 如果需要转gpt则执行命令</span>
+</span></span><span style=display:flex><span>lsblk                       <span style=color:#75715e>#显示分区情况</span>
+</span></span><span style=display:flex><span>parted /dev/sdx             <span style=color:#75715e>#执行parted，进行磁盘类型变更</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>(</span>parted<span style=color:#f92672>)</span>mktable             <span style=color:#75715e>#输入mktable</span>
+</span></span><span style=display:flex><span>New disk label type? gpt    <span style=color:#75715e>#输入gpt 将磁盘类型转换为gpt 如磁盘有数据会警告，输入yes即可</span>
+</span></span><span style=display:flex><span>quit                        <span style=color:#75715e>#最后quit退出parted命令行交互</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 或</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 如果是单个磁盘，不需要要保留磁盘数据则执行以下命令可以直接选择将磁盘转为`gpt`（不会读取硬盘已有分区）</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># cfdisk -z /dev/nvme0n1p6</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 不需要转gpt,在已有分区基础上继续分区（会读取硬盘已有分区）</span>
+</span></span><span style=display:flex><span>cfdisk /dev/nvme0n1
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 格式化磁盘</span>
+</span></span><span style=display:flex><span>mkfs.btrfs -f /dev/nvme0n1p6
+</span></span></code></pre></div><h3 id=创建子卷>创建子卷
+<a class=header-anchor href=#%e5%88%9b%e5%bb%ba%e5%ad%90%e5%8d%b7></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 挂在分区</span>
+</span></span><span style=display:flex><span>mount /dev/nvme0n1p6 /mnt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 根据需要在/mnt中创建子卷</span>
+</span></span><span style=display:flex><span>btrfs su cr /mnt/@                    <span style=color:#75715e># 挂载到 root，必需</span>
+</span></span><span style=display:flex><span>btrfs su cr /mnt/@boot                <span style=color:#75715e># boot 子卷, 可选</span>
+</span></span><span style=display:flex><span>btrfs su cr /mnt/@home                <span style=color:#75715e># home ，可选</span>
+</span></span><span style=display:flex><span>btrfs su cr /mnt/@var                 <span style=color:#75715e># var,  可选</span>
+</span></span><span style=display:flex><span>btrfs su cr /mnt/@opt                 <span style=color:#75715e># opt,  可选</span>
+</span></span><span style=display:flex><span>btrfs su cr /mnt/@snapshot            <span style=color:#75715e># 快照文件, 可选</span>
+</span></span><span style=display:flex><span>btrfs su cr /mnt/@swap                <span style=color:#75715e># swapfile ，可选</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#检查创建好的子卷</span>
+</span></span><span style=display:flex><span>btrfs su li /mnt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#创建16G的交换文件 大小根据需要更改</span>
+</span></span><span style=display:flex><span>btrfs filesystem mkswapfile -s 16g /mnt/@swap/swapfile
+</span></span></code></pre></div><h3 id=挂载子卷>挂载子卷
+<a class=header-anchor href=#%e6%8c%82%e8%bd%bd%e5%ad%90%e5%8d%b7></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 先卸载上面创建子卷时的挂载目录，否则会失败</span>
+</span></span><span style=display:flex><span>umount /mnt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 挂载根目录子卷 (这是SSD硬盘的参数，如果是机械硬盘，有些参数不太合适，请自行查询挂载参数）</span>
+</span></span><span style=display:flex><span>mount -t btrfs -o ssd,defaults,compress-force<span style=color:#f92672>=</span>zstd:5,space_cache<span style=color:#f92672>=</span>v2,autodefrag,subvol<span style=color:#f92672>=</span>@ /dev/nvme0n1p6 /mnt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 创建其他子卷挂载目录 最好和上面的子卷保持一致</span>
+</span></span><span style=display:flex><span>mkdir -pv /mnt/<span style=color:#f92672>{</span>boot,home,var,opt,.snapshot,.swap<span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 挂载创建好的目录</span>
+</span></span><span style=display:flex><span>mount -t btrfs -o ssd,defaults,compress-force<span style=color:#f92672>=</span>zstd:5,autodefrag,subvol<span style=color:#f92672>=</span>@boot /dev/nvme0n1p6 /mnt/boot
+</span></span><span style=display:flex><span>mount -t btrfs -o ssd,defaults,compress-force<span style=color:#f92672>=</span>zstd:5,autodefrag,subvol<span style=color:#f92672>=</span>@home /dev/nvme0n1p6 /mnt/home
+</span></span><span style=display:flex><span>mount -t btrfs -o ssd,defaults,compress-force<span style=color:#f92672>=</span>zstd:5,autodefrag,subvol<span style=color:#f92672>=</span>@var /dev/nvme0n1p6 /mnt/var
+</span></span><span style=display:flex><span>mount -t btrfs -o ssd,defaults,compress-force<span style=color:#f92672>=</span>zstd:5,autodefrag,subvol<span style=color:#f92672>=</span>@opt /dev/nvme0n1p6 /mnt/opt
+</span></span><span style=display:flex><span>mount -t btrfs -o ssd,defaults,compress-force<span style=color:#f92672>=</span>zstd:5,autodefrag,subvol<span style=color:#f92672>=</span>@snapshot /dev/nvme0n1p6 /mnt/.snapshot
+</span></span><span style=display:flex><span>mount -t btrfs -o ssd,defaults,compress-force<span style=color:#f92672>=</span>zstd:5,autodefrag,subvolsubvol<span style=color:#f92672>=</span>@swap /dev/nvme0n1p6 /mnt/.swap
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 挂载win11的EFI分区</span>
+</span></span><span style=display:flex><span>mkdir /mnt/boot/efi
+</span></span><span style=display:flex><span>mount -t vfat /dev/nvme0n1p1 /mnt/boot/efi
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 激活swap</span>
+</span></span><span style=display:flex><span>swapon /mnt/.swap/swapfile
+</span></span></code></pre></div><hr><h2 id=连接网络><em>连接网络</em>
+<a class=header-anchor href=#%e8%bf%9e%e6%8e%a5%e7%bd%91%e7%bb%9c></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span>iwctl                           <span style=color:#75715e>#进入交互式命令行</span>
+</span></span><span style=display:flex><span>device list                     <span style=color:#75715e>#列出设备名，比如无线网卡看到叫 wlan0</span>
+</span></span><span style=display:flex><span>station wlan0 scan              <span style=color:#75715e>#扫描网络</span>
+</span></span><span style=display:flex><span>station wlan0 get-networks      <span style=color:#75715e>#列出网络 比如想连接CMCC-5AQ7这个无线</span>
+</span></span><span style=display:flex><span>station wlan0 connect CMCC-5AQ7 <span style=color:#75715e>#进行连接 输入密码即可</span>
+</span></span><span style=display:flex><span>exit                            <span style=color:#75715e>#成功后exit退出</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 测试</span>
+</span></span><span style=display:flex><span>ping www.baidu.com
+</span></span></code></pre></div><hr><h2 id=更换国内镜像源加快下载速度><em>更换国内镜像源加快下载速度</em>
+<a class=header-anchor href=#%e6%9b%b4%e6%8d%a2%e5%9b%bd%e5%86%85%e9%95%9c%e5%83%8f%e6%ba%90%e5%8a%a0%e5%bf%ab%e4%b8%8b%e8%bd%bd%e9%80%9f%e5%ba%a6></a></h2><blockquote><p>新的镜像会自动检查最快的地址，不需要手动更改</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 关闭自动刷新镜像功能</span>
+</span></span><span style=display:flex><span>systemctl stop reflector
+</span></span><span style=display:flex><span><span style=color:#75715e># 在文件中找到自己用的地址，复制到文件最上面</span>
+</span></span><span style=display:flex><span>vim /etc/pacman.d/mirrorlist
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 常用镜像地址</span>
+</span></span><span style=display:flex><span>Server <span style=color:#f92672>=</span> https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+</span></span></code></pre></div><hr><h2 id=安装基础系统><em>安装基础系统</em>
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e5%9f%ba%e7%a1%80%e7%b3%bb%e7%bb%9f></a></h2><blockquote><p><font color=red>Intel微码 : intel-ucode</font></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span>pacstrap -K /mnt base base-devel linux linux-firmware linux-headers intel-ucode btrfs-progs dhcpcd iwd neovim zsh
+</span></span></code></pre></div></blockquote><blockquote><p><font color=red>AMD微码: amd-ucode</font></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span>pacstrap -K /mnt base base-devel linux linux-firmware linux-headers amd-ucode btrfs-progs dhcpcd iwd neovim zsh
+</span></span></code></pre></div></blockquote><hr><h2 id=生成-fstab-文件><em>生成 fstab 文件</em>
+<a class=header-anchor href=#%e7%94%9f%e6%88%90-fstab-%e6%96%87%e4%bb%b6></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 执行命令</span>
+</span></span><span style=display:flex><span>genfstab -U /mnt &gt;&gt; /mnt/etc/fstab
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 复查一下 /mnt/etc/fstab 确保没有错误</span>
+</span></span><span style=display:flex><span>cat /mnt/etc/fstab
+</span></span></code></pre></div><hr><h2 id=基础配置><em>基础配置</em>
+<a class=header-anchor href=#%e5%9f%ba%e7%a1%80%e9%85%8d%e7%bd%ae></a></h2><blockquote><p><font color=red>把环境切换到新系统的/mnt 下</font></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-fallback data-lang=fallback><span style=display:flex><span>arch-chroot /mnt
+</span></span></code></pre></div></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 配置neovim</span>
+</span></span><span style=display:flex><span>ln -s /bin/nvim /bin/vi
+</span></span><span style=display:flex><span>ln -s /bin/nvim /bin/vim
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 设置时区</span>
+</span></span><span style=display:flex><span>ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime    
+</span></span><span style=display:flex><span>hwclock --systohc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 设置主机名</span>
+</span></span><span style=display:flex><span>echo 主机名 &gt; /etc/hostname
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 配置hosts（用tab,不要用空格）</span>
+</span></span><span style=display:flex><span>127.0.0.1       localhost
+</span></span><span style=display:flex><span>::1             localhost
+</span></span><span style=display:flex><span>127.0.0.1       主机名.localdomain    主机名
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装引导（此时会无法识别win,等进入桌面后再设置）</span>
+</span></span><span style=display:flex><span>pacman -S grub efibootmgr os-prober ntfs-3g
+</span></span><span style=display:flex><span>grub-install --target<span style=color:#f92672>=</span>x86_64-efi --efi-directory<span style=color:#f92672>=</span>/boot/efi --bootloader-id<span style=color:#f92672>=</span>ArchLinux
+</span></span><span style=display:flex><span>grub-mkconfig -o /boot/grub/grub.cfg
+</span></span></code></pre></div><h3 id=配置帐号>配置帐号
+<a class=header-anchor href=#%e9%85%8d%e7%bd%ae%e5%b8%90%e5%8f%b7></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 配置root密码</span>
+</span></span><span style=display:flex><span>passwd
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 新建管理员用户（其实只需要wheel就行了）</span>
+</span></span><span style=display:flex><span>useradd -m -G audio,video,wheel,users -s /bin/zsh lv
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 更改用户密码</span>
+</span></span><span style=display:flex><span>passwd lv
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 编辑sudo</span>
+</span></span><span style=display:flex><span>EDITOR<span style=color:#f92672>=</span>nvim visudo
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 找到这样的一行,把前面的注释符号#去掉</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#%wheel ALL=(ALL:ALL) ALL</span>
+</span></span></code></pre></div><h3 id=安装桌面>安装桌面
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e6%a1%8c%e9%9d%a2></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e>#安装plasma-meta元软件包、终端、文件管理器、文件编辑器 基础中文字体</span>
+</span></span><span style=display:flex><span>pacman -Syu plasma-meta konsole dolphin kate wqy-zenhei
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 启用sddm</span>
+</span></span><span style=display:flex><span>systemctl enable sddm
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 启用NetworkManager</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#确保iwd开机处于关闭状态，其无线连接会与NetworkManager冲突</span>
+</span></span><span style=display:flex><span>systemctl disable iwd
+</span></span><span style=display:flex><span>systemctl enable NetworkManager
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 启用蓝牙</span>
+</span></span><span style=display:flex><span>systemctl enable bluetooth
+</span></span></code></pre></div><h3 id=font-colorred重启font><font color=red>重启</font>
+<a class=header-anchor href=#font-colorred%e9%87%8d%e5%90%affont></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span>exit                		<span style=color:#75715e># 退回安装环境</span>
+</span></span><span style=display:flex><span>umount -R  /mnt     		<span style=color:#75715e># 卸载新分区</span>
+</span></span><span style=display:flex><span>reboot              		<span style=color:#75715e># 重启 记得拔掉U盘</span>
+</span></span></code></pre></div><h2 id=桌面配置><em>桌面配置</em>
+<a class=header-anchor href=#%e6%a1%8c%e9%9d%a2%e9%85%8d%e7%bd%ae></a></h2><blockquote><p>重启用进入kde桌面</p></blockquote><h3 id=配置aurhttpsgithubcomarchlinuxcnmirrorlist-repo><a href=https://github.com/archlinuxcn/mirrorlist-repo title=配置AUR rel="noopener external nofollow noreferrer" target=_blank class=exturl>配置AUR
+<i class="fa fa-external-link-alt"></i>
+</a><a class=header-anchor href=#%e9%85%8d%e7%bd%aeaurhttpsgithubcomarchlinuxcnmirrorlist-repo></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 添加AUR 在/etc/pacman.conf配置文件中添加AUR源</span>
+</span></span><span style=display:flex><span>vim /etc/pacman.conf
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 找到这一行并取消注释</span>
+</span></span><span style=display:flex><span>ParallelDownloads <span style=color:#f92672>=</span> <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 在/etc/pacman.conf文件中取消 VerbosePkgLists 的注释，软件更新时会更方便新旧版本对比</span>
+</span></span><span style=display:flex><span>VerbosePkgLists
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 去掉[multilib]一节中两行的注释，来开启 32 位库支持。</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># AUR仓库地址</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>archlinuxcn<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Server <span style=color:#f92672>=</span> https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 执行</span>
+</span></span><span style=display:flex><span>sudo pacman -Syyu archlinuxcn-keyring
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 如果无法安装：</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 如果报error: archlinuxcn-keyring: Signature from &#34;Jiachen YANG (Arch Linux Packager Signing Key) &lt;farseerfc@archlinux.org&gt;&#34; is marginal trust </span>
+</span></span><span style=display:flex><span>sudo pacman-key --lsign-key <span style=color:#e6db74>&#34;farseerfc@archlinux.org&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装yay管理AUR</span>
+</span></span><span style=display:flex><span>sudo pacman -S yay
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装程序时有可能报签名问题需要安装archlinux-keyring</span>
+</span></span><span style=display:flex><span>sudo pacman -Syu haveged
+</span></span><span style=display:flex><span>sudo systemctl start haveged
+</span></span><span style=display:flex><span>sudo systemctl enable haveged
+</span></span><span style=display:flex><span>sudo rm -fr /etc/pacman.d/gnupg
+</span></span><span style=display:flex><span>sudo pacman-key --init
+</span></span><span style=display:flex><span>sudo pacman-key --populate archlinux
+</span></span><span style=display:flex><span>sudo pacman-key --populate archlinuxcn
+</span></span><span style=display:flex><span><span style=color:#75715e># 然后重新安装</span>
+</span></span></code></pre></div><h3 id=安装驱动>安装驱动
+<a class=header-anchor href=#%e5%ae%89%e8%a3%85%e9%a9%b1%e5%8a%a8></a></h3><blockquote><p><font color=red>Intel驱动</font></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 安装intel驱动 vulkan 视频驱动</span>
+</span></span><span style=display:flex><span>yay -Syu mesa lib32-mesa vulkan-intel lib32-vulkan-intel intel-media-driver
+</span></span></code></pre></div></blockquote><blockquote><p><font color=red>AMD驱动</font></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 安装AMD驱动 基础 32位基础包	Vulkan 支持 32位Vulkan 支持 2D 加速</span>
+</span></span><span style=display:flex><span>yay -Syu mesa lib32-mesa vulkan-radeon lib32-vulkan-radeon xf86-video-amdgpu 
+</span></span></code></pre></div></blockquote><blockquote><p><font color=red>Nvidia显卡驱动</font></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 安装nvidia显卡驱动 nvidia基础 设置  工具 显卡切换 opencl支持 32位包 视频解码支持 32w</span>
+</span></span><span style=display:flex><span>yay -S nvidia nvidia-settings nvidia-utils nvidia-prime opencl-nvidia lib32-nvidia-utils mesa-vdpau ib32-mesa-vdpau
+</span></span></code></pre></div></blockquote><blockquote><p><font color=red>声卡驱动</font></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 安装声卡驱动</span>
+</span></span><span style=display:flex><span>yay -S pipewire pipewire-pulse pipewire-jack pipewire-alsa pavucontrol
+</span></span></code></pre></div></blockquote><blockquote><p>配置驱动加载</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 配置btrfs</span>
+</span></span><span style=display:flex><span>vi /etc/mkinitcpio.conf
+</span></span><span style=display:flex><span><span style=color:#75715e># 在文件查找MODULES添加btrfs nvidia模块</span>
+</span></span><span style=display:flex><span>MODULES <span style=color:#f92672>=</span> <span style=color:#f92672>(</span>btrfs nvidia<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 在文件查找BINARIES添加/usr/bin/btrfs</span>
+</span></span><span style=display:flex><span>BINARIES <span style=color:#f92672>(</span>/usr/bin/btrfs<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 在文件查找HOOKS更改</span>
+</span></span><span style=display:flex><span>HOOKS  <span style=color:#f92672>(</span>去掉fsck 添加 btrfs ）
+</span></span><span style=display:flex><span><span style=color:#75715e># 使其生效，注意看是否有报错</span>
+</span></span><span style=display:flex><span>sudo mkinitcpio -P
+</span></span></code></pre></div></blockquote><h3 id=更改中文>更改中文
+<a class=header-anchor href=#%e6%9b%b4%e6%94%b9%e4%b8%ad%e6%96%87></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 本地化设置：将文件中需要的en_US、zh_CN注释取消掉</span>
+</span></span><span style=display:flex><span>vi /etc/locale.gen
+</span></span><span style=display:flex><span><span style=color:#75715e># 执行命令</span>
+</span></span><span style=display:flex><span>locale-gen
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 设置语言，不建议zh_CN,中文可能会出现乱码</span>
+</span></span><span style=display:flex><span>echo <span style=color:#e6db74>&#34;LANG=en_US.UTF-8&#34;</span> &gt; /etc/locale.conf
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 在设置中配置中文</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># System Settings &gt; Regional Settings &gt; Language -&gt; 单机语言后面的按钮 -&gt; 选择简体中文加入 -&gt; 重启</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 如果出现大部分页面都是中文，而终端出现乱码则在～/.zshrc或～/.bashrc内首行加入以下：</span>
+</span></span><span style=display:flex><span>export LANG<span style=color:#f92672>=</span>zh_CN.UTF-8
+</span></span><span style=display:flex><span>export LANGUAGE<span style=color:#f92672>=</span>zh_CN:en_US
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装win字体</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 将win上C:/Windows/Fonts/中的字体复制到/usr/share/fonts/中，最好新建个文件夹</span>
+</span></span><span style=display:flex><span>sudo mkdir /usr/share/fonts/win-fonts
+</span></span><span style=display:flex><span><span style=color:#75715e># 进入C:/Windows/Fonts/进行复制</span>
+</span></span><span style=display:flex><span>cp ./* /usr/share/fonts/win-fonts
+</span></span><span style=display:flex><span><span style=color:#75715e>#执行命令 建立字体索引信息，更新字体缓存</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># sudo mkfontscale</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># sudo mkfontdir</span>
+</span></span><span style=display:flex><span>fc-cache -fv
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 双系统时间</span>
+</span></span><span style=display:flex><span>timedatectl set-ntp true
+</span></span><span style=display:flex><span><span style=color:#75715e># 如果不生效需要则执行下面命令</span>
+</span></span><span style=display:flex><span>timedatectl set-local-rtc <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><h3 id=修改grub>修改grub
+<a class=header-anchor href=#%e4%bf%ae%e6%94%b9grub></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># kate /etc/default/grub</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 开机直接进入系统，而没有grub界面（注释掉这一行）</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># GRUB_TIMEOUT_STYLE=hidden</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 修改界面等待时间（默认5）</span>
+</span></span><span style=display:flex><span>GRUB_TIMEOUT<span style=color:#f92672>=</span><span style=color:#ae81ff>10</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 记录上次的启动系统:取消注释(btrfs系统不适用),GRUB_DEFAULT</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># GRUB_DEFAULT配置：saved 自动记忆上次的系统；0 代表默认选中第一个</span>
+</span></span><span style=display:flex><span>GRUB_DEFAULT<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># GRUB_DEFAULT=saved		# (btrfs文件系统不适用）</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># GRUB_SAVEDEFAULT=true	# (btrfs文件系统不适用）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 去掉`GRUB_CMDLINE_LINUX_DEFAULT`一行中最后的 quiet 参数，同时把 loglevel 的数值从 3 改成 5。这样是为了后续如果出现系统错误，方便排错。同时在同一行加入 nowatchdog 参数，这可以显著提高开关机速度 ibt=off确保nvidia驱动可用</span>
+</span></span><span style=display:flex><span>GRUB_CMDLINE_LINUX_DEFAULT<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;loglevel=3 nowatchdog ibt=off&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 双系统识别；最后一行取消注释，如果没有则添加</span>
+</span></span><span style=display:flex><span>GRUB_DISABLE_OS_PROBER<span style=color:#f92672>=</span>false
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 更新grub</span>
+</span></span><span style=display:flex><span>sudo grub-mkconfig -o /boot/grub/grub.cfg
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 或执行</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># sudo update-grub</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 如果执行报错‘/usr/share/grub/grub-mkconfig_lib:  “$”：无效格式字符’</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># sudo LANG=C grub-mkconfig -o /boot/grub/grub.cfg</span>
+</span></span></code></pre></div><h3 id=开机挂载硬盘>开机挂载硬盘
+<a class=header-anchor href=#%e5%bc%80%e6%9c%ba%e6%8c%82%e8%bd%bd%e7%a1%ac%e7%9b%98></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e>#查看已挂载的磁盘，记住要开机挂在的文件系统名</span>
+</span></span><span style=display:flex><span>df -h
+</span></span><span style=display:flex><span><span style=color:#75715e>#查看文件系统名的uuid，记录uuid</span>
+</span></span><span style=display:flex><span>ls -l /dev/disk/by-uuid/ | grep sda1
+</span></span><span style=display:flex><span><span style=color:#75715e>#编辑/etc/fstab</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#如果需要自定义挂载点则需要提前建好挂载点的空文件夹，在文件最后添加</span>
+</span></span><span style=display:flex><span>UUID<span style=color:#f92672>=</span>查询的uuid 要挂在到的目录 ntfs defaults <span style=color:#ae81ff>0</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#UUID是刚刚查询出来的</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ntfs表示格式，小写</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#0 0表示开机不检查磁盘。</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#然后保存重启，查看</span>
+</span></span><span style=display:flex><span>df -h
+</span></span></code></pre></div><blockquote><p><font color=red>重启，保证界面是中文后再进行下面操作，否则可能会导致有些软件默认是英文</font></p></blockquote><hr><h2 id=基础包安装><em>基础包安装</em>
+<a class=header-anchor href=#%e5%9f%ba%e7%a1%80%e5%8c%85%e5%ae%89%e8%a3%85></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># 安装输入法</span>
+</span></span><span style=display:flex><span>yay -Syu fcitx5-im fcitx5-chinese-addons fcitx5-pinyin-moegirl fcitx5-pinyin-zhwiki
+</span></span><span style=display:flex><span><span style=color:#75715e># 则需要在/etc/environment中配置环境变量</span>
+</span></span><span style=display:flex><span>GTK_IM_MODULE<span style=color:#f92672>=</span>fcitx
+</span></span><span style=display:flex><span>QT_IM_MODULE<span style=color:#f92672>=</span>fcitx
+</span></span><span style=display:flex><span>XMODIFIERS<span style=color:#f92672>=</span>@im<span style=color:#f92672>=</span>fcitx
+</span></span><span style=display:flex><span>SDL_IM_MODULE<span style=color:#f92672>=</span>fcitx
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#ark压缩与dolphin同用右键解压</span>
+</span></span><span style=display:flex><span>yay -S ark p7zip unrar unarchiver lzop lrzip
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#确保Discover(软件中心）可用 图片查看器 kde分区管理工具 kde科学计算器</span>
+</span></span><span style=display:flex><span>yay -S packagekit-qt5 gwenview partitionmanager kcalc
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#安装常用的火狐、谷歌浏览器 博客 视频播放器 </span>
+</span></span><span style=display:flex><span>yay -S firefox hugo mpv 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># wps</span>
+</span></span><span style=display:flex><span>yay -Syu wps-office ttf-wps-fonts  ttf-ms-fonts wps-office-fonts wps-office-mui-zh-cn
+</span></span><span style=display:flex><span><span style=color:#75715e># 解决wpspdf无法打开</span>
+</span></span><span style=display:flex><span>yay -S libtiff5
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 安卓和kde桌面连接 远程手机文件系统</span>
+</span></span><span style=display:flex><span>yay -S kdeconnect sshfs
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 开启自动登陆可用kwalletmanager将钱包密码置空（可选）</span>
+</span></span><span style=display:flex><span>yay -S kwalletmanager
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 截图软件</span>
+</span></span><span style=display:flex><span>yay -S flameshot
+</span></span><span style=display:flex><span><span style=color:#75715e># 可配置快捷键命令</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 普通截图</span>
+</span></span><span style=display:flex><span>flameshot gui
+</span></span><span style=display:flex><span><span style=color:#75715e># 延迟2秒截图，适合截取鼠标悬停的提示信息</span>
+</span></span><span style=display:flex><span>flameshot gui -d <span style=color:#ae81ff>2000</span>
+</span></span></code></pre></div><hr><h3 id=oh-my-zsh>oh-my-zsh
+<a class=header-anchor href=#oh-my-zsh></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 将oh-my-zsh下载至本地home目录 将文件夹内~/.oh-my-zsh/templates/下的文件复制为~/.zshrc文件自行配置</span>
+</span></span><span style=display:flex><span>git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Powerlevel10k主题</span>
+</span></span><span style=display:flex><span>git clone --depth<span style=color:#f92672>=</span><span style=color:#ae81ff>1</span> https://github.com/romkatv/powerlevel10k.git <span style=color:#e6db74>${</span>ZSH_CUSTOM<span style=color:#66d9ef>:-</span>$HOME/.oh-my-zsh/custom<span style=color:#e6db74>}</span>/themes/powerlevel10k
+</span></span><span style=display:flex><span><span style=color:#75715e># 将.zshrc文件中的主题改掉</span>
+</span></span><span style=display:flex><span>ZSH_THEME<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;powerlevel10k/powerlevel10k&#34;</span> 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># zsh-syntax-highlighting</span>
+</span></span><span style=display:flex><span>git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span style=color:#e6db74>${</span>ZSH_CUSTOM<span style=color:#66d9ef>:-</span>~/.oh-my-zsh/custom<span style=color:#e6db74>}</span>/plugins/zsh-syntax-highlighting
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># zsh-autosuggestions</span>
+</span></span><span style=display:flex><span>git clone https://github.com/zsh-users/zsh-autosuggestions <span style=color:#e6db74>${</span>ZSH_CUSTOM<span style=color:#66d9ef>:-</span>~/.oh-my-zsh/custom<span style=color:#e6db74>}</span>/plugins/zsh-autosuggestions
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 在.zshrc中启用插件</span>
+</span></span><span style=display:flex><span>plugins<span style=color:#f92672>=(</span>
+</span></span><span style=display:flex><span>    zsh-autosuggestions
+</span></span><span style=display:flex><span>    zsh-syntax-highlighting
+</span></span><span style=display:flex><span><span style=color:#f92672>)</span>
+</span></span></code></pre></div><h3 id=neovim>neovim
+<a class=header-anchor href=#neovim></a></h3><blockquote><p>新建配置文件：~/.config/nvim/init.vim</p></blockquote><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#e6db74>&#34; vim配置文件
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span>--------------------------
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 开启代码高亮
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>syntax on
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> 开启行号显示
+</span></span><span style=display:flex><span>set number
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 启用鼠标
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>set mouse=a
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> tab键的宽度
+</span></span><span style=display:flex><span>set tabstop<span style=color:#f92672>=</span><span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 匹配括号高亮的时间（单位是十分之一秒）
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>set matchtime=5
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> 行号突出显示
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 取消可以在单词前加no
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>set relativenumber
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> 正在编辑的一行显示编辑线
+</span></span><span style=display:flex><span>set cursorline
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 编辑时文字不会超出编辑区
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>set wrap
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> vim命令模式下tab键提示
+</span></span><span style=display:flex><span>set wildmenu
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 高亮搜索内容
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>set hlsearch
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> 正在搜索输入内容便会高亮显示
+</span></span><span style=display:flex><span>set incsearch
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 搜索时忽略大小写
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>set ignorecase
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> 搜索时智能识别大小写
+</span></span><span style=display:flex><span>set smartcase
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; vim与系统剪切板共享
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>set clipboard=unnamedplus
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> 插件安装
+</span></span><span style=display:flex><span>call plug#begin<span style=color:#f92672>(</span><span style=color:#e6db74>&#39;~/.config/nvim/plugged&#39;</span><span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; Plug &#39;插件名或者git路径&#39;获取获取插件
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> PlugInstall <span style=color:#f92672>[</span>name ...<span style=color:#f92672>]</span> <span style=color:#f92672>[</span><span style=color:#75715e>#threads] 安装插件</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; PlugUpdate [name ...] [#threads] 安装或者更新插件
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> PlugClean<span style=color:#f92672>[</span>!<span style=color:#f92672>]</span> 删除没有列出的插件
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; PlugUpgrade 升级 vim-plug
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> PlugStatus 检查插件状态
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; -------------------------------
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> markdown预览（需要nodejs和yarn<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>Plug <span style=color:#e6db74>&#39;iamcco/markdown-preview.nvim&#39;</span>, <span style=color:#f92672>{</span> <span style=color:#e6db74>&#39;do&#39;</span>: <span style=color:#e6db74>&#39;cd app &amp;&amp; yarn install&#39;</span> <span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 状态栏主题
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>Plug &#39;vim-airline/vim-airline&#39;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span> ---------------------------
+</span></span><span style=display:flex><span><span style=color:#e6db74>&#34; 插件安装结束
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>call plug#end()
+</span></span></span></code></pre></div><h3 id=jdkmaven>JDK、Maven
+<a class=header-anchor href=#jdkmaven></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 解压安装包 路径根据自己需求调整</span>
+</span></span><span style=display:flex><span>sudo tar -zxvf ./jdk1.8 -C /opt
+</span></span><span style=display:flex><span>sudo tar -zxvf ./maven -C /opt
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 添加环境变量/etc/profile</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># JDK</span>
+</span></span><span style=display:flex><span>export JAVA_HOME<span style=color:#f92672>=</span>/opt/jdk1.8.0_351/
+</span></span><span style=display:flex><span>export JRE_HOME<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>JAVA_HOME<span style=color:#e6db74>}</span>/jre
+</span></span><span style=display:flex><span>export CLASSPATH<span style=color:#f92672>=</span>.:<span style=color:#e6db74>${</span>JAVA_HOME<span style=color:#e6db74>}</span>/lib:<span style=color:#e6db74>${</span>JRE_HOME<span style=color:#e6db74>}</span>/lib
+</span></span><span style=display:flex><span>export PATH<span style=color:#f92672>=</span><span style=color:#e6db74>${</span>JAVA_HOME<span style=color:#e6db74>}</span>/bin:$PATH
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># MAVEN</span>
+</span></span><span style=display:flex><span>export MAVEN_HOME<span style=color:#f92672>=</span>/opt/apache-maven-3.6.3/
+</span></span><span style=display:flex><span>export PATH<span style=color:#f92672>=</span>$MAVEN_HOME/bin:$PATH
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 刷新环境变量（只应用于当前窗口）</span>
+</span></span><span style=display:flex><span>source /etc/profile
+</span></span><span style=display:flex><span><span style=color:#75715e>#查看版本</span>
+</span></span><span style=display:flex><span>mvn -v
+</span></span></code></pre></div><h3 id=redismariadb>redis、mariadb
+<a class=header-anchor href=#redismariadb></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 执行命令安装redis</span>
+</span></span><span style=display:flex><span>sudo pacman -Syu redis
+</span></span><span style=display:flex><span><span style=color:#75715e># 局域网连接：编辑/etc/redis/redis.conf配置文件</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 1.注释掉 bind 127.0.0.1 可以使所有的ip访问redis</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 2.在redis3.2之后，redis增加了protected-mode，默认开启，需要关闭，protected-mode no</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 执行命令安装mariadb</span>
+</span></span><span style=display:flex><span>sudo pacman -Syu mariadb
+</span></span><span style=display:flex><span><span style=color:#75715e># 安装完成后根据提示执行命令（此部分会在终端提示）</span>
+</span></span><span style=display:flex><span>sudo mariadb-install-db --user<span style=color:#f92672>=</span>mysql --basedir<span style=color:#f92672>=</span>/usr --datadir<span style=color:#f92672>=</span>/var/lib/mysql
+</span></span><span style=display:flex><span><span style=color:#75715e># 切换root</span>
+</span></span><span style=display:flex><span>su
+</span></span><span style=display:flex><span><span style=color:#75715e># 启动服务</span>
+</span></span><span style=display:flex><span>systemctl start mariadb
+</span></span><span style=display:flex><span><span style=color:#75715e># 进入mariadb</span>
+</span></span><span style=display:flex><span>mysql -uroot
+</span></span><span style=display:flex><span><span style=color:#75715e># 创建一个密码为空的用户lv</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># IDENTIFIED BY后面跟密码，&#39;&#39;表示没有密码</span>
+</span></span><span style=display:flex><span>MariaDB <span style=color:#f92672>[(</span>none<span style=color:#f92672>)]</span>&gt; CREATE USER <span style=color:#e6db74>&#39;lv&#39;</span>@<span style=color:#e6db74>&#39;localhost&#39;</span> IDENTIFIED BY <span style=color:#e6db74>&#39;&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e># 给用户&#39;lv&#39;@&#39;localhost&#39;所有的权限</span>
+</span></span><span style=display:flex><span>MariaDB <span style=color:#f92672>[(</span>none<span style=color:#f92672>)]</span>&gt; GRANT ALL PRIVILEGES ON *.* TO <span style=color:#e6db74>&#39;lv&#39;</span>@<span style=color:#e6db74>&#39;localhost&#39;</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 先创建lv@&#39;%&#39;这个远程用户访问权限</span>
+</span></span><span style=display:flex><span>MariaDB <span style=color:#f92672>[(</span>none<span style=color:#f92672>)]</span>&gt; CREATE USER <span style=color:#e6db74>&#39;lv&#39;</span>@<span style=color:#e6db74>&#39;%&#39;</span> IDENTIFIED BY <span style=color:#e6db74>&#39;&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e># 配置允许访问的用户，采用授权的方式给用户权限</span>
+</span></span><span style=display:flex><span>MariaDB <span style=color:#f92672>[(</span>none<span style=color:#f92672>)]</span>&gt; GRANT ALL PRIVILEGES ON *.* TO <span style=color:#e6db74>&#39;lv&#39;</span>@<span style=color:#e6db74>&#39;%&#39;</span> IDENTIFIED BY <span style=color:#e6db74>&#39;&#39;</span> WITH GRANT OPTION;
+</span></span><span style=display:flex><span><span style=color:#75715e># 注：&#39;lv&#39;@&#39;%&#39;是登陆数据库的用户，IDENTIFIED BY 后面是登陆数据库的密码，*就是意味着任何来源任何主机</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 取消用户权限</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># MariaDB [(none)]&gt; revoke all privileges on *.* from fdgl@%;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 刷新使之生效</span>
+</span></span><span style=display:flex><span>MariaDB <span style=color:#f92672>[(</span>none<span style=color:#f92672>)]</span>&gt; FLUSH PRIVILEGES;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 修改密码</span>
+</span></span><span style=display:flex><span>ALTER USER <span style=color:#e6db74>&#39;root&#39;</span>@<span style=color:#e6db74>&#39;localhost&#39;</span> IDENTIFIED by <span style=color:#e6db74>&#39;root&#39;</span>;
+</span></span><span style=display:flex><span>FLUSH PRIVILEGES;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 数据库工具Navicat无限重置时间</span>
+</span></span><span style=display:flex><span>rm -rf ~/.config/navicat/Premium/preferences.json
+</span></span><span style=display:flex><span>rm -rf ~/.config/dconf/user
+</span></span></code></pre></div><h3 id=快捷方式>快捷方式
+<a class=header-anchor href=#%e5%bf%ab%e6%8d%b7%e6%96%b9%e5%bc%8f></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 创建文件夹</span>
+</span></span><span style=display:flex><span>mkdir /home/lv/.local/share/applications
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 创建.desktop后缀文件</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>[</span>Desktop Entry<span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span>Encoding<span style=color:#f92672>=</span>UTF-8
+</span></span><span style=display:flex><span><span style=color:#75715e># 版本号</span>
+</span></span><span style=display:flex><span>Version<span style=color:#f92672>=</span>1.0
+</span></span><span style=display:flex><span><span style=color:#75715e># 名字</span>
+</span></span><span style=display:flex><span>Name<span style=color:#f92672>=</span>yEd
+</span></span><span style=display:flex><span>Name<span style=color:#f92672>[</span>zh_CN<span style=color:#f92672>]=</span>中文
+</span></span><span style=display:flex><span><span style=color:#75715e># 通用名字</span>
+</span></span><span style=display:flex><span>GenericName<span style=color:#f92672>=</span>GUI Port Scanner
+</span></span><span style=display:flex><span>GenericName<span style=color:#f92672>[</span>zh_CN<span style=color:#f92672>]=</span>中文通用名
+</span></span><span style=display:flex><span><span style=color:#75715e># 应用启动路径</span>
+</span></span><span style=display:flex><span>Exec<span style=color:#f92672>=</span>java -jar /opt/yed-3.11.1/yed.jar
+</span></span><span style=display:flex><span><span style=color:#75715e># 是否在终端运行</span>
+</span></span><span style=display:flex><span>Terminal<span style=color:#f92672>=</span>false
+</span></span><span style=display:flex><span><span style=color:#75715e># 图标路径</span>
+</span></span><span style=display:flex><span>Icon<span style=color:#f92672>=</span>/opt/yed-3.11.1/icons/yicon32.png
+</span></span><span style=display:flex><span><span style=color:#75715e># 类型</span>
+</span></span><span style=display:flex><span>Type<span style=color:#f92672>=</span>Application
+</span></span><span style=display:flex><span><span style=color:#75715e># 应用所属类别，会根据这个在菜单中分类</span>
+</span></span><span style=display:flex><span>Categories<span style=color:#f92672>=</span>Qt;KDE;Utility;TextEditor;Development;Network;
+</span></span><span style=display:flex><span><span style=color:#75715e># 详细描述</span>
+</span></span><span style=display:flex><span>Comment<span style=color:#f92672>=</span>yEd Graph Editor
+</span></span><span style=display:flex><span><span style=color:#75715e>#关键字</span>
+</span></span><span style=display:flex><span>Keywords<span style=color:#f92672>=</span>搜索关键字
+</span></span></code></pre></div><h3 id=ssh>ssh
+<a class=header-anchor href=#ssh></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># ssh 用户名@IP -p 端口号</span>
+</span></span><span style=display:flex><span>ssh root@127.0.0.1 -p <span style=color:#ae81ff>22</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># sshpass</span>
+</span></span><span style=display:flex><span>yay -S sshpass
+</span></span><span style=display:flex><span><span style=color:#75715e># sshpass -p 密码 ssh 用户名@IP -p 端口号（需要先在控制台执行一次后才能在.zshrc中创建别名）</span>
+</span></span><span style=display:flex><span>sshpass -p <span style=color:#e6db74>&#39;root&#39;</span> ssh root@127.0.0.1 -p <span style=color:#ae81ff>22</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 连接并执行命令</span>
+</span></span><span style=display:flex><span>sshpass -p <span style=color:#e6db74>&#39;R0ck9&#39;</span> ssh -t secadmin@192.168.1.110 <span style=color:#e6db74>&#39;cd /opt/iot/monitor-xunshi &amp;&amp; su &amp;&amp; exec $SHELL&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -------------------------------------------------------------</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># dolphin中连接sftp，需要先在dolphin地址栏连接上一次（直接输入ip），然后再配`网络文件夹`</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 插件</span>
+</span></span><span style=display:flex><span>dolphin-plugins	<span style=color:#75715e># 提供git/svn等版本管理功能</span>
+</span></span></code></pre></div><h3 id=ideadatagrip>IDEA、DataGrip
+<a class=header-anchor href=#ideadatagrip></a></h3><p><a href=https://33tool.com/idea/ title=参考1 rel="noopener external nofollow noreferrer" target=_blank class=exturl>参考1
+<i class="fa fa-external-link-alt"></i>
+</a>、
+<a href=https://www.exception.site/ title=参考2 rel="noopener external nofollow noreferrer" target=_blank class=exturl>参考2
+<i class="fa fa-external-link-alt"></i>
+</a>、
+<a href=https://3.jetbra.in/ title=参考3 rel="noopener external nofollow noreferrer" target=_blank class=exturl>参考3
+<i class="fa fa-external-link-alt"></i></a></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 参考3中的文件需要配合使用</span>
+</span></span><span style=display:flex><span>kate /etc/profile
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#文件中添加 -- 路径参考实际的文件存放路径</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># jetbrains</span>
+</span></span><span style=display:flex><span>export DATAGRIP_VM_OPTIONS<span style=color:#f92672>=</span>/opt/jetbra/vmoptions/datagrip.vmoptions
+</span></span><span style=display:flex><span>export IDEA_VM_OPTIONS<span style=color:#f92672>=</span>/opt/jetbra/vmoptions/idea.vmoptions
+</span></span><span style=display:flex><span>export JETBRAINS_CLIENT_VM_OPTIONS<span style=color:#f92672>=</span>/opt/jetbra/vmoptions/jetbrains_client.vmoptions
+</span></span><span style=display:flex><span>export JETBRAINSCLIENT_VM_OPTIONS<span style=color:#f92672>=</span>/opt/jetbra/vmoptions/jetbrainsclient.vmoptions
+</span></span></code></pre></div><h3 id=pacman>pacman
+<a class=header-anchor href=#pacman></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 清除无用包</span>
+</span></span><span style=display:flex><span>sudo pacman -Rns <span style=color:#66d9ef>$(</span>pacman -Qdtq<span style=color:#66d9ef>)</span> <span style=color:#75715e># 删除孤立软件包</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sudo pacman -S package_name     <span style=color:#75715e># 安装软件包</span>
+</span></span><span style=display:flex><span>sudo pacman -Syyu               <span style=color:#75715e># 升级系统 yy标记强制刷新 u标记升级动作</span>
+</span></span><span style=display:flex><span>sudo pacman -R package_name     <span style=color:#75715e># 删除软件包</span>
+</span></span><span style=display:flex><span>sudo pacman -Rs package_name    <span style=color:#75715e># 删除软件包，及其所有没有被其他已安装软件包使用的依赖包</span>
+</span></span><span style=display:flex><span>sudo pacman -Rn package_name	<span style=color:#75715e># 删除包,依赖和配置文件</span>
+</span></span><span style=display:flex><span>sudo pacman -Qdt                <span style=color:#75715e># 找出孤立包 Q为查询本地软件包数据库 d标记依赖包 t标记不需要的包 dt合并标记孤立包</span>
+</span></span><span style=display:flex><span>sudo pacman -Fy                 <span style=color:#75715e># 更新命令查询文件列表数据库</span>
+</span></span><span style=display:flex><span>sudo pacman -F xxx              <span style=color:#75715e># 当不知道某个命令属于哪个包时，用来查询某个xxx命令属于哪个包</span>
+</span></span><span style=display:flex><span>pacman -Ss string1				<span style=color:#75715e># 查询服务器上的包</span>
+</span></span><span style=display:flex><span>pacman -Si package_name			<span style=color:#75715e># 查询服务器上的包的详细内容</span>
+</span></span><span style=display:flex><span>pacman -Qs string1 				<span style=color:#75715e># 查询本地包</span>
+</span></span><span style=display:flex><span>pacman -Qi string1 				<span style=color:#75715e># 查询本地包的详细内容</span>
+</span></span><span style=display:flex><span>pacman -Ql package_name			<span style=color:#75715e># 查询已安装软件包所包含文件的列表</span>
+</span></span><span style=display:flex><span>sudo pacman -Sc					<span style=color:#75715e># 要删除目前没有安装的所有缓存的包，和没有被使用的同步数据库</span>
+</span></span><span style=display:flex><span>sudo pacman -Scc 				<span style=color:#75715e># 要删除缓存中的全部文件，使用两次-c开关。这是最为激进的方式，将会清空缓存文件夹</span>
+</span></span><span style=display:flex><span>pacman -Sw package_name			<span style=color:#75715e># 下载包而不安装它</span>
+</span></span><span style=display:flex><span>sudo pacman -U /package_name-version.pkg.tar.zst	<span style=color:#75715e># 安装一个本地包(不从源里下载）</span>
+</span></span><span style=display:flex><span>IgnorePkg<span style=color:#f92672>=</span>linux					<span style=color:#75715e># 想在升级系统时跳过特定的软件包,多软件包可以用空格隔开,如果只打算忽略一次升级，可以使用 --ignore 选项</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#改变shell</span>
+</span></span><span style=display:flex><span>chsh -s /bin/zsh
+</span></span></code></pre></div><hr><h3 id=span-id全局菜单安装kde设置span下载窗口脚本失败下载kwin窗口脚本失败处理><span id=全局菜单安装>kde设置</span>
+<a href=#%e4%b8%8b%e8%bd%bdkwin%e7%aa%97%e5%8f%a3%e8%84%9a%e6%9c%ac%e5%a4%b1%e8%b4%a5%e5%a4%84%e7%90%86 title=^下载窗口脚本失败^>^下载窗口脚本失败^
+</a><a class=header-anchor href=#span-id%e5%85%a8%e5%b1%80%e8%8f%9c%e5%8d%95%e5%ae%89%e8%a3%85kde%e8%ae%be%e7%bd%aespan%e4%b8%8b%e8%bd%bd%e7%aa%97%e5%8f%a3%e8%84%9a%e6%9c%ac%e5%a4%b1%e8%b4%a5%e4%b8%8b%e8%bd%bdkwin%e7%aa%97%e5%8f%a3%e8%84%9a%e6%9c%ac%e5%a4%b1%e8%b4%a5%e5%a4%84%e7%90%86></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 下载 全局菜单  最大化按钮 applet-window-buttons-git</span>
+</span></span><span style=display:flex><span>yay -Syu applet-window-appmenu-git
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 最大化隐藏窗口标题栏</span>
+</span></span><span style=display:flex><span><span style=color:#e6db74>`</span>/home/lv/.config/kwinrc<span style=color:#e6db74>`</span>文件中找到<span style=color:#e6db74>`</span><span style=color:#f92672>[</span>Windows<span style=color:#f92672>]</span><span style=color:#e6db74>`</span>标签：BorderlessMaximizedWindows<span style=color:#f92672>=</span>true
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 在面板中添加控制按钮 下载挂件`Active Window Control` `window title applet`</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># vscode菜单》》设置》》搜索Title Bar Style改为custom</span>
+</span></span></code></pre></div><hr><h2 id=可能遇到的问题><em>可能遇到的问题</em>
+<a class=header-anchor href=#%e5%8f%af%e8%83%bd%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98></a></h2><hr><h3 id=解压中文乱码>解压中文乱码
+<a class=header-anchor href=#%e8%a7%a3%e5%8e%8b%e4%b8%ad%e6%96%87%e4%b9%b1%e7%a0%81></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 使用unar解压</span>
+</span></span><span style=display:flex><span>sudo pacman -Syu unarchiver
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>unar -e cp936 ./xx.zip
+</span></span></code></pre></div><h3 id=深度日历安装>深度日历安装
+<a class=header-anchor href=#%e6%b7%b1%e5%ba%a6%e6%97%a5%e5%8e%86%e5%ae%89%e8%a3%85></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 安装</span>
+</span></span><span style=display:flex><span>yay -Syu deepin-calendar
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 如果无法启动则在控制台输入命令查看是否有报错</span>
+</span></span><span style=display:flex><span>dde-calendar
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 如果报错：</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># dde-calendar: error while loading shared libraries: libdframeworkdbus.so.2: cannot open shared object file: No such file or directory</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 则安装community/deepin-qt-dbus-factory依赖库</span>
+</span></span><span style=display:flex><span>yay -Syu deepin-qt-dbus-factory
+</span></span></code></pre></div><h3 id=span-id下载kwin窗口脚本失败处理kde桌面下载kwin窗口脚本失败span全局菜单全局菜单安装><span id=下载kwin窗口脚本失败处理>kde桌面下载kwin窗口脚本失败</span>
+<a href=#%e5%85%a8%e5%b1%80%e8%8f%9c%e5%8d%95%e5%ae%89%e8%a3%85 title=^全局菜单^>^全局菜单^
+</a><a class=header-anchor href=#span-id%e4%b8%8b%e8%bd%bdkwin%e7%aa%97%e5%8f%a3%e8%84%9a%e6%9c%ac%e5%a4%b1%e8%b4%a5%e5%a4%84%e7%90%86kde%e6%a1%8c%e9%9d%a2%e4%b8%8b%e8%bd%bdkwin%e7%aa%97%e5%8f%a3%e8%84%9a%e6%9c%ac%e5%a4%b1%e8%b4%a5span%e5%85%a8%e5%b1%80%e8%8f%9c%e5%8d%95%e5%85%a8%e5%b1%80%e8%8f%9c%e5%8d%95%e5%ae%89%e8%a3%85></a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 删除文件</span>
+</span></span><span style=display:flex><span>rm ~/.config/Trolltech.conf
+</span></span><span style=display:flex><span><span style=color:#75715e># 执行命令</span>
+</span></span><span style=display:flex><span>kbuildsycoca5 --noincremental
+</span></span><span style=display:flex><span><span style=color:#75715e>#重启</span>
+</span></span></code></pre></div></div><footer class=post-footer><div class=post-tags><a href=/tags/arch>Arch</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知识><ul><li class=post-copyright-title><strong>文章标题：</strong>
+ArchLinux安装</li><li class=post-copyright-author><strong>本文作者： </strong>brandyKK</li><li class=post-copyright-link><strong>本文链接：</strong>
+<a id=post-cr-link href=https://brandykk.github.io/post/linux/archlinux%E5%AE%89%E8%A3%85/ title=ArchLinux安装>https://brandykk.github.io/post/linux/archlinux%E5%AE%89%E8%A3%85/</a></li><li class=post-copyright-license><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/linux/%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%81%E4%B9%A6%E7%94%9F%E6%88%90%E8%AF%B4%E6%98%8E/ rel=next title=服务器证书生成说明><i class="fa fa-chevron-left"></i> 服务器证书生成说明</a></div><div class="post-nav-prev post-nav-item"><a href=/post/%E7%BC%96%E7%A8%8B/tool/docker/ rel=prev title=docker>docker
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2024
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>brandyKK</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.123.7 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.5.3 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":true,"giscus":{"cfg":{"category":"Comments","categoryid":null,"emit":false,"inputposition":"top","mapping":"title","reactions":false,"repo":"username/repo-name","repoid":null,"theme":"preferred_color_scheme"},"js":"https://giscus.app/client.js"},"hostname":"https://brandykk.github.io/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":true,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":false,"plugin":"busuanzi"}},"root":"/","scheme":"Gemini","sidebar":{"display":"hide","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.5.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":true,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.13.0"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.13.0"}}}</script><script type=text/javascript src=/js/main.min.11d6c39ce43fcb97ea816ea2c136c17f188cacbba49ae066e747ea0f71b633a0.js defer></script><script type=text/javascript src=/js/math.min.a6ada19a368d85dad9ead2040d86ae561a867fafef89391d1aa2aa5909366509.js defer></script></body></html>

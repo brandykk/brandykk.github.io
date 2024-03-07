@@ -1,0 +1,127 @@
+<!doctype html><html lang=zh-CN data-theme=dark><head><meta charset=UTF-8><meta name=viewport content="width=device-width"><meta name=theme-color content="#222" media="(prefers-color-scheme: dark)"><meta name=generator content="Hugo 0.123.7"><link rel="shortcut icon" type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/x-icon href=/imgs/icons/favicon.ico><link rel=icon type=image/png sizes=16x16 href=/imgs/icons/favicon_16x16_next.png><link rel=icon type=image/png sizes=32x32 href=/imgs/icons/favicon_32_32_next.png><link rel=apple-touch-icon sizes=180x180 href=/imgs/icons/apple_touch_icon_next.png><meta itemprop=name content="docker"><meta itemprop=description content="docker使用"><meta itemprop=datePublished zgotmplz><meta itemprop=dateModified zgotmplz><meta itemprop=image content="https://brandykk.github.io/imgs/hugo_next_avatar.png"><meta itemprop=keywords content="docker"><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/font-awesome/6.1.2/css/all.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/animate.css/3.1.1/animate.min.css><link type=text/css rel=stylesheet href=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.css><link rel=stylesheet href=/css/main.min.85e230b4b7002592c787b8b9d6c88a3d6a5da0e394813dfbc5fcac2cdee04602.css><script type=text/javascript>(function(){localDB={set:function(e,t,n){if(n===0)return;const s=new Date,o=n*864e5,i={value:t,expiry:s.getTime()+o};localStorage.setItem(e,JSON.stringify(i))},get:function(e){const t=localStorage.getItem(e);if(!t)return void 0;const n=JSON.parse(t),s=new Date;return s.getTime()>n.expiry?(localStorage.removeItem(e),void 0):n.value}},theme={active:function(){const e=localDB.get("theme");if(e==null)return;theme.toggle(e),window.matchMedia("(prefers-color-scheme: dark)").addListener(function(e){theme.toggle(e.matches?"dark":"light")})},toggle:function(e){document.documentElement.setAttribute("data-theme",e),localDB.set("theme",e,2);const t=document.querySelector("iframe.giscus-frame");if(t){const n={setConfig:{theme:e}};t.contentWindow.postMessage({giscus:n},"https://giscus.app")}}},theme.active()})(window)</script><script class=next-config data-name=page type=application/json>{"comments":false,"isHome":false,"isPage":true,"math":{"js":{"file":"es5/tex-mml-chtml.js","name":"mathjax","version":"3.2.0"},"render":"mathjax"},"mermaid":{"js":{"file":"dist/mermaid.min.js","name":"mermaid","version":"9.1.7"}},"path":"docker","permalink":"https://brandykk.github.io/post/%E7%BC%96%E7%A8%8B/tool/docker/","title":"docker","waline":{"js":[{"alias":"waline","alias_name":"@waline/client","file":"dist/pageview.js","name":"pageview","version":"2.13.0"},{"alias":"waline","alias_name":"@waline/client","file":"dist/comment.js","name":"comment","version":"2.13.0"}]}}</script><script type=text/javascript>document.addEventListener("DOMContentLoaded",()=>{var e=document.createElement("script");e.charset="UTF-8",e.src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js",e.async=!1,e.defer=!0,document.head.appendChild(e),e.onload=function(){NexT.utils.fmtBusuanzi()}})</script><title>docker - BrandyKK</title><noscript><link rel=stylesheet href=/css/noscript.css></noscript></head><body itemscope itemtype=http://schema.org/WebPage class=use-motion><div class=headband></div><main class=main><header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-container><div class=site-nav-toggle><div class=toggle aria-label role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div></div><div class=site-meta><a href=/ class=brand rel=start><i class=logo-line></i><h1 class=site-title>BrandyKK</h1><i class=logo-line></i></a><p class=site-subtitle itemprop=description>简单记录小博客</p></div><div class=site-nav-right><div class="toggle popup-trigger"><i class="fa fa-search fa-fw fa-lg"></i></div></div></div><nav class=site-nav><ul class="main-menu menu"><li class="menu-item menu-item-home"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-home hvr-icon"></i>首页</a></li><li class="menu-item menu-item-about"><a href=/about/ class=hvr-icon-pulse rel=section><i class="fa fa-user hvr-icon"></i>关于</a></li><li class="menu-item menu-item-archives"><a href=/ class=hvr-icon-pulse rel=section><i class="fa fa-archive hvr-icon"></i>归档
+<span class=badge>22</span></a></li><li class="menu-item menu-item-search"><a role=button class="popup-trigger hvr-icon-pulse"><i class="fa fa-search fa-fw hvr-icon"></i>搜索</a></li></ul></nav><div class=search-pop-overlay><div class="popup search-popup"><div class=search-header><span class=search-icon><i class="fa fa-search"></i></span><div class=search-input-container><input autocomplete=off autocapitalize=off maxlength=80 placeholder=搜索... spellcheck=false type=search class=search-input></div><span class=popup-btn-close role=button><i class="fa fa-times-circle"></i></span></div><div class="search-result-container no-result"><div class=search-result-icon><i class="fa fa-spinner fa-pulse fa-5x"></i></div></div></div></div></div><div class="toggle sidebar-toggle" role=button><span class=toggle-line></span>
+<span class=toggle-line></span>
+<span class=toggle-line></span></div><aside class=sidebar><div class="sidebar-inner sidebar-nav-active sidebar-toc-active"><ul class=sidebar-nav><li class=sidebar-nav-toc>文章目录</li><li class=sidebar-nav-overview>站点概览</li></ul><div class=sidebar-panel-container><div class="post-toc-wrap sidebar-panel"><div class="post-toc animated"><nav id=TableOfContents><ul><li><a href=#docker下载>Docker下载</a></li><li><a href=#docker运行>Docker运行</a></li><li><a href=#docker基础使用>Docker基础使用</a></li><li><a href=#docker-compose>Docker-Compose</a></li><li><a href=#redis>redis</a></li></ul></nav></div></div><div class="site-overview-wrap sidebar-panel"><div class="site-author site-overview-item animated" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image alt=brandyKK src=/imgs/img-lazy-loading.gif data-src=/imgs/hugo_next_avatar.png><p class=site-author-name itemprop=name>brandyKK</p><div class=site-description itemprop=description>个人简单记录一些文档</div></div><div class="site-state-wrap site-overview-item animated"><nav class=site-state><div class="site-state-item site-state-posts"><a href=/archives/><span class=site-state-item-count>22</span>
+<span class=site-state-item-name>日志</span></a></div><div class="site-state-item site-state-categories"><a href=/categories/><span class=site-state-item-count>3</span>
+<span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/><span class=site-state-item-count>8</span>
+<span class=site-state-item-name>标签</span></a></div></nav></div><div class="links-of-social site-overview-item animated"></div><div class="cc-license animated" itemprop=license><a href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh class=cc-opacity rel=noopener target=_blank title=共享知识><img src=/imgs/img-lazy-loading.gif data-src=/imgs/cc/big/by_nc_sa.svg alt=共享知识></a></div><div class="links-of-blogroll site-overview-item animated"><div class=links-of-blogroll-title><i class="fa fa-globe fa-fw"></i>
+友情链接</div><ul class=links-of-blogroll-list><li class=links-of-blogroll-item><a href=https://gitee.com/hugo-next/hugo-theme-next title=https://gitee.com/hugo-next/hugo-theme-next target=_blank>Hugo-NexT</a></li></ul></div></div></div></div></aside><div class=sidebar-dimmer></div></header><div class=tool-buttons><div id=goto-gtranslate class=button title=多语言翻译><i class="fas fa-globe"></i></div><div id=toggle-theme class=button title=深浅模式切换><i class="fas fa-adjust"></i></div><div class=back-to-top role=button title=返回顶部><i class="fa fa-arrow-up"></i>
+<span>0%</span></div></div><div class=reading-progress-bar></div><a role=button class="book-mark-link book-mark-link-fixed"></a><noscript><div class=noscript-warning>Theme NexT works best with JavaScript enabled</div></noscript><div class="main-inner post posts-expand"><div class=post-block><article itemscope itemtype=http://schema.org/Article class=post-content lang><link itemprop=mainEntityOfPage href=https://brandykk.github.io/post/%E7%BC%96%E7%A8%8B/tool/docker/><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=image content="/imgs/hugo_next_avatar.png"><meta itemprop=name content="brandyKK"></span><span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content="brandyKK"><meta itemprop=description content="个人简单记录一些文档"></span><span hidden itemprop=post itemscope itemtype=http://schema.org/CreativeWork><meta itemprop=name content="docker"><meta itemprop=description content="docker使用"></span><header class=post-header><h1 class=post-title itemprop="name headline">docker</h1><div class=post-meta-container><div class=post-meta-items><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-calendar"></i>
+</span><span class=post-meta-item-text title=发表于>发表于：
+</span><time title="创建时间：2024-03-07 14:40:15 +0800 CST" itemprop="dateCreated datePublished" datetime="2024-03-07 14:40:15 +0800 CST">2024-03-07
+</time></span><span class=post-meta-item><span class=post-meta-item-icon><i class="far fa-folder-open"></i>
+</span><span class=post-meta-item-text title=分类于>分类于：
+</span><span itemprop=about itemscope itemtype=http://schema.org/Thing><a href=/categories/%E7%BC%96%E7%A8%8B itemprop=url rel=index><span itemprop=name>编程</span></a></span></span></div><div class=post-meta-items><span class=post-meta-item title=字数><span class=post-meta-item-icon><i class="far fa-file-word"></i>
+</span><span class=post-meta-item-text>字数：</span>
+<span>758</span>
+</span><span class=post-meta-item title=阅读><span class=post-meta-item-icon><i class="far fa-clock"></i>
+</span><span class=post-meta-item-text>阅读：&ap;</span>
+<span>2分钟</span></span></div></div></header><div class="post-body autonumber" itemprop=articleBody><h2 id=docker下载>Docker下载
+<a class=header-anchor href=#docker%e4%b8%8b%e8%bd%bd></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># archlinux</span>
+</span></span><span style=display:flex><span>sudo pacman -Syu docker docker-compose
+</span></span><span style=display:flex><span><span style=color:#75715e># 将用户lv追加进docker用户组</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 将当前用户添加进docker用户组 -a append; -G group</span>
+</span></span><span style=display:flex><span>sudo usermod -a -G docker lv
+</span></span></code></pre></div><h2 id=docker运行>Docker运行
+<a class=header-anchor href=#docker%e8%bf%90%e8%a1%8c></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># 修改docker默认镜像安装路径(没有则新建)</span>
+</span></span><span style=display:flex><span>vim /etc/docker/daemon.json
+</span></span><span style=display:flex><span><span style=color:#75715e># 修改文件中的路径</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;registry-mirrors&#34;</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>[</span>
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;https://registry.cn-hangzhou.aliyuncs.com&#34;</span>,
+</span></span><span style=display:flex><span>            <span style=color:#e6db74>&#34;https://hub-mirror.c.163.com&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#f92672>]</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span> 
+</span></span><span style=display:flex><span><span style=color:#75715e># 重新加载配置文件</span>
+</span></span><span style=display:flex><span>systemctl daemon-reload
+</span></span><span style=display:flex><span><span style=color:#75715e># 启动docker服务</span>
+</span></span><span style=display:flex><span>systemctl start/stop docker.service
+</span></span></code></pre></div><h2 id=docker基础使用>Docker基础使用
+<a class=header-anchor href=#docker%e5%9f%ba%e7%a1%80%e4%bd%bf%e7%94%a8></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># 下载镜像</span>
+</span></span><span style=display:flex><span>docker pull mariadb
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看镜像</span>
+</span></span><span style=display:flex><span>docker images 
+</span></span><span style=display:flex><span><span style=color:#75715e># 启动/停止容器</span>
+</span></span><span style=display:flex><span>docker start/stop &lt;容器ID或容器名&gt;
+</span></span><span style=display:flex><span><span style=color:#75715e># 删除镜像之前需要先删除对应的容器</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看容器</span>
+</span></span><span style=display:flex><span>docker ps -a
+</span></span><span style=display:flex><span><span style=color:#75715e># 删除容器</span>
+</span></span><span style=display:flex><span>docker rm 容器id
+</span></span><span style=display:flex><span><span style=color:#75715e># 删除image</span>
+</span></span><span style=display:flex><span>docker rmi 镜像id
+</span></span></code></pre></div><h2 id=docker-compose>Docker-Compose
+<a class=header-anchor href=#docker-compose></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-sh data-lang=sh><span style=display:flex><span><span style=color:#75715e># 创建yml配置文件</span>
+</span></span><span style=display:flex><span>mkdir ~/docker
+</span></span><span style=display:flex><span>touch docker-compose.yml
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 进入docker-compose.yml同级下的目录内使用docker-compose</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看镜像</span>
+</span></span><span style=display:flex><span>docker-compose images
+</span></span><span style=display:flex><span><span style=color:#75715e># 待yml配置好后执行命令创建容器</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># -d 后台执行</span>
+</span></span><span style=display:flex><span>docker-compose up -d
+</span></span><span style=display:flex><span><span style=color:#75715e># 查看所有服务</span>
+</span></span><span style=display:flex><span>docker-compose ps -a
+</span></span><span style=display:flex><span><span style=color:#75715e># 启动/停止服务</span>
+</span></span><span style=display:flex><span>docker-compose start/stop 服务名
+</span></span><span style=display:flex><span><span style=color:#75715e>#查看已启动的服务</span>
+</span></span><span style=display:flex><span>docker-compose ps
+</span></span><span style=display:flex><span><span style=color:#75715e>#查看所有的服务</span>
+</span></span><span style=display:flex><span>docker-compose ps -a
+</span></span><span style=display:flex><span><span style=color:#75715e># 删除服务（删除之前需要停止服务）</span>
+</span></span><span style=display:flex><span>docker-compose rm 服务名称
+</span></span></code></pre></div><p>docker-compose.yml示例</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-yml data-lang=yml><span style=display:flex><span><span style=color:#f92672>version</span>: <span style=color:#e6db74>&#34;3.0&#34;</span> <span style=color:#75715e># docker-compose版本</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e># 服务配置</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>services</span>:
+</span></span><span style=display:flex><span> <span style=color:#f92672>docker-mariadb</span>:  <span style=color:#75715e># 服务名称</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>image</span>: <span style=color:#ae81ff>mariadb </span> <span style=color:#75715e># 镜像名称或镜像id</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>restart</span>: <span style=color:#ae81ff>always</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>container_name</span>: <span style=color:#ae81ff>docker-mariadb</span> <span style=color:#75715e># 容器名称</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>logging</span>:
+</span></span><span style=display:flex><span>   <span style=color:#f92672>options</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>max-size</span>: <span style=color:#e6db74>&#34;500m&#34;</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>ports</span>: <span style=color:#75715e># 端口映射： 外部端口:容器内端口</span>
+</span></span><span style=display:flex><span>   - <span style=color:#ae81ff>13306</span>:<span style=color:#ae81ff>3306</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>volumes</span>: <span style=color:#75715e># 文件映射： 外部文件:容器内文件</span>
+</span></span><span style=display:flex><span>   - <span style=color:#ae81ff>/home/lv/docker/mariadb/data:/var/lib/mysql</span>
+</span></span><span style=display:flex><span>   - <span style=color:#ae81ff>/home/lv/docker/mariadb/logs:/logs</span>
+</span></span><span style=display:flex><span>   - <span style=color:#ae81ff>/home/lv/docker/mariadb/conf:/etc/mysql/conf.d</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>environment</span>: <span style=color:#75715e># 环境配置</span>
+</span></span><span style=display:flex><span>   <span style=color:#f92672>MYSQL_ROOT_PASSWORD</span>: <span style=color:#ae81ff>root</span> <span style=color:#75715e># 数据库root账号的密码</span>
+</span></span><span style=display:flex><span>   <span style=color:#f92672>TZ</span>: <span style=color:#ae81ff>Asia/Shanghai</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span>   - <span style=color:#ae81ff>lv_hosts</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>networks</span>:
+</span></span><span style=display:flex><span> <span style=color:#f92672>lv_hosts</span>:
+</span></span></code></pre></div><h2 id=redis>redis
+<a class=header-anchor href=#redis></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:2;-o-tab-size:2;tab-size:2><code class=language-zsh data-lang=zsh><span style=display:flex><span><span style=color:#75715e># 创建映射目录</span>
+</span></span><span style=display:flex><span>mkdir -p /mnt/project/archLinux/docker/redis/<span style=color:#f92672>{</span>data,etc<span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 拉取redis镜像</span>
+</span></span><span style=display:flex><span>docker pull redis
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 创建redis.conf放入创建好的etc文件夹下</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># 创建容器</span>
+</span></span><span style=display:flex><span>docker run --name docker-redis  -p 16379:6379 -v 
+</span></span><span style=display:flex><span>/mnt/project/archLinux/docker/redis/data/:/data -v /mnt/project/archLinux/docker/redis/etc/redis.conf:/etc/redis/redis.conf -d redis redis-server /etc/redis/redis.conf --appendonly yes
+</span></span></code></pre></div><ul><li>-p 16380:6380 端口映射：前表示主机部分，：后表示
+<a href="https://link.zhihu.com/?target=https%3A//cloud.tencent.com/product/tke%3Ffrom%3D10680" title=容器 rel="noopener external nofollow noreferrer" target=_blank class=exturl>容器
+<i class="fa fa-external-link-alt"></i>
+</a>部分。</li><li>–name myredis 指定该容器名称，查看和进行操作都比较方便。</li><li>-v 挂载目录，规则与端口映射相同。</li><li>-d redis 表示后台启动redis</li><li>redis-server /etc/redis/redis.conf 以配置文件启动redis，加载容器内的conf文件，最终找到的是挂载的目录/usr/local/
+<a href="https://link.zhihu.com/?target=https%3A//cloud.tencent.com/product/tke%3Ffrom%3D10680" title=docker rel="noopener external nofollow noreferrer" target=_blank class=exturl>docker
+<i class="fa fa-external-link-alt"></i>
+</a>/redis.conf</li><li>appendonly yes 开启redis 持久化</li></ul></div><footer class=post-footer><div class=post-tags><a href=/tags/docker>docker</a></div><div class=addthis_inline_share_toolbox style=text-align:center></div><hr><div class=post-copyright><img src=/imgs/cc/cc.svg width=75 height=75 align=right alt=共享知识><ul><li class=post-copyright-title><strong>文章标题：</strong>
+docker</li><li class=post-copyright-author><strong>本文作者： </strong>brandyKK</li><li class=post-copyright-link><strong>本文链接：</strong>
+<a id=post-cr-link href=https://brandykk.github.io/post/%E7%BC%96%E7%A8%8B/tool/docker/ title=docker>https://brandykk.github.io/post/%E7%BC%96%E7%A8%8B/tool/docker/</a></li><li class=post-copyright-license><strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <i class="fab fa-fw fa-creative-commons"></i><a target=_blank href=https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh>BY-NC-SA</a> 许可协议。转载请注明出处！</li></ul></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/post/linux/archlinux%E5%AE%89%E8%A3%85/ rel=next title=ArchLinux安装><i class="fa fa-chevron-left"></i> ArchLinux安装</a></div><div class="post-nav-prev post-nav-item"><a href=/post/%E7%BC%96%E7%A8%8B/tool/git%E5%9F%BA%E7%A1%80/ rel=prev title=git基础>git基础
+<i class="fa fa-chevron-right"></i></a></div></div></footer></article></div></div></main><footer class=footer><div class=footer-inner><div id=gtranslate class=google-translate><i class="fa fa-language"></i><div id=google_translate_element></div></div><div class=copyright>&copy;
+<span itemprop=copyrightYear>2024
+</span><span class=with-love><i class="fa fa-heart"></i>
+</span><span class=author itemprop=copyrightHolder>brandyKK</span></div><div class=powered-by>由 <a href=https://gohugo.io title=0.123.7 target=_blank>Hugo</a> & <a href=https://github.com/hugo-next/hugo-theme-next title=4.5.3 target=_blank>Hugo NexT.Gemini</a> 强力驱动</div></div></footer><script type=text/javascript src=https://cdn.staticfile.org/animejs/3.2.1/anime.min.js defer></script><script type=text/javascript src=https://cdn.staticfile.org/viewerjs/1.11.0/viewer.min.js defer></script><script class=next-config data-name=main type=application/json>{"bookmark":{"color":"#222","enable":true,"save":"manual"},"copybtn":true,"darkmode":true,"giscus":{"cfg":{"category":"Comments","categoryid":null,"emit":false,"inputposition":"top","mapping":"title","reactions":false,"repo":"username/repo-name","repoid":null,"theme":"preferred_color_scheme"},"js":"https://giscus.app/client.js"},"hostname":"https://brandykk.github.io/","i18n":{"ds_day":" 天前","ds_days":" 天 ","ds_hour":" 小时前","ds_hours":" 小时 ","ds_just":"刚刚","ds_min":" 分钟前","ds_mins":" 分钟","ds_month":" 个月前","ds_years":" 年 ","empty":"没有找到任何搜索结果：${query}","hits":"找到 ${hits} 个搜索结果","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","placeholder":"搜索..."},"lang":"zh-CN","lazyload":true,"localSearch":{"enable":true,"limit":1e3,"path":"/searchindexes.xml","preload":false,"topnperarticle":-1,"trigger":"auto","unescape":false},"motion":{"async":true,"enable":true,"transition":{"collheader":"fadeInLeft","postblock":"fadeIn","postbody":"fadeInDown","postheader":"fadeInDown","sidebar":"fadeInUp"}},"postmeta":{"comments":{"enable":false,"plugin":"waline"},"views":{"enable":false,"plugin":"busuanzi"}},"root":"/","scheme":"Gemini","sidebar":{"display":"hide","offset":12,"padding":18,"position":"left","width":256},"vendor":{"plugins":"qiniu","router":"https://cdn.staticfile.org"},"version":"4.5.3","waline":{"cfg":{"emoji":false,"imguploader":false,"placeholder":"请文明发言哟 ヾ(≧▽≦*)o","reaction":true,"reactiontext":["点赞","踩一下","得意","不屑","尴尬","睡觉"],"reactiontitle":"你认为这篇文章怎么样？","requiredmeta":["nick","mail"],"serverurl":null,"sofa":"快来发表你的意见吧 (≧∀≦)ゞ","wordlimit":200},"css":{"alias":"waline","file":"dist/waline.css","name":"@waline/client","version":"2.13.0"},"js":{"alias":"waline","file":"dist/waline.js","name":"@waline/client","version":"2.13.0"}}}</script><script type=text/javascript src=/js/main.min.11d6c39ce43fcb97ea816ea2c136c17f188cacbba49ae066e747ea0f71b633a0.js defer></script><script type=text/javascript src=/js/math.min.a6ada19a368d85dad9ead2040d86ae561a867fafef89391d1aa2aa5909366509.js defer></script><script type=text/javascript src=/js/mermaid.min.77ebf4c34a07c63b16a3dfd983ab79bca13df5bd4f4b9df22ddda6d365e117f6.js defer></script></body></html>
