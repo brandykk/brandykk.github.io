@@ -1,3 +1,3 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Arch on BrandyKK</title><link>https://brandykk.github.io/tags/arch/</link><description>Recent content in Arch on BrandyKK</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 07 Mar 2024 16:05:23 +0800</lastBuildDate><atom:link href="https://brandykk.github.io/tags/arch/rss.xml" rel="self" type="application/rss+xml"/><item><title>ArchLinux安装</title><link>https://brandykk.github.io/post/linux/archlinux%E5%AE%89%E8%A3%85/</link><pubDate>Thu, 07 Mar 2024 16:05:23 +0800</pubDate><guid>https://brandykk.github.io/post/linux/archlinux%E5%AE%89%E8%A3%85/</guid><description>&lt;blockquote>
-&lt;p>更新于2023年3月7日；适用于Arch和win11双系统，btrfs文件系统，kde桌面&lt;/p>
+&lt;p>更新于2023年3月7日；适用于Arch和win11双系统，btrfs文件系统，kde6桌面(默认启动wayland)&lt;/p>
 &lt;/blockquote></description></item></channel></rss>
